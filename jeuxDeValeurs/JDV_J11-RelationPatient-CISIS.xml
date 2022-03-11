@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20160901000000" description="Relation par rapport au patient - CI-SIS" displayName="JDV_J11-RelationPatient-CISIS.tabs" id="1.2.250.1.213.3.3.16" typeFichier="JDV" urlFichier="https://mos.esante.gouv.fr/NOS/JDV_J11-RelationPatient-CISIS">
+        <ConceptList>
+            <Concept code="MTH" codeSystem="2.16.840.1.113883.5.111" displayName="Mère"/>
+            <Concept code="FTH" codeSystem="2.16.840.1.113883.5.111" displayName="Père"/>
+            <Concept code="NMTH" codeSystem="2.16.840.1.113883.5.111" displayName="Mère biologique"/>
+            <Concept code="NFTH" codeSystem="2.16.840.1.113883.5.111" displayName="Père biologique"/>
+            <Concept code="STPMTH" codeSystem="2.16.840.1.113883.5.111" displayName="Belle-mère - épouse du père ou de la mère"/>
+            <Concept code="STPFTH" codeSystem="2.16.840.1.113883.5.111" displayName="Beau-père - époux du père ou de la mère"/>
+            <Concept code="GRMTH" codeSystem="2.16.840.1.113883.5.111" displayName="Grand-mère"/>
+            <Concept code="GRFTH" codeSystem="2.16.840.1.113883.5.111" displayName="Grand-père"/>
+            <Concept code="GGRMTH" codeSystem="2.16.840.1.113883.5.111" displayName="Arrière-grand-mère"/>
+            <Concept code="GGRFTH" codeSystem="2.16.840.1.113883.5.111" displayName="Arrière-grand-père"/>
+            <Concept code="DAU" codeSystem="2.16.840.1.113883.5.111" displayName="Fille biologique"/>
+            <Concept code="SON" codeSystem="2.16.840.1.113883.5.111" displayName="Fils biologique"/>
+            <Concept code="BRO" codeSystem="2.16.840.1.113883.5.111" displayName="Frère"/>
+            <Concept code="SIS" codeSystem="2.16.840.1.113883.5.111" displayName="Soeur"/>
+            <Concept code="HBRO" codeSystem="2.16.840.1.113883.5.111" displayName="Demi-frère"/>
+            <Concept code="HSIS" codeSystem="2.16.840.1.113883.5.111" displayName="Demi-soeur"/>
+            <Concept code="GRNDDAU" codeSystem="2.16.840.1.113883.5.111" displayName="Petite-fille"/>
+            <Concept code="GRNDSO" codeSystem="2.16.840.1.113883.5.111" displayName="Petit-fils"/>
+            <Concept code="UNCLE" codeSystem="2.16.840.1.113883.5.111" displayName="Oncle"/>
+            <Concept code="AUNT" codeSystem="2.16.840.1.113883.5.111" displayName="Tante"/>
+            <Concept code="NEPHEW" codeSystem="2.16.840.1.113883.5.111" displayName="Neveu"/>
+            <Concept code="NIECE" codeSystem="2.16.840.1.113883.5.111" displayName="Nièce"/>
+            <Concept code="HUSB" codeSystem="2.16.840.1.113883.5.111" displayName="Epoux"/>
+            <Concept code="WIFE" codeSystem="2.16.840.1.113883.5.111" displayName="Epouse"/>
+            <Concept code="DOMPART" codeSystem="2.16.840.1.113883.5.111" displayName="Concubin(e) ou partenaire PACS"/>
+            <Concept code="ROOM" codeSystem="2.16.840.1.113883.5.111" displayName="Personne vivant sous le même toit"/>
+            <Concept code="FRND" codeSystem="2.16.840.1.113883.5.111" displayName="Autre proche"/>
+            <Concept code="NBOR" codeSystem="2.16.840.1.113883.5.111" displayName="Voisin(e)"/>
+            <Concept code="FAMMEMB" codeSystem="2.16.840.1.113883.5.111" displayName="Autre membre de la famille"/>
+            <Concept code="CHILD" codeSystem="2.16.840.1.113883.5.111" displayName="Enfant"/>
+            <Concept code="COUSN" codeSystem="2.16.840.1.113883.5.111" displayName="Cousin(e)"/>
+            <Concept code="SIGOTHR" codeSystem="2.16.840.1.113883.5.111" displayName="Conjoint"/>
+            <Concept code="DAUC" codeSystem="2.16.840.1.113883.5.111" displayName="Fille"/>
+            <Concept code="SONC" codeSystem="2.16.840.1.113883.5.111" displayName="Fils"/>
+            <Concept code="TUTEUR" codeSystem="1.2.250.1.213.1.1.4.327" displayName="Tuteur"/>
+            <Concept code="CURATEUR" codeSystem="1.2.250.1.213.1.1.4.327" displayName="Curateur"/>
+            <Concept code="MSVG" codeSystem="1.2.250.1.213.1.1.4.327" displayName="Mandataire de sauvegarde"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

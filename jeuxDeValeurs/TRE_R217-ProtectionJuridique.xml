@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20160518000000" description="Protection juridique" displayName="TRE_R217-ProtectionJuridique.tabs" id="1.2.250.1.213.1.1.4.327" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R217-ProtectionJuridique">
+        <ConceptList>
+            <Concept code="TUTEUR" codeSystem="1.2.250.1.213.1.1.4.327" dateFin="" dateMaj="20160518000000" dateValid="20160518000000" displayName="Tuteur" longDesignation="Tuteur" shortDesignation="Tuteur"/>
+            <Concept code="CURATEUR" codeSystem="1.2.250.1.213.1.1.4.327" dateFin="" dateMaj="20160518000000" dateValid="20160518000000" displayName="Curateur" longDesignation="Curateur" shortDesignation="Curateur"/>
+            <Concept code="MSVG" codeSystem="1.2.250.1.213.1.1.4.327" dateFin="" dateMaj="20160901000000" dateValid="20160518000000" displayName="Mandataire de sauvegarde" longDesignation="Mandataire de sauvegarde" shortDesignation="Mandataire de sauvegarde"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_CNAM-HR_2021.01.sch"?>
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+
+  <!-- 
+		**********************************************************************************************************
+		Document : Historique des remboursements (CNAM-HR_2021.01)	
+		Exemple avec les sections sans information	
+		Auteur : ANS
+		Date : 18/05/2020
+		**********************************************************************************************************
+		format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+		**********************************************************************************************************
+		Historique :
+		18/05/2020 : création
+		22/10/2020 : correction des professions/spécialités des PS
+		01/02/2021 : Changement du numéro de version
+		**********************************************************************************************************
+  -->
+
+  <!-- ************************* -->
+  <!-- ************************* -->
+  <!--   En-tête du document     -->
+  <!-- ************************* -->
+  <!-- ************************* -->
+
+  <!-- Périmètre d'utilisation -->
+  <realmCode code="FR"/>
+  <!-- Référence au standard CDAr2 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1"/>
+  <!-- Conformité spécifications CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1"/>
+  <!-- Conformité au modèle du document CNAM-HR -->
+  <templateId root="1.2.250.1.213.1.1.1.36" extension="2021.01"/>
+  <!-- Identifiant unique du document = OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.215.200" extension="CNAM-HR_2021.01_20190701_001_2"/>
+  <!-- Type du document -->
+  <code code="REMB" codeSystem="1.2.250.1.213.1.1.4.12" displayName="Données de remboursement"/>
+  <!-- Titre du document -->
+  <title>Données de remboursement</title>
+  <!-- Date et heure du document -->
+  <effectiveTime value="20190701164900+0100"/>
+  <!-- Niveau de confidentialité -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25"
+    codeSystemName="Confidentiality"/>
+  <!-- Langue du document -->
+  <languageCode code="fr-FR"/>
+  <!-- Identifiant du lot de version d'un même document -->
+  <setId root="1.2.250.1.215.200" extension="CNAM-HR_2021.01_20190701_001"/>
+  <!-- Identifiant de la version du document -->
+  <versionNumber value="2"/>
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+
+  <!-- Auteur du document -->
+  <author>
+    <time value="201907011649+0100"/>
+    <assignedAuthor>
+      <!-- Identiant RPPS du PS -->
+      <id root="1.2.250.1.71.4.2.1" extension="518003502400041/1.2.250.1.215.1.2"/>
+      <code code="ALIM_AM"
+        displayName="Alimentation automatique à partir du Système d'Information de l'Assurance Maladie"
+        codeSystem="1.2.250.1.213.1.1.4.6"/>      
+      <addr nullFlavor="NASK"/>
+      <telecom nullFlavor="NASK"/>
+      <assignedAuthoringDevice>
+        <manufacturerModelName>.</manufacturerModelName>
+        <softwareName>Assurance Maladie</softwareName>
+      </assignedAuthoringDevice>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="318003502400041"/>
+        <name>Assurance Maladie</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- Organisation chargée de la conservation du document -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="318003502400041"/>
+        <!-- Nom de l'organisation -->
+        <name>Assurance Maladie</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable du document -->
+  <legalAuthenticator>
+    <!-- Date et heure de la prise de responsabilité -->
+    <time value="201907011649+0100"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <!-- Identiant -->
+      <id root="1.2.250.1.71.4.2.1" extension="518003502400041/1.2.250.1.215.1.2"/>
+      <addr nullFlavor="NASK"/>
+      <telecom nullFlavor="NASK"/>
+      <!-- Identité du PS -->
+      <assignedPerson>
+        <name>
+          <given>.</given>
+          <family>Assurance Maladie</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Acte principal documenté  -->
+  <documentationOf>
+    <serviceEvent>
+      <!-- Période couverte par le document -->
+      <effectiveTime>
+        <!-- Date (et heure) de début de la période -->
+        <low value="20190101154500+0100"/>
+        <!-- Date (et heure) de fin de la période -->
+        <high value="20190701154500+0100"/>
+      </effectiveTime>
+      <!-- Exécutant -->
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id nullFlavor="NA"/>
+          <representedOrganization>
+            <standardIndustryClassCode code="AMO"
+              displayName="Organisme d'assurance maladie obligatoire"
+              codeSystem="1.2.250.1.213.1.1.4.9"/>
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Document référencé à remplacer -->
+  <relatedDocument typeCode="RPLC">
+    <parentDocument>
+      <!-- Identifiant unique du document à remplacer = OID du producteur (root) + ID dans le LPS producteur (extension) -->
+      <id root="1.2.250.1.213.1.1.9" extension="10002-1"/>
+      <!-- Identifiant de la version du document -->
+      <versionNumber value="1"/>
+    </parentDocument>
+  </relatedDocument>
+
+  <!-- Association du document à une prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <effectiveTime>
+        <low nullFlavor="NA"/>
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <!-- Secteur d'activité -->
+          <code code="SA24" displayName="Organisme de sécurité sociale"
+            codeSystem="1.2.250.1.71.4.2.4"/>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+
+  <!-- ************************* -->
+  <!-- ************************* -->
+  <!--     Corps du document     -->
+  <!-- ************************* -->
+  <!-- ************************* -->
+  <component>
+    <structuredBody>
+      
+      <!-- *********************************************************************************** -->
+      <!-- Section Commentaire sur le document pour la mention Usage et Responsabilités [1..1] -->
+      <!-- *********************************************************************************** -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC parent -->
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.73"/>
+          <code code="55112-7" displayName="Commentaire sur le document"
+            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Usage et Responsabilités</title>
+          <text ID="mention">
+            Les données affichées sont le reflet des informations issues des procédures de remboursement ou de prise en charge détenues par l'Assurance Maladie pour les vingt-quatre derniers mois. 
+            <br/>Elles sont fournies à titre purement informatif et leur exhaustivité ne peut être garantie, notamment en cas de changement administratif durant ces vingt-quatre mois.
+            <br/>Toute interprétation ou toute décision, de quelle que nature que ce soit, se basant sur ces données relève de la seule responsabilité de la personne qui les consulte.
+            <br/>La présence d'un H en début de ligne signale que l'acte a été réalisé durant la même période qu'un séjour hospitalier.    
+          </text>
+        </section>
+      </component>
+      
+      <!-- ************************** -->
+      <!-- Section Traitements [1..1] -->
+      <!-- ************************** -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.143"/>
+          <!-- Conformité CCD Medication -->
+          <templateId root="2.16.840.1.113883.10.20.1.8"/>
+          <!-- Conformité IHE PCC Medication -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+          <id nullFlavor="UNK"/>
+          <code code="10160-0" displayName="Médication administrée"
+            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Médicaments</title>
+          <text ID="NO-TREATMENT">Aucune donnée de remboursement connue dans la période</text>          
+          <!-- Aucun traitement -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.42"/>
+              <!-- Conformité CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Medication -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <!-- Conformité IHE Mode d’administration "Normal" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+              <id nullFlavor="UNK"/>
+              <code code="DRUG" codeSystem="2.16.840.1.113883.5.4"
+                displayName="Médicament" codeSystemName="HL7:ActCode"/>
+              <text><reference></reference></text>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="NA"/>
+                <high nullFlavor="NA"/>
+              </effectiveTime>
+              <effectiveTime nullFlavor="NA"/>
+              <consumable>
+                <manufacturedProduct>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
+                  <!-- Conformité IHE CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC IHE Product Entry-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <manufacturedMaterial>
+                    <code code="02276797" displayName="Aucun"
+                      codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf">
+                      <originalText><reference value="#NO-TREATMENT"></reference></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+
+      <!-- *************************** -->
+      <!-- Section Vaccinations [1..1] -->
+      <!-- *************************** -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.147"/>
+          <!-- Conformité CCD Immunizations -->
+          <templateId root="2.16.840.1.113883.10.20.1.6"/>
+          <!-- Conformité IHE PCC Immunizations -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23"/>
+          <id nullFlavor="UNK"/>
+          <code code="11369-6" displayName="Historique des vaccinations"
+            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Vaccins</title>          
+          <text ID="NO-VACCIN">Aucune donnée de remboursement connue dans la période</text>
+          <!-- Aucun vaccin -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.45"/>
+              <!-- Conformité CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Immunizations Entry -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+              <id nullFlavor="UNK"/>
+              <code code="IMMUNIZ" displayName="Vaccination sans autres précisions" codeSystem="2.16.840.1.113883.5.4"/>
+              <text><reference value="#vaccin001"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime nullFlavor="NA"/>
+              <consumable>
+                <manufacturedProduct>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
+                  <!-- Conformité IHE CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC IHE Product Entry-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <manufacturedMaterial>
+                    <!-- Aucun vaccin -->
+                    <code code="02276797" displayName="Aucun"
+                      codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf">
+                      <originalText><reference value="#NO-VACCIN"></reference></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>           
+        </section>
+      </component>
+
+      <!-- *********************************** -->
+      <!-- Section Dispositifs médicaux [1..1] -->
+      <!-- *********************************** -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.11383.10.20.1.7"/>
+          <!-- Conformité IHE PCC Parent -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.5"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.1"/>
+          <id nullFlavor="UNK"/>
+          <code code="46264-8" displayName="Historique des dispositifs médicaux utilisés"
+            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Dispositifs médicaux</title>
+          <text ID="NO-DM">Aucune donnée de remboursement connue dans la période</text>
+          <!-- Aucun DM -->
+          <entry>
+            <supply classCode="SPLY" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.34"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.20"/>
+              <id nullFlavor="NA"/>
+              <text><reference value="#NO-DM"/></text>
+              <effectiveTime nullFlavor="NA"/>
+              <participant typeCode="DEV">
+                <participantRole classCode="MANU">
+                  <playingDevice classCode="DEV" determinerCode="INSTANCE">
+                    <code code="02276797" displayName="Aucun"
+                      codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf"/>                    
+                  </playingDevice>
+                </participantRole>
+              </participant>
+            </supply>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ******************************************************** -->
+      <!-- Section Historique des prises en charge médicales [1..1] -->
+      <!-- ******************************************************** -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.76"/>
+          <!-- Conformité CCD Encounters -->
+          <templateId root="2.16.840.1.113883.10.20.1.3"/>
+          <!-- Conformité IHE PCC Encounter Histories -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.3"/>
+          <id nullFlavor="UNK"/>
+          <code code="46240-8" displayName="Historique des rencontres"
+            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Hospitalisations</title>          
+          <text ID="NO-ENCOUNTER">Aucune donnée de remboursement connue dans la période</text>
+          <!-- Aucune Hospitalisation -->
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.21"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+              <id nullFlavor="NA"/>              
+              <code code="02276797" displayName="Aucun"
+                codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf"/>
+              <text><reference value="#NO-ENCOUNTER"/></text>
+              <effectiveTime nullFlavor="NA"/>
+            </encounter>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ****************************************** -->
+      <!-- Section Soins médicaux et dentaires [1..1] -->
+      <!-- ****************************************** -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.118"/>
+          <id nullFlavor="UNK"/>
+          <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+            <translation code="67803-7" displayName="Liste des actes" codeSystem="2.16.840.1.113883.6.1"></translation>
+          </code>
+          <title>Soins médicaux et dentaires</title>     
+          <text ID="NO-ACT-MED">Aucune donnée de remboursement connue dans la période</text>
+          <!-- Aucun acte -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <id nullFlavor="NA"/>
+              <code code="02276797" displayName="Aucun"
+                codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf"/>
+              <text><reference value="#NO-ACT-MED"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime nullFlavor="NA"/>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ************************* -->
+      <!-- Section Radiologie [1..1] -->
+      <!-- ************************* -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.118"/>
+          <id nullFlavor="UNK"/>
+          <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+            <translation code="18726-0" displayName="Radiologie" codeSystem="2.16.840.1.113883.6.1"></translation>
+          </code>
+          <title>Radiologie</title>     
+          <text ID="NO-ACT-RAD">Aucune donnée de remboursement connue dans la période</text>
+          <!-- Aucun acte -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <id nullFlavor="NA"/>
+              <code code="02276797" displayName="Aucun"
+                codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf"/>
+              <text><reference value="#NO-ACT-RAD"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime nullFlavor="NA"/>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+
+      <!-- *********************** -->
+      <!-- Section Biologie [1..1] -->
+      <!-- *********************** -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.118"/>
+          <id nullFlavor="UNK"/>
+          <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+            <translation code="26436-6" displayName="Biologie" codeSystem="2.16.840.1.113883.6.1"></translation>
+          </code>
+          <title>Biologie</title>     
+          <text ID="NO-ACT-BIO">Aucune donnée de remboursement connue dans la période</text>
+          <!-- Aucun acte -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <id nullFlavor="NA"/>
+              <code code="02276797" displayName="Aucun"
+                codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf"/>
+              <text><reference value="#NO-ACT-BIO"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime nullFlavor="NA"/>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      
+    </structuredBody>
+  </component>
+</ClinicalDocument>

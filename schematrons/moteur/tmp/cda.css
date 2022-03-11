@@ -1,0 +1,98 @@
+/*
+  Title : cda_asip.xsl / cda.css
+  Version : 1.1.0
+  This StyleSheet is based on the StyleSheet "Modular CDA XSL StyleSheet (cda_modular.xsl)" made by Alchuler Associates LCC.
+  The original StyleSheet has been modified by ASIP Santé (http://www.asipsante.fr) in order to :
+  - Translate the labels from english to french
+  - Edit supplementary informations
+  - Detect a Xades envelopping signature of a Clinical Document
+  - add comments in case of impossibility to edit pdf files in nonXMLBody with IE 8 and Firefox 3.x
+  
+  Below is the original declaration of Alschuler Associates LCC
+  Title: CDA Cascading Style Sheet
+  Original Filename: cda.css 
+  Version: 3.0
+  Revision History: 8/12/09 Jingdong Li updated 
+  Specification: ANSI/HL7 CDA, R2-2005  
+  The current version and documentation are available at www.alschulerassociates.com/cda/?topic=cda-xsl. 
+  We welcome feedback to tools@alschulerassociates.com
+  The stylesheet is the cumulative work of several developers; the most significant prior milestones were the foundation work from HL7 
+  Germany and Finland (Tyylitiedosto) and HL7 US (Calvin Beebe), and the presentation approach from Tony Schaller, medshare GmbH provided at IHIC 2009. 
+*/
+body {
+	color: #003366;
+	background-color: #FFFFFF;
+	font-family: Verdana, Tahoma, sans-serif;
+	font-size: 11px;
+}
+
+a {
+	color: #003366;
+	background-color: #FFFFFF;
+}
+
+h1 {
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 8pt;
+	font-weight: bold;
+}
+
+div {
+	width: 80%;
+}
+
+table {
+	line-height: 10pt;
+	width: 80%;
+}
+
+tr {
+	background-color: #ccccff;
+}
+
+td {
+	padding: 0.1cm 0.2cm;
+	vertical-align: top;
+}
+
+.h1center {
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+	width: 80%;
+}
+
+.header_table{
+	border: 1pt inset #00008b;
+}
+
+.narr_table {
+	width: 100%;
+}
+
+.narr_tr {
+	background-color: #ffffcc;
+}
+
+.narr_th {
+	background-color: #ffd700;
+}
+
+.td_label{
+	font-weight: bold;
+	color: white;
+}

@@ -1,0 +1,1407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_CANCER-D2LM-FIDD_2021.01.sch"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- 
+		**********************************************************************************************************
+		Document : Dématérialisation de la seconde lecture de la Mammographie - fiche d'interprétation du bilan de diagnostic différé (D2LM-FIDD_1.1.13)
+		Auteur : ANS / PML
+		**********************************************************************************************************
+		format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+		**********************************************************************************************************
+				
+		15/06/2016 : Création
+    11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons
+    07/02/2020 : Corrections
+		13/07/2021 : correction de l'unité en "mo" (au lieu de "mois")
+		13/07/2021 : correction du code CIM-10 en "D48.6" (au lieu de "C00-D48")
+		27/07/2021 : Version 2021.01 (voir liste des corrections dans le volet CANCER-D2LM_2021.01)
+		27/11/2021 : Version 2021.01 (version post-concertation)
+		**********************************************************************************************************
+	
+    **************************************************************************************************************
+	  EN TETE DU DOCUMENT
+	  **************************************************************************************************************
+    -->
+  <realmCode code="FR" />
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications au CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au modèle du document CANCER-D2LM-FIDD_2021.01 -->
+  <templateId root="1.2.250.1.213.1.1.1.28" extension="2021.01" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="CANCER-D2LM-FIDD_2021.01_20210729_001_1" />
+  <!-- Type de document -->
+  <code code="18748-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="CR d'imagerie médicale" />
+  <!-- Titre du document -->
+  <title>DÉPISTAGE DU CANCER DU SEIN - FICHE D'INTERPRÉTATION DU BILAN DE DIAGNOSTIC DIFFERÉ</title>
+  <!-- Date et heure de création du document -->
+  <effectiveTime value="20210729121700+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="CANCER-D2LM-FIDD_2021.01_20210729_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Avenue de Breteuil</streetName>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Avenue de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- Auteur : Radiologue -->
+  <author>
+    <time value="20210729093500+0100"/>
+    <assignedAuthor>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+      <code code="G15_10/SM55" codeSystem="1.2.250.1.213.1.1.4.5"
+        displayName="Médecin - Radio-diagnostic et Radio-Thérapie (SM)"/>
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue du Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>PARIS</city>
+        <country>France</country>
+      </addr>
+      <telecom value="tel:0102030405" use="WP"/>
+      <telecom value="mailto:charles.boileau@mssante.fr"/>
+      <assignedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles </given>
+          <family>BOILEAU</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887"/>
+        <name>Centre de radiologie du Petit Pont</name>
+        <telecom value="tel:0131931902" use="EC"/>
+        <addr>
+          <houseNumber>3</houseNumber>
+          <streetName>Rue du Petit Pont</streetName>
+          <postalCode>75005</postalCode>
+          <city>PARIS</city>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation chargée de la conservation du document -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887"/>
+        <name>Centre de radiologie du Petit Pont</name>
+        <telecom value="tel:0131931902" use="EC"/>
+        <addr>
+          <houseNumber>3</houseNumber>
+          <streetName>Rue du Petit Pont</streetName>
+          <postalCode>75005</postalCode>
+          <city>PARIS</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  
+  <!-- Responsable du document -->
+  <legalAuthenticator>
+    <time value="20210729121700+0100"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+      <code code="G15_10/SM55" codeSystem="1.2.250.1.213.1.1.4.5"
+        displayName="Médecin - Radiodiagnostic et radiothérapie (SM)"/>
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue du Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>PARIS</city>
+        <country>France</country>
+      </addr>
+      <telecom value="tel:0102030405" use="WP"/>
+      <telecom value="mailto:charles.boileau@mssante.fr"/>
+      <assignedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles</given>
+          <family>BOILEAU</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887"/>
+        <name>Centre de radiologie du Petit Pont</name>
+        <telecom value="tel:0131931902" use="EC"/>
+        <addr>
+          <houseNumber>3</houseNumber>
+          <streetName>Rue du Petit Pont</streetName>
+          <postalCode>75005</postalCode>
+          <city>PARIS</city>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  
+  <!-- participant : Médecin traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88"/>
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="648238527"/>
+      <code code="G15_10/SM54" displayName="Médecin - Médecine Générale (SM)"
+        codeSystem="1.2.250.1.213.1.1.4.5"/>
+      <addr>
+        <houseNumber>15</houseNumber>
+        <streetName>Rue Dumont</streetName>
+        <postalCode>750075</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <telecom value="tel:0147150000" use="WP"/>
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Stéphane</given>
+          <family>PARISI</family>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Cabinet médical du Dr Stéphane PARISI</name>
+        <telecom value="tel:0142515151" use="WP"/>
+        <addr>
+          <houseNumber>15</houseNumber>
+          <streetName>Rue Dumont</streetName>
+          <postalCode>750075</postalCode>
+          <city>PARIS</city>
+          <country>FRANCE</country>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  
+  <!-- participant : Gynécologue -->
+  <participant typeCode="TRC">
+    <functionCode code="CORRE" displayName="Correspondant" codeSystem="1.2.250.1.213.1.1.4.2.280"/>
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="648238538"/>
+      <code code="G15_10/SM51"
+        displayName="Médecin - Gynéco-obstétrique et Gynéco méd, opt gyn-obs (SM)"
+        codeSystem="1.2.250.1.213.1.1.4.5"/>
+      <addr>
+        <houseNumber>98</houseNumber>
+        <streetName>Rue Desbordes</streetName>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <telecom value="tel:0147459305" use="WP"/>
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Isabelle</given>
+          <family>FABERT</family>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Cabinet du Dr Isabelle FABERT</name>
+        <telecom value="tel:0147459305" use="WP"/>
+        <addr>
+          <houseNumber>98</houseNumber>
+          <streetName>Rue Desbordes</streetName>
+          <postalCode>75007</postalCode>
+          <city>PARIS</city>
+          <country>FRANCE</country>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  
+  <!-- participant : Sage-femme -->
+  <participant typeCode="TRC">
+    <functionCode code="CORRE" displayName="Correspondant" codeSystem="1.2.250.1.213.1.1.4.2.280"/>
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="648238549"/>
+      <code code="G15_50" displayName="Sage-Femme" codeSystem="1.2.250.1.213.1.1.4.5"/>
+      <addr>
+        <houseNumber>16</houseNumber>
+        <streetName>Rue Lalanne</streetName>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <telecom value="tel:0147748573" use="WP"/>
+      <associatedPerson>
+        <name>
+          <prefix>MME</prefix>
+          <given>Noemie</given>
+          <family>JUVE</family>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Cabinet de Mme Noemie JUVE</name>
+        <telecom value="tel:0147748573" use="WP"/>
+        <addr>
+          <houseNumber>16</houseNumber>
+          <streetName>Rue Lalanne</streetName>
+          <postalCode>75007</postalCode>
+          <city>PARIS</city>
+          <country>FRANCE</country>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  
+  <!-- Acte documenté par le document (Mammographie de dépistage)-->
+  <documentationOf>
+    <serviceEvent>
+      <!-- [APE 06/09/2021] code de l'acte fixé à "QEQK004" -->
+      <code code="QEQK004" displayName="Mammographie de dépistage" codeSystem="1.2.250.1.213.2.5"
+        codeSystemName="CCAM"/>
+      <!-- Date de l'examen -->
+      <effectiveTime>
+        <low value="20210729111700+0100"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+          <code code="G15_10/SM55" codeSystem="1.2.250.1.213.1.1.4.5"
+            displayName="Médecin - Radiodiagnostic et radiothérapie (SM)"/>
+          <addr>
+            <houseNumber>3</houseNumber>
+            <streetName>rue du Petit Pont</streetName>
+            <postalCode>75005</postalCode>
+            <city>PARIS</city>
+            <country>France</country>
+          </addr>
+          <telecom value="tel:0102030405" use="WP"/>
+          <telecom value="mailto:charles.boileau@mssante.fr"/>
+          <assignedPerson>
+            <name>
+              <given>Charles </given>
+              <family>BOILEAU</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887"/>
+            <name>Centre de radiologie du Petit Pont</name>
+            <telecom value="tel:0131931902" use="EC"/>
+            <addr>
+              <houseNumber>3</houseNumber>
+              <streetName>Rue du Petit Pont</streetName>
+              <postalCode>75005</postalCode>
+              <city>PARIS</city>
+            </addr>
+            <standardIndustryClassCode code="DEPISTAGE" displayName="Dépistage"
+              codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <effectiveTime>
+        <low value="20210729121700+0100"/>
+        <high value="20210729124000+0100"/>
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+          <code code="SA01" displayName="Etablissement public de santé"
+            codeSystem="1.2.250.1.71.4.2.4"/>
+          <location>
+            <name>Centre de radiologie du Petit Pont</name>
+            <addr>
+              <houseNumber>3</houseNumber>
+              <streetName>Rue du Petit Pont</streetName>
+              <postalCode>75005</postalCode>
+              <city>PARIS</city>
+            </addr>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+		********************************************************
+		Corps du document 
+		********************************************************
+	-->
+  <component>
+    <structuredBody>
+      
+      <!-- [0..1] Section FR-Couvertures-sociales -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.9"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.7"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.79"/>
+          <id root="716D9312-E95B-4A5D-AC3C-08C36251E567"/>
+          <code code="48768-6" displayName="Couvertures sociales" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <title>Couverture sociale de la patiente</title>
+          <!-- Bloc narratif de la section -->
+          <text>Numéro NNI : 277076322082910<br/>Organisme d'assurance maladie : Régime
+            général</text>
+          
+          <!-- [1..1] Entrée FR-Couvertures-sociales -->
+          <entry>
+            <act classCode="ACT" moodCode="DEF">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.20"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.17"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.61"/>
+              <id root="716D9312-E95B-4A5D-AC3C-08C36251E568"/>
+              <code code="48768-6" displayName="Couverture sociale"
+                codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+              <statusCode code="completed"/>
+              <!-- [1..*] Entrée FR-Organisme-assurance-maladie -->
+              <entryRelationship typeCode="COMP">
+                <sequenceNumber value="1"/>
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.26"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.18"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.94"/>
+                  <id root="716D9312-E95B-4A5D-AC3C-08C36251E569"/>
+                  <code code="GEN-105" displayName="Protection universelle maladie (Puma)"
+                    codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                  <statusCode code="completed"/>
+                  <performer typeCode="PRF">
+                    <assignedEntity classCode="ASSIGNED">
+                      <id nullFlavor="UNK"/>
+                      <code code="GUAR" displayName="Garant" codeSystem="2.16.840.1.113883.5.110"
+                        codeSystemName="HL7:RoleClass"/>
+                      <addr nullFlavor="UNK"/>
+                      <telecom nullFlavor="UNK"/>
+                      <representedOrganization>
+                        <name>Régime général</name>
+                      </representedOrganization>
+                    </assignedEntity>
+                  </performer>
+                  <!-- Bénéficiaire de la couverture -->
+                  <participant typeCode="COV">
+                    <participantRole classCode="PAT">
+                      <!-- Identifiant du bénéficiaire -->
+                      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+                      <!-- Lien bénéficiaire - assuré -->
+                      <code code="SELF" displayName="Couverture personnelle"
+                        codeSystem="2.16.840.1.113883.5.111"/>
+                    </participantRole>
+                  </participant>                  
+                </act>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- [1..1] Section FR-Resultats-examens -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+          <!-- Conformité IHE PCC parent (Hospital Studies Summary) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+          <!-- Conformité CI-SIS -->            
+          <templateId root="1.2.250.1.213.1.1.2.151"/>
+          <id root="716D9312-E95B-4A5D-AC3C-08C36251E569"/>
+          <code code="30954-2" displayName="Résultats d'examens" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Bilan de diagnostic différé</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Motif et technique utilisée</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Motif du bilan diagnostic différé</td>
+                <td colspan="2">
+                  <content ID="bilan-motif">Clinique et Mammographique</content>
+                </td>
+              </tr>
+              <tr>
+                <td>Technique</td>
+                <td colspan="2">
+                  <content ID="bilan-technique">Autre technique</content>
+                </td>
+              </tr>
+              <tr>
+                <td>Précision sur la technique</td>
+                <td colspan="2">
+                  <content ID="bilan-technique-precision">(texte libre)</content>
+                </td>
+              </tr>                
+              </tbody>
+            </table>
+            <br/>  
+            <table border="0">  
+              <thead>
+                <tr>
+                  <th colspan="4">Résultats d'examens</th>
+                </tr>
+              </thead>
+              <tbody>                   
+                <tr>
+                  <td rowspan="4">Comparaison avec clichés antérieurs</td>
+                  <td><content ID="comparaison">Oui avec clichés du 02/01/2020</content></td>                      
+                  <td><content styleCode="Bold">Sein droit</content></td>
+                  <td><content styleCode="Bold">Sein gauche</content></td>
+                </tr>
+                <tr>
+                  <td>Apparue</td>
+                  <td><content ID="apparue-droit">Non</content></td>
+                  <td><content ID="apparue-gauche">Oui</content></td>
+                </tr>
+                <tr>
+                  <td>Plus suspecte</td>                      
+                  <td><content ID="plus-suspecte-droit">Non</content></td>
+                  <td><content ID="plus-suspecte-gauche">Oui</content></td>
+                </tr>
+                <tr>
+                  <td>Identique ou moins suspecte</td>                
+                  <td><content ID="identique-droit">Oui</content></td>
+                  <td><content ID="identique-gauche">Non</content></td>
+                </tr>  
+              </tbody>
+            </table>            
+            <br/>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Résultat du bilan de diagnostic différé</th>
+                </tr>
+              </thead>
+              <tbody>  
+                <tr>
+                  <td><content styleCode="Bold">Schémas</content></td>
+                  <td><content styleCode="Bold">Oblique</content></td>
+                  <td><content styleCode="Bold">Face</content></td>
+                </tr>
+                <tr>
+                  <td></td>                  
+                  <td>
+                    <renderMultiMedia referencedObject="mammo-oblique"/>
+                  </td>
+                  <td>
+                    <renderMultiMedia referencedObject="mammo-face"/>
+                  </td>
+                </tr>  
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>     
+                <tr>
+                  <td></td>
+                  <td><content styleCode="Bold">Sein droit</content></td>
+                  <td><content styleCode="Bold">Sein gauche</content></td>
+                </tr>
+                <tr>
+                  <td><content styleCode="Bold">Résultat</content></td>
+                  <td><content ID="resultat-droit">Normal BI-RADS ACR1</content></td>
+                  <td><content ID="resultat-gauche">Anormal BI-RADS ACR3</content></td>                  
+                </tr>  
+                <tr>
+                  <td><content styleCode="Bold">Anomalies</content></td>
+                  <td></td>
+                  <td></td>                    
+                </tr>
+                <tr>
+                  <td>Masse (circonscrite ou non)</td>
+                  <td><content ID="masse-droit">Non</content></td>
+                  <td><content ID="masse-gauche">Oui</content></td>
+                </tr>
+                <tr>
+                  <td>Calcifications</td>
+                  <td><content ID="calcifications-droit">Non</content></td>
+                  <td><content ID="calcifications-gauche">Non</content></td>
+                </tr>
+                <tr>
+                  <td>Masse et calcifications</td>
+                  <td><content ID="masse-calcification-droit">Non</content></td>
+                  <td><content ID="masse-calcification-gauche">Non</content></td>
+                </tr>
+                <tr>
+                  <td>Distortion architecturale</td>
+                  <td><content ID="distortion-architecturale-droit">Non</content></td>
+                  <td><content ID="distortion-architecturale-gauche">Non</content></td>
+                </tr>
+                <tr>
+                  <td>Asymétrie focale de densité</td>
+                  <td><content ID="asymetrie-focale-droit">Non</content></td>
+                  <td><content ID="asymetrie-focale-gauche">Non</content></td>
+                </tr>
+              </tbody>
+            </table>              
+          </text>
+          
+          <!-- [1..1] Entrée FR-Acte : Date du bilan de diagnostic différé -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->            
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
+              <id root="9C87C49C-5887-477E-A993-CB22A6369331"/>
+              <code code="MED-014" displayName="Bilan diagnostic"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              <text><reference value="#bilan-diagnostic"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+            </procedure>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Motif du bilan de diagnostic différé -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="20DF64AD-4451-466A-A7E9-B59544A4A3CA" />
+              <code code="MED-013" displayName="Motif du diagnostic" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text><reference value="#bilan-motif"/></text>
+              <statusCode code="completed" />
+              <effectiveTime value="20210729" />
+              <!-- Valeur issue du JDV_MotifDiagnostic-CISIS (1.2.250.1.213.1.1.5.35) -->
+              <value xsi:type="CD" code="MED-111" displayName="Clinique et Mammographique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..*] Entrée FR-Simple-Observation : Technique -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="0E43E400-2DE8-445D-BB4D-730E9901EED4" />
+              <code code="MED-068" displayName="Techniques sur lesquelles repose le diagnostic" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text><reference value="#bilan-technique"/></text>
+              <statusCode code="completed" />
+              <effectiveTime value="20210729" />
+              <!-- Valeur issue du JDV_TechniqueBilan-CISIS (1.2.250.1.213.1.1.5.84) -->
+              <value xsi:type="CD" code="MED-114" displayName="Autre technique" 
+                codeSystemName="TA_ASIP" codeSystem="1.2.250.1.213.1.1.4.322" />
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Simple-Observation : Précision sur la technique -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="CEAD6642-36F0-4378-9504-A98531854276" />
+              <code code="GEN-041" displayName="Précision technique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text><reference value="#bilan-technique-precision"/></text>
+              <statusCode code="completed" />
+              <effectiveTime value="20210729" />
+              <!-- Précision technique du bilan diagnostic -->
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#bilan-technique-precision"/>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+
+          <!-- [1..1] Entrée FR-Simple-Observation : Comparaison avec les clichés précédents + Date du bilan comparé -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="674C1F45-4052-43DC-B7E8-B98F8073500E"/>
+              <code code="MED-018" displayName="Comparaison avec clichés antérieurs"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              <text><reference value="#comparaison"/></text>
+              <statusCode code="completed"/>
+              <!-- Date du bilan comparé -->
+              <effectiveTime value="20200102"/>
+              <value xsi:type="BL" value="true"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Simple-Observation : Apparue (droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="1216B13C-6ABE-4EE6-A7EE-58A48A805BEE"/>
+              <!-- Valeur issue du JDV_ResultatComparaison-CISIS (1.2.250.1.213.1.1.5.649) -->
+              <code code="GEN-001" displayName="Apparue" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#apparue-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Simple-Observation : Apparue (gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="1216B13C-6ABE-4EE6-A7EE-58A48A805BEE"/>
+              <!-- Valeur issue du JDV_ResultatComparaison-CISIS (1.2.250.1.213.1.1.5.649) -->
+              <code code="GEN-001" displayName="Apparue" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#apparue-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <value xsi:type="BL" value="true"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Simple-Observation : Plus suspecte (droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="42EF6BC7-8B45-4533-8AA2-5B1925A3E239"/>
+              <!-- Valeur issue du JDV_ResultatComparaison-CISIS (1.2.250.1.213.1.1.5.649) -->
+              <code code="GEN-002" displayName="Plus suspecte"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="plus-suspecte-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Simple-Observation : Plus suspecte (gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="42EF6BC7-8B45-4533-8AA2-5B1925A3E239"/>
+              <!-- Valeur issue du JDV_ResultatComparaison-CISIS (1.2.250.1.213.1.1.5.649) -->
+              <code code="GEN-002" displayName="Plus suspecte"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="plus-suspecte-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <value xsi:type="BL" value="true"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Simple-Observation : Identique ou moins suspecte (droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="3D3F16EE-5CF4-48AF-9A3C-1B8D20F7D45E"/>
+              <!-- Valeur issue du JDV_ResultatComparaison-CISIS (1.2.250.1.213.1.1.5.649) -->
+              <code code="GEN-003" displayName="Identique ou moins suspecte"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#identique-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <value xsi:type="BL" value="true"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Simple-Observation : Identique ou moins suspecte (gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="3D3F16EE-5CF4-48AF-9A3C-1B8D20F7D45E"/>
+              <!-- Valeur issue du JDV_ResultatComparaison-CISIS (1.2.250.1.213.1.1.5.649) -->
+              <code code="GEN-003" displayName="Identique ou moins suspecte"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#identique-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+                    
+          <!-- [1..1] Entrée FR-Simple-Observation : Résultat Sein droit -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="4E1A7F98-18B9-488F-BC15-3039739051E5"/>
+              <code code="MED-121" displayName="ACR Final" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25228" displayName="droit" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#resultat-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <!-- Valeur issue du JDV_Classification_ACR-CISIS (1.2.250.1.213.1.1.5.481) -->
+              <value xsi:type="CD" code="MED-129" displayName="Normal BI-RADS ACR 1" 
+                     codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Résultat Sein gauche -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="4EFE5DBB-FB67-4D57-A4A9-35D7C077B53C"/>
+              <!-- Valeur issue du JDV_Classification_ACR-CISIS (1.2.250.1.213.1.1.5.481) -->
+              <code code="MED-121" displayName="ACR Final" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" codeSystem="2.16.840.1.113883.6.1" displayName="latéralité" codeSystemName="LOINC"/>                      
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25229" displayName="gauche" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#resultat-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210729"/>
+              <!-- Valeur issue du JDV_Classification_ACR-CISIS (1.2.250.1.213.1.1.5.481) -->
+              <value xsi:type="CD" code="MED-131" displayName="Anormal BI-RADS ACR 3"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Masse (Droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="AA1E0A38-A07E-4437-8EF4-80366AF181E9"/>
+              <code code="MED-118" displayName="Masse" 
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                     
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#masse-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation> 
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Masse (Gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="AA1E0A38-A07E-4437-8EF4-80366AF181E9"/>
+              <code code="MED-118" displayName="Masse" 
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                     
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#masse-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="true"/>
+            </observation> 
+          </entry>          
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Calcifications (Droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="6246B15F-ABAE-4DCA-AAA4-7F13C1BB257A"/>
+              <code code="MED-119" displayName="Calcifications"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                     
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#calcifications-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Calcifications (Gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="6246B15F-ABAE-4DCA-AAA4-7F13C1BB257A"/>
+              <code code="MED-119" displayName="Calcifications"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                     
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#calcifications-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Masse et Calcifications (Droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="41A4FAE5-A262-4C90-9984-08AA579878DF"/>
+              <code code="MED-026" displayName="Masse et calcifications"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                    
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#masse-calcification-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+
+          <!-- [1..1] Entrée FR-Simple-Observation : Masse et Calcifications (Gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="41A4FAE5-A262-4C90-9984-08AA579878DF"/>
+              <code code="MED-026" displayName="Masse et calcifications"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                    
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#masse-calcification-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Distortion architecturale (Droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="814EB3D7-D097-4123-A527-AB33ED893E37"/>
+              <code code="MED-027" displayName="Distortion architecturale"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#distortion-architecturale-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Distortion architecturale (Gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="814EB3D7-D097-4123-A527-AB33ED893E37"/>
+              <code code="MED-027" displayName="Distortion architecturale"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#distortion-architecturale-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Asymétrie focale de densité (Droit) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="4F68D058-792D-4676-99B5-5F6AE93352C2"/>
+              <code code="MED-028" displayName="Asymétrie focale de densité"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25228" displayName="droit"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#asymetrie-focale-droit"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+          <!-- [1..1] Entrée FR-Simple-Observation : Asymétrie focale de densité (Gauche) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="4F68D058-792D-4676-99B5-5F6AE93352C2"/>
+              <code code="MED-028" displayName="Asymétrie focale de densité"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="20228-3" displayName="latéralité"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>                
+                  <!-- valeur issue du JDV_Lateralite-CISIS (1.2.250.1.213.1.1.5.160) -->
+                  <value code="C25229" displayName="gauche"
+                    codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT"/>
+                </qualifier>
+              </code>
+              <text><reference value="#asymetrie-focale-gauche"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210729111700+0100"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="false"/>
+            </observation>
+          </entry>
+          
+        </section>
+      </component>
+
+      <!-- [1..1] Section FR-Plan-de-soins -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.10"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.158"/>
+          <id root="0AE41264-0383-4422-BEA3-4E687963080B"/>
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <title>Plan de soins</title>
+          <!-- Bloc narratif de la section -->
+          <text>            
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Conduite à tenir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Conduite à tenir</td>
+                  <td>
+                    <content ID="conduite-2">Suivi rapproché (&lt; 2ans)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Fréquence de contrôle</td>
+                  <td>
+                    <content ID="frequence-controle-2">6 Mois</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Examen demandé</td>
+                  <td>
+                    <content ID="examen-demande-2">(texte libre)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          
+          <!-- [1..1] Entrée FR-Demande-d-examen-ou-de-suivi : Conduite à tenir -->
+          <entry>
+            <observation classCode="OBS" moodCode="INT">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
+              <id root="B41BD0AE-0862-4A26-AFAE-51798C061651"/>
+              <code code="GEN-007" displayName="Conduite à tenir"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>  
+              <text><reference value="#conduite-2"/></text>
+              <statusCode code="active"/>
+              <effectiveTime value="20210729"/>
+              <!-- Valeur issue du JDV_ConduiteATenir_1-CISIS (1.2.250.1.213.1.1.5.85) -->
+              <value xsi:type="CD" code="MED-116" displayName="Suivi rapproché (&lt; 2ans)"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Demande-d-examen-ou-de-suivi -->
+          <!-- si conduite à tenir = "suivi rapproché" :  coder ici la fréquence de controle -->
+          <entry>
+            <observation classCode="OBS" moodCode="INT">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
+              <id root="6EB1D234-9A74-42B9-AD1A-71D5ACCAFBE2"/>
+              <code code="MED-120" displayName="Fréquence de controle"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              <text><reference value="#frequence-controle-2"/></text>
+              <statusCode code="active"/>
+              <effectiveTime value="20210729"/>
+              <!-- Fréquence de controle -->
+              <value xsi:type="PQ" value="6" unit="mo"/>
+            </observation>
+          </entry>
+          
+          <!-- [0..1] Entrée FR-Demande-d-examen-ou-de-suivi -->
+          <!-- si conduite à tenir = "suivi rapproché" : coder ici l'examen demandé -->
+          <entry>
+            <observation classCode="OBS" moodCode="INT">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
+              <id root="6EB1D234-9A74-42B9-AD1A-71D5ACCAFBE2"/>
+              <code code="ORG-064" displayName="Demande d'examen ou de suivi"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              <text><reference value="#examen-demande-2"/></text>
+              <statusCode code="active"/>
+              <effectiveTime value="20210729"/>
+              <!-- Examen demandé -->
+              <value xsi:type="CD">
+                <originalText><reference value="#examen-demande-2"/></originalText>
+              </value>
+            </observation>
+          </entry>
+          
+        </section>
+      </component>
+
+      <!-- [1..1] Section FR-Documents-ajoutes -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.37" />
+          <id root="7EB4B6EB-49FB-4C41-B334-E87031EAACFC" />
+          <code code="55107-7" displayName="Documents ajoutés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />          
+          <text/>                     
+          
+          <!-- Entrée FR-Document-attache : Schéma Oblique de localisation des anomalies -->
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.18" />
+              <id root="88C3859D-961B-4993-B8C4-96DF3CFE24FA" />
+              <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode code="completed" />
+              <!-- [1..1] Entrée FR-Simple-Observation : Nature de l'image -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="65FEDD55-B4D1-4302-9417-14DC14447BDA" />
+                  <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text><reference value="mammo-oblique"/></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20210729"/>
+                  <value xsi:type="ST">Schéma oblique de localisation des anomalies</value>
+                </observation>
+              </component>
+              <!-- [1..1] Document attaché encodé en Base64 -->
+              <component>
+                <observationMedia classCode="OBS" moodCode="EVN" ID="mammo-oblique">
+                  <value mediaType="image/jpeg" representation="B64">
+                    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
+                  </value>
+                </observationMedia>
+              </component>
+            </organizer>
+          </entry>
+          
+          <!-- Entrée FR-Document-attache : Schéma Face de localisation des anomalies -->
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.18" />
+              <id root="E805F81E-23BA-43C1-97DD-EFBB7944ABFC" />
+              <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode code="completed" />
+              <!-- [1..1] Entrée FR-Simple-Observation : Nature de l'image -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="31C31FA6-2351-48DF-AC27-F55526B4A878" />
+                  <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text><reference value="mammo-face"/></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20210729"/>
+                  <value xsi:type="ST">Schéma face de localisation des anomalies</value>
+                </observation>
+              </component>
+              <!-- [1..1] Document attaché encodé en Base64 -->
+              <component>
+                <observationMedia classCode="OBS" moodCode="EVN" ID="mammo-face">
+                  <value mediaType="image/jpeg" representation="B64">
+										/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAB8AJ8DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9N/ix+3D8aPGn7QPhfwD8EfAvw21O71T4eWfxB1Gfxn4iurBYIbu5eCOCEW1vKXZTGxZiAPmXFS/8J5+3f/0Tf9l3/wALfWf/AJX1yf7Msz/8PWvCSkkBv2YtFZlxjJGsSf4n867D/gqB+zT8QP2kfiV8BYPBKzwabo3iW/m8TX25WtrSxl0u5gTzoTLGZlNw8GAu4oQJMfJyAR/8J5+3f/0Tf9l3/wALfWf/AJX0f8J5+3f/ANE3/Zd/8LfWf/lfXFapfftkeG/it4j0bRNFuovhlZeJbKw0a8VtHudWg0Rft0Mk0AllxKQf7NkYXJ8xo1nwQ7YHvv7DN/8AHPU9O8Zy/HCDTbK/Gu3EWi2thBALeOyWaYRPHJHK7SI8PkH96qOreYDmgDzf/hPP27/+ib/su/8Ahb6z/wDK+j/hPP27/wDom/7Lv/hb6z/8r6+wKKAPj/8A4Tz9u/8A6Jv+y7/4W+s//K+j/hPP27/+ib/su/8Ahb6z/wDK+vsCuN8W/H/wl4N11tJuNXju9cVS/wDZWnRPf6hgY5MEIeQDkclQOetAHzj/AMJ5+3f/ANE3/Zd/8LfWf/lfXnniT9tT9tDwt+1B4V+Etx8Lv2cG8SeMNA1LxHZTp4z1Y2kdtYzWsUyyMbHeHLXkW0BSCA+SMDP18vxi8T64pbRvhr4jaLOFm1a8tNOR/cJ5jyj/AIFGp9q+Wfil4j8dXX/BZr4G3Fx4R0G1vR8MfFypb/8ACQu4aP7fou8lxbYDDCYGCDuOWGOQDq/+E8/bv/6Jv+y7/wCFvrP/AMr6P+E8/bv/AOib/su/+FvrP/yvr3g/FvxrpErHU/hfq0tuP+Wmj6xZ3hA9SkrwMf8AgIJ9qt+Gv2lPCmvanFp91dXnhzVpsbLDXrKXTJ5CTjCecqrIf+ubNQB8+f8ACeft3/8ARN/2Xf8Awt9Z/wDlfR/wnn7d/wD0Tf8AZd/8LfWf/lfX2BRQB8f/APCeft3/APRN/wBl3/wt9Z/+V9H/AAnn7d//AETf9l3/AMLfWf8A5X19gUUAfH//AAnn7d//AETf9l3/AMLfWf8A5X0f8J5+3f8A9E3/AGXf/C31n/5X1e/4KNfs3eN/2h/jf8Bl8MRXg8P6Tq+q/wDCVXIcNaQ2U+nSRIJ4vOjaTdMUClA5jb94ANgzwNzrH7Zlv8Z9d03T9GOmfDFPFdpaaZebdIu9Ws9FH9owvJCjzBZVDJpkjCY+d5Ty7TvyoAOw/wCE8/bv/wCib/su/wDhb6z/APK+uz/4J1/tQfEr9pXTPibB8TvDPgvwzrfw78YTeEmTw1qtxqFtdPDb280km6aGJgP9IUDjsc4xWl+wVffHTUPDPi5/jrFYW+sDX7lNJhsoLdLeOyEriLypIpGaWIxiNg0qpKCzKwJGa5b/AIJmQLa+Jv2mo08rA+NmsuVTqC9jprHI9SSTQB5X+yTK8/8AwVE8CvIwd3/Za0NmYLtDE6s2SB2+lfZnxO+Ovg74LzaZH4r8SaRoEutvLFp8d7cCN754ozLIsSnl2WNWchckKrHoDXxV+xk8cn/BS74dtC2+E/sqaAY2wRuX+1WwcHkcV7n+3x+w5qP7Yfi/4QavYa/baM3wr8Rz+IjBKLhP7SZ7Ka1SLzYJEeNQZtzdQ6qUIwxoA99g8W6Xc+H7PVV1Cz/szUFha2ujMoinExURbWJwd5dQvqWAHWtGvhb4g/8ABJzxX8Ufid4h8Q614z8LXEGvat4T106Z/ZFybS2u9FuoZZvKQ3GIor1Y8SRoBho4mycNn7poAK574k/E/SfhVoAvtUklLTOILOztozNd6jOQdsEES/NJI2OAOgBJIAJEXxY+KFn8JvCR1G5imvbq4mSz07T7fH2jVbuTIit4gcDcxB5PCqGZiFViML4VfCG5s9dPjLxe1tqPjq+gMJeIl7bRIGIb7HaZ6ICBvkwHlYbmwAiIAULbwZ4x+MztP4su5/CXh2TPleH9Juil9OvGPtl5GcqSM5ityoGcGWSu68F/D/Q/hzpP2HQdJ0/SLUnc0dpAsQkbuzYGWY92OSe5rYooAK+V/jRYIf8AgsJ8B7k43f8ACuvGMa52/wDP1oh47/0r6or5Z+Nlh5n/AAV8+AdwSpCfD/xkqq3UN9p0Tke+Dj6UAfU1U9d8P2HinS5bHU7K01GynG2W3uoVmikHoysCD+Iq5RQB5jP8Gta+GG66+Hmq+TbqQzeHNXmkn0yVRjKwSHMlocZxs3RAn/Vd66D4Z/GGw+Is93p7293oviLSsDUdGv1CXVrngOMErLC2PlljLI3TIYFR11cl8VfhJa/Eq3s7mK5m0fxDo0n2jSdXteJ7KTupHAkhfpJE3yuvoQrAA62iuM+E/wAT5/GEuoaLrdpFpXi7QCi6lZRuWilR8+XdW7Hl7eUKxUnlWV0b5kauzoA4/wCKn7QHgr4HzadH4u8T6R4el1fzvsEd7cCN73yk8yURr1cogLMFyQoJ6A10MPinTZ9GstQW/s/sOo+V9luDMojufNx5WxicMX3LtA65GK8F/bo/Yo1P9rXx18JNasNdttIHwt1251/7PK1xH/aUr2ctvHGZIJEdYwZdzrkiRQUIwxryfxN/wSl8U+N/jVN4s1bxvoE1tN4v8M+NF0xdNuvs1te6VuS48hTcFYUu0KuyquFkjB+bJoA+4a+UP+CYiqnxF/arx1/4XXqZY7gSf+JZpfXuPxr6vr5I/wCCXuo/afir+1pb7VH2b416hyOp3aVpZ5oA80/Ygtin/BQj4VTFCqyfsp6Eiv2kK6khI/4DuH/fdfUH7VX7Z2i/sn694I0zVNA8S6/feP7u9sdLg0eKGRzLaWM1/IrCSROsFvLtwTlgF43A184fsVkj9tv4N88H9l/S+M/9P9r/AI+n8hX1B+0X+yH4S/ah1vwjqHiV9biu/A9zd3mkyadqD2bQy3VpLZysSnJJt55kHPHmEj5gCADpPgR8b/Df7SnwZ8MeP/B9+NU8L+L9Oh1XTLrYUMsEqhlypwVYZwVPIIIPSutrB+F/wy0D4LfDjQvCPhXS7XRPDfhqxh0zTLC2BEVnbxIEjjXOTgKAMkknuSa5n9p3xDeWHw2XRNKu5bDXPGt7F4d065iXMlq9xnzZ194bdZ5R7xCgCh8L7P8A4XH8Sbr4g3YEmk6aZtK8KREhkEQYpc6gB/fndTGh/wCeMSkY85wfU6peG/D1n4R8PWGladAlrp+mW8dpawIPlhijUKij2CgD8Ku0AFFFFABXyb+0ISn/AAWH/ZtP2gxh/BPjVfK25EvzaOevbHX8K+sq+R/2jmUf8FjP2Yw2cnwd42249f8AiU9fwoA+uKKKKACiiigDz747eDtQMFl4w8N25m8WeFA8sECHadXtGwbiwY+kgUMmfuzRxN0DA9h4Q8WWHjvwrp2taVcLdabqttHd20y9JI3UMpx24PQ8itGvMvgvD/wrz4j+L/BATy9PimXxFo/zDAt72SQzwqABgR3STHHZZ4x2oAi+Ov7V2h/BH4l+BvBDWl5rXjX4jPe/2HpVs8cXmQ2UInu7iWWRlSOKNGXJJJLOiqDk47n4f+L28d+EbTVH0vUtFkud4ey1BUW4t2V2QhtjMvVcghiCCD3rk/jb+y94V+PPiXwzrurw3Vr4j8GtdHRtXsZBHd2KXUJguYgWDI8csZwyOrKdqnAZQRq/AH4FeG/2Zfg14d8BeELSax8N+F7NbKwhmuHuJFjGTl5HJd2JJJZiSSTQB2FfIf8AwS3P/F3/ANrv/stl9/6adKr68r5C/wCCWy4+MX7XhyefjZe8en/Eo0ugDhP2MJGH7dHwRHlKN/7LdgWYsNy4v7HA9+p+mPevvivgP9jKV4f27vgbErgRN+y1YllLjcxF/YYODycZPfvzX35QAV5l4uSLxP8AtW+DbF2JHhnRNR1vZ2WaVobSFv8Av292Pxr02vhP/gmP/wAFXfC3/BSn9tn496RoHh3WdAb4TJaeHkkvplkGqIl7fq9yqqAItzIPkJY4CnPUAA+7KKKKACiiigAr5F/aSbb/AMFj/wBl/pz4P8bjp7aTX11XyJ+0n/ymR/Ze/wCxP8b/APoOk0AfXdFFFABRRRQAV5z8TFg8O/HT4da0zeXJqEt94bZuAHWa3N2ob1+exGPdj616NXy7/wAFbf20vCn/AAT6/Zo0f4r+MYNUvNJ8NeKtPItdNiWS7unk8yMpGGZUzsZz8zAYU85wKAPqKivOP2Rf2ovDX7an7Nfg/wCKfg/7cPDfjWwW/skvYhFcRDcyNHIoJAZXVlOCRleCRg16PQAV8hf8EtnB+MX7Xg7j42Xufb/iU6XX17XyD/wS1Dj4x/te5IKH42Xu0Y6f8SjS80AecfsdzY/4KCfART8rP+yvanaVB6ahp3ft1r9Ba/PD9i9t/wDwUA/Z5OVOf2UrU5X7p/0/TOntX6H0AFeD/CX9nLwL+zZ+1/4kvfBnhPQvC03xT0iTWdak062WA6vf212N88mOr4vsk99xPWveK8z/AGiC3hTVfBXjMMEg8M60sGpMSQBY3im1kJ9klkt5T2AhJPSgD0yiiigAooooAK+RP2k/+UyP7L3/AGJ/jf8A9B0mvruvkT9pP/lMj+y9/wBif43/APQdJoA+u6KKKACiiigArxT9tX4M+Ev2ltF8F/DjxvommeJfDPinxCH1DSr+PzILyG2tLm5G5faWOE5yMHH0r2uvNre4/wCE3/aln2bXsvAei+Q7Y/5fr50crn+8lvAhPtdD1oA674cfDjQPg/4D0nwv4W0fTvD/AId0G1Sy07TbCBYLazhQYVEReAAK26KKACvj7/glkjD40ftgEgbW+Nl7jjr/AMSjS819g18ff8EufMT48ftiK6SKB8aLgqzHIYHRtKPHb0/rQB5d+xQ8kn7fP7OzSrslb9lC0Lrt24P27TMjA6fSv0Sr85P2Drv7f+3D+zXNhh5v7Jdk+GGDze6YeRX6N0AFZ/izwtY+OPC2o6NqkC3Wm6tayWd1C3SWKRSjqfqCa0KKAPP/ANnrxZfX/he58Oa7MZfFHgyYaXqTtw16gGbe8HJ+WeHY5PQP5qdUNegV538YPBWpaXr1t478K2gu/Euj2xtbuwD7P7f0/cXa1yTtEysS8LNwHLKSFlc11fgLx7pfxM8KWus6PcfabG6BAJQpJE6kq8ciMAySIwKsjAMrKQQCKANmiiigAr5F/aVAX/gsb+y6xdBu8I+N1C7vmJ26Uen4V9dV8p/tOR+X/wAFXv2WJdr/AD6F42i3Dof9G01sEfhnPtQB9WUUUUAFFFMnnS1geSR1jjjUs7scKoHJJPYUAY/xH8fWXwv8D6lr2oeY1tp0W/yohuluHJCxwxj+KSRyqKvdnUd6x/gV4Ev/AAP4HL608UviTXbqTV9ZkiOU+1TYJjQ90iQRwoepSFc1y/hGZ/2k/HNn4mkjx4C8OTmXQI5E/wCQ9eDgal/1wjBYQZHzsWl6CE163QAUUUUAFfIv/BMm0lg/aB/bCeWMQtJ8YpCEXO3b/Yek7W9MsCCfc19dV8qf8E7bn/jI/wDa8tuvk/FiN8kc/P4d0ZsZ9u1AHg3/AATyTH7Yn7MDev7I1gOn/T5pdfpJX5y/8E+LTZ+1T+yxP5jnzP2TbWPyzjau260c5HOcndzx/COvb9GqACiiigArzTxn8KNV8IeLLzxf4BNvFq1+6y6zotxJ5dj4h2qF37sHyLoKAFmAwwAWQMArJ6XRQBx/wz+N2i/E6aexi+1aV4gsVBvtD1KP7PqFl05aPJ3JzxLGWjb+FjXYVzXxG+EegfFW1t11iy33Nixksr6CVre909/78E8ZEkbcDO1hnocjiuVXwt8Tfh3gaRrukeOdNjwFtfECmx1BVAxgXkCMjk/7cAPq3egD0+vln9qFFP8AwVJ/ZUYsVI0zxrtG4gN/odhxjofXn0r15/jzq2hQR/278OfG1k7YDvp8UGqwjjkjyJGkI+sYPtXzN+0r+0Hoeof8FM/2W7z+zfGMUdjp/jNZ0m8L6iksRazsgMRm3LSDg5MecZBJweQD7horziD9ok6vd+RpXgX4h6g7IWV5NH/s+InjALXbxY6/zqM3XxR8ewypHa+Hvh/bP8qTTSnWdQA7ny18uCNuwy8o74PSgDr/AIg/EnQvhX4ebVfEGp22mWQdYleUktNI3CxxoAWkkY8KiAsx4ANefp4Z1z9paWObxPp934b8BD54vD9wdt/r2Rw1+AcRQc8WwJZuPNIGYq6HwR+zzoPhHxINfvGv/E3igKyjWtamFzdwqxJKQjAjgTn7sKIPUGu7oAbFEsESoiqiIAqqowFA6ACnUUUAFFFFABXyZ/wTqujL+1T+2PFvBEXxUtiF/u58OaP/ADr6zr5G/wCCck+/9rf9s1MD5PinZnPrnw3pFAHlP/BPzc37Rn7KPMZUfsqwnaE+cf6RoeSTnkdMDHHPrX6H185/FL/gk98B/jZ4Q8A6N4o8G3GpRfDLQ4/Dfh66h1y/sLy0sESJBA09tNFJIpEMZIcnlc9a43/hxF+zD/0JHiX/AML7xD/8nUAfX1FfJdl/wQ4/ZksZAy+A9bcgg4l8ba9IOMdmvSO38/WpbL/giJ+zPYySsvgDVG80YIl8Y65IB1Pyhrw7evbFAH1fRXycP+CH/wCzKof/AIoHV/n6/wDFaa7x827j/TePw7cdKcn/AARE/ZmjfcPAGq/d24PjLXCOuen2zr7/AIUAfV9FfKMH/BEb9me3t1jHgDVGCrsy/jHXGYjGOSbzOffrUy/8EVP2aVUj/hX17zj/AJmvWc8e/wBroA+qK+T/ANrJC3/BVH9kYjGFtPGxOf8AsHWY4/z61M//AARQ/ZpkmVz8Pr/KDaAPFutBT9R9rwT7morj/gh9+y9d31rdTfDEzXdhu+zXEniTV3mt9wAfY5utyhgAGwfmxzmgD6vor5Wf/gih+zS5P/Fvr/5jk48W60Pf/n74pw/4Ir/s1A/8k9vOpP8AyNWs/wDyX09qAPqeivlgf8EV/wBmoNn/AIV7edv+Zq1nt/29+9Nj/wCCKH7NMSYHw+vzkg/N4t1onj3N3/8AroA+qaK+TJP+CHX7Mkk2/wD4QLWQdpXA8ba8Bz3x9txn37VCP+CFv7MQUD/hBfEHy/8AU9eIOenX/Tfb9T60AfXNFfIjf8EKf2YnuPM/4QbxFnduwPHfiAL+X27GKX/hxX+zF83/ABQ3iH5m3f8AI9+IOPp/p3SgD66r5D/4JxDb+1/+2jn/AKKlZH/y2tIpp/4IR/swsf8AkSPEn/he+If/AJOr3D9lr9jj4b/sWeDdQ0H4a+G08O6fq982pX5a8uL24vrkosfmyz3EkkrsERFG5jhVAGAKAP/Z
+									</value>
+                </observationMedia>
+              </component>
+            </organizer>
+          </entry>
+
+ 
+        </section>
+      </component>
+           
+    </structuredBody>
+  </component>
+</ClinicalDocument>

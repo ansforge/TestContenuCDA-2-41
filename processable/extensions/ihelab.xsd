@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema targetNamespace="urn:oid:1.3.6.1.4.1.19376.1.3.2" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns="urn:oid:1.3.6.1.4.1.19376.1.3.2" 
+    elementFormDefault="qualified">
+    <!-- [03/04/2013 F.Macary] Schema of extensions for the XD-LAB profile from IHE LAB domain
+        This schema is imported by a modified version of POCD_MT000040.xsd.
+        It defines the element lab:statusCode added to the content of documentationOf/serviceEvent 
+    -->
+    <xs:element name="statusCode">
+        <xs:complexType>
+            <xs:attribute name="code">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="active"/>
+                        <xs:enumeration value="completed"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <!-- [01/07/2020 - ANS] Ajout precondition -->
+    <xs:element name="precondition">        
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="criterion" type="Criterion"/>
+            </xs:sequence>
+            <xs:attribute name="typeCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PRCN"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>  
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- [01/07/2020 - ANS] Ajout Criterion -->
+    <xs:complexType name="Criterion">
+        <xs:sequence>
+            <xs:element name="code" type="Code" minOccurs="0"/>
+            <xs:element name="value" type="Value" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="classCode">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="COND"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>  
+        <xs:attribute name="moodCode">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="EVN"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>  
+    </xs:complexType>    
+    
+    <!-- [01/07/2020 - ANS] Ajout Code -->
+    <xs:complexType name="Code">
+            <xs:attribute name="code">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>  
+    </xs:complexType>
+    
+    <!-- [01/07/2020 - ANS] Ajout Value -->
+    <xs:complexType name="Value">
+            <xs:attribute name="value">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="M"/>
+                        <xs:enumeration value="F"/>
+                        <xs:enumeration value="I"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>  
+    </xs:complexType>
+    
+</xs:schema>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="rapportSchematronToHtml4.xsl"?><svrl:schematron-output xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:cda="urn:hl7-org:v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:jdv="http://esante.gouv.fr"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:svs="urn:ihe:iti:svs:2008"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        title="Vérification de la conformité au modèle AVC-AUNV_2.2"
+                        schemaVersion="CI-SIS_AVC-AUNV_2.2.sch"
+                        phase="CI-SIS_AVC-AUNV_2.2"
+                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/AVC-AUNV_2.2.xml"
+                        dateHeure="9/3/2022 à 14:36:28 (temps UTC+01:00)">
+   <svrl:active-pattern id="JDV_ModeDeTransport">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.10.3.2']/cda:entry/cda:act/cda:code"/>
+   <svrl:active-pattern id="JDV_TopoTrouble">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:value/@code='DA-21100' or cda:value/@code='F-A4580']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:value/@code='DA-21100' or cda:value/@code='F-A4580']/cda:targetSiteCode"/>
+   <svrl:active-pattern id="JDV_Lateralite">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:value/@code='DA-21100' or cda:value/@code='F-A4580']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:value/@code='DA-21100' or cda:value/@code='F-A4580']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:active-pattern id="JDV_LateraliteManuelle">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation/cda:value[@code='F-A5400']/cda:qualifier/cda:value"/>
+   <svrl:active-pattern id="JDV_TroubleVisuel">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_AutresSymptomesAVC">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_TypeDiabete">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_TypeMigraine">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_CddFA">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_SiteIntervention">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.12']/cda:entry/cda:procedure/cda:targetSiteCode"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.12']/cda:entry/cda:procedure/cda:targetSiteCode"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.12']/cda:entry/cda:procedure/cda:targetSiteCode"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.12']/cda:entry/cda:procedure/cda:targetSiteCode"/>
+   <svrl:active-pattern id="JDV_AutreSymptomeExNeuro">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.9.35']/cda:entry/cda:observation/cda:value"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.9.35']/cda:entry/cda:observation/cda:value"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.9.35']/cda:entry/cda:observation/cda:value"/>
+   <svrl:active-pattern id="JDV_NIHSSConsInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSLocqInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSLoccInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSOculInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSCvInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSPfInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSMsInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSMiInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSAtaxInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSSensInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSLangInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSDysInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_NIHSSNeglInt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_InterpretationECG">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:code/@code='F-38000']/cda:value"/>
+   <svrl:active-pattern id="JDV_TypeLesionImagerie">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:code/@code='ACQK001' or cda:code/@code='ACQN001']/cda:value"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:code/@code='ACQK001' or cda:code/@code='ACQN001']/cda:value"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:code/@code='ACQK001' or cda:code/@code='ACQN001']/cda:value"/>
+   <svrl:active-pattern id="JDV_territoireInfarctus">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_ArtereAnt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation/cda:entryRelationship/cda:observation[cda:value/@code='G-A105']/cda:targetSiteCode"/>
+   <svrl:active-pattern id="JDV_ArterePost">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation/cda:entryRelationship/cda:observation[cda:value/@code='G-A106']/cda:targetSiteCode"/>
+   <svrl:active-pattern id="JDV_ArtereTronc">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation/cda:entryRelationship/cda:observation[cda:value/@code='T-A2050']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation/cda:entryRelationship/cda:observation[cda:value/@code='T-A2050']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation/cda:entryRelationship/cda:observation[cda:value/@code='T-A2050']/cda:targetSiteCode"/>
+   <svrl:active-pattern id="JDV_ArtereCervelet">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_HemisphereLobaire">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_HemisphereProfond">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_CerveletLoc">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:value/@code='D3-89200']/cda:entryRelationship/cda:observation[cda:value/@code='T-A6000']/cda:targetSiteCode"/>
+   <svrl:active-pattern id="JDV_LocaThromboseVeineuse">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_TypeTraitementIV">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:substanceAdministration/cda:code"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:substanceAdministration/cda:code"/>
+   <svrl:active-pattern id="JDV_StatutEvt">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_ScoreFisher">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="Entete_AVC"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent"/>
+   <svrl:active-pattern id="variables"/>
+   <svrl:fired-rule context="cda:ClinicalDocument"/>
+</svrl:schematron-output>

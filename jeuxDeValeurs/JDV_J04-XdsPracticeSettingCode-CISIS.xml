@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20101104000000" description="XDS practiceSettingCode CI-SIS" displayName="JDV_J04-XdsPracticeSettingCode-CISIS.tabs" id="1.2.250.1.213.1.1.5.467" typeFichier="JDV" urlFichier="https://mos.esante.gouv.fr/NOS/JDV_J04-XdsPracticeSettingCode-CISIS">
+        <ConceptList>
+            <Concept code="EXP_PATIENT" codeSystem="1.2.250.1.213.1.1.4.6" displayName="Expression personnelle du patient"/>
+            <Concept code="AMBULATOIRE" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Ambulatoire"/>
+            <Concept code="AMO" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Organisme d'assurance maladie obligatoire"/>
+            <Concept code="DEPISTAGE" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Dépistage"/>
+            <Concept code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+            <Concept code="HAD" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Hospitalisation à domicile"/>
+            <Concept code="MAD" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Maintien à domicile"/>
+            <Concept code="PALLIATIF" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Soins palliatifs"/>
+            <Concept code="SAD" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Soins à domicile"/>
+            <Concept code="SAMU_SMUR" codeSystem="1.2.250.1.213.1.1.4.9" displayName="SAMU/SMUR"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

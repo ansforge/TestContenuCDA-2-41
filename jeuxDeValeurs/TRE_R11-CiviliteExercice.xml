@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20130628000000" description="Civilité d'exercice" displayName="TRE_R11-CiviliteExercice.tabs" id="1.2.250.1.213.1.6.1.11" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R11-CiviliteExercice">
+        <ConceptList>
+            <Concept code="DR" codeSystem="1.2.250.1.213.1.6.1.11" dateFin="" dateMaj="20160329000000" dateValid="20070725150435" displayName="Docteur" longDesignation="Docteur" shortDesignation="Docteur"/>
+            <Concept code="MC" codeSystem="1.2.250.1.213.1.6.1.11" dateFin="" dateMaj="20160329000000" dateValid="20070725150435" displayName="Médecin chef" longDesignation="Médecin chef" shortDesignation="Médecin chef"/>
+            <Concept code="MG" codeSystem="1.2.250.1.213.1.6.1.11" dateFin="" dateMaj="20160329000000" dateValid="20070725150435" displayName="Médecin général" longDesignation="Médecin général" shortDesignation="Médecin général"/>
+            <Concept code="PC" codeSystem="1.2.250.1.213.1.6.1.11" dateFin="" dateMaj="20160329000000" dateValid="20070725150435" displayName="Pharmacien chef" longDesignation="Pharmacien chef" shortDesignation="Pharmacien chef"/>
+            <Concept code="PG" codeSystem="1.2.250.1.213.1.6.1.11" dateFin="" dateMaj="20160329000000" dateValid="20070725150435" displayName="Pharmacien général" longDesignation="Pharmacien général" shortDesignation="Pharmacien général"/>
+            <Concept code="PR" codeSystem="1.2.250.1.213.1.6.1.11" dateFin="" dateMaj="20160329000000" dateValid="20070725150435" displayName="Professeur" longDesignation="Professeur" shortDesignation="Professeur"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

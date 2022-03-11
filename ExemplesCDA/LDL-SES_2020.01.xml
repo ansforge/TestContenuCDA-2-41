@@ -1,0 +1,1210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_LDL-SES_2020.01.sch"?>  
+
+<!-- 
+      **************************************************************************************************************
+      Document Lettre de liaison à la sortie d'un établissement de soins (LDL-SES_2020.01)
+      Auteur : ANS / PML
+	  **************************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **************************************************************************************************************
+      Sections utilisées dans ce document :
+            [1..1] FR-Statut-du-document-LDL-SES           : 1.2.250.1.213.1.1.2.35
+            [1..1] FR-Raison-de-la-recommandation-non-code : 1.3.6.1.4.1.19376.1.5.3.1.3.1
+            [1..1] FR-Resultats-evenements-LDL-SES         : 1.3.6.1.4.1.19376.1.7.3.1.1.13.7
+            [0..1] FR-Traitements-administres              : 1.3.6.1.4.1.19376.1.5.3.1.3.21
+            [1..1] FR-Traitements-a-la-sortie              : 1.3.6.1.4.1.19376.1.5.3.1.3.22
+            [0..1] FR-Resultats-examens-non-code           : 1.3.6.1.4.1.19376.1.5.3.1.3.27
+            [0..1] FR-Plan-de-soins                        : 1.3.6.1.4.1.19376.1.5.3.1.3.36
+            [0..1] FR-Dispositifs-medicaux                 : 1.2.250.1.213.1.1.2.1
+            [0..1] FR-Allergies-et-intolerances            : 1.3.6.1.4.1.19376.1.5.3.1.3.13
+      **************************************************************************************************************      
+      11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons
+      03/09/2018 : Mise en conformmité Volet LDL 2.1
+      14/04/2020 : Mise en conformité Volet LDL-SES_2020.01
+      26/06/2020 : Correction des OIDs du DM
+      03/05/2021 : Mise à jour des card dans les commentaires
+      09/02/2022 : Mise à jour de la codification d'un DM avec EMDN
+      **************************************************************************************************************
+   -->
+
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd">
+    <!--
+    *************************
+	EN TETE DU DOCUMENT
+	*************************
+    -->
+    <realmCode code="FR"/> 
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <!-- Conformité spécifications HL7 France -->
+    <templateId root="2.16.840.1.113883.2.8.2.1"/>
+    <!-- Conformité spécifications au CI-SIS -->
+    <templateId root="1.2.250.1.213.1.1.1.1"/>
+    <!-- Conformité au modèle du document LDL-SES version 2020.01 -->
+    <templateId root="1.2.250.1.213.1.1.1.29" extension="2020.01"/>
+    <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root - dans cet exemple OID de test) -->
+    <id root="1.2.250.1.213.1.1.9" extension="LDL-SES-2020.01_20191203_001_1"/> 
+    <!-- Type de document -->
+    <code code="11490-0" displayName="Lettre de liaison à la sortie d'un établissement de soins"
+        codeSystem="2.16.840.1.113883.6.1"  codeSystemName="LOINC"/> 
+    <!-- Titre du document -->
+    <title>Lettre de liaison à la sortie de l'établissement de santé</title>
+    <!-- Date de création du document -->
+    <effectiveTime value="20191203133000+0100"/>
+    <!-- Niveau de confidentialité du document -->
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+    <!-- Langue du document -->
+    <languageCode code="fr-FR"/>
+    <!-- Identifiant commun à toutes les versions successives du document -->
+    <setId root="1.2.250.1.213.1.1.9" extension="LDL-SES-2020.01_20191203_001"/>
+    <!-- Numéro de la version du présent document (entier positif) -->
+    <versionNumber value="1"/>
+   
+    <!-- Patient -->
+    <recordTarget>
+        <patientRole>
+            <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+            <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+            <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+            <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+            <!-- Adresse du patient -->
+            <addr>
+                <houseNumber>28</houseNumber>
+                <streetName>Avenue de Breteuil</streetName>
+                <unitID>Escalier A</unitID>
+                <postalCode>75007</postalCode>
+                <city>PARIS</city>
+                <country>FRANCE</country>
+            </addr>
+            <!-- Coordonnées télécom du patient -->
+            <telecom value="tel:0144534551" use="H"/>
+            <telecom value="tel:0647151010" use="MC"/>
+            <telecom value="mailto:ruth.decourcy@mail.fr"/>
+            <!-- Identité du patient -->
+            <patient classCode="PSN">
+                <name>
+                    <given qualifier="BR">RUTH</given>
+                    <given>ISABELLE</given>
+                    <family qualifier="BR">NESSI</family>
+                    <family qualifier="SP">DECOURCY</family>
+                    <family qualifier="CL">DECOURCY</family>
+                </name>
+                <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19770714"/>
+                <!-- Représentant du patient -->
+                <guardian>
+                    <addr use="H">
+                        <houseNumber>28</houseNumber>
+                        <streetName>Avenue de Breteuil</streetName>
+                        <postalCode>75007</postalCode>
+                        <city>PARIS</city>
+                        <country>FRANCE</country>
+                    </addr>
+                    <telecom value="tel:0147150000" use="H"/>
+                    <guardianPerson>
+                        <name>
+                            <prefix>MME</prefix>
+                            <family>NESSI</family>
+                            <given>Jeanne</given>
+                        </name>
+                    </guardianPerson>
+                </guardian>
+                <!-- Lieu de naissance du patient -->
+                <birthplace>
+                    <place>
+                        <addr>
+                            <county>63220</county>
+                            <city>MAZOIRES</city>
+                        </addr>
+                    </place>
+                </birthplace>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    
+    <!-- Auteur du document-->
+    <author>
+        <time value="20191203133000+0100"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <!-- Identifiant RPPS du PS -->
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+            <!-- Profession / spécialité du PS -->
+            <code code="G15_10/SM27" displayName="Médecin - Médecine interne (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/> 
+            <addr>
+                <houseNumber>20</houseNumber>
+                <streetName>Rue Leblanc</streetName>
+                <postalCode>75015</postalCode>
+                <city>PARIS</city>
+            </addr> 
+            <telecom value="tel:0141297500" use="WP"/>
+            <assignedPerson>
+                <name>
+                    <given>Charles</given>
+                    <family>DAVID</family>
+                    <prefix>M</prefix>
+                    <suffix>DR</suffix>
+                </name>
+            </assignedPerson>
+            <!-- ES (optionnel) -->
+            <representedOrganization>
+                <!-- établissement identifié par son N° FINESS -->
+                <id root="1.2.250.1.71.4.2.2" extension="1750803447"/>
+                <name>Hôpital Européen Georges Pompidou</name>                  
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    
+    <!-- Personne à prévenir en cas d'urgence -->
+    <informant>
+        <relatedEntity classCode="ECON">
+            <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+            <addr nullFlavor="NAV"/>
+            <telecom value="tel:0647150100" use="MC"/>
+            <relatedPerson>
+                <name>
+                    <family>NESSI</family>
+                    <given>Sophie</given>
+                </name>
+            </relatedPerson>
+        </relatedEntity>
+    </informant>
+    
+    <!-- Personne de confiance -->
+    <informant>
+        <relatedEntity classCode="NOK">
+            <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+            <addr nullFlavor="NAV"/>
+            <telecom value="tel:0647150100" use="MC"/>
+            <relatedPerson>
+                <name>
+                    <family>NESSI</family>
+                    <given>Sophie</given>
+                </name>
+            </relatedPerson>
+        </relatedEntity>
+    </informant>
+    
+    <!-- Organisation chargée de la conservation du document -->   
+    <custodian typeCode="CST">
+        <assignedCustodian>
+            <representedCustodianOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="1750803447"/>
+                <name>Hôpital Européen Georges Pompidou</name>
+                <telecom value="tel:0141297500" use="WP"/>
+                <addr>
+                    <houseNumber>20</houseNumber>
+                    <streetName>Rue Leblanc</streetName>
+                    <postalCode>75015</postalCode>
+                    <city>PARIS</city>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian> 
+
+    <!-- Destinataire du document --> 
+    <informationRecipient>
+        <intendedRecipient>
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+            <informationRecipient>
+                <name>
+                    <family>BOILEAU</family>
+                    <given>Charles</given>
+                    <prefix>M</prefix>
+                    <suffix>DR</suffix>
+                </name>
+            </informationRecipient>
+            <receivedOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+                <name>Centre de soins du Belvédère</name>
+            </receivedOrganization>
+        </intendedRecipient>
+    </informationRecipient>
+    
+    <!-- Destinataire du document --> 
+    <informationRecipient>
+        <intendedRecipient>
+            <id root="1.2.250.1.71.4.2.1" extension="801234567896"/>
+            <informationRecipient>
+                <name>
+                    <family>DUCOUT</family>
+                    <given>Elsa</given>
+                    <prefix>MME</prefix>
+                </name>
+            </informationRecipient>
+            <receivedOrganization>
+                <id extension="1120456789" root="1.2.250.1.71.4.2.2"/>
+                <name>Cabinet infirmière libérale</name>
+            </receivedOrganization>
+        </intendedRecipient>
+    </informationRecipient>
+    
+    <!-- Responsable du document -->
+    <legalAuthenticator>
+        <time value="20191203133000-0100"/>
+        <signatureCode code="S"/>
+        <assignedEntity>            
+            <!-- Identifiant RPPS du PS -->
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>            
+            <assignedPerson>
+                <name>
+                    <given>Léon </given>
+                    <family>AUGUIN</family>
+                    <prefix>M</prefix>
+                    <suffix>PR</suffix>
+                </name>
+            </assignedPerson>
+            <!-- ES (optionnel) -->
+            <representedOrganization>
+                <!-- établissement identifié par son N° FINESS -->
+                <id root="1.2.250.1.71.4.2.2" extension="1750803447"/>
+                <name>Hôpital Européen Georges Pompidou</name>
+                <telecom value="tel:0141297500" use="WP"/>
+                <addr>
+                    <houseNumber>20</houseNumber>
+                    <streetName>Rue Leblanc</streetName>
+                    <postalCode>75015</postalCode>
+                    <city>PARIS</city>
+                </addr>
+                <standardIndustryClassCode code="ETABLISSEMENT" 
+                    displayName="Etablissement de santé"
+                    codeSystem="1.2.250.1.213.1.1.4.9" 
+                    codeSystemName="practiceSettingCode"/>
+            </representedOrganization>
+        </assignedEntity>
+    </legalAuthenticator>
+     
+    <!-- Medecin traitant-->
+    <participant typeCode="INF">
+        <functionCode code="PCP" displayName="Médecin Traitant" codeSystem="2.16.840.1.113883.5.88"/>
+        <time nullFlavor="NA"/>
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="801984758437"/>
+            <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <addr>
+                <houseNumber>3</houseNumber>
+                <streetName>Rue Petit Pont</streetName>
+                <postalCode>75005</postalCode>
+                <city>PARIS</city>
+            </addr>
+            <telecom value="tel:0147150000" use="WP"/>
+            <associatedPerson>
+                <name>
+                    <prefix>M</prefix>
+                    <suffix>DR</suffix>
+                    <given>Stéphane</given>
+                    <family>MEDIONI</family>
+                </name>
+            </associatedPerson>
+            <scopingOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="2801984755893"/>
+                <name>Cabinet du Dr Medioni</name>
+                <telecom value="tel:0142515100" use="WP"/>
+                <addr>
+                    <houseNumber>3</houseNumber>
+                    <streetName>Rue Petit Pont</streetName>
+                    <postalCode>75005</postalCode>
+                    <city>PARIS</city>
+                </addr>
+            </scopingOrganization>
+        </associatedEntity>
+    </participant> 
+   
+    <!-- Actes documentés-->
+    <documentationOf typeCode="DOC">
+        <serviceEvent classCode="ACT" moodCode="EVN">
+            <code code="IMP" displayName="Hospitalisation" 
+                codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode"/>
+            <effectiveTime>
+                <!-- Date de début d'hospitalisation -->
+                <low value="20191029111700+0100"/>
+                <!-- Date de fin d'hospitalisation (date de décès le cas échéant) -->
+                <high value="20191203133000+0100"/>
+            </effectiveTime>
+            <!-- Réalisation de l'acte -->
+            <performer typeCode="PRF">
+                <time>
+                    <high value="20191029111700+0100"/>
+                </time>
+                <assignedEntity>                   
+                    <!-- Identifiant RPPS du PS -->
+                    <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+                    <assignedPerson>
+                        <name>
+                            <given>Léon</given>
+                            <family>AUGUIN</family>
+                            <prefix>M</prefix>
+                            <suffix>DR</suffix>
+                        </name>
+                    </assignedPerson>
+                    <representedOrganization>
+                        <name>Service de Cardiologie</name>
+                        <telecom nullFlavor="NAV"/>
+                        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+                            codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>                        
+                    </representedOrganization>
+                </assignedEntity>
+            </performer>
+        </serviceEvent>
+    </documentationOf>
+    
+    <!-- Prise en charge --> 
+    <componentOf>
+        <encompassingEncounter>
+            <effectiveTime>
+                <low value="20191029111700+0100"/>
+                <high value="20191203133000+0100"/>
+            </effectiveTime>
+            <location>
+                <healthCareFacility>
+                    <code code="SA01" displayName="Etablissement public de santé"
+                        codeSystem="1.2.250.1.71.4.2.4"/> 
+                </healthCareFacility>
+            </location>
+        </encompassingEncounter>
+    </componentOf>
+
+<!--	**************************************************************************************************************
+		CORPS DU DOCUMENT
+		**************************************************************************************************************    -->
+
+    <component>
+        <structuredBody>
+            
+            <!-- [1..1] Section FR-Statut-du-document-LDL-SES -->
+            <component>
+                <section>
+                    <templateId root="1.2.250.1.213.1.1.2.35"/>
+                    <templateId root="1.2.250.1.213.1.1.2.35.1"/>
+                    <id root="2DB3E431-03B4-4FC4-99E5-AA2E3CE1D12A"/>
+                    <code code="33557-0" displayName="Etat d'achèvement"  
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Statut du document</title>
+                    <text>
+                        <table border="0">
+                            <tbody align="left">
+                                <tr>
+                                    <td>Statut du document</td>
+                                    <td><content ID="statutDoc">En cours</content></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <!-- [1..1] Entrée FR-Statut-document-LDL-SES -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.16"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.16.1"/>
+                            <id root="402F3A79-F829-4572-8B65-65BC43367B70"/>
+                            <code code="GEN-065" displayName="Statut du document"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="#statutDoc"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type="CD" code="GEN-066" displayName="En cours"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                        </observation>
+                    </entry>
+                </section>
+            </component>
+            
+            <!-- [1..1] Section FR-Raison-de-la-recommandation-non-code -->
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+                    <templateId root="1.2.250.1.213.1.1.2.127"/>
+                    <code code="42349-1" displayName="Raison de la recommandation"  
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Motif de l'hospitalisation</title>
+                    <text>
+                        <table border="0">
+                            <tbody align="left">
+                                <tr><td>Episode psychotique – cachexie/anorexie</td></tr>
+                            </tbody>
+                        </table>
+                    </text>
+                </section>
+            </component>  
+            
+            <!-- [1..1] Section FR-Resultats-evenements-LDL-SES -->
+            <component>
+                <section>                    
+                    <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+                    <templateId root="1.2.250.1.213.1.1.2.163"/>
+                    <templateId root="1.2.250.1.213.1.1.2.163.1"/>
+                    <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+                    <code code="42545-4" displayName="Evènements observés"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <title>Synthèse médicale du séjour</title>
+                    <!-- Bloc narratif de la section -->
+                    <text>
+                        <table border="0">
+                            <thead><tr><th colspan="2">Synthèse médicale du séjour</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>Modalité et date d'entrée en hospitalisation </td>
+                                    <td><content ID="modaliteE">29/10/2018, Transfert</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Modalité et date de sortie d'hospitalisation</td>
+                                    <td><content ID="modaliteS">05/11/2018, Autre établissement de santé</content></td>
+                                </tr> 
+                                <tr>
+                                    <td>Synthèse médicale</td>
+                                    <td><content ID="synthese">Infection respiratoire aigüe</content></td>
+                                </tr> 
+                                <tr>
+                                    <td>Evénements indésirables survenus pendant l'hospitalisation</td>
+                                    <td><content ID="EvenementIndesirable">Aucun</content></td>
+                                </tr> 
+                                <tr>
+                                    <td>Recherche de microorganismes multi-résistants ou émergents effectuée</td>
+                                    <td><content ID="RechercheMicroMulti">10/07/2018, Oui</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Identification de micro-organismes multirésistants</td>
+                                    <td><content ID="identMicroOrg">Streptococcus pneumoniae</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Transfusion de produits sanguins</td>
+                                    <td><content ID="transfu">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Accidents transfusionnels</td>
+                                    <td><content ID="AccidentsTransfusionnels">Aucun</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Administration de dérivés du sang</td>
+                                    <td><content ID="adminSang">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Evènements indésirables suite à l'administration de dérivés du sang</td>
+                                    <td><content ID="admiSang-evenement-indesirable">Aucun</content></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>                    
+                    
+                    <!-- [1..1] Entrée FR-Modalite-entree -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.6"/>
+                            <id root="F597BFD5-2BD0-4163-892A-7C51830E2BA6"/>
+                            <code code="ORG-070" displayName="Modalité d'entrée"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="modaliteE"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181029"/>
+                            <value xsi:type="CE" code="ORG-069" displayName="Transfert" 
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <author>
+                                <time value="20191203133000+0100"/>
+                                <assignedAuthor classCode="ASSIGNED">
+                                    <!-- N°RPPS du PS -->
+                                    <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+                                    <!-- Profession / spécialité du PS -->
+                                    <code code="G15_10/SM27" displayName="Médecin - Médecine interne (SM)"
+                                        codeSystem="1.2.250.1.213.1.1.4.5"/> 
+                                    <addr>
+                                        <houseNumber>20</houseNumber>
+                                        <streetName>Rue Leblanc</streetName>
+                                        <postalCode>75015</postalCode>
+                                        <city>PARIS</city>
+                                    </addr> 
+                                    <telecom nullFlavor="NASK"/>
+                                    <assignedPerson>
+                                        <name>
+                                            <given>Charles</given>
+                                            <family>DAVID</family>
+                                            <prefix>M</prefix>
+                                            <suffix>DR</suffix>
+                                        </name>
+                                    </assignedPerson>
+                                    <!-- Etablissement du PS (optionnel)  -->
+                                    <representedOrganization>
+                                        <!-- N° FINESS de l'ES -->
+                                        <id root="1.2.250.1.71.4.2.2" extension="1750803447"/>
+                                        <name>Hôpital Européen Georges Pompidou</name>
+                                        <telecom nullFlavor="NAV"/>
+                                        <addr>
+                                            <houseNumber>20</houseNumber>
+                                            <streetName>Rue Leblanc</streetName>
+                                            <postalCode>75015</postalCode>
+                                            <city>PARIS</city>
+                                        </addr>                                        
+                                    </representedOrganization>
+                                </assignedAuthor>
+                            </author>
+                        </observation>
+                    </entry>                    
+                    
+                    <!-- [1..1] Entrée FR-Modalite-sortie -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.7"/>
+                            <id root="1E384EA2-2083-4F17-B825-6A088D2A0E6E"/>
+                            <code code="ORG-074" displayName="Modalité de sortie"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="modaliteS"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type="CE" code="ORG-073" displayName="Autre établissement de santé"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                        </observation>
+                    </entry>
+                    
+                    <!-- [1..1] Entrée FR-Synthese-medicale-sejour -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.9"/>
+                            <id root="174F6D84-986E-4032-8F99-91975403B955"/>
+                            <code code="MED-142" displayName="Synthèse médicale"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName='TA_ASIP'/>
+                            <text><reference value="synthese"></reference></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20181203'/>
+                            <value xsi:type='ST'>Infection respiratoire aigüe</value>
+                            <author>
+                                <time value="20191203133000+0100"/>
+                                <assignedAuthor classCode="ASSIGNED">
+                                    <!-- N°RPPS du PS -->
+                                    <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+                                    <!-- Profession / spécialité du PS -->
+                                    <code code="G15_10/SM27" displayName="Médecin - Médecine interne (SM)"
+                                        codeSystem="1.2.250.1.213.1.1.4.5"/> 
+                                    <addr>
+                                        <houseNumber>20</houseNumber>
+                                        <streetName>Rue Leblanc</streetName>
+                                        <postalCode>75015</postalCode>
+                                        <city>PARIS</city>
+                                    </addr> 
+                                    <telecom nullFlavor="NASK"/>
+                                    <assignedPerson>
+                                        <name>
+                                            <given>Charles</given>
+                                            <family>DAVID</family>
+                                            <prefix>M</prefix>
+                                            <suffix>DR</suffix>
+                                        </name>
+                                    </assignedPerson>
+                                    <!-- Etablissement du PS (optionnel)  -->
+                                    <representedOrganization>
+                                        <!-- N° FINESS de l'ES -->
+                                        <id root="1.2.250.1.71.4.2.2" extension="1750803447"/>
+                                        <name>Hôpital Européen Georges Pompidou</name>
+                                        <telecom nullFlavor="NAV"/>
+                                        <addr>
+                                            <houseNumber>20</houseNumber>
+                                            <streetName>Rue Leblanc</streetName>
+                                            <postalCode>75015</postalCode>
+                                            <city>PARIS</city>
+                                        </addr>                                        
+                                    </representedOrganization>
+                                </assignedAuthor>
+                            </author>
+                        </observation>
+                    </entry>
+                    
+                    <!-- [0..1] Entrée FR-Evenement-indesirable-pendant-hospitalisation -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.3"/>
+                            <id root="D1DFF1EF-CCE0-40DE-8C78-1827B31208EE"/>
+                            <code code="MED-143"
+                                displayName="Evènements indésirables survenus pendant l'hospitalisation"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="EvenementIndesirable"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type='ST'>Aucun</value>
+                        </observation>
+                    </entry>
+                    
+                    <!-- [1..1] Entrée FR-Recherche-de-micro-organismes -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.8"/>
+                            <id root="D1DFF1EF-CCE0-40DE-8C78-1827B31208AA"/>
+                            <code code="MED-309"
+                                displayName="Recherche de microorganismes multi-résistants ou émergents effectuée"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="RechercheMicroMulti"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type="BL" value="true"/>                             
+                        </observation>
+                    </entry>
+                    
+                    <!-- [0..1] Entrée FR-Identification-micro-organismes-multiresistants -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.5"/>
+                            <id root="53C6C420-96EF-47D4-8ECA-B25460140B8F"/>
+                            <code code="MED-144" displayName="Identification de micro-organismes multirésistants"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="identMicroOrg"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type="ST">Streptococcus pneumoniae</value>
+                        </observation>
+                    </entry>
+                    
+                    <!-- [1..1] Entrée FR-Transfusion-de-produits-sanguins -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.10"/>
+                            <id root="53C6C420-96EF-47D4-8ECA-B25460140B8F"/>
+                            <code code="MED-145" displayName="Transfusion de produits sanguins"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="transfu"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type="BL" value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <!-- [0..1] Entrée FR-Accidents-transfusionnels -->
+                    <entry> 
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.1"/>
+                            <id root="12DA3A06-18E7-40B7-9397-1FA5B1552456"/>
+                            <code code="MED-146" displayName="Accidents transfusionnels"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="AccidentsTransfusionnels"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type='ST'>Aucun</value>
+                        </observation>
+                    </entry>
+                    
+                    <!-- [1..1] Entrée FR-Administration-de-derives-du-sang -->
+                    <entry> 
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.2"/>
+                            <id root="12DA3A06-18E7-40B7-9397-1FA5B1552472"/>
+                            <code code="MED-147" displayName="Administration de dérivés du sang"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="admiSang"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type="BL" value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <!-- [0..1] Entrée FR-Evenement-indesirable-suite-administration-derives-sang -->
+                    <entry> 
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <templateId root="1.2.250.1.213.1.1.3.48.4"/>
+                            <id root="12DA3A06-18E7-40B7-9397-1FA5B1552433"/>
+                            <code code="MED-148" displayName="Evènements indésirables suite à l'administration de dérivés du sang"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value="admiSang-evenement-indesirable"/></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20181203"/>
+                            <value xsi:type='ST'>Aucun</value>
+                        </observation>
+                    </entry>
+                    
+                </section>
+            </component>
+    
+            <!-- [0..1] Section FR-Traitements-administres -->
+            <!-- Médicaments administrés et arretés durant le sejour -->
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.21"/>
+                    <id root="4A402640-1CF6-4153-B5BA-D56B623004C8"/>
+                    <code code="18610-6" displayName="Traitements administrés"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Traitements arrêtés durant le séjour</title>
+                    <!-- Bloc narratif de la section -->
+                    <text>
+                        <table border="0">
+                            <thead>
+                                <tr>
+                                    <th>Date de début</th>
+                                    <th>Date de fin</th>
+                                    <th>Médicament</th>
+                                    <th>Dose</th>
+                                    <th>Fréquence</th>
+                                    <th>Voie admin.</th>
+                                    <th>Rythme admin.</th>
+                                    <th>Dose max</th>
+                                    <th>Commentaire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/08/2018</td>
+                                    <td>29/10/2019</td>
+                                    <td><content ID="MED-001">SOLIAN 100 mg</content></td>
+                                    <td>1 comprimé</td>                                     
+                                    <td>1 fois / jour</td>                                  
+                                    <td>prendre par la bouche</td>              
+                                    <td>100 mg / jour</td>
+                                    <td>200 mg / jour</td>
+                                    <td>arrêt suite à analyses médicales</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <!-- [1..*] Entrée FR-Traitement -->
+                    <entry>
+                        <substanceAdministration classCode="SBADM" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <templateId root="1.2.250.1.213.1.1.3.42"/>
+                            <id root="2ED5EF29-8305-4383-8945-C13F2A988D5E"/>
+                            <code code="DRUG" displayName="Médicament" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode"></code>
+                            <text><reference value="#MED-001"></reference></text>
+                            <statusCode code="completed"/>
+                            <!-- Durée du traitement -->
+                            <effectiveTime xsi:type="IVL_TS">
+                                <low value="20180801"/>
+                                <high value="20191029"/>
+                            </effectiveTime>
+                            <!-- Fréquence d'administration -->
+                            <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                <period value="1" unit="d"/>
+                            </effectiveTime>
+                            
+                            <!-- Dose -->
+                            <doseQuantity>
+                                <low value="1" unit="{tbl}"/>
+                                <high value="1" unit="{tbl}"/>
+                            </doseQuantity>
+                            <!-- Rythme d'administration -->
+                            <rateQuantity>
+                                <low value='100' unit='mg/d'/>
+                                <high value='100' unit='mg/d'/>
+                            </rateQuantity>
+                            <!-- Dose max -->
+                            <maxDoseQuantity>
+                                <numerator value='200' unit='mg'/>
+                                <denominator value='1' unit='d'/>
+                            </maxDoseQuantity>
+                            <!-- Entrée Produit de santé -->
+                            <consumable>
+                                <manufacturedProduct>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <templateId root="1.2.250.1.213.1.1.3.43"/>
+                                    <manufacturedMaterial>
+                                        <!-- Code médicament - CIS -->
+                                        <code code="60019927" displayName="SOLIAN 100 mg, comprimé sécable"
+                                            codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                                            <originalText><reference value="#MED-001"/></originalText>                                            
+                                            <!-- Code médicament - CIP -->
+                                            <translation code="3400934874741" displayName="SOLIAN 100 mg, comprimé sécable, plaquette(s) thermoformée(s) PVC-Aluminium de 30 comprimé(s)"
+                                                codeSystem="1.2.250.1.213.2.3.2" codeSystemName="CIP"/>                                            
+                                            <!-- Code médicament - ATC -->
+                                            <translation code="N05AL05" displayName="Antipsychotique"
+                                                codeSystem="2.16.840.1.113883.6.73" codeSystemName="ATC"/>
+                                        </code>
+                                        <!-- Nom de Spécialité -->
+                                        <name>SOLIAN 100 mg</name>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </consumable>
+                        </substanceAdministration>
+                    </entry>
+                </section>
+            </component>
+            
+            <!-- [1..1] Section FR-Traitements-a-la-sortie -->
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.22"/>
+                    <templateId root="1.2.250.1.213.1.1.2.146"/>
+                    <id root="D2E72AFE-401E-4CD2-8583-8473714A32A5"/>
+                    <code code="10183-2" 
+                        displayName="Traitements à la sortie"
+                        codeSystem="2.16.840.1.113883.6.1" 
+                        codeSystemName="LOINC"/>
+                    <title>Traitements à la sortie</title>
+                    <!-- Bloc narratif de la section -->
+                    <text>
+                        <table border="0">
+                            <thead>
+                                <tr>
+                                    <th>Date de début</th>
+                                    <th>Date de fin</th>
+                                    <th>Médicament</th>
+                                    <th>Dose</th>
+                                    <th>Fréquence</th>
+                                    <th>Voie admin.</th>
+                                    <th>Rythme admin.</th>
+                                    <th>Dose max</th>
+                                    <th>Commentaire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>03/12/2019</td>
+                                    <td>02/02/2020</td>
+                                    <td><content ID="MED-002">LEPONEX 100 mg</content></td>
+                                    <td>1 comprimé</td>                                     
+                                    <td>1 fois / jour</td>                                  
+                                    <td>prendre par la bouche</td>             
+                                    <td>100 mg / jour</td>
+                                    <td>300 mg / jour</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <!-- [1..*] Entrée FR-Traitement -->
+                    <entry>
+                        <substanceAdministration classCode="SBADM" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <templateId root="1.2.250.1.213.1.1.3.42"/>
+                            <id root="2ED5EF29-8305-4383-8945-C13F2A988D5E"/>
+                            <code code="DRUG" displayName="Médicament" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode"></code>
+                            <text><reference value="#MED-002"></reference></text>
+                            <statusCode code="completed"/>
+                            <!-- Durée du traitement -->
+                            <effectiveTime xsi:type="IVL_TS">
+                                <low value="20191203"/>
+                                <high value="20200202"/>
+                            </effectiveTime>
+                            <!-- Fréquence d'administration -->
+                            <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                <period value="1" unit="d"/>
+                            </effectiveTime>
+                            <!-- Dose -->
+                            <doseQuantity>
+                                <low value="1" unit="{tbl}"/>
+                                <high value="1" unit="{tbl}"/>
+                            </doseQuantity>
+                            <!-- Rythme d'administration -->
+                            <rateQuantity>
+                                <low value='100' unit='mg/d'/>
+                                <high value='100' unit='mg/d'/>
+                            </rateQuantity>
+                            <!-- Dose max -->
+                            <maxDoseQuantity>
+                                <numerator value='300' unit='mg'/>
+                                <denominator value='1' unit='d'/>
+                            </maxDoseQuantity>
+                            <!-- Entrée Produit de santé -->
+                            <consumable>
+                                <manufacturedProduct>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <templateId root="1.2.250.1.213.1.1.3.43"/>
+                                    <manufacturedMaterial>                                        
+                                        <!-- Code médicament - CIS -->
+                                        <code code="62552920" displayName="LEPONEX 100 mg, comprimé sécable"
+                                            codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                                            <originalText><reference value="#MED-002"/></originalText>
+                                            <!-- Code médicament - ATC -->
+                                            <translation code="N05AH02" displayName="Clozapine"
+                                                codeSystem="2.16.840.1.113883.6.73" codeSystemName="ATC"/>
+                                        </code>
+                                        <!-- Nom de Spécialité -->
+                                        <name>LEPONEX 100 mg</name>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </consumable>
+                        </substanceAdministration>
+                    </entry>
+               </section>      
+            </component>
+
+            <!-- [0..1] Section FR-Resultats-examens-non-code -->
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+                    <templateId root="1.2.250.1.213.1.1.2.150"/>
+                    <id root="A6C982F6-ACAE-4CDC-A901-C400AB8972E6"/>
+                    <code code="30954-2" displayName="Résultats d'examens" 
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Résultats d'examens / Autres informations attendus</title>
+                    <!-- Bloc narratif de la section -->
+                    <text>
+                        <table border="0">
+                            <thead>
+                                <tr><th colspan="3">Résultats d'examens / Autres informations attendus</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><content ID="comment01"> Echographie attendue</content></td></tr>
+                            </tbody>
+                        </table>
+                    </text>
+                </section>
+            </component>
+            
+            <!-- [0..1] Section FR-Plan-de-soins -->
+            <component>                                
+                <section>
+                    <templateId root="2.16.840.1.113883.10.20.1.10"/>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+                    <templateId root="1.2.250.1.213.1.1.2.158"/>
+                    <id root="FC21DC59-43D5-4BB0-ACC7-3601784BFBC0"/>
+                    <code code="18776-5" displayName="Plan de soins" 
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Suites à donner</title>
+                    <!-- Bloc narratif de la section -->
+                    <text>
+                        <table border="0">
+                            <thead>
+                                <tr><th colspan="3">Actes</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ECQH010 [CCAM]</td>
+                                    <td><content ID="ACT01">Scanographie des vaisseaux du thorax et/ou du cœur [Angioscanner thoracique]</content></td>
+                                    <td>Urgent</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <table border="0">
+                            <thead>
+                                <tr><th colspan="3">Demandes d'examen / de suivi</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Suivi</td>
+                                    <td><content ID="EXAM01">Suivi par le psychiatre à prévoir</content></td>
+                                    <td>01/01/2020</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <table border="0">
+                            <thead>
+                                <tr><th colspan="3">Consultations</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ambulatoire</td>
+                                    <td><content ID="CONSULT01">Médecin traitant</content></td>
+                                    <td>05/12/2019 (recontacter pour fixer RDV)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <!-- [0..*] Entrée FR-Acte -->
+                    <entry>
+                        <procedure classCode="PROC" moodCode="INT">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                            <templateId root="1.2.250.1.213.1.1.3.62"/>
+                            <!-- si acte à réaliser (INT) -->
+                            <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                            <id root="A6BC7FD2-EC3F-4E01-B567-854B087D1D9B"/>
+                            <!-- Type d'acte -->
+                            <code code="ECQH010" 
+                                displayName="Scanographie des vaisseaux du thorax et/ou du cœur [Angioscanner thoracique]"
+                                codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                            <text><reference value='#ACT01'/></text>
+                            <!-- Statut de l'entrée -->
+                            <statusCode code='active'/>
+                            <!-- Date de l'acte -->
+                            <effectiveTime nullFlavor="UNK"/>
+                            <!-- Priorité de l'acte -->
+                            <priorityCode code="UR" displayName="Urgent" 
+                                codeSystem="2.16.840.1.113883.5.7" codeSystemName="HL7:ActPriority"/>
+                        </procedure>
+                    </entry>
+                    
+                    <!-- [0..*] Entrée FR-Demande-d-examen-ou-de-suivi -->
+                    <entry>
+                        <observation classCode='OBS' moodCode='INT'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>                            
+                            <templateId root="1.2.250.1.213.1.1.3.27"/>
+                            <id root='F83D3DB2-C511-4CFA-B216-773F6DEADB4D'/>
+                            <!-- Type d'examen -->
+                            <code code="ORG-064" displayName="Demande d'examen ou de suivi"
+                                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                            <text><reference value='#EXAM01'/></text>
+                            <!-- Statut de l'entrée -->
+                            <statusCode code='active'/>
+                            <!-- Date prévisionnelle ou attendue de l'examen -->
+                            <effectiveTime value='20210101'/>
+                            <value xsi:type="ST">Suivi par le psychiatre à prévoir</value>
+                        </observation>
+                    </entry>
+                    
+                    <!-- [0..*] Entrée FR-Rencontre -->
+                    <entry>
+                        <encounter classCode='ENC' moodCode='ARQ'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.14'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.21' />
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>                            
+                            <templateId root="1.2.250.1.213.1.1.3.58"/>
+                            <id root='4AA6DCFC-6628-42E7-8D6F-68621568F584'/>
+                            <!-- Type de rencontre -->
+                            <code code="AMB" displayName="Ambulatoire (hors établissement)"
+                                codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActEncounterCode" />
+                            <text><reference value='#CONSULT01'/></text>
+                            <!-- Date de la rencontre -->
+                            <effectiveTime value="20191205"/>
+                            <priorityCode code='CS' displayName="recontacter pour fixer RDV"
+                                codeSystem="2.16.840.1.113883.5.7" codeSystemName="ActPriority" />
+                        </encounter>
+                    </entry>
+                </section>
+            </component>
+            
+            <!-- [0..1] Section FR-Dispositifs-medicaux -->
+            <component>
+                <section>
+                    <templateId root="1.2.250.1.213.1.1.2.1"/>
+                    <id root="CE20BE10-E414-410D-875E-57FE35303CE1"/>
+                    <code code="46264-8" displayName="Dispositifs médicaux" 
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Dispositifs médicaux</title>
+                    <!-- Bloc narratif de la section -->
+                    <text>
+                        <table border="0">
+                            <thead>
+                                <tr>
+                                    <th>Date d'utilisation</th>
+                                    <th>Catégorie de DM</th>
+                                    <th>Identifiant unique du DM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>24/09/2018</td>
+                                    <td><content ID="DM001-categorie">STIMULATEUR CARDIAQUE IMPLANTABLE TRIPLE CHAMBRE</content></td>
+                                    <td>[1.2.250.1.213.1.1.9.9 (OID de test)] eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <!-- [1..*] Entrée FR-Dispositif-medical -->
+                    <entry>
+                        <supply classCode="SPLY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                            <templateId root="1.2.250.1.213.1.1.3.20"/>
+                            <!-- Identifiant de la fourniture du DM (OID de test) -->
+                            <id root="1.2.250.1.213.1.1.9.9" extension="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"/>
+                            <!-- Date d'utilisation -->
+                            <effectiveTime value="20181203"/>
+                            <!-- Dispositif médical -->
+                            <participant typeCode="DEV">
+                                <participantRole classCode="MANU">
+                                    <!-- UDI-DI + UDI-PI du DM (EUDAMED) ou Référence catalogue -->
+                                    <id root="xxxxxxxxxxxxxxxxxxxxxx" extension="{01}00844588003288{17}141120{10}7654321D{21}10987654d321" />
+                                    <!-- [1..1] Catégorie de DM -->
+                                    <playingDevice classCode="DEV" determinerCode="INSTANCE">
+                                        <code code="J010104" displayName="STIMULATEUR CARDIAQUE IMPLANTABLE TRIPLE CHAMBRE" 
+                                            codeSystem="1.2.250.1.213.2.68" codeSystemName="EMDN">                                            
+                                            <originalText><reference value="#DM001-categorie"></reference></originalText>
+                                            <translation code="C50FA05" displayName="STIMULATEUR CARDIAQUE IMPLANTABLE TRIPLE CHAMBRE" 
+                                                codeSystem="1.2.250.1.213.2.65" codeSystemName="CLADIMED">
+                                            </translation>            
+                                            <translation code="3408693" displayName="STIMULATEUR CARDIAQUE DE RE-SYNCHRO VENTRICULAIRE, BIOTRONIK, EDORA 8 HF-T." 
+                                                codeSystem="1.2.250.1.215.200.2.1" codeSystemName="LPP">
+                                            </translation>
+                                        </code>
+                                    </playingDevice>
+                                </participantRole>
+                            </participant>
+                        </supply>
+                    </entry>
+                </section>
+            </component>
+            
+            <!-- [0..1] Section FR-Allergies-et-intolerances (Allergies identifiées pendant le séjour) -->
+            <component>
+                <section>
+                    <templateId root="2.16.840.1.113883.10.20.1.2"/>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
+                    <templateId root="1.2.250.1.213.1.1.2.137"/>
+                    <id root="29085A50-9B57-48CB-9295-3DFCDD194069"/>
+                    <code code="48765-2" displayName="Allergies, réactions adverses, alertes" 
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Allergies identifiées pendant le séjour</title>
+                    <!-- Bloc narratif de la section -->
+                    <text>Aucune allergie / intolérance identifiée pendant le séjour</text>
+                    <!-- [1..1] Entrée FR-Liste-des-allergies-et-intolerance -->
+                    <entry>
+                        <act classCode="ACT" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+                            <templateId root="1.2.250.1.213.1.1.3.40"/>
+                            <id root="1269C206-4D59-4A9D-AA2D-AA0C4622D525"/>
+                            <code nullFlavor="NA"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime>
+                                <low nullFlavor="NA"/>
+                                <high nullFlavor="NA"/>
+                            </effectiveTime>
+                            
+                            <!-- [1..*] Entrée FR-Allergie-ouintolerance -->
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                    <templateId root="2.16.840.1.113883.10.20.1.18"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+                                    <templateId root="1.2.250.1.213.1.1.3.41"/>
+                                    <id root="C64C6013-C8AF-4938-AD10-1B7D26DEE2A0"/>
+                                    <!-- Type d'allergie / intolérance -->
+                                    <code code="DALG" displayName="Allergie médicamenteuse"
+                                        codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode"/>
+                                    <text><reference value="#NO-ALL"/></text>
+                                    <statusCode code="completed"/>
+                                    <!-- Date de l'allergie / intolérance -->
+                                    <effectiveTime xsi:type="IVL_TS">
+                                        <low nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <!-- Description clinique de l'allergie -->
+                                    <value xsi:type="CD" code="02276797" displayName="Aucun"
+                                        codeSystem="1.2.250.1.213.2.63" codeSystemName="Wolf">  
+                                        <originalText><reference value="#NO-ALL"/></originalText>
+                                    </value>
+                                </observation>
+                            </entryRelationship>
+                        </act>
+                    </entry>
+                </section>
+            </component>
+            
+        </structuredBody>
+    </component>
+</ClinicalDocument>

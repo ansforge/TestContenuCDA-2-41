@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par nmahraz, le 09/03/2022-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008"><ValueSet id="1.2.250.1.213.1.1.5.538" displayName="JDV_ExamenMacroscopiePeritoine_CISIS" version="test"><ConceptList><Concept code="MED-701" displayName="Pas d'aspect macroscopique d'invasion" codeSystem="1.2.250.1.213.1.1.4.322"/><Concept code="MED-702" displayName="Invasion de la surface péritonéale en 
+regard de la tumeur" codeSystem="1.2.250.1.213.1.1.4.322"/><Concept code="MED-703" displayName="Présence de nodules péritonéaux 
+à distance de la tumeur" codeSystem="1.2.250.1.213.1.1.4.322"/></ConceptList></ValueSet></RetrieveValueSetResponse>

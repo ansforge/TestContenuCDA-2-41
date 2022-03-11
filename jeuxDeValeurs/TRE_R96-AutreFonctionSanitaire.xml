@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20171013120000" description="Autres fonctions du domaine sanitaire" displayName="TRE_R96-AutreFonctionSanitaire.tabs" id="1.2.250.1.213.1.6.1.110" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R96-AutreFonctionSanitaire">
+        <ConceptList>
+            <Concept code="400" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="20181026120000" dateMaj="20181026120000" dateValid="20171013120000" displayName="Aide-soignant" longDesignation="Aide-soignant" shortDesignation="Aide-soignant"/>
+            <Concept code="401" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="20181026120000" dateMaj="20181026120000" dateValid="20171013120000" displayName="Auxiliaire de puériculture" longDesignation="Auxiliaire de puériculture" shortDesignation="Auxiliaire de puériculture"/>
+            <Concept code="402" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="20181026120000" dateMaj="20181026120000" dateValid="20171013120000" displayName="Préparateur en pharmacie hospitalière" longDesignation="Préparateur en pharmacie hospitalière" shortDesignation="Prép en pharmacie (hôpital)"/>
+            <Concept code="403" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="20181026120000" dateMaj="20181026120000" dateValid="20171013120000" displayName="Préparateur en pharmacie (officine)" longDesignation="Préparateur en pharmacie (officine)" shortDesignation="Prép en pharmacie (officine)"/>
+            <Concept code="404" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="20190329120000" dateMaj="20190329120000" dateValid="20171013120000" displayName="Conseiller en génétique" longDesignation="Conseiller en génétique" shortDesignation="Conseiller en génétique"/>
+            <Concept code="405" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="20190426120000" dateMaj="20190426120000" dateValid="20171013120000" displayName="Radiophysicien" longDesignation="Radiophysicien" shortDesignation="Radiophysicien"/>
+            <Concept code="406" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="20181026120000" dateMaj="20181026120000" dateValid="20171013120000" displayName="Assistant dentaire" longDesignation="Assistant dentaire" shortDesignation="Assistant dentaire"/>
+            <Concept code="407" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="" dateMaj="20171013120000" dateValid="20171013120000" displayName="Tatoueur" longDesignation="Tatoueur" shortDesignation="Tatoueur"/>
+            <Concept code="408" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="" dateMaj="20171013120000" dateValid="20171013120000" displayName="Perceur corporel" longDesignation="Perceur corporel" shortDesignation="Perceur corporel"/>
+            <Concept code="409" codeSystem="1.2.250.1.213.1.6.1.110" dateFin="" dateMaj="20190329120000" dateValid="20171013120000" displayName="Maquilleur permanent" longDesignation="Maquilleur permanent" shortDesignation="Maquilleur permanent"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

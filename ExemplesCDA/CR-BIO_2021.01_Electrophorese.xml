@@ -1,0 +1,2932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_CR-BIO_2021.01.sch"?>
+<!-- 
+	**********************************************************************************************************
+    Document : Compte-rendu d’examens de biologie médicale (CR-BIO_2021.01)      
+    Auteur : ANS
+    **********************************************************************************************************
+    format HL7 - CDA Release 2 niveau 3
+    **********************************************************************************************************
+    Corrections :
+    13/07/2021 : unité "G/l" remplacée par "10*9/L" comme demandé dans JDV Circuit de la biologie pour le code="6690-2"
+    13/07/2021 : unité "T/l" remplacée par "10*12/L" comme demandé dans JDV Circuit de la biologie pour le code="789-8"    
+    13/07/2021 : unité "G/l" remplacée par "10*9/L" comme demandé dans JDV Circuit de la biologie pour le code="777-3"
+    13/07/2021 : code "44063" remplacé par code="20-8" comme demandé dans JDV Circuit de la biologie
+    13/07/2021 : code "43858" remplacé par code="28-1" comme demandé dans JDV Circuit de la biologie
+    13/07/2021 : unité "/mg/L" remplacée par "mg/L" dans les résultats Antibiogrammes
+    **********************************************************************************************************
+-->
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd">
+  <!--
+    ********************************************************
+    En-tête du document
+    ********************************************************
+	-->
+  <realmCode code="FR" />
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Déclarations de conformité HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Déclarations de conformité CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Déclarations de conformité au modèle CR-BIO du CI-SIS -->
+  <templateId root="1.3.6.1.4.1.19376.1.3.3" extension="2021.01" />
+  <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+  <id root="1.2.250.1.213.1.1.9" extension="CR-BIO_2021.01_20210104_007_1" />
+  <!-- Type de document -->
+  <code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>Compte rendu d'examens biologiques</title>
+  <!-- Date et heure de création du document -->
+  <effectiveTime value="20210104160527+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- identifiant commun à toutes les versions successives du comtpe rendu -->
+  <setId root="1.2.250.1.213.1.1.9" extension="CR-BIO_2021.01_20210104_007" />
+  <!-- numéro de la version courante (entier positif), ici la première version -->
+  <versionNumber value="1" />
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8" />
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H" />
+      <telecom value="tel:0647151010" use="MC" />
+      <telecom value="mailto:ruth.decourcy@mail.fr" />
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19770714" />
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H" />
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <!-- Auteur -->
+  <author>
+    <time value="20210104160527+0100" />
+    <assignedAuthor>
+      <id root="1.2.250.1.71.4.2.1" extension="801234534765" />
+      <code code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>8</houseNumber>
+        <streetName>Rue Frédéric Bastia</streetName>
+        <postalCode>92100</postalCode>
+        <city>BOULOGNE-BILLANCOURT</city>
+      </addr>
+      <telecom value="tel:0174589607" use="WP" />
+      <assignedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Marcel</given>
+          <family>CAMPARINI</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120459876" />
+        <!-- Nom de l'organisation -->
+        <name>Laboratoire des charmes</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:0174589607" use="WP" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>8</houseNumber>
+          <streetName>Rue Frédéric Bastia</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111" />
+      <addr nullFlavor="NAV" />
+      <telecom value="tel:0647150100" use="MC" />
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111" />
+      <addr nullFlavor="NAV" />
+      <telecom value="tel:0647150100" use="MC" />
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  <!-- Organisation chargée de la conservation du document -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120459876" />
+        <!-- Nom de l'organisation -->
+        <name>Laboratoire des charmes</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:0174589607" use="WP" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>8</houseNumber>
+          <streetName>Rue Frédéric Bastia</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <!-- Responsable du document -->
+  <legalAuthenticator>
+    <!-- Date et heure de la prise de responsabilité -->
+    <time value="20210104160527+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234534765" />
+      <!-- Profession / spécialité du PS -->
+      <code code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <!-- Adresse du PS-->
+      <addr>
+        <houseNumber>8</houseNumber>
+        <streetName>Rue Frédéric Bastia</streetName>
+        <postalCode>92100</postalCode>
+        <city>BOULOGNE-BILLANCOURT</city>
+      </addr>
+      <!-- Coordonnées télécom du PS-->
+      <telecom value="tel:0174589607" use="WP" />
+      <!-- Identité du PS -->
+      <assignedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Marcel</given>
+          <family>CAMPARINI</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <!-- Etablissement de rattachement du PS -->
+      <representedOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120459876" />
+        <!-- Nom de l'organisation -->
+        <name>Laboratoire des charmes</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:0174589607" use="WP" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>8</houseNumber>
+          <streetName>Rue Frédéric Bastia</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <!-- Biologiste ayant validé des résultats présents sur le compte rendu -->
+  <authenticator>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5" />
+    <time value="202101041120+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567898" />
+      <addr>
+        <houseNumber>8</houseNumber>
+        <streetName>Rue Frédéric Bastia</streetName>
+        <postalCode>92100</postalCode>
+        <city>BOULOGNE-BILLANCOURT</city>
+      </addr>
+      <telecom value="tel:0174589607" use="WP" />
+      <assignedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Jean</given>
+          <family>DE SANTS</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <!-- Etablissement de rattachement du PS -->
+      <representedOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120459876" />
+        <!-- Nom de l'organisation -->
+        <name>Laboratoire des charmes</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:0174589607" use="WP" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>8</houseNumber>
+          <streetName>Rue Frédéric Bastia</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedEntity>
+  </authenticator>
+  <!-- Biologiste ayant validé des résultats présents sur le compte rendu -->
+  <authenticator>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5" />
+    <time value="202101041130+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567866" />
+      <addr>
+        <houseNumber>8</houseNumber>
+        <streetName>Rue Frédéric Bastia</streetName>
+        <postalCode>92100</postalCode>
+        <city>BOULOGNE-BILLANCOURT</city>
+      </addr>
+      <telecom value="tel:0174589607" use="WP" />
+      <assignedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Thierry</given>
+          <family>DIAZ</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <!-- Etablissement de rattachement du PS -->
+      <representedOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120459876" />
+        <!-- Nom de l'organisation -->
+        <name>Laboratoire des charmes</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:0174589607" use="WP" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>8</houseNumber>
+          <streetName>Rue Frédéric Bastia</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedEntity>
+  </authenticator>
+  <!-- Médecin prescripteur des examens de biologie (ici, un gynécologue) -->
+  <participant typeCode="REF">
+    <!-- Date de l'ordonnance -->
+    <time xsi:type="IVL_TS">
+      <high value="20201231" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567892" />
+      <code code="G15_10/C25" displayName="Médecin - Gynécologie médicale (C)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr nullFlavor="MSK" />
+      <telecom value="tel:0147150000" use="EC" />
+      <associatedPerson>
+        <name>
+          <prefix>MME</prefix>
+          <given>Eva</given>
+          <family>BLUE</family>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120459384" />
+        <!-- Nom de l'organisation -->
+        <name>Cabinet du DR BLUE</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:014537865" use="WP" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>12</houseNumber>
+          <streetName>Rue Laetitia GREEN</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- Préleveur (ici, une infirmière) -->
+  <participant typeCode="PRF">
+    <functionCode code="PRELV" displayName="Préleveur" codeSystem="1.2.250.1.213.1.1.4.2.280" />
+    <!-- Date et heure de prélèvement -->
+    <time xsi:type="IVL_TS">
+      <high value="202101040735+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567893" />
+      <code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>12</houseNumber>
+        <streetName>Rue du renard</streetName>
+        <postalCode>92100</postalCode>
+        <city>BOULOGNE-BILLANCOURT</city>
+      </addr>
+      <telecom value="tel:0149154578" use="EC" />
+      <associatedPerson>
+        <name>
+          <prefix>MME</prefix>
+          <given>Roberta</given>
+          <family>BLEEDER</family>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120452948" />
+        <!-- Nom de l'organisation -->
+        <name>Cabinet d'infirmières de BB</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:0138475439" use="WP" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>12</houseNumber>
+          <streetName>Rue du renard</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!--  Identifiant de la prescription d'examens de biologie reçue par le laboratoire -->
+  <inFulfillmentOf>
+    <order>
+      <id root="1.2.250.1.213.1.1.9" extension="2021123456789" />
+    </order>
+  </inFulfillmentOf>
+  <!--  Acte principal : La demande d'examens enregistrée dans le SI du laboratoire (SGL) et le 1er chapitre du compte rendu -->
+  <documentationOf>
+    <serviceEvent>
+      <id root="1.2.250.1.213.1.1.9" extension="202111111123" />
+      <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <lab:statusCode code="completed" />
+      <effectiveTime>
+        <!-- Date de réception de la demande et des échantillons -->
+        <low value="20210104092200+0100" />
+        <!-- Date de fin de traitement = date et heure de libération du compte rendu final -->
+        <high value="20210104160500+0100" />
+      </effectiveTime>
+      <!-- Laboratoire exécutant -->
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+        <time>
+          <high value="20210104152530+0100" />
+        </time>
+        <assignedEntity>
+          <!-- Identifiant du directeur du laboratoire -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234534765" />
+          <code code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+          <addr>
+            <houseNumber>8</houseNumber>
+            <streetName>Rue Frédéric Bastia</streetName>
+            <postalCode>92100</postalCode>
+            <city>BOULOGNE-BILLANCOURT</city>
+          </addr>
+          <telecom value="tel:0174589607" use="WP" />
+          <assignedPerson>
+            <name>
+              <prefix>M</prefix>
+              <given>Marcel</given>
+              <family>CAMPARINI</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <!-- Identifiant de l'organisation -->
+            <id root="1.2.250.1.71.4.2.2" extension="1120459876" />
+            <!-- Nom de l'organisation -->
+            <name>Laboratoire des charmes</name>
+            <!-- Coordonnées télécom de l'organisation -->
+            <telecom value="tel:0174589607" use="WP" />
+            <!-- Adresse de l'organisation -->
+            <addr>
+              <houseNumber>8</houseNumber>
+              <streetName>Rue Frédéric Bastia</streetName>
+              <postalCode>92100</postalCode>
+              <city>BOULOGNE-BILLANCOURT</city>
+            </addr>
+            <!-- Cadre d'exercice : Laboratoire de ville -->
+            <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <!--  Acte secondaire : Chapitres de biologie du compte rendu -->
+  <documentationOf>
+    <serviceEvent>
+      <code code="18723-7" displayName="Hématologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+    </serviceEvent>
+  </documentationOf>
+  <!--  Acte secondaire : Chapitres de biologie du compte rendu -->
+  <documentationOf>
+    <serviceEvent>
+      <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+    </serviceEvent>
+  </documentationOf>
+  <!-- Contexte de la prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <code code="AMB" displayName="ambulatoire" codeSystem="2.16.840.1.113883.5.4" />
+      <effectiveTime>
+        <low value="202101040735+0100" />
+      </effectiveTime>
+      <!-- Biologiste et laboratoire responsable -->
+      <responsibleParty>
+        <assignedEntity>
+          <!-- Identifiant du biologiste responsable -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234534765" />
+          <!-- Profession / Spécialité du biologiste responsable -->
+          <code code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+          <!-- Adresse du biologiste responsable -->
+          <addr>
+            <houseNumber>8</houseNumber>
+            <streetName>Rue Frédéric Bastia</streetName>
+            <postalCode>92100</postalCode>
+            <city>BOULOGNE-BILLANCOURT</city>
+          </addr>
+          <!-- Coordonnées télécom du biologiste responsable -->
+          <telecom value="tel:0174589607" use="WP" />
+          <!-- Identité du biologiste responsable -->
+          <assignedPerson>
+            <name>
+              <prefix>M</prefix>
+              <given>Marcel</given>
+              <family>CAMPARINI</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <!-- Laboratoire du biologiste responsable -->
+          <representedOrganization>
+            <!-- Identifiant du laboratoire responsable -->
+            <id root="1.2.250.1.71.4.2.2" extension="1120459876" />
+            <!-- Numéro d'accréditation du laboratoire responsable  -->
+            <id root="1.2.250.1.213.6.3.1" extension="8-WXYZ" assigningAuthorityName="COFRAC" />
+            <!-- Nom du laboratoire responsable -->
+            <name>Laboratoire des charmes</name>
+            <!-- Coordonnées télécom du laboratoire responsable -->
+            <telecom value="tel:0174589607" use="WP" />
+            <!-- Adresse du laboratoire responsable -->
+            <addr>
+              <houseNumber>8</houseNumber>
+              <streetName>Rue Frédéric Bastia</streetName>
+              <postalCode>92100</postalCode>
+              <city>BOULOGNE-BILLANCOURT</city>
+            </addr>
+          </representedOrganization>
+        </assignedEntity>
+      </responsibleParty>
+      <!-- Laboratoire où s’est déroulée la prise en charge -->
+      <location>
+        <healthCareFacility>
+          <!-- Modalité d’exercice -->
+          <code code="SA25" displayName="Laboratoire de biologie médicale" codeSystem="1.2.250.1.71.4.2.4">
+          </code>
+          <!-- Localisation du laboratoire -->
+          <location>
+            <!-- Nom du laboratoire responsable -->
+            <name>Laboratoire des charmes</name>
+            <!-- Adresse du laboratoire responsable -->
+            <addr>
+              <houseNumber>8</houseNumber>
+              <streetName>Rue Frédéric Bastia</streetName>
+              <postalCode>92100</postalCode>
+              <city>BOULOGNE-BILLANCOURT</city>
+            </addr>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!--
+    ********************************************************
+    Corps du document
+    ********************************************************
+    -->
+  <component>
+    <structuredBody>
+      <!-- Section FR-Commentaire-non-code -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.73"/>
+          <id root="E9BCD936-DDBA-41C9-AB5B-D9B190A8DE81" />
+          <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Non conformité</title>
+          <!-- Bloc narratif de la section -->
+          <text>(texte libre)</text>
+        </section>
+      </component>
+      <!-- Section FR-CR-de-biologie de premier niveau = chapitre "Biochimie" -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC Laboratory Specialty -->
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.70"/>
+          <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>BIOCHIMIE</title>
+          <!-- Section FR-Examen-de-biologie de second niveau : "Electrophorèse des protéines" -->
+          <component>
+            <section>
+              <!-- Conformité IHE PCC Laboratory Report Item -->
+              <templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.71"/>
+              <code code="14340-4" displayName="Electrophorèse des protéines" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <title>Electrophorèse des protéines sériques :</title>
+              <text>
+                <paragraph>Prélèvement du 04/01/2021 à 07h35 par le Cabinet
+									d'infirmières de BB</paragraph>
+                <paragraph>Technique d'analyse : Electrophorèse</paragraph>
+                <table border="0">
+                  <thead>
+                    <tr>
+                      <th colspan="3">Protéinogramme</th>
+                    </tr>
+                    <tr>
+                      <th />
+                      <th>04/01/2021 13:19:33</th>
+                      <th>Valeurs de référence</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <content ID="Proteines">Protéines totales (g/L)</content>
+                      </td>
+                      <td>75,0</td>
+                      <td>63,00 - 83,00</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Albumine-pourcentage">Albumine (%)</content>
+                      </td>
+                      <td>60,0</td>
+                      <td>40 - 80</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Albumine">Albumine (g/L)</content>
+                      </td>
+                      <td>45,0</td>
+                      <td>36,00 - 48,00</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Alpha-1-globulines-pourcentage">Alpha 1 globulines (%)</content>
+                      </td>
+                      <td>5,0</td>
+                      <td />
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Alpha-1-globulines">Alpha1 (g/L)</content>
+                      </td>
+                      <td>3,8</td>
+                      <td>0,80 - 3,20</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Alpha-2-globulines-pourcentage">Alpha 2 globulines (%)</content>
+                      </td>
+                      <td>9,0</td>
+                      <td>8,3 - 10,1</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Alpha-2-globulines">Alpha2 (g/L)</content>
+                      </td>
+                      <td>6,8</td>
+                      <td>4,50 - 10,50</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Beta-globulines-pourcentage">Béta globulines (%)</content>
+                      </td>
+                      <td>11,0</td>
+                      <td>6 - 12</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Beta-globulines">Béta (g/L)</content>
+                      </td>
+                      <td>8,3</td>
+                      <td>3,50 - 9,50</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Gamma-globulines-pourcentage">Gamma globulines (%)</content>
+                      </td>
+                      <td>15,0</td>
+                      <td>8 - 17</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Gamma-globulines">Gamma (g/L)</content>
+                      </td>
+                      <td>11,3</td>
+                      <td>6,50 - 14,50</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Rapport-Albumine-globuline">Rapport Albumine/globuline</content>
+                      </td>
+                      <td>1,50</td>
+                      <td>1 - 5</td>
+                    </tr>
+                    <tr>
+                      <td>Conclusion</td>
+                      <td ID="CONCL">Bisalbuminémie</td>
+                      <td />
+                    </tr>
+                  </tbody>
+                </table>
+                <renderMultiMedia referencedObject="ELECTROPHORESE" />
+                <br />
+                <paragraph>Résultats validés par Jean DE SANTS - 04/01/2021,
+									11h20</paragraph>
+                <br />
+              </text>
+              <!-- Entrée FR-Resultats-examens-de-biologie-medicale : "Electrophorèse des protéines" -->
+              <entry typeCode="DRIV">
+                <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+                <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+                <!-- Conformité CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.21"/>
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="14340-4" displayName="Electrophorèse des protéines" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                    <translation code="LABO1_ELECTROP" displayName="Electrophorèse des protéines" codeSystem="1.2.3.4.833" codeSystemName="LABO1" />
+                  </code>
+                  <statusCode code="completed" />
+                  <!-- Laboratoire exécutant -->
+                  <performer typeCode="PRF">
+                    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+                    <time value="202101041050+0100" />
+                    <assignedEntity>
+                      <id root="1.2.250.1.71.4.2.1" extension="801234567833" />
+                      <addr nullFlavor="MSK" />
+                      <telecom nullFlavor="MSK" />
+                      <assignedPerson>
+                        <name>
+                          <prefix>M</prefix>
+                          <given>Jean</given>
+                          <family>DE SANTS</family>
+                          <suffix>DR</suffix>
+                        </name>
+                      </assignedPerson>
+                      <representedOrganization>
+                        <id root="1.2.250.1.71.4.2.2" extension="1120456733" />
+                        <name>LABORATOIRE SOUS-TRAITANT</name>
+                        <telecom nullFlavor="MSK" />
+                        <addr nullFlavor="MSK" />
+                      </representedOrganization>
+                    </assignedEntity>
+                  </performer>
+                  <!-- Biologiste ayant validé les résultats -->
+                  <participant typeCode="AUTHEN">
+                    <!-- Conformité IHE PCC -->
+                    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
+                    <!-- Conformité CI-SIS -->
+                    <templateId root="1.2.250.1.213.1.1.3.109"/>
+                    <time>
+                      <high value="202101041120+0100" />
+                    </time>
+                    <participantRole>
+                      <id root="1.2.250.1.71.4.2.1" extension="801234567898" />
+                      <addr>
+                        <houseNumber>8</houseNumber>
+                        <streetName>Rue Frédéric Bastia</streetName>
+                        <postalCode>92100</postalCode>
+                        <city>BOULOGNE-BILLANCOURT</city>
+                      </addr>
+                      <telecom value="tel:0174589607" use="WP" />
+                      <playingEntity>
+                        <name>
+                          <prefix>M</prefix>
+                          <given>Jean</given>
+                          <family>DE SANTS</family>
+                          <suffix>DR</suffix>
+                        </name>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <!-- Entrée FR-Prelevement -->
+                  <entryRelationship typeCode="COMP">
+                    <procedure classCode="PROC" moodCode="EVN">
+                      <!-- Conformité IHE PCC Specimen Collection -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.77"/>
+                      <code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Ponction veineuse" codeSystemName="NABM" />
+                      <!-- Date et heure  prélèvement -->
+                      <effectiveTime>
+                        <high value="202101040735+0100" />
+                      </effectiveTime>
+                      <!-- Préleveur -->
+                      <performer>
+                        <assignedEntity>
+                          <id root="1.2.250.1.71.4.2.1" extension="801234567893" />
+                          <code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5" />
+                          <addr>
+                            <houseNumber>12</houseNumber>
+                            <streetName>Rue du renard</streetName>
+                            <postalCode>92100</postalCode>
+                            <city>BOULOGNE-BILLANCOURT</city>
+                          </addr>
+                          <telecom value="tel:0149154578" use="EC" />
+                          <assignedPerson>
+                            <name>
+                              <prefix>MME</prefix>
+                              <given>Roberta</given>
+                              <family>BLEEDER</family>
+                            </name>
+                          </assignedPerson>
+                          <!-- Organisation pour laquelle travaille le préleveur -->
+                          <representedOrganization>
+                            <!-- Identifiant de l'organisation -->
+                            <id root="1.2.250.1.71.4.2.2" extension="1120452948" />
+                            <!-- Nom de l'organisation -->
+                            <name>Cabinet d'infirmières de BB</name>
+                            <!-- Coordonnées télécom de l'organisation -->
+                            <telecom value="tel:0138475439" use="WP" />
+                            <!-- Adresse de l'organisation -->
+                            <addr>
+                              <houseNumber>12</houseNumber>
+                              <streetName>Rue du renard</streetName>
+                              <postalCode>92100</postalCode>
+                              <city>BOULOGNE-BILLANCOURT</city>
+                            </addr>
+                          </representedOrganization>
+                        </assignedEntity>
+                      </performer>
+                      <!-- Echantillon biologique prélevé -->
+                      <participant typeCode="PRD">
+                        <participantRole classCode="SPEC">
+                          <!-- identifiant (code barre) -->
+                          <id root="D5A9EF50-D05E-11DD-AD8B-0800200C9A66" extension="12345678A" />
+                          <playingEntity>
+                            <!-- Nature d'échantillon -->
+                            <code code="BLD" displayName="sang total" codeSystem="2.16.840.1.113883.5.129" />
+                          </playingEntity>
+                        </participantRole>
+                      </participant>
+                    </procedure>
+                  </entryRelationship>
+                  <!-- Entrée FR-Batterie-examens-de-biologie-medicale  -->
+                  <entryRelationship typeCode="COMP">
+                    <organizer classCode="BATTERY" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.78"/>
+                      <statusCode code="completed" />
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="2885-2" displayName="Protéines [Masse/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Proteines" />
+                            </originalText>
+                          </code>
+                          <!--<code>
+														<originalText><reference value="#Proteines"/></originalText>
+														<translation code="XX" codeSystem="YY" displayName="ZZ" codeSystemName="TT"/>
+													</code>-->
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="75.0" unit="g/L" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                          <referenceRange typeCode="REFV">
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="63.000000" unit="g/L" />
+                                <high value="83.000000" unit="g/L" />
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="13980-8" displayName="Albumine/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Albumine-pourcentage" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="60.0" unit="%" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="2862-1" displayName="Albumine [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Albumine" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="45.0" unit="g/L" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                          <referenceRange typeCode="REFV">
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="36.000000" unit="g/L" />
+                                <high value="48.000000" unit="g/L" />
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="13978-2" displayName="Alpha-1 globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Alpha-1-globulines-pourcentage" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="5.0" unit="%" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="2865-4" displayName="Alpha-1 globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Alpha-1-globulines" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="3.8" unit="g/L" />
+                          <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                          <referenceRange typeCode="REFV">
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="0.800000" unit="g/L" />
+                                <high value="3.200000" unit="g/L" />
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="13981-6" displayName="Alpha-2 globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Alpha-2-globulines-pourcentage" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="9.0" unit="%" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="2868-8" displayName="Alpha-2 globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Alpha-2-globulines" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="6.8" unit="g/L" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                          <referenceRange typeCode="REFV">
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="4.500000" unit="g/L" />
+                                <high value="10.500000" unit="g/L" />
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="13982-4" displayName="Bêta globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Beta-globulines-pourcentage" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="11.0" unit="%" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="2871-2" displayName="Beta globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Beta-globulines" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="8.3" unit="g/L" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                          <referenceRange typeCode="REFV">
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="3.500000" unit="g/L" />
+                                <high value="9.500000" unit="g/L" />
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="13983-2" displayName="Gamma globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Gamma-globulines-pourcentage" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="15.0" unit="%" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="2874-6" displayName="Gamma globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Gamma-globulines" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="11.3" unit="g/L" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                          <referenceRange typeCode="REFV">
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="6.500000" unit="g/L" />
+                                <high value="14.500000" unit="g/L" />
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="44429-9" displayName="Albumine/globulines [Masse ratio] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
+                            <originalText>
+                              <reference value="#Rapport-Albumine-globuline" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104131933+0100" />
+                          <value xsi:type="PQ" value="1.50" unit="{ratio}" />
+                          <methodCode code="0064" displayName="Electrophoresis" codeSystem="2.16.840.1.113883.5.84" />
+                        </observation>
+                      </component>
+                      <!-- Entrée FR-Commentaire-ER (Commentaire sur l'électrophorèse) -->
+                      <component>
+                        <act classCode="ACT" moodCode="EVN">
+                          <!-- Conformité CCD -->
+                          <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                          <!-- Conformité IHE PCC -->
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.32"/>
+                          <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                          <text>
+                            <reference value="#CONCL" />
+                          </text>
+                          <statusCode code="completed" />
+                        </act>
+                      </component>
+                      <!-- Entrée FR-Image-illustrative -->
+                      <component>
+                        <observationMedia classCode="OBS" moodCode="EVN" ID="ELECTROPHORESE">
+                          <!-- Conformité CCD -->
+                          <templateId root="2.16.840.1.113883.10.12.304"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.103"/>
+                          <value mediaType="image/png" representation="B64">iVBORw0KGgoAAAANSUhEUgAAAlgAAAEsBAMAAAGaFOAzAAAAD1BMVEX///8AAH9/f3+/AAAAAL+m
+												cZSiAAAAAXRSTlMAQObYZgAACCxJREFUeJztnQmuozoURLG8ASP1QpBYwZfe/tf0gxl9AdtFDFxC
+												ne6MEFMcjBnCc6rqGHVt6s/t4KerzA8+f7S6vmGiwGjt1aNpF8LRThvNlF70Nre0xj+Ljr6YaJM3
+												Wry0qRAbKc7llXYBepJoJlYzyE+T1dYUHq3sNIkge21ejKjCtfvg7zzfleX34p1xn/91cgPtXF0I
+												X9p3ycNkLAsvq1BlVj2PWstqyuxLlCvLlM9VCJZ1V1mf9t4/lmkonOKySm3XdS7HkmUZpbn6skod
+												oQ25ihR3ui/b32JnGrbLGmp90/0fz2zMa8LxmTeRl0bMgtt9cQkaK3O/W++6Ar/ev0f4rNol9+8J
+												IUqoi+4yVarLKnmalqd8iXZK7iKU3b1/ETobHau2rHK8oawifPYBuHIT8j1NwbW7SFnj/n2JsqZG
+												Ql0LRu6ldIVoxGMB5nOa3/MpxM7lfTHzzZynbaYCD0ba+Pzy1G9qE3/eLoA4tSt2NmLnfXm+MAM3
+												/DPTs/mfjlhuCuRuj3US7lPJFdZWU/XfF6iEsRAYC4GxEBgLgbEQ1MVabRN1fJdj/B7EIpamo2z1
+												sazSWDemWKFuTexhLIRlLB0Nl2eO1TBWEsZCUBdLbqpVhBp5QLulCMZCWMZStGujPZZVG0sRjIXA
+												WHk4eVStY2tdr8/La4jVw1gI2mM1ldpYemAshAfsnSpijGWnOxUwVh79wX6t8xgjqPJKY+lhjKWr
+												NX1GrEi4a3OHdWt/2s21q0PqMts2MfwkwlhbU2+Gu0uXYrgQZaymmv54/VrcPP0103ogBrft2epE
+												c9pPrq9Q8o/7rXjzzGg7rbxdZpoW4aoP0Jy+Qw/QHey3YdlLB6nVdBjcCrJ7eNwnsk00saEuNmUX
+												zRWZZM61ikb2ySCmvDvUJIrfHxqdWfI2XDVfR+yGV0pQcpW1wEzOTFWgzSrIuCjH5/dRO//PB5nu
+												/Tu1pkX568Q2LrdhfKxSvd2Uwq/N6nRpal0WMBYCYyEwFgJjITAWAmMhMBYCYyEwFgJjITwnlobv
+												7sz6TLKSWBoP9texVHx/vq5bjLXPY2KpYCOWBl2MhbCOdfGVDtswFgJjITwn1g0pVjxn46MBxkJg
+												LATGQmAsBKP3S2F5sK9gq2iGb/YnrJJYAsaKwFgIjIXwoFgKYCyEp8TSAWMhbMVSUL0YC4GxEBgL
+												gbEQVrEU7ANWG4evWmL1B/vT33NpiVWHp0a0xBIwVgTGQmAshKfE0sFmrPuNMRYCYyE8JJbfYWas
+												HRgL4SGxlMBYCIyFYETfKvevhB55sK8mVniwryZWiOZY9593YyyEzXaLsXZgLAR0m3hRuyZipT1d
+												kwuOdQ1gLHtR8O26tVpSduq9T1Ws8beHrtqS562Jl1c5ESvRLayNj1KO/FjAKN+zvRC3Ftplpjry
+												Y62H2faknjtlLCsexcBAVhs8FCaMFS6kobGS3Zz6kRb9wp6xZCMNxPCDQ7OO8Vkr+os9QVgQa152
+												zXDL+6FO2a3t9/Sx+h4IF6Xb8cXmBJdv9gXYA8ZiF+mPtpzd7kU4M1aH7LM2lTQn1gOJRY91l2sO
+												99BbD4XGOzmIDT3aXW4d76E3PeHjsVxkaLTj4AdXLUIS+N46h0dTO9M91rXrnvvHrgUanw/j+MdX
+												4sSt/000s3OrpsdX0tee+bFy1VSjxto0P3dDR7Yv1bVds5yoSWbRf/eLa1Yoy4jVUK6SL18Nya/S
+												bY1Tv6hBBroNjzOfdoANQRpnZln0FSVc+SgrCmUBUBYAZQFQFgBlAVAWAGUBUBYAZQFQFgBlAVAW
+												AGUBUBYAZQFQFgBlAVAWAGUBUBYAZQHkyNLyRzS3kyPrtEvxn4bvHy3xJStlDXQXic2yNi8Ss9f9
+												MYpyxmtC+gtDNmsWZY1ktFmUNUJZABmyGsoaoCyALFncK+2hLIC0LMvjnRHKAqAsAMoCoCwAygKg
+												LIAsWdyF70nLGnufIJSFQFkAlAVAWQCUBUBZAJQFQFkAlAVgkn8j3YniwaHHeF+xr+8pa8JfGBL7
+												+t5OdyTZZlHWDGUBUBYAZQFQFgBlAVAWQJ4sHu94KAuAsgAoCyApq1ncvx3KAsiUxX2HDsoCoCwA
+												ygKgLADKAqAsAMoCoCwAygJIfW84WuLxTiW/kaasKMZXK8rKItVmUdYCygKgLADKAqAsAMoCoCyA
+												lKxGPL4aygLIlcUj6YqyICgLgLIAKAuAsgASsuzqyZuhLADKAqAsgISsZuPZe6EsAMoCoCwAygJI
+												9NpNWUu8p91vpBc7DJRFWRDxNouyArJlcReesiAoCyAua9FQURZlQVAWAGUBZMs6tqP1W7+cFZUV
+												1KYjsn7sJ3vOlfVjvxVyqqxf6/D7dFm/VLWisgI/GXPdiI80eR97DCVl+dEX27+f6z8jX1Zyrhsx
+												ms372IOIyRJ1KTHXVjyO4//QegjIis/1PFRK+p2qFZMl5jIqazmwCT/9CllSTkyWXb2w28P8G23b
+												DI/POhyKyFrViP0qIn00+0eVrSzFPkfYvqx1RZpns5vjeR7Xc2vDD/evxgq1Zu99bezLWs+AbLI7
+												SXZzRu16FU5tS5/gK5RVz0+3wvfvLearmZ5G99CqyLmaOQC6Pq4vgM3EpEdJfdB3cd6vKdvV5UPb
+												hjVgrkApWbtbB5H80+bnrpS3y/r79/f33194+9ffbnhbDprerm/ie98vxRwTZoarJfAPVuNFFijj
+												b0ng1NXRSYoV/6Cs6qisrleJY8mro7JMfXT5dJMMXh9rM03dX4xz4INuuDAM/qQ7OMn5WrRjkyTk
+												DP4HW/K+LDjdqU4AAAAASUVORK5CYII= </value>
+                        </observationMedia>
+                      </component>
+                    </organizer>
+                  </entryRelationship>
+                </act>
+              </entry>
+            </section>
+          </component>
+          <!-- Section FR-Examen-de-biologie de second niveau : "Biochimie" -->
+          <component>
+            <section>
+              <!-- Conformité IHE PCC Laboratory Report Item -->
+              <templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.71"/>
+              <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1" />
+              <title>Autres examens de biochimie sanguine :</title>
+              <text>
+                <table border="0">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" />
+                      <th>Résultat du jour</th>
+                      <th rowspan="2">Interprétation</th>
+                      <th rowspan="2">Valeurs de référence</th>
+                      <th colspan="2">Résultats antérieurs</th>
+                    </tr>
+                    <tr>
+                      <th>04/01/2021 10:10</th>
+                      <th>12/09/2020 08:15</th>
+                      <th>03/01/2020 08:12</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <content ID="Uree">Urée</content>
+                      </td>
+                      <td>10.02 mmol/L (0.60 g/L)</td>
+                      <td>Anormalement haut</td>
+                      <td>[3.5 - 8.0] mmol/L</td>
+                      <td>8.5 mmol/L (0.51 g/L)</td>
+                      <td>7.9 mmol/L (0.48 g/L)</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <content ID="Glucose-a-jeun">Glucose à jeun</content>
+                      </td>
+                      <td>7.2 mmol/L (1.30 g/L)</td>
+                      <td>Anormalement haut</td>
+                      <td>[3.9 - 6.1] mmol/L</td>
+                      <td>7.2 mmol/L (1.30 g/L)</td>
+                      <td>6.0 mmol/L (1.08 g/L)</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+                <paragraph>Résultats validés par Thierry DIAZ - 04/01/2021,
+									11h30</paragraph>
+                <br />
+              </text>
+              <!-- Entrée FR-Resultats-examens-de-biologie-medicale : RESULTATS DE BIOCHIMIE -->
+              <entry typeCode="DRIV">
+                <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+                <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+                <!-- Conformité CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.21"/>
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="18719-5" codeSystem="2.16.840.1.113883.6.1" displayName="Biochimie" />
+                  <statusCode code="completed" />
+                  <!-- Biologiste ayant validé les résultats -->
+                  <participant typeCode="AUTHEN">
+                    <!-- Conformité IHE PCC -->
+                    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
+                    <!-- Conformité CI-SIS -->
+                    <templateId root="1.2.250.1.213.1.1.3.109"/>
+                    <time>
+                      <high value="202101041130+0100" />
+                    </time>
+                    <participantRole>
+                      <id root="1.2.250.1.71.4.2.1" extension="801234567866" />
+                      <addr>
+                        <houseNumber>8</houseNumber>
+                        <streetName>Rue Frédéric Bastia</streetName>
+                        <postalCode>92100</postalCode>
+                        <city>BOULOGNE-BILLANCOURT</city>
+                      </addr>
+                      <telecom value="tel:0174589607" use="WP" />
+                      <playingEntity>
+                        <name>
+                          <prefix>M</prefix>
+                          <given>Thierry</given>
+                          <family>DIAZ</family>
+                          <suffix>DR</suffix>
+                        </name>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="22664-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Urée [Moles/Volume] Sérum/Plasma ; Numérique">
+                        <originalText>
+                          <reference value="#Uree" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="202101041010+0100" />
+                      <value xsi:type="PQ" value="10.02" unit="mmol/L">
+                        <translation value="0.60" code="g/L" />
+                      </value>
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/2020 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="22664-7" displayName="Urée [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="202009120815+0100" />
+                          <value xsi:type="PQ" value="8.5" unit="mmol/L">
+                            <translation value="0.51" code="g/L" />
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <!-- résultat antérieur du 03/01/2020 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="22664-7" displayName="Urée [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="202001030812+0100" />
+                          <value xsi:type="PQ" value="7.9" unit="mmol/L">
+                            <translation value="0.48" code="g/L" />
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <!-- Intervalle de valeurs de référence -->
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="IVL_PQ">
+                            <low value="3.50" unit="mmol/L">
+                              <translation value="0.21" code="g/L" />
+                            </low>
+                            <high value="8" unit="mmol/L">
+                              <translation value="0.48" code="g/L" />
+                            </high>
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="40193-5" displayName="Glucose à jeun [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                        <originalText>
+                          <reference value="#Glucose-a-jeun" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="202101041010+0100" />
+                      <value xsi:type="PQ" value="7.2" unit="mmol/L">
+                        <!-- unité principale -->
+                        <translation value="1.30" code="g/L" />
+                        <!-- unité secondaire -->
+                      </value>
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/2020 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="40193-5" displayName="Glucose a jeun [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="202009120815+0100" />
+                          <value xsi:type="PQ" value="7.2" unit="mmol/L">
+                            <translation value="1.30" code="g/L" />
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <!-- résultat antérieur du 03/01/2020 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="40193-5" displayName="Glucose a jeun [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="202001030812+0100" />
+                          <value xsi:type="PQ" value="6.0" unit="mmol/L">
+                            <translation value="1.08" code="g/L" />
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <!-- Intervalle de valeurs de référence -->
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="IVL_PQ">
+                            <low value="3.9" unit="mmol/L">
+                              <!-- normale inférieure -->
+                              <translation value="0.7" code="g/L" />
+                            </low>
+                            <high value="6.1" unit="mmol/L">
+                              <!-- normale supérieure -->
+                              <translation value="1.10" code="g/L" />
+                            </high>
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </entryRelationship>
+                </act>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- Section FR-CR-de-biologie de premier niveau = chapitre "Hématologie", sans section de second niveau -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC Laboratory Specialty -->
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.70"/>
+          <code code="18723-7" displayName="Hématologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>HEMATOLOGIE</title>
+          <text>
+            <paragraph>Motif de l'examen : Bilan sanguin préopératoire.</paragraph>
+            <paragraph>Prescription initiale non modifiée.</paragraph>
+            <paragraph>Prélèvement du 04/01/2021 à 07h35 par le Cabinet d'infirmières BB</paragraph>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="5" styleCode="Bold">
+                    <content ID="hemogramme">Hémogramme</content>
+                  </th>
+                </tr>
+                <tr>
+                  <th />
+                  <th>04/01/2021 11:30</th>
+                  <th>Valeurs de référence</th>
+                  <th>Interprétation</th>
+                  <th>12/09/2020 08:15</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="Leucocytes">Leucocytes (10*9/L)</content>
+                  </td>
+                  <td>8.2</td>
+                  <td>5-10</td>
+                  <td />
+                  <td>5.8</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Hematies">Hématies (10*12/L)</content>
+                  </td>
+                  <td>4.95</td>
+                  <td>4.50-6.00</td>
+                  <td />
+                  <td>4.85</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Hemoglobine">Hémoglobine (g/dL)</content>
+                  </td>
+                  <td>13.4</td>
+                  <td>11.5-14.5</td>
+                  <td />
+                  <td>13.3</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Hematocrite">Hématocrite (%)</content>
+                  </td>
+                  <td>45</td>
+                  <td>40.0-54.0</td>
+                  <td />
+                  <td>45</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="VGM">Volume globulaire moyen (fL)</content>
+                  </td>
+                  <td>97</td>
+                  <td>85-95</td>
+                  <td>Haut, croissant</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="IDR">Indice de distribution erythrocytaire (%)</content>
+                  </td>
+                  <td>17.5</td>
+                  <td>11.5-14.5</td>
+                  <td>Haut</td>
+                  <td>13.0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="CCMH">Concentration corpusculaire moyenne en hémoglobine (g/dL)</content>
+                  </td>
+                  <td>33.0</td>
+                  <td>32-36</td>
+                  <td />
+                  <td>32.5</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="TCMH">Teneur corpusculaire moyenne en hémoglobine (pg)</content>
+                  </td>
+                  <td>31.0</td>
+                  <td>27-31</td>
+                  <td />
+                  <td>32.5</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Plaquettes">Plaquettes (10*9/L)</content>
+                  </td>
+                  <td>220</td>
+                  <td>150-400</td>
+                  <td />
+                  <td>210</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="VMP">Volume plaquettaire moyen (fL)</content>
+                  </td>
+                  <td>8</td>
+                  <td>7-10</td>
+                  <td />
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="IDP">Indice de distribution des plaquettes (%)</content>
+                  </td>
+                  <td>12</td>
+                  <td />
+                  <td />
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Polynucléaires-neutrophiles">Polynucléaires neutrophiles (%)</content>
+                  </td>
+                  <td>72</td>
+                  <td>45-70</td>
+                  <td>Haut</td>
+                  <td>70</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Polynucleaires-eosinophiles-pourcentage">Polynuclaires éosinophiles (%)</content>
+                  </td>
+                  <td>2</td>
+                  <td>1-3</td>
+                  <td />
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Polynucleaires-basophiles-pourcentage">Polynuclaires basophiles (%)</content>
+                  </td>
+                  <td>0</td>
+                  <td>0.5</td>
+                  <td />
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Lymphocytes-pourcentage">Lymphocytes (%)</content>
+                  </td>
+                  <td>20</td>
+                  <td>20-40</td>
+                  <td />
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Monocytes-pourcentage">Monocytes (%)</content>
+                  </td>
+                  <td>6</td>
+                  <td>3-7</td>
+                  <td />
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <paragraph styleCode="Bold" ID="ANISO">Interprétation : Anisocytose</paragraph>
+            <paragraph>Résultats validés par Jean DE SANTS - 04/01/2021, 11h20</paragraph>
+            <br />
+          </text>
+          <!-- Entrée FR-Resultats-examens-de-biologie-medicale : RESULTATS DE L'HEMOGRAMME -->
+          <entry typeCode="DRIV">
+            <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+            <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+            <!-- Conformité CI-SIS -->
+            <templateId root="1.2.250.1.213.1.1.3.21"/>
+            <act classCode="ACT" moodCode="EVN">
+              <code code="18723-7" displayName="Hématologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode code="completed" />
+              <!-- Biologiste ayant validé les résultats de cette entrée à 11h20 -->
+              <participant typeCode="AUTHEN">
+                <!-- Conformité IHE PCC -->
+                <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
+                <!-- Conformité CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109"/>
+                <time>
+                  <high value="202101041120+0100" />
+                </time>
+                <participantRole>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567898" />
+                  <addr>
+                    <houseNumber>8</houseNumber>
+                    <streetName>Rue Frédéric Bastia</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>BOULOGNE-BILLANCOURT</city>
+                  </addr>
+                  <telecom value="tel:0174589607" use="WP" />
+                  <playingEntity>
+                    <name>
+                      <prefix>M</prefix>
+                      <given>Jean</given>
+                      <family>DE SANTS</family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <!-- Entrée FR-Batterie-examens-de-biologie-medicale  -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.78"/>
+                  <code code="58410-2" displayName="Hémogramme complet sur automate" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : LEUCOCYTES -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="6690-2" codeSystem="2.16.840.1.113883.6.1" displayName="Leucocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#Leucocytes" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="8.2" unit="10*9/L" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="6690-2" displayName="Leucocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="5.8" unit="10*9/L" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="5" unit="10*9/L" />
+                            <high value="10" unit="10*9/L" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="789-8" codeSystem="2.16.840.1.113883.6.1" displayName="Érythrocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#Hematies" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="4.95" unit="10*12/L" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="789-8" displayName="Érythrocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="4.85" unit="10*12/L" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="4.50" unit="10*12/L" />
+                            <high value="6.00" unit="10*12/L" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="20509-6" codeSystem="2.16.840.1.113883.6.1" displayName="Hémoglobine [Masse/Volume] Sang ; Numérique ; Résultat calculé">
+                        <originalText>
+                          <reference value="#Hemoglobine" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="13.4" unit="g/dL" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="20509-6" displayName="Hémoglobine [Masse/Volume] Sang ; Numérique ; Résultat calculé" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="13.3" unit="g/dL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="11.5" unit="g/dL" />
+                            <high value="14.5" unit="g/dL" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="4544-3" codeSystem="2.16.840.1.113883.6.1" displayName="Hématocrite [Fraction volumique] Sang ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#Hematocrite" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="45" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="4544-3" displayName="Hématocrite [Fraction volumique] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="45" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="40" unit="%" />
+                            <high value="54" unit="%" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="30428-7" codeSystem="2.16.840.1.113883.6.1" displayName="Volume globulaire moyen [Volume d'entité] Erythrocytes ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#VGM" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="97" unit="fL" />
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="30428-7" displayName="Volume globulaire moyen [Volume d'entité] Erythrocytes ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="90" unit="fL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="85" unit="fL" />
+                            <high value="95" unit="fL" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="30385-9" displayName="Indice de distribution érythrocytaire [Ratio] Érythrocytes ; Numérique" codeSystem="2.16.840.1.113883.6.1">
+                        <originalText>
+                          <reference value="#IDR" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="17.5" unit="%" />
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="30385-9" displayName="Indice de distribution érythrocytaire [Ratio] Érythrocytes ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="13.0" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="11.5" unit="%" />
+                            <high value="14.5" unit="%" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="28540-3" displayName="Concentration corpusculaire moyenne en hémoglobine [Masse/Volume] Érythrocytes ; Numérique" codeSystem="2.16.840.1.113883.6.1">
+                        <originalText>
+                          <reference value="#CCMH" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="33.0" unit="g/dL" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="28540-3" displayName="Concentration corpusculaire moyenne en hémoglobine [Masse/Volume] Érythrocytes ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20092012081500+0100" />
+                          <value xsi:type="PQ" value="32.5" unit="g/dL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="32.0" unit="g/dL" />
+                            <high value="36.0" unit="g/dL" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="28539-5" codeSystem="2.16.840.1.113883.6.1" displayName="Teneur corpusculaire moyenne en hémoglobine [Masse d'entité] Érythrocytes ; Numérique">
+                        <originalText>
+                          <reference value="#TCMH" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="31.0" unit="pg" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="28539-5" displayName="Teneur corpusculaire moyenne en hémoglobine [Masse d'entité] Érythrocytes ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="32.5" unit="pg" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="27" unit="pg" />
+                            <high value="31" unit="pg" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="777-3" codeSystem="2.16.840.1.113883.6.1" displayName="Plaquettes [Nombre/Volume] Sang ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#Plaquettes" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="220" unit="10*9/L" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="777-3" displayName="Plaquettes [Nombre/Volume] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="210" unit="10*9/L" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="150" unit="10*9/L" />
+                            <high value="400" unit="10*9/L" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="32623-1" codeSystem="2.16.840.1.113883.6.1" displayName="Volume moyen plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#VMP" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="8" unit="fL" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="32623-1" displayName="Volume moyen plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automatee" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="8" unit="fL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="7" unit="fL" />
+                            <high value="10" unit="fL" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="32207-3" codeSystem="2.16.840.1.113883.6.1" displayName="Indice de distribution plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#IDP" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="12" unit="%" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="32207-3" displayName="Indice de distribution plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="12" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="26511-6" displayName="Polynucléaires neutrophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1">
+                        <originalText>
+                          <reference value="#Polynucleaires-neutrophiles" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="72" unit="%" />
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="26511-6" displayName="Polynucléaires neutrophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="70" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="45" unit="%" />
+                            <high value="70" unit="%" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="26450-7" codeSystem="2.16.840.1.113883.6.1" displayName="Polynucléaires éosinophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique">
+                        <originalText>
+                          <reference value="#Polynucleaires-eosinophiles-pourcentage" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="2" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="26450-7" displayName="Polynucléaires éosinophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="2" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="1" unit="%" />
+                            <high value="3" unit="%" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="30180-4" displayName="Polynucléaires basophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1">
+                        <originalText>
+                          <reference value="#Polynucleaires-basophiles-pourcentage" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="0" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="30180-4" displayName="Polynucléaires basophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="0.5" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="0.5" unit="%" />
+                            <high value="0.5" unit="%" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="26478-8" codeSystem="2.16.840.1.113883.6.1" displayName="Lymphocytes totaux/100 leucocytes [Fraction de nombres] Sang ; Numérique">
+                        <originalText>
+                          <reference value="#Lymphocytes-pourcentage" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="20" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="26478-8" displayName="Lymphocytes totaux/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="20" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="20" unit="%" />
+                            <high value="40" unit="%" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="26485-3" codeSystem="2.16.840.1.113883.6.1" displayName="Monocytes/100 leucocytes [Fraction de nombres] Sang ; Numérique">
+                        <originalText>
+                          <reference value="#Monocytes-pourcentage" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104113000+0100" />
+                      <value xsi:type="PQ" value="6" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <!-- résultat antérieur du 12/09/20 à 8h15 -->
+                      <entryRelationship typeCode="REFR">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="26485-3" displayName="Monocytes/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20200912081500+0100" />
+                          <value xsi:type="PQ" value="5" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange typeCode="REFV">
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="3" unit="%" />
+                            <high value="7" unit="%" />
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Commentaire -->
+                  <component>
+                    <act classCode="ACT" moodCode="EVN">
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.32"/>
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Commentaire" />
+                      <text>
+                        <reference value="#ANISO" />
+                      </text>
+                      <statusCode code="completed" />
+                    </act>
+                  </component>
+                </organizer>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- Section FR-CR-de-biologie de premier niveau = chapitre "Microbiologie", sans section de second niveau -->
+     <component>
+        <section>
+          <!-- Conformité IHE PCC Laboratory Specialty -->
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.70"/>
+          <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>EX MICROBIO URINES (ECBU)</title>
+          <text>
+            <!-- Prélèvement -->
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Prélèvement</th>
+                  <th>Nature échantillon</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="prelevement-code-nabm">EX MICROBIO URINES (ECBU)</content>
+                  </td>
+                  <td>
+                    <content ID="prelevement-nature-echantillon">urine</content>
+                  </td>
+                  <td>04/01/2021 à 07:35</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <!-- Examens directs -->
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>
+                    <content ID="CBU_EXDIR">Examen macroscopique</content>
+                  </th>
+                  <th>Résultat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="CBU-couleur">Couleur</content>
+                  </td>
+                  <td>
+                    <content ID="CBU-couleur-resultat">paille</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="CBU-aspect">Aspect</content>
+                  </td>
+                  <td>
+                    <content ID="CBU-aspect-resultat">clair</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <!-- Examens microscopiques -->
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>
+                    <content ID="CBU_MICRO">Microscopie</content>
+                  </th>
+                  <th>Résultat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="CBU-leucocytes">Leucocytes</content>
+                  </td>
+                  <td>500 /mL</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="CBU-erythtocytes">Erythtocytes</content>
+                  </td>
+                  <td>200 /mL</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="CBU-epitheliales">Cellules épithéliales</content>
+                  </td>
+                  <td>
+                    <content ID="CBU-epitheliales-resultat">absence</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="CBU-gram">Coloration de Gram</content>
+                  </td>
+                  <td>
+                    <content ID="CBU-gram-resultat">nombreux Gram - ; quelques Gram +</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <!-- Isolat 1 -->
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Isolat : <content ID="isolat-1">Escherichia coli</content></th>
+                  <th>Résultat</th>
+                  <th>Interprétation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <content ID="isolat-1-denombrement">Dénombrement de germes</content>
+                  </td>
+                  <td>100 000 /mL</td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td rowspan="4">
+                    <content ID="isolat-1-antibiogramme">Antibiogramme (CMI)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="isolat-1-amoxicilline">Amoxicilline</content>
+                  </td>
+                  <td>&gt;=0,512 (µg/ml)</td>
+                  <td>R</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="isolat-1-ampicilline">Ampicilline</content>
+                  </td>
+                  <td>&lt;0,128 (µg/ml)</td>
+                  <td>I</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="isolat-1-gentamicine">Gentamicine</content>
+                  </td>
+                  <td>&lt;0,0032 (µg/ml)</td>
+                  <td>S</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <!-- Isolat 2 -->
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Isolat : <content ID="isolat-2">Streptococcus D.</content></th>
+                  <th>Résultat</th>
+                  <th>Interprétation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <content ID="isolat-2-denombrement">Dénombrement de germes</content>
+                  </td>
+                  <td>200 000 /mL</td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td rowspan="4">
+                    <content ID="isolat-2-antibiogramme">Antibiogramme (CMI)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="isolat-2-amoxicilline">Amoxicilline</content>
+                  </td>
+                  <td>&lt;0,012 (µg/ml)</td>
+                  <td>S</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="isolat-2-ampicilline">Ampicilline</content>
+                  </td>
+                  <td>&lt;0,013 (µg/ml)</td>
+                  <td>S</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="isolat-2-gentamicine">Gentamicine</content>
+                  </td>
+                  <td>&lt;0,014 (µg/ml)</td>
+                  <td>S</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <paragraph styleCode="bold" ID="C_ECBU">Traitement immédiat</paragraph>
+            <paragraph>Résultats validés par Jean DE SANTS - 4 janvier 2021, 11h20</paragraph>
+            <br />
+          </text>
+          <!-- Entrée FR-Resultats-examens-de-biologie-medicale : RESULTATS DE L'ECBU -->
+          <entry typeCode="DRIV">
+            <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+            <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+            <!-- Conformité CI-SIS -->
+            <templateId root="1.2.250.1.213.1.1.3.21"/>
+            <act classCode="ACT" moodCode="EVN">
+              <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Microbiologie" />
+              <statusCode code="completed" />
+              <!-- FR-Participant : Biologiste ayant validé les résultats -->
+              <participant typeCode="AUTHEN">
+                <!-- Conformité IHE PCC -->
+                <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
+                <!-- Conformité CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109"/>
+                <time>
+                  <high value="202101041120+0100" />
+                </time>
+                <participantRole>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567898" />
+                  <addr>
+                    <houseNumber>8</houseNumber>
+                    <streetName>Rue Frédéric Bastia</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>BOULOGNE-BILLANCOURT</city>
+                  </addr>
+                  <telecom value="tel:0174589607" use="WP" />
+                  <playingEntity>
+                    <name>
+                      <prefix>M</prefix>
+                      <given>Jean</given>
+                      <family>DE SANTS</family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <!-- Entrée FR-Prelevement : Prélèvement d'urine -->
+              <entryRelationship typeCode="COMP">
+                <procedure classCode="PROC" moodCode="EVN">
+                  <!-- Conformité IHE PCC Specimen Collection -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.77"/>
+                  <!-- Code affiné NABM de l'acte -->
+                  <code code="5201" displayName="EX MICROBIO URINES (ECBU)" codeSystem="1.2.250.1.213.2.7" codeSystemName="NABM">
+                    <originalText>
+                      <reference value="#prelevement-code-nabm" />
+                    </originalText>
+                  </code>
+                  <!-- Date et heure du prélèvement -->
+                  <effectiveTime>
+                    <high value="202101040735+0100" />
+                  </effectiveTime>
+                  <!-- Echantillon prélevé -->
+                  <participant typeCode="PRD">
+                    <participantRole classCode="SPEC">
+                      <!-- Identifiant de l'échantillon -->
+                      <id root="1.2.250.1.71.4.2.1" extension="801234567893" />
+                      <!-- Nature de l'échantillon : valeur issue du JDV_HL7_SpecimenType-CISIS (2.16.840.1.113883.5.129) -->
+                      <playingEntity>
+                        <code code="UR" codeSystem="2.16.840.1.113883.5.129" displayName="urine">
+                          <originalText>
+                            <reference value="#prelevement-nature-echantillon" />
+                          </originalText>
+                        </code>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <!-- Date et heure de réception au laboratoire -->
+                  <entryRelationship typeCode="COMP">
+                    <act classCode="ACT" moodCode="EVN">
+                      <!-- Conformité IHE PCC Specimen Received -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.3" />
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.107" />
+                      <code code="SPRECEIVE" displayName="Échantillon reçu" codeSystem="1.3.5.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
+                      <effectiveTime value="202101040752+0100" />
+                    </act>
+                  </entryRelationship>
+                </procedure>
+              </entryRelationship>
+              <!-- Entrée FR-Batterie-examens-de-biologie-medicale : EXAMEN DIRECT (MACROSCOPIQUE) -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.78"/>
+                  <code>
+                    <originalText>
+                      <reference value="#CBU_EXDIR" />                    
+                    </originalText>
+                    <translation code="4" displayName="Examen macroscopique" codeSystem="2.16.840.1.113883.5.84" codeSystemName="HL7:ObservationMethod"/>                    
+                  </code>  
+                  <statusCode code="completed" />
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Couleur -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="5778-6" codeSystem="2.16.840.1.113883.6.1" displayName="Couleur [Type] Urine ; Résultat textuel">
+                        <originalText>
+                          <reference value="#CBU-couleur" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104131933+0100" />
+                      <value xsi:type="CD">
+                        <originalText>
+                          <reference value="#CBU-couleur-resultat" />
+                        </originalText>
+                      </value>
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Aspect -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="5767-9" codeSystem="2.16.840.1.113883.6.1" displayName="Aspect [Aspect] Urine ; Résultat textuel">
+                        <originalText>
+                          <reference value="#CBU-aspect" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104131933+0100" />
+                      <value xsi:type="CD">
+                        <originalText>
+                          <reference value="#CBU-aspect-resultat" />
+                        </originalText>
+                      </value>
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- Entrée FR-Batterie-examens-de-biologie-medicale : EXAMEN MICROSCOPIQUE -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.78"/>
+                  <code>
+                    <originalText>
+                      <reference value="#CBU_MICRO" />
+                    </originalText>
+                    <translation code="107" displayName="Microscopie" codeSystem="2.16.840.1.113883.5.84" codeSystemName="HL7:ObservationMethod"/>
+                  </code>
+                  <statusCode code="completed" />
+                  <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Leucocytes -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="24122-4" codeSystem="2.16.840.1.113883.6.1" displayName="Leucocytes [Nombre/Volume] Urine ; Numérique ; Comptage manuel">
+                        <originalText>
+                          <reference value="#CBU-leucocytes" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104131933+0100" />
+                      <value xsi:type="PQ" value="500" unit="/mL" />
+                    </observation>
+                  </component>
+                  <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Érythrocytes -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="799-7" codeSystem="2.16.840.1.113883.6.1" displayName="Érythrocytes [Nombre/Volume] Urine ; Numérique ; Comptage manuel">
+                        <originalText>
+                          <reference value="#CBU-erythrocytes" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104131933+0100" />
+                      <value xsi:type="PQ" value="200" unit="/mL" />
+                    </observation>
+                  </component>
+                  <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Cellules épithéliales -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="24123-2" codeSystem="2.16.840.1.113883.6.1" displayName="Cellules épithéliales [Nombre/Volume] Urine ; Numérique ; Comptage manuel">
+                        <originalText>
+                          <reference value="#CBU-epitheliales" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104131933+0100" />
+                      <value xsi:type="CD">
+                        <originalText>
+                          <reference value="#CBU-epitheliales-resultat" />
+                        </originalText>
+                      </value>
+                    </observation>
+                  </component>
+                  <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Coloration Gram -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="653-6" codeSystem="2.16.840.1.113883.6.1" displayName="Observation microscopique [Identification] Urine ; Résultat textuel ; Coloration Gram">
+                        <originalText>
+                          <reference value="#CBU-gram" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104131933+0100" />
+                      <value xsi:type="CD">
+                        <originalText>
+                          <reference value="#CBU-gram-resultat" />
+                        </originalText>
+                      </value>
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- Entrée FR-Isolat-microbiologique : ESCHERICHIA COLI -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="CLUSTER" moodCode="EVN">
+                  <!-- Conformité IHE PCC Laboratory Isolate Organizer -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.79" />
+                  <statusCode code="completed" />
+                  <effectiveTime value="20210104155000+0100" />
+                  <!-- Germe identifié -->
+                  <specimen typeCode="SPC">
+                    <specimenRole classCode="SPEC">
+                      <id root="6E281244-000B-4ACB-9ED8-0826543A9694" />
+                      <specimenPlayingEntity classCode="MIC">
+                        <!-- code de l'agent infectieux (NCBI_Taxonomy) -->
+                        <code code="562" displayName="Escherichia coli" codeSystem="1.2.250.1.213.2.69.1" codeSystemName="NCBI_Taxonomy">
+                          <!-- Précision sur l'agent infectieux -->
+                          <originalText>
+                            <reference value="#isolat-1" />
+                          </originalText>
+                        </code>
+                      </specimenPlayingEntity>
+                    </specimenRole>
+                  </specimen>
+                  <!-- FR-Resultat-examens-de-biologie-element-clinique-pertinent : Dénombrement -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="51480-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bactérie [Nombre/Volume] Urine ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#isolat-1-denombrement" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104155000+0100" />
+                      <value xsi:type="PQ" value="100000" unit="/mL" />
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Batterie-examens-de-biologie pour les résultats de l’antibiogramme -->
+                  <component>
+                    <organizer classCode="BATTERY" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.78"/>
+                      <code code="18769-0" displayName="Antibiogramme" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                        <originalText>
+                          <reference value="#isolat-1-antibiogramme" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Amoxicilline -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="20-8" codeSystem="2.16.840.1.113883.6.1" displayName="Amoxicilline+clavulanate [Sensibilité] Isolat ; Alphanumérique ; CMI">
+                            <originalText>
+                              <reference value="#isolat-1-amoxicilline" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104155000+0100" />
+                          <value xsi:type="IVL_PQ">
+                            <low value="0.512" unit="ug/mL" inclusive="true" />
+                          </value>
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <interpretationCode code="R" displayName="Résistant" codeSystem="2.16.840.1.113883.5.83" />
+                        </observation>
+                      </component>
+                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Ampicilline -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="28-1" codeSystem="2.16.840.1.113883.6.1" displayName="Ampicilline [Sensibilité] Isolat ; Alphanumérique ; CMI">
+                            <originalText>
+                              <reference value="#isolat-1-ampicilline" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104155000+0100" />
+                          <value xsi:type="IVL_PQ">
+                            <high value="0.128" unit="ug/mL" inclusive="false" />
+                          </value>
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <interpretationCode code="I" displayName="Intermédiaire" codeSystem="2.16.840.1.113883.5.83" />
+                        </observation>
+                      </component>
+                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Gentamicine -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="18928-2" codeSystem="2.16.840.1.113883.6.1" displayName="Gentamicine [Sensibilité] Isolat ; Alphanumérique">
+                            <originalText>
+                              <reference value="#isolat-1-gentamicine" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104155000+0100" />
+                          <value xsi:type="IVL_PQ">
+                            <high value="0.032" unit="ug/mL" inclusive="false" />
+                          </value>
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
+                        </observation>
+                      </component>
+                    </organizer>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- Entrée FR-Isolat-microbiologique : STREPTOCOCCUS D -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="CLUSTER" moodCode="EVN">
+                  <!-- Conformité IHE PCC Laboratory Isolate Organizer -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.79" />
+                  <statusCode code="completed" />
+                  <effectiveTime value="20210104155000+0100" />
+                  <!-- Germe identifié -->
+                  <specimen typeCode="SPC">
+                    <specimenRole classCode="SPEC">
+                      <id extension="55584739" root="1.3.6.1.4.1.19376.1.3.4" />
+                      <specimenPlayingEntity classCode="MIC">
+                        <!-- code de l'agent infectieux (NCBI_Taxonomy) -->
+                        <code code="1306" displayName="Streptococcus sp." codeSystem="1.2.250.1.213.2.69.1" codeSystemName="NCBI_Taxonomy">
+                          <!-- Précision sur l'agent infectieux -->
+                          <originalText>
+                            <reference value="#isolat-2" />
+                          </originalText>
+                        </code>
+                      </specimenPlayingEntity>
+                    </specimenRole>
+                  </specimen>
+                  <!-- FR-Resultat-examens-de-biologie-element-clinique-pertinent : Dénombrement -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
+                      <code code="51480-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bactérie [Nombre/Volume] Urine ; Numérique ; Comptage automate">
+                        <originalText>
+                          <reference value="#isolat-2-denombrement" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime value="20210104155000+0100" />
+                      <value xsi:type="PQ" value="200000" unit="/mL" />
+                    </observation>
+                  </component>
+                  <!-- Entrée FR-Batterie-examens-de-biologie pour les résultats de l’antibiogramme -->
+                  <component>
+                    <organizer classCode="BATTERY" moodCode="EVN">
+                      <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.78"/>
+                      <code code="18769-0" displayName="Antibiogramme" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                        <originalText>
+                          <reference value="#isolat-2-antibiogramme" />
+                        </originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Amoxicilline -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="20-8" codeSystem="2.16.840.1.113883.6.1" displayName="Amoxicilline+clavulanate [Sensibilité] Isolat ; Alphanumérique ; CMI">
+                            <originalText>
+                              <reference value="#isolat-2-amoxicilline" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104155000+0100" />
+                          <value xsi:type="IVL_PQ">
+                            <high value="0.012" unit="ug/mL" inclusive="false" />
+                          </value>
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
+                        </observation>
+                      </component>
+                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Ampicilline -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="28-1" codeSystem="2.16.840.1.113883.6.1" displayName="Ampicilline [Sensibilité] Isolat ; Alphanumérique ; CMI">
+                            <originalText>
+                              <reference value="#isolat-2-ampicilline" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104155000+0100" />
+                          <value xsi:type="IVL_PQ">
+                            <high value="0.013" unit="ug/mL" inclusive="false" />
+                          </value>
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
+                        </observation>
+                      </component>
+                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Gentamicine -->
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.80"/>
+                          <code code="18928-2" codeSystem="2.16.840.1.113883.6.1" displayName="Gentamicine [Sensibilité] Isolat ; Alphanumérique">
+                            <originalText>
+                              <reference value="#isolat-2-gentamicine" />
+                            </originalText>
+                          </code>
+                          <statusCode code="completed" />
+                          <effectiveTime value="20210104155000+0100" />
+                          <value xsi:type="IVL_PQ">
+                            <high value="0.014" unit="ug/mL" inclusive="false" />
+                          </value>
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
+                        </observation>
+                      </component>
+                    </organizer>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- COMMENTAIRE SUR L'ECBU -->
+              <entryRelationship typeCode="SUBJ">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#C_ECBU" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- Section FR-Commentaire-non-code -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.73"/>
+          <id root="BBA74E77-A43D-4003-A7D5-58885331B63D" />
+          <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Prestation de conseil</title>
+          <!-- Bloc narratif de la section -->
+          <text>Détail de la prestation de conseil en texte libre.</text>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

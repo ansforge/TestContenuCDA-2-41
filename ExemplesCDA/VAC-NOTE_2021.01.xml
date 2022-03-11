@@ -1,0 +1,1625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?> 
+<?oxygen SCHSchema="../schematrons/CI-SIS_VAC-NOTE_2021.01.sch"?>
+<!-- 
+      **********************************************************************************************************
+      Document : Note de vaccination (VAC-NOTE_2021.01)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA
+      **********************************************************************************************************
+      Historique :
+      09/04/2021 : Création
+      **********************************************************************************************************
+   -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- ************************* -->
+  <!--   En-tête du document     -->
+  <!-- ************************* -->
+  <!-- Périmètre d'utilisation -->
+  <realmCode code="FR" />
+  <!-- Référence au standard CDAr2 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Déclarations de conformité aux spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Déclarations de conformité aux spécifications du CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Déclarations de conformité au profil PCC Immunization Content -->
+  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.1.2" />
+  <!-- Déclarations de conformité au modèle Note de vaccination -->
+  <templateId root="1.2.250.1.213.1.1.1.46" extension="2021.01"/>
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.3.4" extension="VAC-NOTE_2021.01_20210409_001_1" />
+  <!-- Type du document -->
+  <code code="87273-9" displayName="Note de vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>NOTE DE VACCINATION</title>
+  <!-- Date et heure du document -->
+  <effectiveTime value="20210409153500+0100" />
+  <!-- Niveau de confidentialité -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.3.4" extension="VAC-NOTE_2021.01_20210409_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- Auteur du document -->
+  <author contextControlCode="OP" typeCode="AUT">
+    <time value="20100603094914+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>25</houseNumber>
+        <streetName>Rue Pasteur</streetName>
+        <postalCode>92100</postalCode>
+        <city>EVRY</city>
+      </addr>
+      <telecom value="tel:+33-142515151" use="WP" />
+      <assignedPerson>
+        <name>
+          <family>MULLER</family>
+          <given>Charles</given>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Cabinet Médical du Dr MULLER</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation chargée de la conservation du document -->
+  <custodian typeCode="CST">
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Cabinet médical du Dr MULLER</name>
+        <telecom value="tel:+33-142515151" use="WP" />
+        <addr>
+          <houseNumber>25</houseNumber>
+          <streetName>Rue Pasteur</streetName>
+          <postalCode>92100</postalCode>
+          <city>EVRY</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable du document -->
+  <legalAuthenticator>
+    <time value="20190729095100+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>25</houseNumber>
+        <streetName>Rue Pasteur</streetName>
+        <postalCode>92100</postalCode>
+        <city>EVRY</city>
+      </addr>
+      <telecom value="tel:+33-142515151" use="WP" />
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>MULLER</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Cabinet médical du Dr MULLER</name>
+        <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+        <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Acte principal documenté  -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <code code="87273-9" displayName="Note de vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <low value="20210409153500+0100" />
+      </effectiveTime>
+      <!-- Personne qui a réalisé l'acte principal -->
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+          <addr>
+            <houseNumber>25</houseNumber>
+            <streetName>Rue Pasteur</streetName>
+            <postalCode>92100</postalCode>
+            <city>EVRY</city>
+          </addr>
+          <telecom value="tel:+33-142515151" use="WP" />
+          <assignedPerson>
+            <name>
+              <given>Charles </given>
+              <family>MULLER</family>
+              <prefix>M</prefix>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>Cabinet médical du Dr MULLER</name>
+            <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+            <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  
+  <!-- Association du document à une prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <id root="2483BA0E-1709-4DAF-9814-CC99E3AC69D6" />
+      <code code="AMB" codeSystem="2.16.840.1.113883.5.4" displayName="Ambulatoire" />
+      <effectiveTime>
+        <low value="20210409153000+0100" />
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+          <!-- JDV_J02-XdsHealthcareFacilityTypeCode-CISIS (1.2.250.1.213.1.1.5.466) -->
+          <code code="SA07" displayName="Cabinet individuel" codeSystem="1.2.250.1.71.4.2.4">
+          </code>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+
+  <!-- ************************* -->
+  <!-- ************************* -->
+  <!--     Corps du document     -->
+  <!-- ************************* -->
+  <!-- ************************* -->
+  <component>
+    <structuredBody>
+      
+      <!-- ELEMENTS PRE VACCINAUX -->
+      
+      <!-- Section FR-Antecedents-medicaux [0..1] -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8" />
+          <templateId root="1.2.250.1.213.1.1.2.134" />
+          <id root="8EB396A9-79A4-4716-BF9D-38F5CE2652E3" />
+          <code code="11348-0" displayName="Antécédents médicaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Antécédents médicaux</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Pathologie</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>11/05/2019</td>
+                  <td>
+                    <content ID="antecedent-01">hépatite aiguë B</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Liste-des-problemes [1..*] -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <templateId root="1.2.250.1.213.1.1.3.39" />
+              <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190511" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <!-- Entrée FR-Probleme [1..*] -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="EE36A646-4288-49F2-8C8F-1A65C99AADD9" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#antecedent-01" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20190511" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="B16" displayName="hépatite aiguë B" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                    <originalText>
+                      <reference value="#antecedent-01" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section FR-Problemes-actifs [0..1] -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.11"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+          <templateId root="1.2.250.1.213.1.1.2.132"/>
+          <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+          <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Liste des problèmes actifs</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Pathologie</th>
+                  <th>Sévérité</th>
+                  <th>Statut du problème</th>
+                  <th>Statut clinique du patiet</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>25/07/2019</td>
+                  <td>
+                    <content ID="pathologie-01">fièvre d'origine inconnue</content>
+                  </td>
+                  <td>
+                    <content ID="severite-01">Modérée</content>
+                  </td>
+                  <td>
+                    <content ID="statut-01">Actif</content>
+                  </td>
+                  <td>
+                    <content ID="clinique-01">En rémission</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Liste-des-problemes [1..*] -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <templateId root="1.2.250.1.213.1.1.3.39" />
+              <id root="16ABB7E7-8829-4507-AFB2-54CD2D6D4249" />
+              <code nullFlavor="NA" />
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20190725" />
+              </effectiveTime>
+              <!-- Entrée FR-Probleme [1..*] -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5" />
+                  <code code="F-01250" displayName="Symptôme" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#pathologie-01" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20190725" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="R50" displayName="fièvre d'origine inconnue" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                    <originalText>
+                      <reference value="#pathologie-01" />
+                    </originalText>
+                  </value>
+                  <!-- Entrée Sévérité [0..1] -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.55" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1" />
+                      <templateId root="1.2.250.1.213.1.1.3.29" />
+                      <code code="SEV" displayName="Sévérité" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode" />
+                      <text>
+                        <reference value="#severite-01" />
+                      </text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CD" code="M" displayName="Modéré" codeSystem="2.16.840.1.113883.5.1063" codeSystemName="HL7:ObservationValue" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée Statut du problème [0..1] -->
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.57" />
+                      <templateId root="2.16.840.1.113883.10.20.1.50" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1" />
+                      <templateId root="1.2.250.1.213.1.1.3.30" />
+                      <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#statut-01" />
+                      </text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="G-A397" displayName="Intermittent" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée Statut clinique du patient [0..1] -->
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.51" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.2" />
+                      <templateId root="1.2.250.1.213.1.1.3.31" />
+                      <code code="11323-3" displayName="Statut clinique du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#clinique-01" />
+                      </text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="G-A005" displayName="En rémission" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section FR-Traitements [0..1] -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.8" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19" />
+          <templateId root="1.2.250.1.213.1.1.2.143" />
+          <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" displayName="Historique des traitements" />
+          <title>Traitements</title>
+          <text>
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th>Début du traitement</th>
+                  <th>Fin du traitement</th>
+                  <th>Médicament (CIS)</th>
+                  <th>Médicament (ATC)</th>
+                  <th>Dose</th>
+                  <th>Fréquence</th>
+                  <th>Voie d'administration</th>
+                  <th>Région anatomique d'administration</th>
+                  <th>Instructions sur la prise du traitement</th>
+                  <th>Motif</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content>25/07/2019</content>
+                  </td>
+                  <td>
+                    <content>30/07/2019</content>
+                  </td>
+                  <td>
+                    <content ID="medicament-CIS-001">DOLIPRANE 500 mg, gélule</content>
+                  </td>
+                  <td>
+                    <content ID="medicament-ATC-001">PARACETAMOL</content>
+                  </td>
+                  <td>1 à 2<content ID="quantite">gélules</content></td>
+                  <td>
+                    <content>Toutes les 4 heures</content>
+                  </td>
+                  <td>Prendre par la bouche</td>
+                  <td>-</td>
+                  <td>
+                    <content ID="instruction-001">-</content>
+                  </td>
+                  <td>
+                    <content ID="motif-001">fièvre d'origine inconnue</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Traitement [1..*] -->
+          <!-- Traitement 1 à 2 gélules de Doliprane 500 mg toutes les 4 heures lié à la fièvre décrite dans les problèmes actifs -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
+              <templateId root="1.2.250.1.213.1.1.3.42" />
+              <!-- templateId "Normal dosing" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A" />
+              <text>
+                <reference>
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <!-- Date de début et fin de traitement -->
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20190725" />
+                <high value="20190730" />
+              </effectiveTime>
+              <!-- Fréquence d"administration (Toutes les 4 heures) -->
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="false" operator="A">
+                <period value="4" unit="h" />
+              </effectiveTime>
+              <!-- Voie d"administration -->
+              <routeCode code="PO" displayName="Prendre par la bouche" codeSystem="2.16.840.1.113883.5.112" codeSystemName="routeOfAdministration" />
+              <!-- Dose administrée (1 à 2 gélules) -->
+              <doseQuantity>
+                <low value="1" unit="{count}">
+                  <translation>
+                    <originalText>
+                      <reference value="#quantite" />
+                    </originalText>
+                  </translation>
+                </low>
+                <high value="2" unit="{count}">
+                  <translation>
+                    <originalText>
+                      <reference value="#quantite" />
+                    </originalText>
+                  </translation>
+                </high>
+              </doseQuantity>
+              <!-- Médicament -->
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code code="67119691" displayName="DOLIPRANE 500 mg, gélule" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                      <originalText mediaType="text/xml">
+                        <reference value="#medicament-CIS-001" />
+                      </originalText>
+                      <translation code="N02BE01" displayName="PARACETAMOL" codeSystem="2.16.840.1.113883.6.73" codeSystemName="ATC">
+                        <originalText>
+                          <reference value="#medicament-ATC-001" />
+                        </originalText>
+                      </translation>
+                    </code>
+                    <name>DOLIPRANE 500 mg, gélule</name>
+                    <lotNumberText nullFlavor="NA" />
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <!-- FR-Instructions-au-patient -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.1.49" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3" />
+                  <templateId root="1.2.250.1.213.1.1.3.33" />
+                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
+                  <text>
+                    <reference value="#instruction-001" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+              <!-- FR-Reference-interne : Motif (Liaison du traitement à sa cause) -->
+              <entryRelationship typeCode="RSON">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1"/>
+                  <templateId root="1.2.250.1.213.1.1.3.36"/>
+                  <id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5"/>
+                  <code code="R50" displayName="fièvre d'origine inconnue" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                    <originalText>
+                      <reference value="#motif-001" />
+                    </originalText>
+                  </code>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section FR-Signes-vitaux [0..1] -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.16" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2" />
+          <templateId root="1.2.250.1.213.1.1.2.75" />
+          <id root="B70D20AA-0438-4092-AD2F-E376173C00D9" />
+          <code code="8716-3" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Signes Vitaux</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="3">Signes Vitaux</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>
+                    <content ID="poids">Poids</content>
+                  </td>
+                  <td>6400 g</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="taille">Taille</content>
+                  </td>
+                  <td>162 cm</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="imc">IMC</content>
+                  </td>
+                  <td>24.38</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="temp">Température</content>
+                  </td>
+                  <td>37.5 °C</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <br />
+          </text>
+          <!-- Entrée FR-Signes-vitaux [1..1] -->
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <templateId root="2.16.840.1.113883.10.20.1.35" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1" />
+              <templateId root="1.2.250.1.213.1.1.3.49" />
+              <id root="0FD525FD-8712-40F9-BC31-AF9E25069C24" />
+              <!--<code code="F-03400" displayName="Signes vitaux" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />-->
+              <code code="85353-1" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode code="completed" />
+              <effectiveTime value="20200729135100+0100" />
+              <!-- Eléménent FR-Signe-vital-observe [1..*] : Poids -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.31" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <id root="ECD72DDD-C2A0-42C8-9BD3-E3C8B408003D" />
+                  <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Poids (mesuré)" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#poids" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="PQ" value="6400" unit="g" />
+                </observation>
+              </component>
+              <!-- Eléménent FR-Signe-vital-observe [1..*] : Taille(cm) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.31" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <id root="B47243F7-6470-43DC-97FA-4FA67A384BF4" />
+                  <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Taille (mesurée)" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#taille" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="PQ" value="162" unit="cm" />
+                </observation>
+              </component>
+              <!-- Eléménent FR-Signe-vital-observe [1..*] : IMC -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.31" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <id root="02ECCD70-3298-4FD5-A732-4AF23CBCBAF1" />
+                  <code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Index de masse corporelle (IMC)" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#imc" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="PQ" value="24.38" unit="kg/m2" />
+                </observation>
+              </component>
+              <!-- Eléménent FR-Signe-vital-observe : Température (°C) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.31" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <id root="3704BDE3-3BB7-4483-B0A0-037B90A99901" />
+                  <code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Température corporelle" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#temp" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="PQ" value="37.5" unit="Cel" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- FACTEURS DE RISQUES FAVORISANT UNE INDICATION OU CONTRE INDICATION A LA VACCINATION DE L"USAGER -->
+      
+      <!-- Section FR-Allergies-et-intolerances [0..1] -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.2" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13" />
+          <templateId root="1.2.250.1.213.1.1.2.137" />
+          <id root="7649C5FA-A444-49A6-91E9-78D2E5880C67" />
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, réactions adverses, alertes" />
+          <title>Allergies et intolérances</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type d'allergie / intolérance </th>
+                  <th>Description clinique</th>
+                  <th>Agent responsable</th>
+                  <th>Réaction observée</th>
+                  <th>Statut de l'allergie / de l'intolérance</th>
+                  <th>Commentaire</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>29/07/2019</td>
+                  <td>
+                    <content ID="TypeAllergie-001">Allergie médicamenteuse</content>
+                  </td>
+                  <td>
+                    <content ID="description-001">Urticaire</content>
+                  </td>
+                  <td>
+                    <content ID="agent-001">VACCIN RABIQUE PASTEUR</content>
+                  </td>
+                  <td>
+                    <content ID="reaction-001">Urticaire</content>
+                  </td>
+                  <td>
+                    <content ID="statut-allegie-001">Intermittent</content>
+                  </td>
+                  <td>
+                    <content ID="commentaire-001">-</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Liste-des-allergies-et-intolerances [1..*] -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3" />
+              <templateId root="1.2.250.1.213.1.1.3.40" />
+              <id root="1269C206-4D59-4A9D-AA2D-AA0C4622D525" />
+              <code nullFlavor="NA" />
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20200729173000+0100" />
+              </effectiveTime>
+              <!-- Entrée FR-Allergie-ou-intolerance [1..*] -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.18" />
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6" />
+                  <templateId root="1.2.250.1.213.1.1.3.41" />
+                  <id root="C64C6013-C8AF-4938-AD10-1B7D26DEE2A0" />
+                  <!-- Type d'allergie ou intolérance -->
+                  <code code="DALG" displayName="Allergie médicamenteuse" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode">
+                    <originalText>
+                      <reference value="#TypeAllergie-001">
+                      </reference>
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#TypeAllergie-001" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="20190729" />
+                  </effectiveTime>
+                  <!-- Description clinique de l'allergie ou de l'intolérance -->
+                  <value xsi:type="CD" code="T78.3" displayName="Urticaire" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                    <originalText>
+                      <reference value="#description-001" />
+                    </originalText>
+                  </value>
+                  <!-- Agent responsable de l'allergie / intolérance -->
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="67718545" displayName="VACCIN RABIQUE PASTEUR, poudre et solvant pour suspension injectable en seringue préremplie" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                          <originalText>
+                            <reference value="#agent-001" />
+                          </originalText>
+                        </code>
+                        <name>VACCIN RABIQUE PASTEUR</name>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <!-- Réaction observée -->
+                  <entryRelationship typeCode="MFST" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                      <templateId root="2.16.840.1.113883.10.20.1.28" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                      <templateId root="2.16.840.1.113883.10.20.1.54" />
+                      <id root="6A2A251D-097A-48B4-944E-0003E92F843F" />
+                      <code code="F-01250" displayName="Symptôme" codeSystem="1.2.250.1.213.2.12" />
+                      <text>
+                        <reference value="#Reaction" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20190729" />
+                      </effectiveTime>
+                      <value xsi:type="CD" code="T78.3" displayName="Urticaire" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                        <originalText>
+                          <reference value="#reaction-001" />
+                        </originalText>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <!-- Sévérité -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.55" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1" />
+                      <code code="SEV" displayName="Sévérité" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+                      <text>
+                        <reference value="#Severite-001" />
+                      </text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CD" code="M" displayName="Modéré" codeSystem="2.16.840.1.113883.5.1063" codeSystemName="SeverityObservation" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Statut de l'allergie/intolérance -->
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.57" />
+                      <templateId root="2.16.840.1.113883.10.20.1.50" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1" />
+                      <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#statut-allegie-001" />
+                      </text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="G-A397" displayName="Intermittent" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Commentaire -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                    <act classCode="ACT" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.40" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                      <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#commentaire-001" />-</text>
+                      <statusCode code="completed" />
+                    </act>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section FR-Historique-des-grossesses [0..1] -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.4" />
+          <templateId root="1.2.250.1.213.1.1.2.77" />
+          <id root="87B50DAD-C401-406E-00FE-57B02E1E155F" />
+          <code code="10162-6" displayName="Historique des grossesses" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Historique des grossesses</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="3">Historique des grossesses</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>
+                    <content ID="statut-grossesse">Patiente enceinte ?</content>
+                  </td>
+                  <td>oui</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="date-accouchement">Date de l'accouchement ou date prévisionnelle</content>
+                  </td>
+                  <td>01/11/2019</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="projet-grossesse">Projet de grossesse</content>
+                  </td>
+                  <td>Non</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="prematurite">Nombre d'enfants prématurés (nés avant 37 semaines)</content>
+                  </td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="allaitement">Allaitement</content>
+                  </td>
+                  <td>Non</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="accouchement-recent">Accouchement récent</content>
+                  </td>
+                  <td>Non</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Observation-sur-la-grossesse [1..1] : Patiente enceinte ? -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
+              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <id root="F575ADEE-0DC3-4D76-932E-6E23DAF4E163" />
+              <code code="11449-6" displayName="Statut de grossesse" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#statut-grossesse" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190729" />
+              <value xsi:type="CE" code="LA15173-0" displayName="Enceinte" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Date de l'accouchement ou date prévisionnelle -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
+              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <id root="F575ADEE-0DC3-4D76-932E-6E23DAF4E163" />
+              <code code="11780-4" displayName="Date prévisionnelle de l'accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#date-accouchement" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190729" />
+              <value xsi:type="TS" value="20191101" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Projet de grossesse -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
+              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <id root="0D5958C7-FD83-4F7D-8909-4342FF7D5E7B" />
+              <code code="ORG-173" displayName="Projet de grossesse" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#projet-grossesse" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190729" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Nombre d'enfants prématurés -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
+              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <id root="5BEE6908-2116-42D1-8522-025F87389DDA" />
+              <code code="11637-6" displayName="Nombre d'enfants prématurés (nés avant 37 semaines)" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#prematures" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190729" />
+              <value xsi:type="INT" value="0" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Allaitement -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
+              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <id root="5BEE6908-2116-42D1-8522-025F87389DDA" />
+              <code code="MED-279" displayName="Allaitement" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#allaitement" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190729" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Accouchement récent -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
+              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <id root="5BEE6908-2116-42D1-8522-025F87389DDA" />
+              <code code="MED-280" displayName="Accouchement récent" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#accouchement-recent" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190729" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+ 
+      <!-- Section FR-Habitus-mode-de-vie [0..1] -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.15" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16.1" />
+          <templateId root="1.2.250.1.213.1.1.2.141" />
+          <id root="10C4F352-BE15-4117-A026-C8433EBD3C9D" />
+          <code code="29762-2" displayName="Habitus, Mode de vie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Habitus, Mode de vie</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="3">Facteurs de risques</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>
+                    <content ID="drogue">Risques liés à l'usage de drogues</content>
+                  </td>
+                  <td>Oui (Voie nasale)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="risque-pro">Risques professionnels</content>
+                  </td>
+                  <td>Justice</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="vie-collectivite">Vie en collectivité</content>
+                  </td>
+                  <td>Établissement de santé de moyen ou long séjour</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="risque-entourage">Risques pour l'usager lié à l'entourage</content>
+                  </td>
+                  <td>Facteurs de risque familiaux de tuberculose</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="risque-usager">Présence dans l'entourage de l'usager de personnes à risque</content>
+                  </td>
+                  <td>Personne immunodéprimée</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="comportement-sexuel">Comportement sexuel à risque</content>
+                  </td>
+                  <td>Non</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="voyage">Risque lié au déplacement de l'usager dans un pays à risque infectueux élevé</content>
+                  </td>
+                  <td>du 25/09/2019 au 25/10/2019 au Bangladesh</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Habitus-Mode-de-vie : Consommation de drogue -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.33" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
+              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <id root="8BD16152-442B-4C2C-BAC2-207FBCFDD618" />
+              <code code="42831-8" displayName="Consommation de drogue" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#drogue" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190729" />
+              </effectiveTime>
+              <!-- JDV_UsageDrogues-CISIS (1.2.250.1.213.1.1.5.94) -->
+              <value xsi:type="CD" code="GEN-070" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" displayName="Voie nasale" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Habitus-Mode-de-vie : Risques liés à la vie professionnelle -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.33" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
+              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <id root="5178EEB9-5FB1-4F8D-A49A-D5F5D55D4941" />
+              <code code="11295-3" displayName="Facteur social relié à la vie professionnelle" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#risque-pro" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190729" />
+              </effectiveTime>
+              <!-- JDV_ProfessionsExposees-CISIS (1.2.250.1.213.1.1.5.91) -->
+              <value xsi:type="CD" code="GEN-058" displayName="Justice" codeSystem="1.2.250.1.213.1.1.4.322" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Habitus-Mode-de-vie : Vie en collectivité-->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.33" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
+              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <id root="8BA00FD6-CAE3-430A-B43F-C51EC7188596" />
+              <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                <qualifier>
+                  <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <value code="GEN-086" displayName="Vie en collectivité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </qualifier>
+              </code>
+              <text>
+                <reference value="#vie-collectivite" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190729" />
+              </effectiveTime>
+              <!-- JDV_vieEnCollectivite-CISIS (1.2.250.1.213.1.1.5.133) -->
+              <value xsi:type="CD" code="ORG-147" displayName="Établissement de santé de moyen ou long séjour" codeSystem="1.2.250.1.213.1.1.4.322" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Habitus-Mode-de-vie : L'entourage de l'usager présente-t-il un risque pour ce dernier ? -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.33" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
+              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <id root="A7DC5DA0-A699-4AA1-B496-3EF8C870CB1C" />
+              <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                <qualifier>
+                  <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <value code="GEN-048" displayName="L'entourage présente un risque pour l'usager" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </qualifier>
+              </code>
+              <text>
+                <reference value="#risque-entourage" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190729" />
+              </effectiveTime>
+              <!-- JDV_RisquePourUsager-CISIS (1.2.250.1.213.1.1.5.134) -->
+              <value xsi:type="CD" code="MED-283" displayName="Facteurs de risque familiaux de tuberculose" codeSystem="1.2.250.1.213.1.1.4.322" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Habitus-Mode-de-vie : L'usager présente-t-il un risque pour son entourage ? -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.33" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
+              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <id root="392DA2D8-AECD-455C-8913-57811F94BCD4" />
+              <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                <qualifier>
+                  <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <value code="GEN-064" displayName="Présence dans l'entourage de l'usager de personnes à risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </qualifier>
+              </code>
+              <text>
+                <reference value="#risque-usager" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190729" />
+              </effectiveTime>
+              <!-- JDV_RisquePourEntourage-CISIS (1.2.250.1.213.1.1.5.135) -->
+              <value xsi:type="CD" code="MED-284" displayName="Personne immunodéprimée" codeSystem="1.2.250.1.213.1.1.4.322" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Habitus-Mode-de-vie : Comportement sexuel à risque -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.33" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
+              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <id root="13B5491C-605A-440B-B5AB-C5A1F567E427" />
+              <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                <qualifier>
+                  <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <value code="GEN-049" displayName="Comportement sexuel à risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </qualifier>
+              </code>
+              <text>
+                <reference value="#comportement-sexuel" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190729" />
+              </effectiveTime>
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Habitus-Mode-de-vie : Risque lié à un déplacement dans un pays à risque infectueux élevé -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.33" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
+              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <id root="6DA7C3B4-E467-45E9-8EB2-7641FF0E25DB" />
+              <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                <qualifier>
+                  <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <value code="GEN-050" displayName="Voyage" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </qualifier>
+              </code>
+              <text>
+                <reference value="Voyage" />
+              </text>
+              <statusCode code="completed" />
+              <!-- Date prévisionnelle du voyage -->
+              <effectiveTime>
+                <low value="20190925" />
+                <high value="20191025" />
+              </effectiveTime>
+              <!-- Pays : TRE_R20-Pays (1.2.250.1.213.2.24) -->
+              <value xsi:type="CD" code="99246" displayName="Bangladesh" codeSystem="1.2.250.1.213.2.24" codeSystemName="TRE_R20-Pays" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- VACCINS -->
+      
+      <!-- Section FR-Directives-anticipees [0..1] : Refus de vaccination -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.1" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.34" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.35" />
+          <templateId root="1.2.250.1.213.1.1.2.157" />
+          <id root="B0609343-A2C1-40DF-901C-DB1167005901" />
+          <code code="42348-3" displayName="Directives anticipées" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Directives anticipées</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="3">Refus de vaccination</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>09/04/2021</td>
+                  <td>
+                    <content ID="refus-vaccin-01">Refus du patient pour le vaccin antirabique</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Directive-Anticipee [1..*] -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.17" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7" />
+              <templateId root="1.2.250.1.213.1.1.3.54" />
+              <id root="47F84EF0-FB1C-4FF4-BFD3-7026F22E3701" />
+              <code code="MED-297" displayName="Autre(s) acte(s) ou traitement(s)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <qualifier>
+                  <name code="Z28.2" displayName="Refus de vaccination" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+                </qualifier>
+              </code>
+              <text>
+                <reference value="#refus-vaccin-01" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20210409100000"/>
+                <high value="20210409110000"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section FR-Vaccinations [1..1] -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.6" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23" />
+          <templateId root="1.2.250.1.213.1.1.2.147" />
+          <id root="DF6B5534-B28E-499B-968E-2CCAC9B98924" />
+          <code code="11369-6" displayName="Historique des vaccinations" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Note de vaccination</title>
+          <text>           
+            <list>
+              <item>
+                <content styleCode="BoldItalics">Vaccination contre la diphtérie, le
+                           tétanos, la poliomyélite, la coqueluche (pertussis), l'Haemophilus
+                           influenzae b</content>
+              </item>
+            </list>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Vaccin</th>
+                  <th>Lot n°</th>
+                  <th>Rang</th>
+                  <th>Voie</th>
+                  <th>Réaction observée</th>
+                  <th>Région d'administration</th>
+                  <th>Référence prescription</th>
+                  <th>Dose à administrer</th>
+                  <th>Commentaire</th>
+                  <th>Vaccinateur</th>
+                </tr>
+              </thead>
+              <tbody>                
+                <tr>
+                  <td>28/09/2009</td>
+                  <td>
+                    <content ID="vac-01">VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé</content>
+                  </td>
+                  <td>4456672</td>
+                  <td>2</td>
+                  <td>injection intramusculaire</td>
+                  <td>
+                    <content ID="vac-01-reac">fièvre due à des médicaments</content>
+                  </td>
+                  <td>
+                    <content ID="vac-01-approachSite">Deltoïde gauche</content>
+                  </td>
+                  <td ID="vac-01-prescription">-</td>
+                  <td>1</td>
+                  <td ID="vac-01-comment">Prise récente et ponctuelle de solupred (60mg) en une prise pendant 2 jours</td>
+                  <td>Dr Charles MULLER</td>
+                </tr>
+              </tbody>
+            </table>            
+          </text>
+       
+          <!-- Entrée FR-Vaccination [1..*] : Vaccination tétanos (2ème injection) -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
+              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
+              <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
+              <text>
+                <reference value="#vac-01" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20090928094914+0100" />
+              <!-- Voie d'administration : JDV_HL7_ImmunizationRouteCodes-CISIS (2.16.840.1.113883.5.4.642.3.289) -->
+              <routeCode code="IM" displayName="injection intramusculaire" codeSystem="2.16.840.1.113883.5.112" codeSystemName="routeOfAdministration" />
+              <!-- Région d'administration : JDV_ImmunizationApproachSiteCode-CISIS (1.2.250.1.213.1.1.5.621) -->
+              <approachSiteCode code="LD" displayName="Deltoïde gauche" codeSystem="2.16.840.1.113883.5.1052">  
+                <originalText>
+                  <reference value="#vac-01-approachSite">
+                  </reference>
+                </originalText>
+              </approachSiteCode>
+              <!-- Dose à administrer -->
+              <doseQuantity value="1" />
+              <!-- Vaccin -->
+              <consumable typeCode="CSM">
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code code="68747507" displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                      <originalText>
+                        <reference value="#vac-01" />
+                      </originalText>
+                      <translation code="3400932857241" displayName="1 seringue(s) préremplie(s) en verre de 0,5 ml" codeSystem="1.2.250.1.213.2.3.3" codeSystemName="CIP" />
+                    </code>
+                    <lotNumberText>4456672</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <!-- Exécutant -->
+              <performer typeCode="PRF">
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles </given>
+                      <family>MULLER</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet médical du Dr MULLER</name>
+                    <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+                    <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur -->
+              <author contextControlCode="OP" typeCode="AUT">
+                <time value="20090928094914+0100" /> 
+                <assignedAuthor classCode="ASSIGNED">
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <family>MULLER</family>
+                      <given>Charles</given>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet Médical du Dr MULLER</name>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+              <!-- FR-Probleme : Réaction observée -->
+              <entryRelationship inversionInd="false" typeCode="CAUS">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
+                  <id root="F9E020E2-D219-43D4-8BF8-6B275E1F726D" />
+                  <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
+                  <text>
+                    <reference value="#vac-01-reac" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20090928" />
+                  </effectiveTime>
+                  <value xsi:type="CD" nullFlavor="NA">
+                    <originalText>
+                      <reference value="#vac-01-reac" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- FR-Rang-de-la-vaccination -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.46" />
+                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <value xsi:type="INT" value="2" />
+                </observation>
+              </entryRelationship>
+              <!-- FR-Commentaire-ER -->
+              <entryRelationship typeCode="SUBJ">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#vac-01-comment" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+                  
+        </section>      
+      </component>
+ 
+      <!-- Section FR-Vaccins-recommandes [0..1] -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.3.1" />
+          <templateId root="1.2.250.1.213.1.1.2.120" />
+          <id root="EB6BDDA9-B6B3-4F37-8568-EEC355C59FEC" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Vaccins recommandés</title>
+          <text>Aucun vaccin recommandé</text>
+          <!-- Entrée FR-Vaccin-recommande [1..*] -->
+          <entry>
+            <substanceAdministration moodCode="INT" classCode="SBADM" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12.2" />
+              <templateId root="1.2.250.1.213.1.1.3.47" />
+              <id root="4D623164-A438-4520-B381-6EF85282C688" />
+              <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+              <text>
+                <reference value="#recommandation-01" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="NA" />
+                <high nullFlavor="NA" />
+              </effectiveTime>
+              <routeCode nullFlavor="NA" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code>
+                      <originalText>
+                        <reference nullFlavor="NA" />
+                      </originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+    
+    </structuredBody>
+  </component>
+</ClinicalDocument>

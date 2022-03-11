@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20210326120000" dateValid="20210326120000" description="Type de rencontre" displayName="TRE_R305-TypeRencontre.tabs" id="1.2.250.1.213.1.1.4.2.291" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R305-TypeRencontre">
+        <ConceptList>
+            <Concept code="EXTERNE" codeSystem="1.2.250.1.213.1.1.4.2.291" dateFin="" dateMaj="20210326120000" dateValid="20210326120000" displayName="Acte et consultation externe (établissement)" longDesignation="Acte et consultation externe (établissement)" shortDesignation="EXTERNE"/>
+            <Concept code="SEANCE" codeSystem="1.2.250.1.213.1.1.4.2.291" dateFin="" dateMaj="20210326120000" dateValid="20210326120000" displayName="Séance (établissement ou libéral)" longDesignation="Séance (établissement ou libéral)" shortDesignation="SEANCE"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

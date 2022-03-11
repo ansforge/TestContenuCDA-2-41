@@ -1,0 +1,2039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_CANCER-CR-GM_2021.01.sch"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- 
+		**********************************************************************************************************
+		Document : Compte Rendu de Génétique Moléculaire (CR-GM_2021.01)
+		Exemple avec analyses non réalisées
+		Auteur : ANS / PML
+		**********************************************************************************************************
+		format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+		**********************************************************************************************************
+		06/05/2021 : Mise à jour avant publication
+		13/07/2021 : pour code="GEN-167" DisplayName="Quantité" : correction codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" 
+		21/07/2021 : pour code="GEN-167" DisplayName="Quantité" : ajout de l'unité unit="%"
+		**********************************************************************************************************
+-->
+  <!-- **************************************************** -->
+  <!-- **************************************************** -->
+  <!-- En-tête CDA du Compte-rendu de génétique moléculaire -->
+  <!-- **************************************************** -->
+  <!-- **************************************************** -->
+  <!-- Périmètre d'utilisation -->
+  <realmCode code="FR" />
+  <!-- Référence au standard CDAr2 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au modèle de document CR-GM -->
+  <templateId root="1.2.250.1.213.1.1.1.32" extension="2021.01" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="CR-GM_2021.01_20180123_001_2" />
+  <!-- Type du document -->
+  <code code="51969-4" displayName="CR de génétique moléculaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>Compte-rendu de génétique moléculaire (CR-GM)</title>
+  <!-- Date et heure de création du CR-GM -->
+  <effectiveTime value="20180123124500+0100" />
+  <!-- Niveau de confidentialité -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="CR-GM_2021.01_20180123_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="2" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- 1er auteur du CR-GM : Pathologiste responsable du diagnostic -->
+  <author>
+    <functionCode nullFlavor="NA">
+      <!-- Commentaire sur l'auteur -->
+      <originalText>Pathologiste responsable du diagnostic</originalText>
+    </functionCode>
+    <time value="20180101153014+0100"/>
+    <assignedAuthor>
+      <id root="1.2.250.1.71.4.2.1" extension="800100200300" />
+      <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>              
+        <houseNumber>10</houseNumber>
+        <streetName>Bd Pasteur</streetName>
+        <postalCode>49000</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242353500" use="WP"/>
+      <telecom value="mailto:michel.martin@mssante.fr" />
+      <assignedPerson>
+        <name>
+          <given>Michel</given>
+          <family>MARTIN</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490012345"/>
+        <name>Laboratoire de génétique moléculaire d'Angers</name>
+        <telecom value="tel:0242353500" use="WP"/>
+        <addr>              
+          <houseNumber>10</houseNumber>
+          <streetName>Bd Pasteur</streetName>
+          <postalCode>49000</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>        
+  </author>
+  
+  <!-- 2eme auteur du CR-GM : Pathologiste responsable de la qualification -->
+  <author>
+    <functionCode nullFlavor="NA">
+      <!-- Commentaire sur l'auteur -->
+      <originalText>Pathologiste responsable de la qualification</originalText>
+    </functionCode>
+    <time value="201801161040+0100" />
+    <assignedAuthor>
+      <id root="1.2.250.1.71.4.2.1" extension="801101203565" />
+      <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>              
+        <houseNumber>10</houseNumber>
+        <streetName>Bd Pasteur</streetName>
+        <postalCode>49000</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242353500" use="WP"/>
+      <telecom value="mailto:thierry.bubon@mssante.fr" />
+      <assignedPerson>
+        <name>
+          <given>Thierry</given>
+          <family>BUBON</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490012345"/>
+        <name>Laboratoire de génétique moléculaire d'Angers</name>        
+        <telecom value="tel:0242353500" use="WP"/>
+        <addr>              
+          <houseNumber>10</houseNumber>
+          <streetName>Bd Pasteur</streetName>
+          <postalCode>49000</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- 3eme auteur du CR-GM : Médecin de biologie moléculaire -->
+  <author>
+    <functionCode nullFlavor="NA">
+      <!-- Commentaire sur l'auteur -->
+      <originalText>Médecin de biologie moléculaire</originalText>
+    </functionCode>
+    <time value="20180123094914+0100" />
+    <assignedAuthor>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>              
+        <houseNumber>10</houseNumber>
+        <streetName>Bd Pasteur</streetName>
+        <postalCode>49000</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242353500" use="WP"/>
+      <telecom value="mailto:jacques.rousseau@mssante.fr" />
+      <assignedPerson>
+        <name>
+          <given>Jacques</given>
+          <family>ROUSSEAU</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490012345"/>
+        <name>Laboratoire de génétique moléculaire d'Angers</name>        
+        <telecom value="tel:0242353500" use="WP"/>
+        <addr>              
+          <houseNumber>10</houseNumber>
+          <streetName>Bd Pasteur</streetName>
+          <postalCode>49000</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation chargée de la conservation du document: Laboratoire de Génétique Moléculaire -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490012345"/>
+        <name>Laboratoire de génétique moléculaire d'Angers</name>        
+        <telecom value="tel:0242353500" use="WP"/>
+        <addr>              
+          <houseNumber>10</houseNumber>
+          <streetName>Bd Pasteur</streetName>
+          <postalCode>49000</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- 1er destinataire du document : Pathologiste responsable du diagnostic (Site de prélévement) -->
+  <informationRecipient>
+    <intendedRecipient>
+      <id root="1.2.250.1.71.4.2.1" extension="800100200300" />
+      <addr>              
+        <houseNumber>10</houseNumber>
+        <streetName>Bd Pasteur</streetName>
+        <postalCode>49000</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242353500" use="WP"/>
+      <telecom value="mailto:michel.martin@mssante.fr" />
+      <informationRecipient>
+        <name>
+          <given>Michel</given>
+          <family>MARTIN</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </informationRecipient>
+      <receivedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490012345"/>
+        <name>Laboratoire de génétique moléculaire d'Angers</name>
+        <telecom value="tel:0242353500" use="WP"/>
+        <addr>              
+          <houseNumber>10</houseNumber>
+          <streetName>Bd Pasteur</streetName>
+          <postalCode>49000</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+  
+  <!-- 2ème destinataire du document : Médecin prescripteur (médecin clinicien) de l'examen -->
+  <informationRecipient>
+    <intendedRecipient>
+      <id root="1.2.250.1.71.4.2.1" extension="801101201301" />    
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>      
+      <telecom value="tel:0242515100" use="WP"/>
+      <telecom value="mailto:celine.lambert@mssante.fr"/>
+      <informationRecipient>
+        <name>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+          <given>Céline</given>
+          <family>LAMBERT</family>
+        </name>
+      </informationRecipient>
+      <receivedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490000049"/>
+        <name>Centre Hospitalier Régional d'Angers</name>
+        <telecom value="tel:0242515100" use="WP"/>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+  
+  <!-- 3ème destinataire du document : Médecin en charge du patient (clinicien) -->
+  <informationRecipient>
+    <intendedRecipient>
+      <id root="1.2.250.1.71.4.2.1" extension="802102202302" />
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242515100" use="WP"/>
+      <telecom value="mailto:cecile.durand@mssante.fr" />
+      <informationRecipient>
+        <name>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+          <given>Cécile</given>
+          <family>DURAND</family>
+        </name>
+      </informationRecipient>
+      <receivedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490000049"/>
+        <name>Centre Hospitalier Régional d'Angers</name>
+        <telecom value="tel:0242515100" use="WP"/>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+  
+  <!-- 4ème destinataire du document : Médecin de la RCP (clinicien) -->
+  <informationRecipient>
+    <intendedRecipient>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242515100" use="WP"/>
+      <telecom value="mailto:charles.muller@mssante.fr" />
+      <informationRecipient>
+        <name>
+          <prefix>M</prefix>
+          <given>Charles </given>
+          <family>MULLER</family>
+          <suffix>DR</suffix>
+        </name>
+      </informationRecipient>
+      <receivedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490000049"/>
+        <name>Centre Hospitalier Régional d'Angers</name>
+        <telecom value="tel:0242515100" use="WP"/>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+  
+  <!-- Responsable du document : Médecin de biologie moléculaire -->
+  <legalAuthenticator>
+    <!-- Date et heure de la prise de responsabilité -->
+    <time value="201801230930+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>              
+        <houseNumber>10</houseNumber>
+        <streetName>Bd Pasteur</streetName>
+        <postalCode>49000</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242353500" use="WP"/>
+      <telecom value="mailto:jacques.rousseau@mssante.fr" />
+      <assignedPerson>
+        <name>
+          <given>Jacques</given>
+          <family>ROUSSEAU</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <!-- Identifiant FINESS du laboratoire -->
+        <id root="1.2.250.1.71.4.2.2" extension="1490012345"/>
+        <!-- Nom du laboratoire -->
+        <name>Laboratoire de génétique moléculaire d'Angers</name>
+        <!-- Adresse du laboratoire -->
+        <addr>              
+          <houseNumber>10</houseNumber>
+          <streetName>Bd Pasteur</streetName>
+          <postalCode>49000</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Participant - Préleveur -->
+  <participant typeCode="PRF">
+    <functionCode code="PRELV" displayName="Préleveur" codeSystem="1.2.250.1.213.1.1.4.2.280"/>
+    <!-- Date et heure de prélèvement -->
+    <time xsi:type="IVL_TS">
+      <low value="201801150900+0100" />
+      <high value="201801150930+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="803103203303" />
+      <code code="G15_10/SM05" displayName="Médecin - Chirurgie générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>      
+      <telecom value="tel:0242515100" use="WP"/>
+      <telecom value="tel:0242515112" use="MC"/>
+      <telecom value="mailto:marc.dubois@mssante.fr" />
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Marc</given>
+          <family>DUBOIS</family>
+          <prefix>M</prefix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490000049"/>
+        <name>Centre Hospitalier Régional d'Angers</name>
+        <telecom value="tel:0242515100" use="WP"/>
+        <telecom value="tel:0242515100" use="PUB"/>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+          codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Participant - Médecin Prescripteur (Clinicien) -->
+  <participant typeCode="REF">
+    <functionCode nullFlavor="NA"/>
+    <!-- Date de la prescription -->
+    <time xsi:type="IVL_TS">
+      <high value="201801151140+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801101201301" />
+      <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5"
+        displayName="Médecin - Oncologie option médicale (SM)"/>
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>      
+      <telecom value="mailto:celine.lambert@mssante.fr" />
+      <associatedPerson>
+        <name>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+          <given>Céline</given>
+          <family>LAMBERT</family>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490000049"/>
+        <name>Centre Hospitalier Régional d'Angers</name>
+        <telecom value="tel:0242515100" use="WP"/>
+        <telecom value="tel:0242515100" use="PUB"/>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+          codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Participant - Médecin en charge du patient (clinicien) -->
+  <participant typeCode="PRF">
+    <functionCode code="ATTPHYS" displayName="Référent - Responsable du patient dans la structure de soins" codeSystem="2.16.840.1.113883.5.88" />    
+    <time nullFlavor="UNK"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="802102202302" />
+      <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5"
+        displayName="Médecin - Oncologie option médicale (SM)"/>
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="mailto:cecile.durand@mssante.fr" />
+      <associatedPerson>
+        <name>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+          <given>Cécile</given>
+          <family>DURAND</family>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490000049"/>
+        <name>Centre Hospitalier Régional d'Angers</name>
+        <telecom value="tel:0242515100" use="WP"/>
+        <telecom value="tel:0242515100" use="PUB"/>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+          codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Participant - Médecin de la RCP (clinicien) -->
+  <participant typeCode="REFB">
+    <functionCode nullFlavor="NA">
+      <!-- Commentaire sur le Médecin de la RCP -->
+      <originalText>PS Coordonnateur de la RCP</originalText>
+    </functionCode>
+    <time nullFlavor="UNK"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+      <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5"
+        displayName="Médecin - Oncologie option médicale (SM)"/>
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242515100" use="WP"/>
+      <telecom value="tel:0642515152" use="MC"/>
+      <telecom value="mailto:charles.muller@mssante.fr" />
+      <associatedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Charles </given>
+          <family>MULLER</family>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1490000049"/>
+        <name>Centre Hospitalier Régional d'Angers</name>
+        <telecom value="tel:0242515100" use="WP"/>
+        <telecom value="tel:0242515100" use="PUB"/>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+          codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Prescription d'examen de biologie médicale -->
+  <inFulfillmentOf>
+    <order>
+      <id root="1.2.250.2.21.1.1.1" extension="11223345566778" />
+    </order>
+  </inFulfillmentOf>
+
+  <!-- Acte principal documenté : Examen de génétique moléculaire -->
+  <documentationOf>
+    <serviceEvent>
+      <!-- Identifiants de la demande d'examen -->
+      <id root="1.2.250.1.71.4.2.2" extension="200911160123" />
+      <!-- Code de l'acte principal documenté -->
+      <code code="51956-1" displayName="Examen de génétique moléculaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <!-- Dates et heure d'exécution de l'acte-->
+      <effectiveTime>
+        <!-- Date (et heure) de début d'exécution -->
+        <low value="20180123154500+0100" />
+        <!-- Date (et heure) de fin d'exécution -->
+        <high value="20180123154500+0100" />
+      </effectiveTime>
+      <!-- PS exécutant : médecin de biologie moléculaire -->
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="8011234567897" />
+          <addr>              
+            <houseNumber>10</houseNumber>
+            <streetName>Bd Pasteur</streetName>
+            <postalCode>49000</postalCode>
+            <city>ANGERS</city>
+          </addr>          
+          <telecom value="mailto:jacques.rousseau@mssante.fr" />
+          <assignedPerson>
+            <name>
+              <prefix>M</prefix>
+              <suffix>DR</suffix>
+              <given>Jacques</given>
+              <family>ROUSSEAU</family>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="1490012345" />
+            <name>Laboratoire de génétique moléculaire d'Angers</name>
+            <addr>              
+              <houseNumber>10</houseNumber>
+              <streetName>Bd Pasteur</streetName>
+              <postalCode>49000</postalCode>
+              <city>ANGERS</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Contexte de la prise en charge = Laboratoire -->
+  <componentOf>
+    <encompassingEncounter>
+      <!-- Type de prise en charge -->
+      <code code="AMB" displayName="Ambulatoire" codeSystem="2.16.840.1.113883.5.4" />
+      <effectiveTime>
+        <low value="201801230730" />
+        <high value="201801230930" />
+      </effectiveTime>
+      <!-- Biologiste et laboratoire responsables -->
+      <responsibleParty>
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="8011234567897" />
+          <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+          <addr>              
+            <houseNumber>10</houseNumber>
+            <streetName>Bd Pasteur</streetName>
+            <postalCode>49000</postalCode>
+            <city>ANGERS</city>
+          </addr>          
+          <telecom value="mailto:jacques.rousseau@mssante.fr" />
+          <assignedPerson>
+            <name>
+              <prefix>M</prefix>
+              <suffix>DR</suffix>
+              <given>Jacques</given>
+              <family>ROUSSEAU</family>
+            </name>
+          </assignedPerson>
+          <!-- Laboratoire -->
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="1490012345"/>
+            <name>Laboratoire de génétique moléculaire d'Angers</name>
+            <addr>              
+              <houseNumber>10</houseNumber>
+              <streetName>Bd Pasteur</streetName>
+              <postalCode>49000</postalCode>
+              <city>ANGERS</city>
+            </addr>
+          </representedOrganization>
+        </assignedEntity>
+      </responsibleParty>
+      <!-- Laboratoire où s'est déroulée la prise en charge -->
+      <location>
+        <healthCareFacility>
+          <!-- Secteur d'activité -->
+          <code code="SA29" displayName="Laboratoire d'analyses et de biologie médicale" codeSystem="1.2.250.1.71.4.2.4" />
+          <location>
+            <name>Laboratoire de génétique moléculaire d'Angers</name>
+            <addr>              
+              <houseNumber>10</houseNumber>
+              <streetName>Bd Pasteur</streetName>
+              <postalCode>49000</postalCode>
+              <city>ANGERS</city>
+            </addr>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  
+  <!-- ************************************************** -->
+  <!-- ************************************************** -->
+  <!-- Corps CDA du Compte-rendu de génétique moléculaire -->
+  <!-- ************************************************** -->
+  <!-- ************************************************** -->
+  <component>
+    <structuredBody>
+      <!-- ********************************************************** -->
+      <!-- [1..1] Section FR-Informations-cliniques                   -->
+      <!-- ********************************************************** -->
+      <!-- Numéro et titre de l'examen et motif de l'analyse demandée -->
+      <component>
+        <section>
+          <!-- Conformité IHE APSR -->
+          <templateId root="1.3.6.1.4.1.19376.1.8.1.2.1" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.165" />
+          <id root="9173B429-BF33-4E08-88F2-7B440B5BA5B2" />
+          <code code="22636-5" codeSystem="2.16.840.1.113883.6.1" displayName="Anapath – Informations pertinentes" />
+          <title>DEMANDE D'EXAMEN ET MOTIF DE L'ANALYSE</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Examen N°</td>
+                  <td>
+                    <content ID="numeroExamen" styleCode="Bold">1324</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Titre de l'examen</td>
+                  <td>
+                    <content ID="titreExamen" styleCode="Bold">Recherche de mutations somatiques
+                      d'EGFR, KRAS, BRAF, PI3KCA, ERBB2, MET, AKT1, ALK, CDKN2A , CTNNB1, DDR2,
+                      ERBB4, FGFR2, FGFR3, H3F3A, HIST1H3B, HRAS, IDH1, IDH2, KIT, MAP2K1, NRAS,
+                      PDGFRA, PIK3R1, PTEN, STK11T</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Motif de l'analyse demandée</td>
+                  <td>
+                    <content ID="motifExamen" styleCode="Bold">Recherche de mutations somatiques dans
+                      le cadre de la prise en charge thérapeutique d'un patient atteint d'un
+                      adénocarcinome pulmonaire</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée FR-Liste-des-observations : Numéro et titre de l'examen et motif de l'analyse demandée -->
+          <entry typeCode="COMP">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <!-- Conformité IHE APSR -->
+              <templateId root="1.3.6.1.4.1.19376.1.8.1.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.74" />
+              <id root="0A31B0A7-E08E-4AA2-82CE-F5D13C04AC87" />
+              <statusCode code="completed" />
+              <effectiveTime value="20180123093014+0100"/>
+              <!-- Auteur -->
+              <author>
+                <time value="201801161045+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="801101201301" />
+                  <!-- Profession / Spécialité du PS -->
+                  <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS (laboratoire) -->
+                  <addr>
+                    <streetAddressLine>10 Boulevard Pasteur</streetAddressLine>
+                    <streetAddressLine>75002 PARIS</streetAddressLine>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Celine</given>
+                      <family>LAMBERT</family>
+                      <prefix>MME</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- [1..1] Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Numéro de l'examen -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PaLM -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.80" />
+                  <id root="89FEBF2E-7628-4755-86CB-FE797E7AD31F" />
+                  <code code="30896-5" displayName=" Numéro d'examen" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                    <originalText>
+                      <reference value="#numeroExamen" />
+                    </originalText>
+                  </code>
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">1324</value>
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Titre de l'examen -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PaLM -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.80" />
+                  <id root="BF45C00B-BFBB-43C9-9DF0-843DF4D6E23F" />
+                  <code code="19145-2" displayName="Titre de l'examen" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                    <originalText>
+                      <reference value="#titreExamen" />
+                    </originalText>
+                  </code>
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Recherche de mutations somatiques d'EGFR, KRAS, BRAF, PI3KCA,
+                    ERBB2, MET, AKT1, ALK, CDKN2A , CTNNB1, DDR2, ERBB4, FGFR2, FGFR3, H3F3A,
+                    HIST1H3B, HRAS, IDH1, IDH2, KIT, MAP2K1, NRAS, PDGFRA, PIK3R1, PTEN,
+                    STK11T</value>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <!-- [1..1] Sous-section FR-Raison-de-la-recommandation-non-code  : Motif de l'analyse demandée -->
+          <component>
+            <section>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.127" />
+              <id root="744852E2-0AEE-47A2-8C3E-4D407E1C3489" />
+              <code code="42349-1" displayName="Raison de la recommandation" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text />
+            </section>
+          </component>
+        </section>
+      </component>
+
+      <!-- ****************************** -->
+      <!-- [1..1] Section FR-Prelevements -->
+      <!-- ****************************** -->
+      <!-- Informations sur le prélèvement : Référence et date du prélèvement, Préleveur, Date de réception -->
+      <component>
+        <section>
+          <!-- Conformité IHE APSR -->
+          <templateId root="1.3.6.1.4.1.19376.1.8.1.2.6" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.170" />
+          <id root="5A07BF64-618C-4CCF-A341-B6E266FF1CA1" />
+          <code code="46059-2" displayName="Traitements spéciaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>INFORMATIONS SUR LE PRÉLÈVEMENT</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Examen réalisé à partir du prélèvement référencé</td>
+                  <td>12.0004</td>
+                </tr>
+                <tr>
+                  <td>datant du</td>
+                  <td>15/01/2018</td>
+                </tr>
+                <tr>
+                  <td>reçu le</td>
+                  <td>16/01/2018</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+          </text>
+          <!-- [1..1] Entrée FR-Prelevement-APSR -->
+          <entry typeCode="COMP">
+            <procedure classCode="PROC" moodCode="EVN">
+              <!-- Conformité IHE APSR -->
+              <templateId root="1.3.6.1.4.1.19376.1.3.10.4.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.100" />
+              <id root="C3F3B75D-7A28-4821-B9E9-FD3C3C3959CF" />
+              <code code="33882-2" displayName="Prélèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode code="completed" />
+              <!-- Date de la procédure de prélèvement -->
+              <effectiveTime>
+                <high value="201801150930+0100" />
+              </effectiveTime>
+              <!-- Référence du prélèvement -->
+              <specimen typeCode="SPC">
+                <specimenRole classCode="SPEC">
+                  <id root="1.3.6.1.4.1.19376.1.8.9" extension="12.0004" />
+                </specimenRole>
+              </specimen>
+              <!-- Préleveur et laboratoire de prélèvement -->
+              <performer typeCode="PRF">
+                <!-- Conformité IHE PaLM -->
+                <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+                <!-- Conformité CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.23" />
+                <time value="201801150930+0100" />
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="803103203303" />
+                  <addr nullFlavor="MSK" />
+                  <telecom nullFlavor="MSK" />
+                  <assignedPerson>
+                    <name>
+                      <family>Durand</family>
+                      <given>Michel</given>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1120456733" />
+                    <name>LABORATOIRE SOUS-TRAITANT</name>
+                    <telecom nullFlavor="MSK" />
+                    <addr nullFlavor="MSK" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- 1er Auteur possible: Pathologiste responsable du diagnostic (Site de prélévement) -->
+              <author>
+                <time value="201801150930+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="800100200300" />
+                  <!-- Profession/Spécialité du PS -->
+                  <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS, le Site de prélèvement -->
+                  <addr>
+                    <streetName>Avenue Jean JAURES</streetName>
+                    <postalCode>75005</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Michel</given>
+                      <family>MARTIN</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- 2éme Auteur possible: Pathologiste de la plateforme (LBM) -->
+              <author>
+                <time value="201801161045+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="801101201301" />
+                  <!-- Profession / Spécialité du PS -->
+                  <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS, Le laboratoire -->
+                  <addr>
+                    <streetAddressLine>10 Boulevard Pasteur</streetAddressLine>
+                    <streetAddressLine>75002 PARIS</streetAddressLine>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Celine</given>
+                      <family>LAMBERT</family>
+                      <prefix>MME</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- 3éme Auteur possible: Biologiste moléculaire (LBM) -->
+              <author>
+                <time value="201801230930+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <!-- Profession / Spécialité du PS -->
+                  <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS, Le laboratoire -->
+                  <addr>
+                    <streetAddressLine>10 Boulevard Pasteur</streetAddressLine>
+                    <streetAddressLine>75002 PARIS</streetAddressLine>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Jacques</given>
+                      <family>ROUSSEAU</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- Référence du prélèvement  -->
+              <participant typeCode="PRD" contextControlCode="OP">
+                <time>
+                  <high value="201801150930+0100" />
+                </time>
+                <participantRole classCode="SPEC">
+                  <!-- Référence du prélèvement -->
+                  <id root="1.3.6.1.4.1.19376.1.8.9" extension="12.0004" />
+                  <playingEntity/>
+                  
+                </participantRole>
+              </participant>
+              <!-- [1..1] Entrée FR-Echantillon-date-reception -->
+              <entryRelationship typeCode="COMP">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité IHE PaLM -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.3" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.107" />
+                  <code code="SPRECEIVE" codeSystem="1.3.5.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" displayName="Date réception échantillon" />
+                  <!-- Date de reception du prélèvement -->
+                  <effectiveTime value="20180116104535+0100" />
+                </act>
+              </entryRelationship>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ******************************************* -->
+      <!-- [1..1] Section FR-Observation-macroscopique -->
+      <!-- ******************************************* -->
+      <!-- Renseignements anatomo-cyto-pathologiques sur le prélèvement -->
+      <component>
+        <section>
+          <!-- Conformité IHE APSR -->
+          <templateId root="1.3.6.1.4.1.19376.1.8.1.2.3" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.167" />
+          <id root="E12FD8EC-EA63-420D-AE99-F828D44BDC6E" />
+          <code code="22634-0" displayName="Observation macroscopique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>RENSEIGNEMENTS ANATOMOCYTOPATHOLOGIQUES SUR LE PRÉLÈVEMENT</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Type de prélèvement d'origine</td>
+                  <td>
+                    <content ID="Type_Prel">Biopsie chirurgicale </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Organe</td>
+                  <td>
+                    <content ID="Organe">Bronche</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Type histologique et état tumoral</td>
+                  <td>
+                    <content ID="Type_histo">Adénocarcinome
+                      bronchiolo-alvéolaire</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pathologiste responsable du diagnostic</td>
+                  <td>Dr MARTIN Michel (Avenue Jean Jaurès, Paris)</td>
+                </tr>
+                <tr>
+                  <td>Conditionnement</td>
+                  <td>
+                    <content ID="Cond">Histologie et cytologie par
+                      inclusion</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nature du matériel étudié</td>
+                  <td>
+                    <content ID="natureMateriel">Bloc tissulaire
+                    paraffiné</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Analyse réalisée sur une zone sélectionnée par</td>
+                  <td>Dr LAMBERT Celine</td>
+                </tr>
+                <tr>
+                  <td>Comportant</td>
+                  <td>
+                    <content ID="Pourcentage">50</content>% de cellules
+                    tumorales</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée FR-Liste-des-observations -->
+          <entry typeCode="COMP">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <!-- Conformité IHE APSR -->
+              <templateId root="1.3.6.1.4.1.19376.1.8.1.3.6"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.74"/>
+              <id root="46E73D72-7953-4EFF-BE13-3C65A9C42334" />
+              <statusCode code="completed" />
+              <effectiveTime value="201801230930+0100"/>
+              <!-- Préleveur et laboratoire de prélèvement -->
+              <performer typeCode="PRF">
+                <!-- Conformité IHE PaLM -->
+                <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+                <!-- Conformité CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.23" />
+                <time value="201801150930+0100" />
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="803103203303" />
+                  <addr nullFlavor="MSK" />
+                  <telecom nullFlavor="MSK" />
+                  <assignedPerson>
+                    <name>
+                      <family>Durand</family>
+                      <given>Michel</given>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1120456733" />
+                    <name>LABORATOIRE SOUS-TRAITANT</name>
+                    <telecom nullFlavor="MSK" />
+                    <addr nullFlavor="MSK" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- 1er Auteur possible: Pathologiste responsable du diagnostic (Site de prélévement)-->
+              <author>
+                <time value="201801150930+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="800100200300" />
+                  <!-- Profession/Spécialité du PS -->
+                  <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS, le Site de prélèvement -->
+                  <addr>
+                    <streetName>Avenue Jean JAURES</streetName>
+                    <postalCode>75005</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Michel</given>
+                      <family>MARTIN</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- 2éme Auteur possible: Pathologiste de la plateforme (LBM)-->
+              <author>
+                <time value="201801161045+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="801101201301" />
+                  <!-- Profession / Spécialité du PS -->
+                  <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS, Le laboratoire -->
+                  <addr>
+                    <streetAddressLine>10 Boulevard Pasteur</streetAddressLine>
+                    <streetAddressLine>75002 PARIS</streetAddressLine>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Celine</given>
+                      <family>LAMBERT</family>
+                      <prefix>MME</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- 3éme Auteur possible: Biologiste moléculaire (LBM) -->
+              <author>
+                <time value="201801230930+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <!-- Profession / Spécialité du PS -->
+                  <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS, Le laboratoire -->
+                  <addr>
+                    <streetAddressLine>10 Boulevard Pasteur</streetAddressLine>
+                    <streetAddressLine>75002 PARIS</streetAddressLine>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Jacques</given>
+                      <family>ROUSSEAU</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : Type de prélèvement d'origine -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="24F06819-E1DC-4355-88DF-EF7498D68FBE" />
+                  <code code="53903-1" displayName="Collection method" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Type_Prel" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="B" displayName="Biopsie chirurgicale" codeSystem="1.2.250.1.213.2.11" codeSystemName="ADICAP-D1" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : Organe -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="7151D497-B51C-4291-8FB1-F6372B9AA469" />
+                  <code code="20506-2" displayName="Specimen drawn from" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Organe" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="RB" displayName="BRONCHE" codeSystem="1.2.250.1.213.2.11" codeSystemName="ADICAP-D3" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : type histologique et état tumoral -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="15592B4A-4999-4FED-8A99-BB668CF24313" />
+                  <code code="33731-1" displayName="Type histologique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Type_histo" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="A7A8" displayName="ADENOCARCINOME BRONCHIOLO-ALVEOLAIRE" codeSystem="1.2.250.1.213.2.11" codeSystemName="ADICAP-D5" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : Conditionnement -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="24E6C763-2680-4AF2-A218-C1D5ECD648C0" />
+                  <code code="19772-3" displayName="Preparation techniques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Cond" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="H" displayName="Histologie et et cytologie par inclusion" codeSystem="1.2.250.1.213.2.11" codeSystemName="ADICAP-D2" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : Nature du matériel étudié -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="DB1A30CD-0F52-4491-A64F-B394ECD2AA74" />
+                  <code code="66746-9" displayName="Nature du prélèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Nat_Mat" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="MED-310" displayName="Bloc tissulaire paraffiné" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : Pourcentage de cellules tumorales -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="D9DFA4FF-3600-44EF-9F73-015517736262" />
+                  <code code="GEN-167" displayName="Quantité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#Pourcentage" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="PQ" value="50" unit="%"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ***************************************** -->
+      <!-- [1..1] Section FR-Observation-extemporane -->
+      <!-- ***************************************** -->
+      <!-- Résultats de l'analyse -->
+      <component>
+        <section>
+          <!-- Conformité IHE APSR -->
+          <templateId root="1.3.6.1.4.1.19376.1.8.1.2.2"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.166"/>
+          <id root="B5847417-2F86-403A-8233-2C8D6115ADBA" />
+          <code code="83321-0" displayName="Observation extemporané" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>RÉSULTATS</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <paragraph styleCode="Bold">Analyse non réalisée</paragraph>
+          </text>
+        </section>
+      </component>
+
+      <!-- *************************************** -->
+      <!-- [1..1] Section FR-Conclusion-diagnostic -->
+      <!-- *************************************** -->
+      <!-- Conclusion / Interprétation des résultats en l'état actuel des connaissances  -->
+      <component>
+        <section>
+          <!-- Conformité IHE APSR -->
+          <templateId root="1.3.6.1.4.1.19376.1.8.1.2.5" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.169" />
+          <id root="7D10A58B-3AE0-4A21-B6A2-449A79E706B4" />
+          <code code="22637-3" displayName="Conclusion - Diagnostic" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>CONCLUSION / INTERPRÉTATION DES RÉSULTATS EN L'ÉTAT ACTUEL DES
+            CONNAISSANCES</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Analyse non réalisable</th>
+                </tr>
+                <tr>
+                  <td>
+                    <list>
+                      <item>Étant donnée la<content ID="Qualification2" styleCode="Bold"> qualité </content> de
+                        l'<content ID="Nat_fraction2" styleCode="Bold">ADN</content> extrait du prélèvement
+                        transmis, l'analyse n'est pas réalisable. Un nouveau prélèvement serait
+                        nécessaire.<br /></item>
+                      <item>Commentaire : <content ID="comments1"> Un nouveau prélèvement va être
+                          réalisé.</content><br /></item>
+                    </list>
+                    <!-- Autre possibilité :
+					           <list>
+                      <item>Analyse non réalisable car <content ID="Raison_non_realisation">Bloc épuisé</content>. Un nouveau prélèvement serait nécessaire.<br/>
+                      </item>
+                      <item> Autres commentaires: <content ID="comments5"> ...</content>.<br/>
+                      </item>
+                    </list-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [0..1] Entrée FR-Liste-des-observations : Analyse non réalisée -->
+          <entry typeCode="COMP">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <!-- Conformité IHE APSR -->
+              <templateId root="1.3.6.1.4.1.19376.1.8.1.3.6"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.74"/>
+              <id root="FA5EBEB9-48B3-42F6-BF33-F0A9CF277B23" />
+              <code code="75326-9" displayName="Problème" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                <qualifier>
+                  <name code="MED-550" codeSystem="1.2.250.1.213.1.1.4.322" displayName="Conclusions / Interprétation des résultats" />
+                  <value code="MED-541" codeSystem="1.2.250.1.213.1.1.4.322" displayName="Analyse non réalisée" />
+                </qualifier>
+              </code>
+              <statusCode code="completed" />
+              <effectiveTime value="201801230930+0100"/>
+              <!-- Auteur de cette entrée : le biologiste moléculaire (LBM)-->
+              <author>
+                <time value="201801230930+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <!-- Profession/Spécialité du PS -->
+                  <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS -->
+                  <addr>
+                    <streetAddressLine>10 Boulevard Pasteur</streetAddressLine>
+                    <streetAddressLine>75002 PARIS</streetAddressLine>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Jacques</given>
+                      <family>Rousseau</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : qualification de la fraction génomique analysée -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="0BFEC584-87D5-4D66-B233-121ED4A88D90" />
+                  <code code="MED-300" displayName="Qualification de la fraction génomique analysée" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#Qualification" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="GEN-166" displayName="Qualité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Observation-Anatomo-pathologique : nature de la fraction génomique analysée -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="49E737D2-3719-4DB0-8F27-67FFBC61C7F9" />
+                  <code code="MED-301" displayName="Nature de la fraction génomique analysée" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#Nat_fraction" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="MED-315" displayName="ADN" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Commentaire-ER -->
+              <component typeCode="COMP">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Commentaire" />
+                  <text>
+                    <reference value="#comments1" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ************************************************************* -->
+      <!-- [1..1] Section FR-Constatations-pathologiques-complementaires -->
+      <!-- ************************************************************** -->
+      <!-- Méthode -->
+      <component>
+        <section>
+          <!-- Conformité IHE APSR -->
+          <templateId root="1.3.6.1.4.1.19376.1.3.10.3.1" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.72" />
+          <id root="27882413-0911-4497-98E0-EB7EE785B35D" />
+          <code code="89201-8" displayName="Méthode de test de laboratoire moléculaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>MÉTHODE</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Analyse réalisée à partir du matériel tumoral</td>
+                  <td>
+                    <content ID="Nat_Mat2" styleCode="Bold">Bloc tissulaire paraffiné</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>après</td>
+                  <td>
+                    <content ID="Methode_preparation" styleCode="Bold">macrodissection de la zone
+                      d'intérêt</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Méthode d'extraction de l'ADN génomique tumoral</td>
+                  <td>
+                    <content ID="methodeExtractionADN" styleCode="Bold">Kit Maxwell® 16 FFPE Plus LEV
+                      DNA Purification sur Maxwell® 16 Instrument (Promega)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Méthode d'analyse</td>
+                  <td>
+                    <content ID="MethodeAnalyse" styleCode="Bold">Séquençage haut-débit, librairie
+                      amplicons préparée avec le kit Tumor Hotspot MASTR Plus
+                      (Multiplicom)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Séquenceur utilisé </td>
+                  <td>
+                    <content ID="sequenceur" styleCode="Bold">MiSeq (Illumina)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sensibilité</td>
+                  <td>
+                    <content ID="sensibiliteDiagnostic" styleCode="Bold">10% de cellules mutées
+                    </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Profondeur minimale</td>
+                  <td>
+                    <content ID="Prof_min" styleCode="Bold">300x</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Version du génome de référence utilisé</td>
+                  <td>
+                    <content ID="genome" styleCode="Bold">Homo sapiens (human) genome assembly GRCh37
+                      (hg19) </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Liste des gènes et exons analysés </td>
+                  <td>
+                    <content ID="listeGeneExon" styleCode="Bold">AKT1 (exon 3), ALK (exons 20 – 29),
+                      BRAF (exons 11,15), CDKN2A (exons 1-3), CTNNB1 (exon 3), DDR2 (exons 3-18),
+                      EGFR (exons 18-21), ERBB2 (exons 19-21), ERBB4 (exons 10-12), FGFR2 (exons 7,
+                      10, 12), FGFR3 (exons 7, 9, 14 et 15), H3F3A (exon 2), HIST1H3B (exon 1), HRAS
+                      (exons 2-4), IDH1 (exon 4), IDH2 (exon 4), KIT (exons 8, 9, 10, 11, 13, 14,
+                      17, 18), KRAS (exons 2-4), MAP2K1 (exons 2, 3), MET (exons 2, 10, 14-20), NRAS
+                      (exons 2-4), PDGFRA (exons 12, 14, 18), PIK3CA (exons 2, 3, 10, 11, 21),
+                      PIK3R1 (exons 11, 12, 13), PTEN (exons 1-9), STK11 (exons 1-9).</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Niveau de couverture des exons analysés </td>
+                  <td>
+                    <content ID="couverture" styleCode="Bold">total</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Séquence de référence </td>
+                  <td>
+                    <content ID="accession" styleCode="Bold">NM_005228.3,
+                    NM_001127500.1</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pipeline d'analyse et version </td>
+                  <td>
+                    <content ID="pipeline" styleCode="Bold">Les données ont été alignées avec le
+                      logiciel BWA-GATK-07.6a-3.1.1 sur la version hg19 du génome humain, le variant
+                      calling a été réalisé avec le logiciel VarScan2 et les données ont été
+                      annotées avec le logiciel Alamut HT.</content>
+                  </td>
+                </tr>
+                <!--tr>
+                  <td>Autres commentaires </td>
+                  <td><content ID="Comment5"> </content></td>
+                </tr-->
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée FR-Liste-des-observations : Méthode -->
+          <entry typeCode="COMP">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <!-- Conformité IHE APSR -->
+              <templateId root="1.3.6.1.4.1.19376.1.8.1.3.6"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.74"/>
+              <id root="430140D4-EB77-4F28-8392-12CE9B2C6722" />
+              <statusCode code="completed" />
+              <effectiveTime value="20180123093014+0100"/>
+              <!-- Auteur de cette rubrique : Biologiste moléculaire de la plateforme de GM -->
+              <author>
+                <time value="20180123094914+0100" />
+                <assignedAuthor>
+                  <!-- Identiant RPPS du PS -->
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <!-- Profession / Spécialité du PS -->
+                  <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <!-- Adresse du PS, Le laboratoire -->
+                  <addr>
+                    <streetAddressLine>Boulevard Pasteur</streetAddressLine>
+                    <streetAddressLine>75002 PARIS</streetAddressLine>
+                  </addr>
+                  <!-- Coordonnées télécom du PS -->
+                  <telecom nullFlavor="UNK" />
+                  <!-- Identité du PS -->
+                  <assignedPerson>
+                    <name>
+                      <given>Jacques</given>
+                      <family>ROUSSEAU</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Matériel tumoral (ou nature du matériel étudié) pour le séquençage -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="5644B2A1-C01D-4B6C-828E-6B3720CD0557" />
+                  <code code="66746-9" displayName="Nature du prélèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Nat_Mat2" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="MED-310" displayName="Bloc tissulaire parafiné" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Méthode de  préparation de l'échantillon analysé -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="8E8A033A-20C2-4CDB-8262-62A3029959A4" />
+                  <code code="8100-0" displayName="Préparation de l'échantillon" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Methode_preparation" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="CD" code="MED-302" displayName="macro dissection de la zone d'intérêt" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Méthode d'extraction de l'ADN génomique tumoral-->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="99DB06C4-0EC1-4143-8569-985C69AC8920" />
+                  <code code="MED-546" displayName="Méthode d'extraction de l'ADN génomique tumoral" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#methodeExtractionADN" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Méthode d'analyse -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="E12E2599-A0E9-41FA-B409-7E7D85CFAEAE" />
+                  <code code="MED-547" displayName="Méthode d'analyse" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#MethodeAnalyse" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Séquenceur utilisé -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="4016F04B-53C0-46D5-8CDD-8EDBDC513F84" />
+                  <code code="MED-306" displayName="Séquenceur utilisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#sequenceur" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Sensibilité -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="60BB65E6-44F5-4375-89BA-2F10C11B1C5F" />
+                  <code code="MED-307" displayName="Sensibilité diagnostique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#sensibiliteDiagnostic" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="REAL" value="10" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Profondeur minimale -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="8C056CC5-498B-45A5-BA8A-5AA62174D182" />
+                  <code code="MED-548" displayName="Profondeur minimale" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#Prof_min" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Version du génome de référence -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="5D8AE732-9821-440E-AE0C-0F8A423356A8" />
+                  <code code="81249-5" displayName="Référence génomique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#genome" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..*] Entrée Entrée FR-Observation-Anatomo-pathologique : gène analysé -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="36493200-D69E-4342-A780-E98A7FD390DE" />
+                  <code code="48018-6" displayName="Gene" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA"/>
+                  <!-- Code du gène -->
+                  <value xsi:type="CD" code="AKT1" displayName="AKT1" codeSystem="1.2.250.1.213.2.60" codeSystemName="INCa" />
+                  <!-- [1..*] sous-entrée FR-Observation-Anatomo-pathologique : exon du gène -->
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE APSR -->
+                      <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.102"/>
+                      <id root="CA72FBE3-E83D-4EC2-A96F-C62557BC5D68" />
+                      <code code="51959-5" displayName="Numéro Exon" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="201801231245+0100" />
+                      <!-- Numéro de l'exon -->
+                      <value xsi:type="INT" value="3" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <!-- [1..*] Entrée Entrée FR-Observation-Anatomo-pathologique : gène analysé -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="CDFA233D-FAAC-46B4-A58E-E151570ACE2F" />
+                  <code code="48018-6" displayName="Gene" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <effectiveTime value="201801231245+0100" />
+                  <!-- Code du gène -->
+                  <value xsi:type="CD" code="ALK" displayName="ALK" codeSystem="1.2.250.1.213.2.60" codeSystemName="INCa" />
+                  <!-- [1..*] sous-entrée FR-Observation-Anatomo-pathologique : exon du gène -->
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE APSR -->
+                      <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.102"/>
+                      <id root="B9B4173C-8DB7-4BAE-B178-6687B063CD60" />
+                      <code code="51959-5" displayName="Numéro Exon" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="201801231245+0100" />
+                      <!-- Numéro de l'exon -->
+                      <value xsi:type="INT" value="20" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- [1..*] sous-entrée FR-Observation-Anatomo-pathologique : exon du gène -->
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE APSR -->
+                      <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.102"/>
+                      <id root="CD999937-8211-4B45-A284-CD03DA709091" />
+                      <code code="51959-5" displayName="Numéro Exon" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="201801231245+0100" />
+                      <!-- Numéro de l'exon -->
+                      <value xsi:type="INT" value="29" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <!-- [1..*] Entrée Entrée FR-Observation-Anatomo-pathologique : gène analysé -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="B4C21FF0-BE96-4FB2-AC66-D06BD60C195C" />
+                  <code code="48018-6" displayName="Gene" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <effectiveTime value="201801231245+0100" />
+                  <!-- Code du gène -->
+                  <value xsi:type="CD" code="BRAF" displayName="BRAF" codeSystem="1.2.250.1.213.2.60" codeSystemName="INCa" />
+                  <!-- [1..*] sous-entrée FR-Observation-Anatomo-pathologique : exon du gène -->
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE APSR -->
+                      <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.102"/>
+                      <id root="EEE37C84-33CB-4057-B39A-E01CE2418BAB" />
+                      <code code="51959-5" displayName="Numéro Exon" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="201801231245+0100" />
+                      <!-- Numéro de l'exon -->
+                      <value xsi:type="INT" value="11" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- [1..*] sous-entrée FR-Observation-Anatomo-pathologique : exon du gène -->
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE APSR -->
+                      <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.102"/>
+                      <id root="63490251-ECA5-44C9-B51A-EDDE16DBBD19" />
+                      <code code="51959-5" displayName="Numéro Exon" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="201801231245+0100" />
+                      <!-- Numéro de l'exon -->
+                      <value xsi:type="INT" value="15" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Niveau de couverture des exons -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="2AAF0245-25B0-4A86-B9A8-DD1A92EC7A13" />
+                  <code code="51956-1" displayName="Niveau de couverture" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#couverture" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="201801231245+0100" />
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Séquence de référence -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="4A8BA687-9B6C-4DBE-B9E0-FE4E9FB6D73D" />
+                  <code code="42071-1" displayName="Sequence de référence" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#accession" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="201801231245+0100" />
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée Entrée FR-Observation-Anatomo-pathologique : Version du pipeline d'analyse -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.102"/>
+                  <id root="E5E55C32-17B1-404D-8DAF-9BA4FFF6408C" />
+                  <code code="MED-308" displayName="Version du pipeline d'analyse" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#pipeline" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="201801231245+0100" />
+                  <value xsi:type="ST" />
+                </observation>
+              </component>
+              <!-- [1..1] Entrée FR-Commentaire-ER -->
+              <component typeCode="COMP">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <!-- Conformité IHE APSR -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#Comment5" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ************************************ -->
+      <!-- [1..1] Section FR-Statut-du-document -->
+      <!-- ************************************ -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.35" />
+          <id root="57B46DD4-0B33-4125-8B20-4C953E4E8745" />
+          <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Statut du document</title>
+          <text>Statut du document : <content ID="statutDoc">Validé</content> le 23/01/2018 à
+            12h45</text>
+          <!-- [1..1] Entrée FR-Statut-document -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48.16" />
+              <id root="E84F5F4B-A707-4441-8994-285EFD69CF4E" />
+              <code code="GEN-065" displayName="Statut du document" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#statutDoc" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="201801231245+0100" />
+              <value xsi:type="CD" code="GEN-068" displayName="Validé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+
+    </structuredBody>
+  </component>
+</ClinicalDocument>

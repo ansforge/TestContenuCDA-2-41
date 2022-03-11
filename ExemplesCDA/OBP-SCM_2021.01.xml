@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_OBP-SCM_2021.01.sch"?>
+<!-- 
+      **********************************************************************************************************
+      Document :  Synthèse Suites de Couches Mère (OBP-SCM_2021.01)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Historique :
+      28/03/2012 : Création
+      11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons 
+      13/09/2021 : remplacement nom du schématron 2021.01
+      22/09/2021 : correction de l'unité UCUM "tbl" par "{tbl}"
+      **********************************************************************************************************
+-->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- 
+   **************************************************************************************************************
+	EN TETE DU DOCUMENT
+	**************************************************************************************************************
+   -->
+  <realmCode code="FR" />
+  <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications au CI-SIS de l'ASIP Santé -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au Volet Synthèse Postpartum Mère (OBP-SCM_2021.01)-->
+  <templateId root="1.2.250.1.213.1.1.1.12.4" extension="2021.01"/>
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="OBP-SCM_2021.01_20210328_001_1" />
+  <!-- Type de document -->
+  <code code="15508-5" displayName="Compte-rendu d'accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>Synthèse Suites de Couches Mère</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20210328111700+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="OBP-SCM_2021.01_20210328_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="276059205062865" root="1.2.250.1.213.1.4.8" />
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H" />
+      <telecom value="tel:0647151010" use="MC" />
+      <telecom value="mailto:marie.decourcy@mail.fr" />
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given>Marie</given>
+          <family qualifier="BR">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19760531" />
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>24</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H" />
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>DECOURCY</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <postalCode>92100</postalCode>
+              <city>BOULOGNE-BILLANCOURT</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+
+  <!-- Auteur du document - Clinicien ayant suivi la patiente -->
+  <author>
+    <time value="20210328111700+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Gynécologie-obstétrique (SM)" />
+      <addr nullFlavor="NASK" />
+      <telecom nullFlavor="NASK" />
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>BOILEAU</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <!-- Numéro FINESS de l'ES (optionnel)  -->
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Clinique du Belvédère</name>
+        <telecom nullFlavor="NAV" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation de santé responsable du document -->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Clinique du Belvédère</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable de la validation de la synthèse -->
+  <legalAuthenticator>
+    <time value="20210329094914-0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Gynécologie-obstétrique (SM)" />
+      <assignedPerson>
+        <name>
+          <given>Jacques </given>
+          <family>BIDEAULT</family>
+          <suffix>PR</suffix>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Médecin traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20110505" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>Paris</city>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <associatedPerson>
+        <name>
+          <family>MEDIONI</family>
+          <given>Jacques</given>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Acte documenté -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <id root="5A931FFC-E3D3-4153-953F-4C314500A410" />
+      <code code="63893-2" displayName="Suites de couches" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <low value="20210328111700+0100" />
+        <high value="20210330111700+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <!-- PS identifié par son N°RPPS -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Gynécologie-obstétrique (SM)" />
+          <assignedPerson>
+            <name>
+              <given>Jacques </given>
+              <family>BIDEAULT</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>Clinique du Belvédère</name>
+            <telecom nullFlavor="NAV" />
+            <addr>
+              <houseNumber>142</houseNumber>
+              <streetName>Rue Belvédère</streetName>
+              <postalCode>92100</postalCode>
+              <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Informations sur la prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <code code="EXTERNE" displayName="acte et consultation externe (établissement)" codeSystem="1.2.250.1.213.1.1.4.2.291" />
+      <effectiveTime>
+        <!-- High : Date de sortie -->
+        <high value="20210328111700+0100" />
+        <!-- Low : Date du début de prise en charge (optionnel) -->
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.213.1.1.9" extension="11223344" assigningAuthorityName="Clinique de Breteuil" />
+          <code code="SA04" displayName="Etablissement Privé Non PSPH" codeSystem="1.2.250.1.71.4.2.4" />
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      <!--=<<o#%@O[ PCC Coded Event Outcome Section ]O@%#o>>=-->
+      <component>
+        <section>
+          <!-- PCC Coded Event Outcomes Section template Id -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
+          <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+          <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Pathologies dans la période des suites de couches</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="3"> </th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td rowspan="2">Pathologies des suites de couches</td>
+                  <td colspan="2">
+                    <content ID="dechirure">Déchirure obstétricale du col de l'utérus</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <content ID="suitesCouches">Hypertension secondaire préexistante compliquant la grossesse, l'accouchement et la puerpéralité</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td rowspan="5">
+                    <content ID="modeSortie">Mode de sortie</content>
+                  </td>
+                  <td colspan="2">Transfert d'un patient dans un autre ES</td>
+                </tr>
+                <tr>
+                  <td>Type</td>
+                  <td>Autre Maternité<br /></td>
+                </tr>
+                <tr>
+                  <td colspan="2">44 rue Geoffroy St-Hilaire<br /></td>
+                </tr>
+                <tr>
+                  <td>75005</td>
+                  <td>Paris<br /></td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- PCC Simple Observations - Pathologie de suites de couches -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- PCC Simple Observation template Id -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="7AB08573-C3A1-4946-923A-F6AAF33B2C8E" />
+              <code code="O90.9" displayName="Pathologies des suites de couches (Complication puerpérale)" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
+              <text>
+                <reference value="dechirure" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="CD" code="O71.3" displayName="Déchirure obstétricale du col de l'utérus" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10" />
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- PCC Simple Observation template Id -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="3A922ACD-407D-42C5-98DB-A837BB3FDB8D" />
+              <code code="O90.9" displayName="Pathologies des suites de couches (Complication puerpérale)" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
+              <text>
+                <reference value="suitesCouches" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="CD" code="O10.4" displayName="Hypertension secondaire préexistante compliquant la grossesse, l'accouchement et la puerpéralité" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10" />
+            </observation>
+          </entry>
+          <!-- PCC Simple Observations - Mode de sortie -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- PCC Simple Observation template Id -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="2FD65E5A-5158-463B-8164-88E8AABB7512" />
+              <code code="OBS_050" displayName="Mode de sortie" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+              <text>
+                <reference value="modeSortie" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="CD" code="P0-20300" displayName="Transfert (Transfert d'un patient dans un autre ES)" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+            </observation>
+          </entry>
+          <!--  PCC Patient Tranfer Entry - Transfert  -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN" negationInd="false">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1" />
+              <id root="35B6A8EC-A0FF-40EA-833F-730B0CBD3235" />
+              <code code="80413-8" displayName="Transfert du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#transfert"/>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20130811" />
+                <high nullFlavor="NA" />
+              </effectiveTime>
+              <participant typeCode="DST">
+                <!-- Identification de l'établissement (ou du service) de transfert (FINESS) -->
+                <templateId root="1.2.250.1.71.4.2.2" extension="101238889" />
+                <participantRole classCode="SDLOC">
+                  <id root="D5A3548A-A818-4D4A-AD0A-66FDEBFC8815"/>
+                  <!-- Type d'établissement si transfert ou mutation -->
+                  <code code="SA41" displayName="Autre établissement du domaine social ou médico-social" codeSystem="1.2.250.1.71.4.2.4"/>
+                  <addr>
+                    <houseNumber>44</houseNumber>
+                    <streetName>Rue Geoffroy St-Hilaire</streetName>
+                    <postalCode>75005</postalCode>
+                    <city>Paris</city>
+                  </addr>
+                  <telecom nullFlavor="NAV" />
+                  <playingEntity classCode="ENT">
+                    <name>Clinique Geoffroy St-Hilaire</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!--=<<o#%@O[ PCC Procedures & Interventions Section ]O@%#o>>=-->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
+          <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+          <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Interventions et/ou actes réalisés dans les suites de couches</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th>Actes réalisés dans les suites de couches</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Révision de la cavité de l'utérus après délivrance naturelle</td>
+                  <td>
+                    <content ID="scm001">Description révision utérine &lt;...&gt;</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Acte Suites de couches -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+              <code code="JNMD002" displayName="Révision de la cavité de l'utérus après délivrance naturelle" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM">
+                <originalText>
+                  <reference value="#scm0001" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="scm0001" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="NA" />
+              </effectiveTime>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      <!--=<<o#%@O[ PCC Care Plan Section - Plans de soins à la sortie ]O@%#o>>=-->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <id root="8E1E6B2F-4788-45F0-B804-4DCD2ADB94C7" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Plan de soins</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th align="center" colspan="3">Plan de Soins</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <content ID="scm020">TP INR</content>
+                  </td>
+                  <td>01/02/2022</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <content ID="scm021">Consultation de cardiologie pour HTA</content>
+                  </td>
+                  <td>En attente de confirmation</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <content ID="scm022">Surveillance kinésithérapeute</content>
+                  </td>
+                  <td>01/02/2022</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <content ID="scm023">Surveillance IDE</content>
+                  </td>
+                  <td>01/02/2022</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <content ID="cerIsthm">Cerclage de l'isthme utérin par abord vaginal, en dehors de la grossesse</content>
+                  </td>
+                  <td>08/12/2021</td>
+                </tr>
+                <tr>
+                  <td colspan="1">Revoir en consultation</td>
+                  <td>du 01/02/2022</td>
+                  <td>au 15/02/2022</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">Traitement</td>
+                  <td>COUMADINE 5mg</td>
+                  <td>1cp/j</td>
+                </tr>
+                <tr>
+                  <td>APROVEL 75 mg</td>
+                  <td>1cp Matin et soir</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Demande d'examen paraclinique -->
+          <entry>
+            <observation classCode="OBS" moodCode="INT">
+              <!-- Observation Request -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <id root="288FBEAF-174C-4011-A8B5-D052795BD9CE" />
+              <code code="F-D0650" displayName="Hémostase" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#scm020" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime value="20210102" />
+              <value xsi:type="TS" value="20210201" />
+            </observation>
+          </entry>
+          <!-- Surveillance Kiné -->
+          <entry>
+            <observation classCode="OBS" moodCode="INT">
+              <!-- Observation Request -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <id root="9A2440E6-A7B9-4269-B0E9-3F8B30579536" />
+              <code code="P0-20720" displayName="patient dirigé vers un massothérapeute" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#scm022" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime value="20220201" />
+              <value xsi:type="TS" value="20220201" />
+            </observation>
+          </entry>
+          <!-- Surveillance IDE -->
+          <entry>
+            <observation classCode="OBS" moodCode="INT">
+              <!-- Observation Request -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <id root="4194336B-0793-4A17-B387-282036F77C1D" />
+              <code code="P0-20700" displayName="patient dirigé vers le personnel paramédical" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#scm023" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime value="20220201" />
+              <value xsi:type="TS" value="20220101" />
+            </observation>
+          </entry>
+          <!-- Intervention -->
+          <entry>
+            <procedure classCode="PROC" moodCode="INT" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE" />
+              <code code="JKBA001" displayName="Cerclage de l'isthme utérin par abord vaginal, en dehors de la grossesse" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM" />
+              <text>
+                <reference value="#cerIsthme" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime value="20210814" />
+            </procedure>
+          </entry>
+          <!--  Demande de RV pour consultation spécialisée en attente de confirmation (moodCode='ARQ')-->
+          <entry>
+            <encounter classCode="ENC" moodCode="ARQ">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14" />
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <id root="B0B97D13-240A-496F-83F4-206B4138DAF0" />
+              <code code="AMB" displayName="Ambulatoire" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActEncounterCode" />
+              <text mediaType="text/xml">
+                <reference value="#scm021" />
+              </text>
+              <effectiveTime nullFlavor="UNK" />
+            </encounter>
+          </entry>
+          <!-- Consultation -->
+          <entry>
+            <encounter classCode="ENC" moodCode="ARQ">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14" />
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <id root="DE0D1EE6-F3E3-45DA-92DA-3606F912A51E" />
+              <code code="OBSENC" displayName="Observation" codeSystem="2.16.840.1.113883.5.4"/>
+              <text mediaType="text/xml">
+                <reference value="#frcp80002" />
+              </text>
+              <!-- Proposition de date (intervalle) -->
+              <effectiveTime>
+                <low value="20220201" />
+                <high value="20220215" />
+              </effectiveTime>
+            </encounter>
+          </entry>
+          <!-- Médication -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A" />
+              <text>
+                <reference>
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20000328" />
+                <high value="20000404" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A">
+                <period value="24" unit="h" />
+              </effectiveTime>
+              <routeCode code="PO" displayName="per os" codeSystem="2.16.840.1.113883.5.112" />
+              <doseQuantity>
+                <low value="1" unit="{tbl}" />
+                <high value="1" unit="{tbl}" />
+              </doseQuantity>
+              <rateQuantity nullFlavor="NAV" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <manufacturedMaterial>
+                    <code code="63245753" codeSystem="1.2.250.1.213.2.3" codeSystemName="CIS" displayName="COUMADINE 5mg, comprimé sécable">
+                      <originalText mediaType="text/xml">
+                        <reference value="#vsm0018" />
+                      </originalText>
+                      <translation code="00678" codeSystem="1.2.250.1.213.2.3.2" codeSystemName="CIP" displayName="WARFARINE SODIQUE">
+                        <originalText mediaType="text/xml">
+                          <reference value="#vsm0019" />
+                        </originalText>
+                      </translation>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A" />
+              <text>
+                <reference>
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20000328" />
+                <high value="20000404" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A">
+                <period value="12" unit="h" />
+              </effectiveTime>
+              <routeCode code="PO" displayName="per os" codeSystem="2.16.840.1.113883.5.112" />
+              <doseQuantity>
+                <low value="1" unit="{tbl}" />
+                <high value="1" unit="{tbl}" />
+              </doseQuantity>
+              <rateQuantity nullFlavor="NAV" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Product template -->
+                  <manufacturedMaterial>
+                    <code code="69393666" codeSystem="1.2.250.1.213.2.3" codeSystemName="CIS" displayName="APROVEL 75 mg, comprimé">
+                      <originalText mediaType="text/xml">
+                        <reference value="#vsm0018" />
+                      </originalText>
+                      <translation code="31416" codeSystem="1.2.250.1.213.2.3.2" codeSystemName="CIP" displayName="IRBÉSARTAN">
+                        <originalText mediaType="text/xml">
+                          <reference value="#vsm0019" />
+                        </originalText>
+                      </translation>
+                    </code>
+                    <name>
+                    </name>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <!--=<<o#%@O[ Section Statut du document ]O@%#o>>=-->
+      <component>
+        <section>
+          <templateId root="1.2.250.1.213.1.1.2.35" />
+          <id root="A8095EC9-4398-4516-BBAA-F1EF0ADB82A9" />
+          <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Statut du document</title>
+          <text>Statut du document : validé</text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <templateId root="1.2.250.1.213.1.1.3.48.16" />
+              <id root="F9D3C1CC-6AC6-46D0-B94D-91A0F717A735"/>
+              <code code="GEN-065" displayName="Statut du document" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="enCours" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20110314" />
+              <value xsi:type="CD" code="GEN-034" displayName="En cours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      
+    </structuredBody>
+  </component>
+</ClinicalDocument>

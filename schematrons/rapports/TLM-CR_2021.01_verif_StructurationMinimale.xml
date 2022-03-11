@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="rapportSchematronToHtml4.xsl"?><svrl:schematron-output xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:cda="urn:hl7-org:v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:jdv="http://esante.gouv.fr"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:svs="urn:ihe:iti:svs:2008"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        title="Rapport de conformité du document aux spécifications françaises (en-tête)"
+                        schemaVersion="CI-SIS_StructurationMinimale.sch"
+                        phase="Struct_minimale"
+                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/TLM-CR_2021.01.xml"
+                        dateHeure="9/3/2022 à 16:38:09 (temps UTC+01:00)">
+   <svrl:active-pattern id="addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:fired-rule context="cda:addr"/>
+   <svrl:active-pattern id="assignedAuthor_fr"/>
+   <svrl:fired-rule context="cda:assignedAuthor/cda:assignedPerson"/>
+   <svrl:fired-rule context="cda:assignedAuthor/cda:representedOrganization"/>
+   <svrl:active-pattern id="assignedEntity_fr"/>
+   <svrl:fired-rule context="cda:assignedEntity"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:assignedPerson"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:representedOrganization"/>
+   <svrl:fired-rule context="cda:assignedEntity"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:assignedPerson"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:representedOrganization"/>
+   <svrl:fired-rule context="cda:assignedEntity"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:assignedPerson"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:representedOrganization"/>
+   <svrl:fired-rule context="cda:assignedEntity"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:assignedPerson"/>
+   <svrl:fired-rule context="cda:assignedEntity/cda:representedOrganization"/>
+   <svrl:active-pattern id="associatedEntity_fr"/>
+   <svrl:fired-rule context="cda:associatedEntity"/>
+   <svrl:fired-rule context="cda:associatedEntity/cda:associatedPerson"/>
+   <svrl:active-pattern id="authenticator_fr"/>
+   <svrl:active-pattern id="author_fr"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:author"/>
+   <svrl:active-pattern id="componentOf_fr"/>
+   <svrl:fired-rule context="cda:componentOf/cda:encompassingEncounter"/>
+   <svrl:fired-rule context="cda:componentOf/cda:encompassingEncounter/cda:code"/>
+   <svrl:active-pattern id="custodian_fr"/>
+   <svrl:fired-rule context="cda:representedCustodianOrganization"/>
+   <svrl:active-pattern id="documentationOf_fr"/>
+   <svrl:fired-rule context="cda:documentationOf"/>
+   <svrl:fired-rule context="cda:documentationOf/cda:serviceEvent"/>
+   <svrl:fired-rule context="cda:documentationOf/cda:serviceEvent/cda:effectiveTime"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent/cda:performer"/>
+   <svrl:fired-rule context="cda:documentationOf"/>
+   <svrl:fired-rule context="cda:documentationOf/cda:serviceEvent"/>
+   <svrl:fired-rule context="cda:documentationOf/cda:serviceEvent/cda:effectiveTime"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent/cda:performer"/>
+   <svrl:active-pattern id="documentEffectiveTime">
+      <svrl:text>
+        Vérification de la conformité au CI-SIS d'un élément de type IVL_TS ou TS du standard CDAr2 :
+        L'élément doit porter soit un attribut "value" soit un intervalle éventuellement semi-borné de sous-éléments "low", "high". 
+        Alternativement, si l'attribut nullFlavor est autorisé, il doit porter l'une des valeurs admises par le CI-SIS. 
+    </svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:effectiveTime"/>
+   <svrl:active-pattern id="informantRelatedEntity_fr"/>
+   <svrl:fired-rule context="cda:informant/cda:relatedEntity"/>
+   <svrl:fired-rule context="cda:informant/cda:relatedEntity"/>
+   <svrl:active-pattern id="informationRecipient_fr"/>
+   <svrl:fired-rule context="cda:informationRecipient/cda:intendedRecipient"/>
+   <svrl:fired-rule context="cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient"/>
+   <svrl:fired-rule context="cda:informationRecipient/cda:intendedRecipient/cda:receivedOrganization"/>
+   <svrl:active-pattern id="inFulfillmentOf_fr"/>
+   <svrl:active-pattern id="legalAuthenticator_fr"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:legalAuthenticator"/>
+   <svrl:active-pattern id="modeleEntete_fr"/>
+   <svrl:fired-rule context="cda:ClinicalDocument"/>
+   <svrl:active-pattern id="participant_fr"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:participant"/>
+   <svrl:fired-rule context="cda:participant/cda:associatedEntity"/>
+   <svrl:active-pattern id="recordTarget_fr"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:guardian"/>
+   <svrl:active-pattern id="relatedDocument_fr">
+      <svrl:text>
+        Si l'élément relatedDocument est présent alors son attribut typeCode doit valoir RPLC 
+    </svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="serviceEventLabStatusCode">
+      <svrl:text>
+        Contrôle d'utilisation à bon escient de l'extension serviceEvent/lab:statusCode autorisée dans les profils XD-LAB, APSR 
+    </svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="telecom">
+      <svrl:text>
+        Vérification de la conformité au CI-SIS d'un élément telecom (de type TEL) du standard CDAr2 :
+        L'élément doit comporter un attribut "value" bien formaté avec les préfixes autorisés par le CI-SIS, 
+        et optionnellement un attribut "use" (qui n'est pas contrôlé).
+        Alternativement, si l'attribut nullFlavor est présent, il doit avoir l'une des valeurs admises par le CI-SIS. 
+    </svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:fired-rule context="cda:telecom"/>
+   <svrl:active-pattern id="JDV_authenticatorSpecialty">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_authorFunctionCode">
+      <svrl:text>Contrôle de l'appartenance du functionCode à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_authorSpecialty">
+      <svrl:text>Contrôle de l'appartenance du code spécialité du PS par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:author/cda:assignedAuthor/cda:code"/>
+   <svrl:active-pattern id="JDV_componentOfResponsibleSpecialty">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:componentOf/cda:encompassingEncounter/cda:responsibleParty/cda:assignedEntity/cda:code"/>
+   <svrl:active-pattern id="JDV_healthcareFacilityCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:encompassingEncounter/cda:location/cda:healthCareFacility/cda:code"/>
+   <svrl:active-pattern id="JDV_informantRelatedEntityCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:informant/cda:relatedEntity/cda:code"/>
+   <svrl:fired-rule context="cda:informant/cda:relatedEntity/cda:code"/>
+   <svrl:active-pattern id="JDV_legalAuthenticatorSpecialty">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:legalAuthenticator/cda:assignedEntity/cda:code"/>
+   <svrl:active-pattern id="JDV_participantFunctionCode">
+      <svrl:text>Contrôle de l'appartenance du functionCode à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:participant/cda:functionCode"/>
+   <svrl:active-pattern id="JDV_participantAssociatedEntityCode">
+      <svrl:text>Contrôle de l'appartenance du code spécialité du PS par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:participant/cda:associatedEntity/cda:code"/>
+   <svrl:active-pattern id="JDV_standardIndustryClassCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:standardIndustryClassCode"/>
+   <svrl:fired-rule context="cda:standardIndustryClassCode"/>
+   <svrl:fired-rule context="cda:standardIndustryClassCode"/>
+   <svrl:fired-rule context="cda:standardIndustryClassCode"/>
+   <svrl:fired-rule context="cda:standardIndustryClassCode"/>
+   <svrl:active-pattern id="JDV_typeCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à TRE du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:code"/>
+   <svrl:active-pattern id="JDV_confidentialityCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:confidentialityCode"/>
+   <svrl:active-pattern id="JDV_encompassingEncounterCode">
+      <svrl:text>Contrôle de l'appartenance du componentOf/encompassingEncounterCode/code aux TREs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:componentOf/cda:encompassingEncounter/cda:code"/>
+   <svrl:active-pattern id="JDV_clinicalStatusCodes">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_healthStatusCodes">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_substanceAdministration_approachSiteCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_problemCodes">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_actSubstanceAdministrationImmunizationCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_observationIntoleranceType">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_substanceAdministration_ImmunizationRouteCodes">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_vitalSignCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_administrativeGenderCode">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="//cda:administrativeGenderCode"/>
+   <svrl:active-pattern id="variablesSM"/>
+</svrl:schematron-output>

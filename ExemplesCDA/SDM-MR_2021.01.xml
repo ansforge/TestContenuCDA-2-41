@@ -1,0 +1,1583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?> 
+<?oxygen SCHSchema="../schematrons/CI-SIS_SDM-MR_2021.01.sch"?>
+<!-- 
+		**********************************************************************************************************
+		Document : Set de Données de Maladies Rares (SDM-MR_2021.01)
+		Auteur : ANS / PML
+		**********************************************************************************************************
+		format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+		**********************************************************************************************************
+		Historique :
+		03/04/2019 : correction des codes LOINC dans l'entrée Signe vital observé
+		19/06/2019 : correction codes commune (COG INSEE) et codes pays (ISO 3166)
+		20/01/2020 : entrée Statut clinique du patient (1.3.6.1.4.1.19376.1.5.3.1.4.1.2), le nullFlavor est autorisé
+		29/05/2020 : ajout du numéro de version (extension) dans l'OID de conformité du document au modèle SDM-MR
+		16/03/2021 : remplacerment du libellé « Techniques sur lesquelles repose le diagnostic » par « Précision de(s) technique(s) génétique(s) utilisée(s) »
+		15/07/2021 : Correction de l'unité en "mo" (au lieu de "mois")
+		15/07/2021 : correction de l'unité en "wk" (au lieu de "semaines")
+		05/11/2021 : version 2021.01
+		**********************************************************************************************************
+	-->
+<!-- Attention : xsi:schemaLocation spécifique au SDM-MR : infrastructure/cda/CDA_SDTC.xsd au lieu de infrastructure/cda/CDA_extended.xsd -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
+  <!-- 
+		************************
+		Entête du document
+		************************
+	-->
+  <realmCode code="FR" />
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications au CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au modèle SDM-MR (Set de Données Minimum Maladies Rares) + numéro de version -->
+  <templateId root="1.2.250.1.213.1.1.1.30" extension="2021.01" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="SDM-MR_2021.01_20190128_001_1" />
+  <!-- Type de document -->
+  <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" />
+  <!-- Titre du document -->
+  <title>Set de données minimum maladies rares (SDM-MR)</title>
+  <!-- Date de création du dossier -->
+  <effectiveTime value="20190128154500+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="SDM-MR_2021.01_20190128_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- Auteur du document - Clinicien ayant suivi le malade -->
+  <author>
+    <time value="20190128120000+0100" />
+    <assignedAuthor>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SCH39" displayName="Médecin - Médecine interne (SCH)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>48</houseNumber>
+        <streetName>Bd Sérurier</streetName>
+        <postalCode>75019</postalCode>
+        <city>PARIS</city>
+      </addr>
+      <telecom value="tel:0131931902" use="WP" />
+      <assignedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles </given>
+          <family>BOILEAU</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation de santé responsable du document -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>HU ROBERT DEBRE APHP</name>
+        <telecom value="tel:0131931902" use="WP" />
+        <addr>
+          <houseNumber>48</houseNumber>
+          <streetName>Bd Sérurier</streetName>
+          <postalCode>75019</postalCode>
+          <city>PARIS</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Signataire du document -->
+  <legalAuthenticator>
+    <time value="20190128120000+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SCH39" displayName="Médecin - Médecine interne (SCH)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>48</houseNumber>
+        <streetName>Bd Sérurier</streetName>
+        <postalCode>75019</postalCode>
+        <city>PARIS</city>
+      </addr>
+      <telecom value="tel:0131931902" use="WP" />
+      <assignedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles</given>
+          <family>BOILEAU</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>HU ROBERT DEBRE APHP</name>
+        <telecom value="tel:0131931902" use="EC" />
+        <addr>
+          <houseNumber>48</houseNumber>
+          <streetName>Bd Sérurier</streetName>
+          <postalCode>75019</postalCode>
+          <city>PARIS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Médecin traitant =-->
+  <participant typeCode="INF">
+    <functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" displayName="Médecin Traitant" />
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567123" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>PARIS</city>
+      </addr>
+      <telecom value="tel:0147150000" use="WP" />
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Stéphane</given>
+          <family>MEDIONI</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Acte documenté par le document (SDM Maladie Rare)-->
+  <documentationOf>
+    <serviceEvent>
+      <code code="P2-00130" displayName="Consultation" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+      <effectiveTime>
+        <low value="20190128111700+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <addr nullFlavor="NASK" />
+          <telecom nullFlavor="NASK" />
+          <assignedPerson>
+            <name>
+              <given>Charles </given>
+              <family>BOILEAU</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>HU ROBERT DEBRE APHP</name>
+            <telecom value="tel:0131931902" use="WP" />
+            <addr>
+              <houseNumber>48</houseNumber>
+              <streetName>Bd Sérurier</streetName>
+              <postalCode>75019</postalCode>
+              <city>PARIS</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Informations sur la prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <effectiveTime>
+        <low value="20190128111700+0100" />
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <code code="SA01" codeSystem="1.2.250.1.71.4.2.4" displayName="Etablissement public de santé" />
+          <location>
+            <name>HU ROBERT DEBRE APHP</name>
+            <addr>
+              <houseNumber>48</houseNumber>
+              <streetName>Bd Sérurier</streetName>
+              <postalCode>75019</postalCode>
+              <city>PARIS</city>
+            </addr>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+		********************************************************
+		Corps du document
+		********************************************************
+	-->
+  <component>
+    <structuredBody>
+      <!-- [1..1] Section Directives anticipées -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.34" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.35" />
+          <templateId root="2.16.840.1.113883.10.20.1.1" />
+          <id root="E6A32CA2-86FB-4727-9277-E4E24E10123D" />
+          <code code="42348-3" displayName="Directives anticipées" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Directives anticipées</title>
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td ID="non-opposition">Non-opposition du patient à
+										réutilisation des données</td>
+                  <td>Oui</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1...1] Entrée Directives anticipées (pour Non opposition du patient pour une réutilisation des données) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="2.16.840.1.113883.10.20.1.17" />
+              <!-- Advance Directive Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7" />
+              <id root="D52A8909-83B9-40C4-8F6C-1D58FD9F1733" />
+              <code code="64292-6" displayName="Non-opposition du patient pour réutilisation des données" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#non-opposition" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20130225100000"/>
+                <high value="20130225110000"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- [1..1] Section Problèmes actifs (Maladie rare, union consanguine, décès) -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.11" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Problèmes actifs</title>
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Maladie rare</td>
+                  <td ID="maladie_rare">Acromégalie et gigantisme hypophysaire</td>
+                </tr>
+                <tr>
+                  <td>Statut de la maladie</td>
+                  <td ID="statut_probleme-1">Actif</td>
+                </tr>
+                <tr>
+                  <td>Statut du patient</td>
+                  <td ID="statut_clinique-1">Invalide</td>
+                </tr>
+                <tr>
+                  <td>Consanguinité</td>
+                  <td ID="consanguinite">Oui</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée Liste des problèmes -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="BED5BF7F-714C-40DC-94FD-A047ABC11281" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="201812130000" />
+                <high value="201812130100" />
+              </effectiveTime>
+              <!-- [1..*] 1ère entrée Problème obligatoire / Maladie rare -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="ECCF7414-8464-47BF-A2DE-9F023A255E34" />
+                  <code code="F-01000" displayName="Problème" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#maladie_rare" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="20181213" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="513" displayName="Leucémie lymphoblastique aigüe" codeSystem="1.2.250.1.213.2.49.1" codeSystemName="JDV_Orpha_Maladies">
+                    <originalText>
+                      <reference value="#maladie_rare" />
+                    </originalText>
+                  </value>
+                  <!-- Statut du problème -->
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.57" />
+                      <templateId root="2.16.840.1.113883.10.20.1.50" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1" />
+                      <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#statut_probleme-1" />
+                      </text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="G-A230" displayName="Actif" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <!-- Statut clinique du patient -->
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.51" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.2" />
+                      <code code="11323-3" displayName="Statut clinique du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#statut_clinique-1" />
+                      </text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="CDA_004" displayName="Malade chronique"
+                        codeSystem="1.2.250.1.213.1.1.4.2.286"/>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] 2ème entrée Problème facultative / Consanguinité -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="B920A6A0-3162-4B98-8BBA-665923EEEB11" />
+                  <code code="F-01050" displayName="Condition préexistante" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#consanguinite" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="20181213" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="MED-553" displayName="Consanguinité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                    <!-- <value xsi:type="CD" nullFlavor="UNK"> -->
+                    <originalText>
+                      <reference value="#consanguinite" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- [0..1] Section Résultats d'examens (pour protocole de recherche) -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27" />
+          <code code="30954-2" displayName="Résultats d'examens" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Protocole de recherche</title>
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td ID="boolean_protocole">Patient participant à un
+										protocole</td>
+                  <td colspan="2">Oui</td>
+                </tr>
+                <tr>
+                  <td ID="accord_protocole">Accord du patient pour contact
+										protocole</td>
+                  <td colspan="2">Oui</td>
+                </tr>
+                <tr>
+                  <td ID="recherche_mr">Patient ayant précédemment donné un
+										échantillon biologique pour la recherche MR</td>
+                  <td colspan="2">Non</td>
+                </tr>
+                <tr>
+                  <td ID="diagnostic_moleculaire">Patient ayant précédemment donné
+										un échantillon biologique pour le diagnostic
+										moléculaire</td>
+                  <td colspan="2">Oui</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée Procedure obligatoire -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <id root="D5C3639B-2A68-4C87-8019-CBD941B7B429" />
+              <code nullFlavor="NA" />
+              <text>
+                <reference value="#resultat" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+            </procedure>
+          </entry>
+          <!-- [0..1] Entrée Simple observation (pour Patient participant à un protocole) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="559A978D-C501-4684-BC73-8891FBE7C719" />
+              <code code="PAT-023" displayName="Patient participant à un protocole" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#boolean_protocole" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+              <!-- Patient participant à un protocole  -->
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- [0..1] Entrée Simple observation (pour Accord pour etre contacté pour un protocole) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="5610E17B-1CC7-4A53-85CF-E38879EC32CB" />
+              <code code="PAT-012" displayName="Accord du patient pour contact protocole" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#accord_protocole" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- [0..1] Entrée Simple observation (pour Patient ayant précédemment donné un échantillon biologique pour la recherche MR) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="3E40E2A4-6FC1-448F-AACB-EEB12386F8C1" />
+              <code code="MED-065" displayName="Patient ayant précédemment donné un échantillon biologique pour la recherche MR" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#recherche_mr" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- [0..1] Entrée Simple observation (pour Patient ayant précédemment donné un échantillon biologique pour le diagnostic moléculaire) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="62BCFD5C-1332-4BC8-8D4B-377B24E6AA71" />
+              <code code="MED-066" displayName="Patient ayant précédemment donné un échantillon biologique pour le diagnostic moléculaire" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#diagnostic_moleculaire" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- [0..1] Section Traitements Maladie Rare -->
+      <component>
+        <section>
+          <templateId root="1.2.250.1.213.1.1.2.54" />
+          <id root="E6E5DB93-E0DA-4459-8CEB-6FB56CF75197" />
+          <code code="10160-0" displayName="Traitements" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Traitements maladie rare en cours</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th align="center">Traitements spécifique à la maladie rare en
+										cours</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="traitEnCours">Decitabine</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée Entrée Traitement Maladie rare -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="1.2.250.1.213.1.1.3.13" />
+              <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A" />
+              <statusCode code="completed" />
+             <effectiveTime xsi:type="IVL_TS">
+                <low value="20170511000000" />
+                <high value="20170611000000" />
+              </effectiveTime>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <manufacturedMaterial>
+                    <code code="EMEA/H/C/002221" displayName="Dacogen" codeSystem="1.2.250.1.213.2.50" codeSystemName="EMEA Rare Disease medicinal products">
+                      <originalText>
+                        <reference value="traitEnCours" />
+                      </originalText>
+                      <translation code="L01BC08" displayName="decitabine" codeSystem="2.16.840.1.113883.6.73" codeSystemName="Code ATC" />
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <!-- [0..1] Section Plan de soins (pour les prises en charge) -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <id root="CE73FBA7-5AC9-4E1F-936B-DA74E9C8609C" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Prises en charges maladie rare</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date d'inclusion</th>
+                  <th>Site MR</th>
+                  <th>Médecin de référence</th>
+                  <th>Identifiant de la prise en charge</th>
+                  <th>Indicateur hors labélisation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ID="IdPEC">
+                  <td>13/12/2018</td>
+                  <td>ADIdF [COO] VERLOES (S001)</td>
+                  <td>Dr Charles BOILEAU (801234567897)</td>
+                  <td>12da3a06-18e7-40b7-9397-1fa5b1552472</td>
+                  <td>Oui</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée Consultation (1 entrée par Site MR) -->
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14" />
+              <templateId root="2.16.840.1.113883.10.20.1.21" />
+              <!-- Identifiant de la prise en charge -->
+              <id root="6917FE7A-2F04-458E-8224-D273C6B643E7" />
+              <code code="ORG-045" displayName="Hospitalisation traditionnelle" codeSystem="1.2.250.1.213.1.1.4.322"/>
+              <text>
+                <reference value="#IdPEC" />
+              </text>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20181213" />
+              </effectiveTime>
+              <!-- [1..1] Médecin référent du site maladie rare -->
+              <performer typeCode="PRF">
+                <time nullFlavor="NA" />
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SCH39" displayName="Médecin - Médecine interne (SCH)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr nullFlavor="NASK" />
+                  <telecom nullFlavor="NASK" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles</given>
+                      <family>BOILEAU</family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>HU ROBERT DEBRE APHP</name>
+                    <telecom value="tel:0131931902" use="EC" />
+                    <addr>
+                      <houseNumber>48</houseNumber>
+                      <streetName>Bd Sérurier</streetName>
+                      <postalCode>75019</postalCode>
+                      <city>PARIS</city>
+                    </addr>
+                    <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- [1..*] Patient adressé par -->
+              <informant>
+                <assignedEntity>
+                  <id nullFlavor="NA" />
+                  <code code="ORG-020" displayName="association de patients" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <addr>
+                    <streetAddressLine>3 rue de Londres</streetAddressLine>
+                    <streetAddressLine>75005 PARIS</streetAddressLine>
+                  </addr>
+                  <telecom value="tel:0142110000" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <prefix>M</prefix>
+                      <given>Stéphane</given>
+                      <family>PETIT</family>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <name>Association des patients MR1</name>
+                  </representedOrganization>
+                </assignedEntity>
+              </informant>
+              <!-- [1..1] Site MR -->
+              <participant typeCode="LOC">
+                <participantRole classCode="SDLOC">
+                  <id extension="S001" root="1.2.250.1.213.2.61" />
+                  <code code="ORG-025" displayName="Site de prise en charge" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <addr>
+                    <houseNumber>48</houseNumber>
+                    <streetName>Bd Sérurier</streetName>
+                    <postalCode>75019</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <telecom value="tel:0131931902" use="EC" />
+                  <!-- Site pour lequel l'activité est déclarée  -->
+                  <playingEntity classCode="PLC" determinerCode="INSTANCE">
+                    <code code="S001" displayName="ADIdF [COO] VERLOES" codeSystem="1.2.250.1.213.2.61"/>
+                    <name>HU ROBERT DEBRE APHP - 75019 PARIS - Anomalies Du
+											Développement Et Syndromes Malformatif d'Ile-De-France -
+											[COO] - Alain VERLOES</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <!-- [1..1] Indicateur Hors labélisation-->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="490392D8-C59D-4CF9-A3E4-D85033E7D6CC" />
+                  <code code="GEN-162" displayName="Indicateur Hors labélisation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#indHorsLab" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+            </encounter>
+          </entry>
+        </section>
+      </component>
+      <!-- [0..1] Section Historique des prises en charge médicales (regroupe les activités) -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.3" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.3" />
+          <id root="A048B2A1-B0F2-4B45-9895-1514EB8911FF" />
+          <code code="46240-8" displayName="Historique des rencontres" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Activités maladie rare</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Site MR</th>
+                  <th>Responsable de l'activité</th>
+                  <th>Contexte</th>
+                  <th>Objectif(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>13/12/2018</td>
+                  <td>S001 : ADIdF [COO] VERLOES</td>
+                  <td>Dr Charles BOILEAU (801234567897)</td>
+                  <td ID="activite-01">Avis sur dossier en consultation</td>
+                  <td ID="objectifActiv-01">Suivi</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée Consultation (1 consultation = 1 activité) -->
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14" />
+              <templateId root="2.16.840.1.113883.10.20.1.21" />
+              <!-- Identifiant de l'activité -->
+              <id root="C38D726B-6DE0-43A0-B309-96FF1D524888" />
+              <!-- Contexte de l'activité -->
+              <code code="ORG-029" displayName="Avis sur dossier en consultation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#activite-01" />
+              </text>
+              <!-- Date de l'activité -->
+              <effectiveTime value="20181213" />
+              <!-- Personne ayant réalisé l'activité -->
+              <performer typeCode="PRF">
+                <time nullFlavor="NA"/>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SCH39" displayName="Médecin - Médecine interne (SCH)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>48</houseNumber>
+                    <streetName>Bd Sérurier</streetName>
+                    <postalCode>75019</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <telecom value="tel:0131931902" use="EC" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles </given>
+                      <family>BOILEAU</family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>HU ROBERT DEBRE APHP</name>
+                    <telecom value="tel:0131931902" use="EC" />
+                    <addr>
+                      <houseNumber>48</houseNumber>
+                      <streetName>Bd Sérurier</streetName>
+                      <postalCode>75019</postalCode>
+                      <city>PARIS</city>
+                    </addr>
+                    <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Site et lieu d'activité -->
+              <participant typeCode="LOC">
+                <participantRole classCode="SDLOC">
+                  <id extension="S001" root="1.2.250.1.213.2.61" />
+                  <code code="ORG-070" displayName="Site Maladie rare" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <!-- Lieu de l'activité -->
+                  <addr>
+                    <houseNumber>48</houseNumber>
+                    <streetName>Bd Sérurier</streetName>
+                    <postalCode>75019</postalCode>
+                    <city>75056</city>
+                    <country>FR</country>
+                  </addr>
+                  <!-- Site pour lequel l'activité est déclarée  -->
+                  <playingEntity classCode="PLC" determinerCode="INSTANCE">
+                    <code code="S001" displayName="ADIdF [COO] VERLOES" codeSystem="1.2.250.1.213.2.61"/>
+                    <name>HU ROBERT DEBRE APHP - 75019 PARIS - Anomalies Du
+											Développement Et Syndromes Malformatif d'Ile-De-France -
+											[COO] - Alain VERLOES</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <!-- [1..*] Entrée Simple observation (pour Objectif de l'activité MR) -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="098A0F48-BEA0-46DA-B192-5973005E9963" />
+                  <code code="ORG-034" displayName="Objectifs de l'activité MR" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#objectifActiv-01" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <!-- Code objectif  -->
+                  <value xsi:type="CD" code="ORG-047" displayName="Suivi" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </entryRelationship>
+              <!-- [1..1] Entrée Simple observation (pour code pays) -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="A67475FC-CFEA-4875-8F57-C7BF1399B56A" />
+                  <code code="65649-6" displayName="Pays" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#codePays" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <!-- Code Pays ISO 3166  -->
+                  <value xsi:type="CD" code="FR" displayName="FRANCE" codeSystem="1.0.3166.2.2.2" codeSystemName="ISO 3166" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Entrée Simple observation (pour code commune si France) -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="E19DE2BD-3CDB-4B37-B298-F36F1ED81FE0" />
+                  <code code="65647-0" displayName="Code commune" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#codeCommune" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <!-- Code commune COG INSEE -->
+                  <value xsi:type="CD" code="75056" displayName="PARIS" codeSystemName="COG INSEE" />
+                </observation>
+              </entryRelationship>
+            </encounter>
+          </entry>
+        </section>
+      </component>
+      <!-- [0..1] Section Diagnostic d'admission à l'hopital -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.3" />
+          <id root="133359E6-1C2B-4EB4-BD33-552CAD44B3CB" />
+          <code code="46241-6" displayName="Diagnostic d'admission à l'hôpital" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Diagnostic d'admission à l'hôpital</title>
+          <!-- Partie narrative de la section -->
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Identifiant du diagnostic</td>
+                  <td colspan="2">12da3a06-18e7-40b7-9397-1fa5b1552472</td>
+                </tr>
+                <tr>
+                  <td ID="diagnostic_mr">Diagnostic de la Maladie Rare</td>
+                  <td colspan="2">Leucémie lymphoblastique aigüe (code ORPHA : 513)</td>
+                </tr>
+                <tr>
+                  <td ID="age_premiers_signes">Age aux premiers signes</td>
+                  <td colspan="2">à l'âge de</td>
+                </tr>
+                <tr>
+                  <td ID="precision_age_premiers_signes">Précision de l'âge aux
+										premiers signes</td>
+                  <td colspan="2">5 mois</td>
+                </tr>
+                <tr>
+                  <td ID="appreciation_diagnostic">Appréciation diagnostic à l'entrée du site</td>
+                  <td colspan="2">Absent</td>
+                </tr>
+                <tr>
+                  <td ID="age_diagnostic">Age au diagnostic</td>
+                  <td colspan="2">à l'âge de</td>
+                </tr>
+                <tr>
+                  <td ID="precision_age_diagnostic">Précision de l'âge au diagnostic</td>
+                  <td colspan="2">12 mois</td>
+                </tr>
+                <tr>
+                  <td ID="statut_actuel_diagnostic">Statut actuel du diagnostic</td>
+                  <td colspan="2">En cours</td>
+                </tr>
+                <tr>
+                  <td ID="sporadique_familiale">Cas sporadique ou familial</td>
+                  <td colspan="2">Sporadique</td>
+                </tr>
+                <tr>
+                  <td ID="techniques_diagnostic">Précision de(s) technique(s) génétique(s) utilisée(s)</td>
+                  <td colspan="2">Autre</td>
+                </tr>
+                <tr>
+                  <td ID="investigations_realisees">Investigations réalisées</td>
+                  <td colspan="2">clinique</td>
+                </tr>
+                <tr>
+                  <td ID="precModeConf">Précision du mode de confirmation</td>
+                  <td colspan="2"> - </td>
+                </tr>
+                <tr>
+                  <td ID="signes_complémentaires">Signes complémentaires associés à la MR</td>
+                  <td colspan="2">Maladie neurologique rare (code ORPHA : 98006)</td>
+                </tr>
+                <tr>
+                  <td ID="signes_inhabituels">Signes inhabituels associés à la MR</td>
+                  <td colspan="2">Démarche ataxique (code CIM10 : R36.6)</td>
+                </tr>
+                <tr>
+                  <td ID="gene">Gène</td>
+                  <td colspan="2">ABCA9 antisense RNA 1</td>
+                </tr>
+                <tr>
+                  <td ID="sujet_sain">Sujet apparemment sain</td>
+                  <td colspan="2">Non</td>
+                </tr>
+                <tr>
+                  <td ID="autres_descriptions_genetiques">Autres descriptions génétiques</td>
+                  <td colspan="2">Déplacement Allelique</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée Liste des problèmes (1 entrée par diagnostic) -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Identifiant du diagnostic -->
+              <id root="E33021FA-1388-4C0E-8200-4BC2DDF9EDC9" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="201812130000" />
+                <high value="201812130100" />
+              </effectiveTime>
+              <!-- [1..1] Entrée Problème = Diagnostic MR -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="5F7B8B9A-83D6-4B26-BB30-1D7B95F9FF71" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#diagnostic_mr" />
+                  </text>
+                  <statusCode code="completed" />
+                  <!-- Date du diagnostic MR -->
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="201812130000" />
+                    <high value="201812130100" />
+                  </effectiveTime>
+                  <!-- Diagnostic MR -->
+                  <value xsi:type="CD" code="513" displayName="Leucémie lymphoblastique aigüe" codeSystem="1.2.250.1.213.2.49.1" codeSystemName="JDV_Orpha_Maladies">
+                    <originalText>
+                      <reference value="#diagnostic_mr" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- [1..1] Age aux premiers signes -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="87B88A38-8DF6-4198-9995-0B3D20472D05" />
+                  <code code="PAT-013" displayName="Age aux premiers signes " codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#age_premiers_signes" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD" code="GEN-020" displayName="à l'âge de" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Précision de l'âge premiers signes -->
+              <entryRelationship typeCode="REFR" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="11C6F145-CF8B-4358-A68C-83EFD8E65507" />
+                  <code code="PAT-014" displayName="Précision de l'âge aux premiers signes" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#precision_age_premiers_signes" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <!-- 15/07/2021 : Correction de l'unité en "mo" (au lieu de "mois") -->
+                  <value xsi:type="PQ" value="5" unit="mo" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Appréciation du diagnostic à l'entrée du site -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="B4988088-E848-465C-819D-39C6266B5A57" />
+                  <code code="MED-071" displayName="Appréciation diagnostic" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName=" TA_ASIP " />
+                  <text>
+                    <reference value="#appreciation_diagnostic" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="CD" code="MED-426" displayName="absent" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </entryRelationship>
+              <!-- [1..1] Age au diagnostic -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="7867E08B-D92F-49CF-9026-B9E1C8275C9E" />
+                  <code code="PAT-015" displayName="Age au Diagnostic" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#age_diagnostic " />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD" code="GEN-020" displayName="à l'âge de" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Précision sur l'âge au diagnostic -->
+              <entryRelationship typeCode="REFR" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="DF8953BE-F761-4F62-885D-9C5D15DFEB5B" />
+                  <code code="PAT-016" displayName="Précision de l'âge au diagnostic" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#precision_age_diagnostic" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <!-- 15/07/2021 : Correction de l'unité en "mo" (au lieu de "mois") -->
+                  <value xsi:type="PQ" value="12" unit="mo" />
+                </observation>
+              </entryRelationship>
+              <!-- [1..1] Statut actuel du diagnostic -->
+              <entryRelationship typeCode="REFR" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="E31D4A1D-9D9D-4EEF-B1B7-C6D209B459DB" />
+                  <code code="MED-072" displayName="Statut actuel du Diagnostic" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#statut_actuel_diagnostic" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="CD" code="GEN-034" displayName="en cours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Cas Sporadique ou Familial -->
+              <entryRelationship typeCode="REFR" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="F769E135-6907-443A-8E4F-A6E431A02573" />
+                  <code code="MED-073" displayName="Cas Sporadique ou Familial" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#sporadique_familiale " />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="CD" code="G-A646" displayName="Sporadique" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..*] Précision de(s) technique(s) génétique(s) utilisée(s) -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="8A4AC9D5-BFEC-4470-BC4B-3A8D2A231E1E" />
+                  <code code="MED-068" displayName="Précision de(s) technique(s) génétique(s) utilisée(s)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#techniques_diagnostic" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="CD" code="GEN-092" displayName="Autre" codeSystem="1.2.250.1.213.1.1.4.322" />
+                </observation>
+              </entryRelationship>
+              <!-- [1..*] Investigations réalisées  -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="6ECDF212-73CA-40BD-82F5-6F932197CC61" />
+                  <code code="ORG-017" displayName="Investigations réalisées" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#investigations_realisees" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="CD" code="G-A304" displayName="clinique" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Précision du mode de confirmation  -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="FB83A892-A4CD-431E-9803-F97BDBEB5906" />
+                  <code code="GEN-163" displayName="Précision du mode de confirmation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#precModeConf" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="ST" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..*] Signes complémentaires associés à la Maladie Rare -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="78FCC344-92BE-4C1A-A253-780EE60F00CF" />
+                  <code code="MED-074" displayName="Signes complémentaires associés à la MR" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#signes_complémentaires" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="CD" code="98006" displayName="Maladie neurologique rare" codeSystem="1.2.250.1.213.2.49.2" codeSystemName="JDV_Orpha_Groupes-Maladies" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..*] Signes inhabituels associés à la Maladie Rare -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="FD154481-4C5A-43D2-BE63-B4E17E2A04AF" />
+                  <code code="MED-086" displayName="Signes complémentaires associés à la MR" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#signes_inhabituels" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD" code="R26.0" displayName="Démarche ataxique" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..*] Gènes (codé) -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="A1FDA6D4-FC8C-47AD-98C4-A36977EFC8DF" />
+                  <code code="MED-552" displayName="Gène" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#gene" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="CD" code="HGNC:39983" displayName="ABCA9 antisense RNA 1" codeSystemName="HGNC" codeSystem="2.16.840.1.113883.4.642.2.468" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Sujet apparemment sain (O/N) -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="42D894FC-ADD5-4521-8605-5A960AE26634" />
+                  <code code="MED-064" displayName="Sujet apparemment sain" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#sujet_sain" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- [0..1] Autres descriptions génétiques / Mutations (texte) -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="6B54CA53-F7F6-42C1-94FF-09F505AE41C5" />
+                  <code code="MED-554" displayName="Mutation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#autres_descriptions_genetiques" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20181213" />
+                  <value xsi:type="ST">texte pour décrire la mutation</value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- [0..1] Section Informations sur l'accouchement -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.4" />
+          <id root="6554933B-73F7-4704-962F-5505684E8EC9" />
+          <code code="57075-4" displayName="Informations sur l'accouchement et le nouveau-né" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Informations anté et néonatale</title>
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td ID="assistance_procreation">Assistance médicale à la
+										procréation</td>
+                  <td>Oui</td>
+                </tr>
+                <tr>
+                  <td ID="poids">Poids</td>
+                  <td colspan="2">2500 g</td>
+                </tr>
+                <tr>
+                  <td ID="taille">Taille</td>
+                  <td colspan="2">40 cm</td>
+                </tr>
+                <tr>
+                  <td ID="perimetre_cranien">Périmètre cranien</td>
+                  <td colspan="2">17 cm</td>
+                </tr>
+                <tr>
+                  <td>Naissance à terme</td>
+                  <td colspan="2">Non</td>
+                </tr>
+                <tr>
+                  <td>Nombre de semaines avant terme</td>
+                  <td colspan="2">2</td>
+                </tr>
+                <tr>
+                  <td>Présence de malformations anténatales</td>
+                  <td colspan="2">Oui</td>
+                </tr>
+                <tr>
+                  <td ID="presence_malformations_antenatales">Type de
+										malformation</td>
+                  <td colspan="2">unique</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [0..1] Sous-section Actes et interventions (pour Assistance médicale de la procréation) -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
+              <id root="B2BD9B52-3D08-436E-8E32-6EB1B0978E5D" />
+              <code code="29554-3" codeSystem="2.16.840.1.113883.6.1" displayName="Actes" codeSystemName="LOINC" />
+              <title>Actes et interventions</title>
+              <text />
+              <!-- [1..1] Entrée Acte (pour Assistance médicale à la procréation) -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <!-- template procedure entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <id root="3E43DBF8-DCC3-4EF1-B60C-E3506E697935" />
+                  <code code="MED-075" displayName="Assistance médicale à la procréation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#assistance_procreation" />
+                  </text>
+                  <statusCode code="active" />
+                  <!-- Date de l'assistance médicale à la procréation -->
+                  <effectiveTime value="20100501" />
+                </procedure>
+              </entry>
+            </section>
+          </component>
+          <!-- [0..1] Sous-section Examen Physique (codé) (pour Précisions sur la naissance) -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15.1" />
+              <id root="80A8EF39-0156-4D49-8C66-B5DC55D488EA" />
+              <code code="29545-1" displayName="Examen physique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <title>Examen physique</title>
+              <text />
+              <!-- [0..1] Sous-section Signes vitaux -->
+              <component>
+                <section>
+                  <templateId root="2.16.840.1.113883.10.20.1.16" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2" />
+                  <id root="0D5E6476-E8FC-4475-A6C7-56ACFC2EF60C" />
+                  <code code="8716-3" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <title>Signes vitaux</title>
+                  <text />
+                  <!-- [1..1] Entrée Signes vitaux -->
+                  <entry>
+                    <organizer classCode="CLUSTER" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.32" />
+                      <templateId root="2.16.840.1.113883.10.20.1.35" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1" />
+                      <id root="B801D560-7E1B-457A-A1FD-62359F4A24B5" />
+                      <!--<code code="F-03400" displayName="Signes vitaux" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />-->
+                      <code code="85353-1" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <!--Poids(kg) -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                          <templateId root="2.16.840.1.113883.10.20.1.31" />
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
+                          <id root="61CD147E-CB7A-4B1C-9850-BDAB9ACC2A7D" />
+                          <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Poids (mesuré)" codeSystemName="LOINC" />
+                          <text>
+                            <reference value="#poids" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NA" />
+                          <value xsi:type="PQ" value="2500" unit="g" />
+                        </observation>
+                      </component>
+                      <!-- Taille(cm) -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                          <templateId root="2.16.840.1.113883.10.20.1.31" />
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
+                          <id root="D26F6FC2-F711-4816-A0A8-841838451BBD" />
+                          <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Taille" codeSystemName="LOINC" />
+                          <text>
+                            <reference value="#taille" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NA" />
+                          <value xsi:type="PQ" value="40" unit="cm" />
+                        </observation>
+                      </component>
+                      <!-- Périmètre cranien -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                          <templateId root="2.16.840.1.113883.10.20.1.31" />
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
+                          <id root="226B2352-710D-48BD-8F83-2C221BC00F09" />
+                          <code code="8287-5" displayName="Périmètre cranien" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                          <text>
+                            <reference value="#perimetre_cranien" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NA" />
+                          <value xsi:type="PQ" value="17" unit="cm" />
+                        </observation>
+                      </component>
+                    </organizer>
+                  </entry>
+                </section>
+              </component>
+            </section>
+          </component>
+          <!-- [0..1] Sous-section Résultats d'évènements (codé) -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
+              <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
+              <id root="5F2649BE-0BED-4AD2-897A-2A4324BEA2FE" />
+              <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <title>Evènements observés</title>
+              <text />
+              <!-- [0..1] Entrée Simple observation (pour Nombre de semaines de grossesse si le patient n'est pas né à terme) -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="C0345C97-FEC3-4863-BBEB-CBF99886B0EF" />
+                  <code code="MED-077" displayName="Précision terme (cas échéant)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#semaines_avant_terme" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20090812" />
+                  <!-- 15/07/2021 : correction de l'unité en "wk" (au lieu de "semaines") -->
+                  <value xsi:type="PQ" value="2" unit="wk" />
+                </observation>
+              </entry>
+              <!-- [0..1] Entrée Simple observation (pour Malformation anténatale) -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="D86C32CE-C3AF-445E-8B7A-566FAA5CF70A" />
+                  <code code="MED-078" displayName="Présence de malformations anténatale" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#presence_malformations_antenatales" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20090812" />
+                  <value xsi:type="CD" code="G-A224" displayName="unique" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                </observation>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- [0..1] Section Antécédents Familiaux (codé) : cette section est créée si le patient n'est pas le propositus -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.4" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.14" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.15" />
+          <id root="90989FFE-CFC7-4FDA-A2BE-979801B81600" />
+          <code code="10157-6" displayName="Historique des pathologies familiales" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Antécédents familiaux</title>
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Identifiant du propositus</td>
+                  <td>1234567890112345678902 (1.2.3.4.5.6.7.8.9.10)</td>
+                </tr>
+                <tr>
+                  <td>Lien de parenté</td>
+                  <td>Cousin</td>
+                </tr>
+                <tr>
+                  <td>Commentaire</td>
+                  <td> - </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée Antécédents Familiaux (codé) -->
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.23" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.15" />
+              <statusCode code="completed" />
+              <!-- identifiant du sujet -->
+              <subject typeCode="SBJ">
+                <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.15.2"/>
+                <relatedSubject classCode="PRS">
+                  <!-- Lien de parenté -->
+                  <code code="PCOUSN" displayName="Cousin" codeSystem="2.16.840.1.113883.5.111" codeSystemName="RoleCode" />
+                  <subject classCode="PSN">
+                    <!-- Identifiant du propositus -->
+                    <id xmlns="urn:hl7-org:sdtc" root="1.2.3.4.5.6.7.8.9.10" extension="1234567890112345678902" />
+                    <!--<sdtc:id root="1.2.3.4.5.6.7.8.9.10" extension="1234567890112345678902" />-->
+                    <!-- Sexe du propositus -->
+                    <administrativeGenderCode code="M" displayName="Masculin" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7:AdministrativeGender" />
+                  </subject>
+                </relatedSubject>
+              </subject>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.22" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.3" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="4F052078-E014-40A2-B6D9-BA76159C6A5D" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12"/>
+                  <text>
+                    <reference value="#description" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="ST">-</value>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <!-- [1..1] Section Dossier -->
+      <component>
+        <section>
+          <!-- template de la section -->
+          <templateId root="1.2.250.1.213.1.1.2.66" />
+          <id root="63B2E483-AB9B-478A-A4E9-EEFF83C74858" />
+          <code code="GEN-168" displayName="Dossier" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+          <title>Dossier</title>
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td ID="idDossier">Identifiant du dossier</td>
+                  <td colspan="2">251dfc28-cdcf-4086-a7b9-181fcc857aa6</td>
+                </tr>
+                <tr>
+                  <td ID="date_creation">Date de création du dossier</td>
+                  <td colspan="2">13/12/2018</td>
+                </tr>
+                <tr>
+                  <td ID="date_maj">Date de la dernière mise à jour du
+										dossier</td>
+                  <td colspan="2">13/12/2018</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Date de création du dossier -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Identifiant du dossier -->
+              <id root="33341B85-96D9-4FFC-A165-37152FEA4FE1" />
+              <code code="GEN-164" displayName="Date de création" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#date_creation" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20090812" />
+              <!-- date de création du dossier -->
+              <value xsi:type="TS" value="20181213" />
+            </observation>
+          </entry>
+          <!-- Date de la dernière mise à jour du dossier -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <id root="C57578D1-D2B7-44EA-9C00-BE653E3D0D10" />
+              <code code="GEN-165" displayName="Date de mise à jour" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#date_maj" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20090812" />
+              <!-- date de la dernière maj du dossier -->
+              <value xsi:type="TS" value="20181213" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

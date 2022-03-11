@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="urn:dicom-org:ps3-20" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:dicom-org:ps3-20"
+    elementFormDefault="qualified" xmlns:hl7="urn:hl7-org:v3" xmlns:sch="http://www.ascc.net/xml/schematron">
+    
+    <xs:import namespace="urn:hl7-org:v3" schemaLocation="POCD_MT000040_extensions.xsd" />
+    <xs:import namespace="urn:hl7-org:v3" schemaLocation="../../processable/coreschemas/infrastructureRoot.xsd"/>
+    <xs:include schemaLocation="../../processable/coreschemas/datatypes.xsd"/>
+    
+    <!-- == Start Data types ===================================================================== -->
+    <xs:complexType name="POCD_MT000040.Order">
+        <xs:sequence>
+            <xs:element name="id" type="II" maxOccurs="unbounded"/>
+            <xs:element name="accessionNumber" type="II" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="InFulfillmentOf">
+        <xs:sequence>
+            <xs:element name="order" type="POCD_MT000040.Order" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- == End Data Types =================================================================== -->
+    
+    <xs:element name="order" type="POCD_MT000040.Order" />
+    <xs:element name="accessionNumber" type="II" />
+    <xs:element name="id" type="II"/>
+    <xs:element name="inFulfillmentOf" type="InFulfillmentOf" />
+    
+</xs:schema>

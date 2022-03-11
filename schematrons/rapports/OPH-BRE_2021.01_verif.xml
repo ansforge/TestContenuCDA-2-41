@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="rapportSchematronToHtml4.xsl"?><svrl:schematron-output xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:cda="urn:hl7-org:v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:jdv="http://esante.gouv.fr"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:svs="urn:ihe:iti:svs:2008"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        title="Vérification de la conformité du document au modèle OPH-BRE_2021.01"
+                        schemaVersion="CI-SIS_OPH-BRE_2021.01.sch"
+                        phase="OPH-BRE"
+                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/OPH-BRE_2021.01.xml"
+                        dateHeure="9/3/2022 à 16:33:17 (temps UTC+01:00)">
+   <svrl:active-pattern id="JDV_MotifConsultationOphtalmologique-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13'          and cda:code/@code='42349-1']/cda:value"/>
+   <svrl:active-pattern id="JDV_MotifConsultationOphtalmologiqueEntete-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent/cda:code"/>
+   <svrl:active-pattern id="JDV_OrientationBaseDuPrisme-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[(cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1074') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1080') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6' and cda:code/@code='96051-8')]/cda:value"/>
+   <svrl:fired-rule context="cda:observation[(cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1074') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1080') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6' and cda:code/@code='96051-8')]/cda:value"/>
+   <svrl:fired-rule context="cda:observation[(cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1074') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1080') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6' and cda:code/@code='96051-8')]/cda:value"/>
+   <svrl:fired-rule context="cda:observation[(cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1074') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1080') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6' and cda:code/@code='96051-8')]/cda:value"/>
+   <svrl:fired-rule context="cda:observation[(cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1074') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1080') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6' and cda:code/@code='96051-8')]/cda:value"/>
+   <svrl:fired-rule context="cda:observation[(cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1074') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='MED-1080') or         (cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6' and cda:code/@code='96051-8')]/cda:value"/>
+   <svrl:active-pattern id="JDV_OeilExamine-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7' or cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:targetSiteCode"/>
+   <svrl:active-pattern id="JDV_TypeDeVerresPrescrits-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='64885-7']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='64885-7']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='64885-7']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='64885-7']/cda:value"/>
+   <svrl:active-pattern id="JDV_TypeDeLentilles-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'  and cda:code/@code='28866-2']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'  and cda:code/@code='28866-2']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'  and cda:code/@code='28866-2']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'  and cda:code/@code='28866-2']/cda:value"/>
+   <svrl:active-pattern id="JDV_AdditionGrandeur-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='28814-2']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='28814-2']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='28814-2']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9' and cda:code/@code='28814-2']/cda:value"/>
+   <svrl:active-pattern id="JDV_TypeDePrisme-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'          and cda:code/@code='95324-0']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'          and cda:code/@code='95324-0']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'          and cda:code/@code='95324-0']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9'          and cda:code/@code='95324-0']/cda:value"/>
+   <svrl:active-pattern id="JDV_Lateralite-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:targetSiteCode/cda:qualifier/cda:value"/>
+   <svrl:active-pattern id="JDV_TypeDeMesureAcuiteVisuelle-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']/cda:code"/>
+   <svrl:active-pattern id="JDV_TypeDeMesureDeRefraction-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.7']/cda:code"/>
+   <svrl:active-pattern id="JDV_TypeDeMesureDispositifOculaire-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:organizer[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.5']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.5']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.5']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.5']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.5']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.5']/cda:code"/>
+   <svrl:active-pattern id="JDV_MesureVerrePrescrit-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28821-7']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:active-pattern id="JDV_MesureTypeVerrePrescrit-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28818-3']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:active-pattern id="JDV_MesureVerreDelivre-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1067']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:active-pattern id="JDV_MesureTypeVerreDelivre-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1068']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:active-pattern id="JDV_MesureLentillePrescrite-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='28866-2']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:active-pattern id="JDV_MesureLentilleDelivree-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:fired-rule context="cda:organizer[cda:code/@code='MED-1069']/cda:component/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.9']/cda:code"/>
+   <svrl:active-pattern id="Entete_OPH-BRE"/>
+   <svrl:fired-rule context="cda:ClinicalDocument"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:author/cda:assignedAuthor"/>
+   <svrl:active-pattern id="E_raisonDeLaRecommandation_OPH-BRE"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.2']//cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13']"/>
+   <svrl:active-pattern id="E_mesuresDeRefractionOrganizer_OPH-BRE"/>
+   <svrl:fired-rule context="*[cda:templateId/@root = '1.3.6.1.4.1.19376.1.12.1.3.3']"/>
+   <svrl:active-pattern id="E_mesuresAcuiteVisuelle_OPH-BRE"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.2']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.12.1.3.6']"/>
+   <svrl:active-pattern id="variables"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:component/cda:structuredBody"/>
+</svrl:schematron-output>

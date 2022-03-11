@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20210326120000" dateValid="20210326120000" description="Sexe d'une personne utilisée à des fins administratives (par opposition au sexe clinique) repris de la terminologie HL7 v3 AdministrativeGender (https://www.hl7.org/fhir/v3/AdministrativeGender/cs.html)" displayName="TRE_R303-HL7v3AdministrativeGender.tabs" id="2.16.840.1.113883.5.1" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R303-HL7v3AdministrativeGender">
+        <ConceptList>
+            <Concept code="F" codeSystem="2.16.840.1.113883.5.1" dateFin="" dateMaj="20210326120000" dateValid="20210326120000" displayName="Féminin" longDesignation="Féminin" shortDesignation="Féminin"/>
+            <Concept code="M" codeSystem="2.16.840.1.113883.5.1" dateFin="" dateMaj="20210326120000" dateValid="20210326120000" displayName="Masculin" longDesignation="Masculin" shortDesignation="Masculin"/>
+            <Concept code="UN" codeSystem="2.16.840.1.113883.5.1" dateFin="" dateMaj="20210326120000" dateValid="20210326120000" displayName="Inconnu" longDesignation="Inconnu" shortDesignation="Inconnu"/>
+            <Concept code="U" codeSystem="2.16.840.1.113883.5.1" dateFin="20210326120000" dateMaj="20210326120000" dateValid="20210326120000" displayName="Inconnu" longDesignation="Inconnu" shortDesignation="Inconnu"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

@@ -1,0 +1,3108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?> 
+<?oxygen SCHSchema="../schematrons/CI-SIS_AVC-PAVC_2.2.sch"?>
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- 
+      **********************************************************************************************************
+      Document : Evaluation Pluri Professionnelle Post AVC (AVC-PAVC_2.2)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+   -->
+  <realmCode code="FR" />
+  <!-- Référence au standard CDA R2  -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications au CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Evaluation Pluri Professionnelle Post AVC (PostAVC)-->
+  <templateId root="1.2.250.1.213.1.1.1.25" extension="2020.01"/>
+  <!-- Identifiant du document -->
+  <id root="1.2.250.1.213.1.1.9" extension="AVC-PAVC_v2.2_29181201_001_1" />
+  <!-- Type de document -->
+  <code code="11488-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="CR ou fiche de consultation ou de visite" />
+  <!-- Titre du document -->
+  <title>CONSULTATION D'EVALUATION PLURI-PROFESSIONNELLE POST-AVC (PAVC)</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20181201110000+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant du lot de version d'un même document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="AVC-PAVC_v2.2_29181201_001" />
+  <!-- Version du document -->
+  <versionNumber value="1" />
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+
+  <!-- Auteur du document -->
+  <author>
+    <time value="291812011200+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM32" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Neurologie (SM)" />
+      <addr nullFlavor="NASK" />
+      <telecom nullFlavor="NASK" />
+      <assignedPerson>
+        <name>
+          <given>Jacques</given>
+          <family>BIDEAULT</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <!--id national de la structure-->
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Clinique du Belvédère</name>
+        <telecom nullFlavor="NAV" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation chargée de la conservation du document -->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Clinique du Belvédère</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <!-- Responsable du document -->
+  <legalAuthenticator>
+    <time value="291812011218+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM32" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Neurologie (SM)" />
+      <assignedPerson>
+        <name>
+          <given>Jacques </given>
+          <family>BIDEAULT</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+  <!-- Médecin traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin Traitant" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20181201111700+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>Paris</city>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <associatedPerson>
+        <name>
+          <family>MEDIONI</family>
+          <given>Stéphane</given>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+  <!-- Médecin référent -->
+  <participant typeCode="INF">
+    <functionCode code="ATTPHYS" displayName="Référent - Responsable du patient dans la structure de soins" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20181201111700+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>Paris</city>
+      </addr>
+      <telecom value="tel:0147160000" use="EC" />
+      <associatedPerson>
+        <name>
+          <family>DUPONT</family>
+          <given>Thierry</given>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+  <!-- Acte documenté -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <id root="5641C4E4-2BA3-489A-8FEF-D54DE206290F" />
+      <code code="51847-2" displayName="Consultation d'évaluations pluri professionnelle Post AVC" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <low value="20181201111700+0100" />
+        <high value="20181201111700+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <code code="G15_10/SM32" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Neurologie (SM)" />
+          <assignedPerson>
+            <name>
+              <given>Jacques </given>
+              <family>BIDEAULT</family>
+              <prefix>M</prefix>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>Clinique du Belvédère</name>
+            <telecom nullFlavor="NAV" />
+            <addr>
+              <houseNumber>142</houseNumber>
+              <streetName>Rue Belvédère</streetName>
+              <postalCode>92100</postalCode>
+              <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <!-- Prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <effectiveTime>
+        <high value="20181201111700+0100" />
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <code code="SA01" displayName="Etablissement Public de santé" codeSystem="1.2.250.1.71.4.2.4">
+          </code>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      <!-- Section Liste des pathologies en cours -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.11" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <!-- Conformité IHE CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.132.4" />
+          <id root="8DABD85E-13B0-4109-AC62-92819DCCD8CE" />
+          <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Evaluation éducation thérapeutique et prévention secondaire (E1)</title>
+          <text>
+            <table border="0">
+              <tbody align="left">
+                <tr>
+                  <td>Pathologie</td>
+                  <td>
+                    <content ID="infarctus">Infarctus</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Risque de récidive</td>
+                  <td>
+                    <content ID="recidive">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ALD</td>
+                  <td>
+                    <content ID="ald">non</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Facteur de risque à surveiller</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>HTA</td>
+                  <td>
+                    <content ID="hta">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Diabète</td>
+                  <td>
+                    <content ID="diabete">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Obésité</td>
+                  <td>
+                    <content ID="obesite">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tabac</td>
+                  <td>
+                    <content ID="tabac">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dyslipidémie</td>
+                  <td>
+                    <content ID="dyslipidemie">non</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Ethiologie identifiée, à surveiller</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Ethiologie cardiaque</td>
+                  <td>
+                    <content ID="cardiaque">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ethiologie hématologique</td>
+                  <td>
+                    <content ID="hematologique">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ethiologie Maladie génétique</td>
+                  <td>
+                    <content ID="gen">non</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Existence de polypathologies associées (E4)</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Surhandicap</td>
+                  <td>
+                    <content ID="surhandicap">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Plurihandicap</td>
+                  <td>
+                    <content ID="plurihandicap">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Polyhandicap</td>
+                  <td>
+                    <content ID="polyhandicap">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Polypathologies</td>
+                  <td>
+                    <content ID="polypathologies">non</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée Pathologies non allergiques -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Conformité IHE PCC parent (Concern Entry) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité IHE CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39" />
+              <id root="8CD38D46-AD4E-4341-B5CD-85E504C33A7C" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="201812011000+0100"/>
+                <high value="201812011100+0100"/>
+              </effectiveTime>
+              <!--Infarctus ou hemorragie avec fdr a surveiller-->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="57D87592-F031-4D93-BE02-F1BBF3B6769E" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#infarctus">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="I63.9" displayName="Infarctus cérébral" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                    <originalText>
+                      <reference value="#infarctus">
+                      </reference>
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!--Risque de récidive-->
+              <entryRelationship typeCode="COMP" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="FCA755B7-0236-4684-9167-8EC436882F18" />
+                  <code code="MED-325" displayName="Risque de récidive" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#recidive">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!-- Facteur de risque à surveiller : HTA -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="DB756F27-ACDD-44DB-A0B4-E6B2EE57BA25" />
+                  <code code="I10" displayName="HTA" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+                  <text>
+                    <reference value="#hta">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!-- Facteur de risque à surveiller : Diabète -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="F1D3CF53-0F44-43F5-8008-D8B35A83394A" />
+                  <code code="E14.9" displayName="Diabète sucré" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+                  <text>
+                    <reference value="#diabete">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- Facteur de risque à surveiller : Obésité -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="F0F678C6-EFE9-4ED4-8034-D9B98A6B761F" />
+                  <code code="E66.9" displayName="Obésité" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+                  <text>
+                    <reference value="#obesite">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- Facteur de risque à surveiller : Tabac -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="57F2DE3E-B68B-4725-BFBF-3CCEE575DF1D" />
+                  <code code="F17.2" displayName="Tabac" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+                  <text>
+                    <reference value="#tabac">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- Facteur de risque à surveiller : Dyslipidémie -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="2C7D347A-20D1-4684-9A25-540EC75B87F1" />
+                  <code code="E78" displayName="Anomalies du métabolisme des lipoprotéines et autres lipidémies" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+                  <text>
+                    <reference value="#dyslipidemie">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- Ethiologie cardiaque -->
+              <entryRelationship typeCode="RSON">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="FA8C399A-2C02-4D5F-A4EE-D9903D52D5C5" />
+                  <code code="I51.6" displayName="Maladie cardio-vasculaire, sans précision" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+                  <text>
+                    <reference value="#cardiaque">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- Ethiologie hémathologique -->
+              <entryRelationship typeCode="RSON">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="C0BB3564-5FC6-4B4C-9706-FC0C6F14679F" />
+                  <code code="G-B113" displayName="Ethiologie hémathologique" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#hematologique">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- Ethiologie maladie génétique -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="DB484066-BE31-474C-A91E-E6F11DF7D838" />
+                  <code code="DF-00180" displayName="Ethiologie maladie génétique" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#gen">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- Affection Longue Durée -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="677487D0-171D-45B3-811E-1776EAA1C3CA" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#ald">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="MED-320" displayName="ALD" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                    <originalText>
+                      <reference value="#ald" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- Surhandicap -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="40B0DA35-AE32-4029-8B47-2E1139EC0717" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#surhandicap" />Surhandicap</text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="MED-321" displayName="Surhandicap" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                    <originalText>
+                      <reference value="#surhandicap" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- Plurihandicap -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="15B0E483-592D-4349-907F-EE0FF9D36B68" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#plurihandicap" />Plurihandicap</text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="MED-322" displayName="Plurihandicap" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                    <originalText>
+                      <reference value="#plurihandicap" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- Polyhandicap -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="02F09A1F-F102-4860-AA76-8298FFDCC391" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#polyhandicap" />Polyhandicap</text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="MED-323" displayName="Polyhandicap" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                    <originalText>
+                      <reference value="#polyhandicap" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- Polypathologies -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="795A53A9-818A-4238-AEA7-3DB8B0EF777E" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#polypathologies">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="MED-324" displayName="Polypathologies" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                    <originalText>
+                      <reference value="#polypathologies">
+                      </reference>
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- Section État général  -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.16" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.85" />
+          <id root="1811572E-383D-4496-AFD3-FA4E1B8CE023" />
+          <code code="10210-3" displayName="État général" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Evaluation handicap moteur (E2)</title>
+          <text>
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Déficience physique</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Paralysies</td>
+                  <td>
+                    <content ID="paralysie">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Spasticité gênante</td>
+                  <td>
+                    <content ID="spasticite">oui (sévère)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Anesthésie</td>
+                  <td>
+                    <content ID="anesthesie">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Aphasie</td>
+                  <td>
+                    <content ID="aphasie">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Négligence visuospatiale</td>
+                  <td>
+                    <content ID="negliVisuospatiale">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>HLH-QLH</td>
+                  <td>
+                    <content ID="hlh">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Trouble de la déglutition</td>
+                  <td>
+                    <content ID="troubleDeglutition">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Troubles de l'élimination urinaire</td>
+                  <td>
+                    <content ID="troubleUrinaire">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Troubles de l'élimination fécale</td>
+                  <td>
+                    <content ID="troubleFecale">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Troubles de la sexualité</td>
+                  <td>
+                    <content ID="troubleSexualite">non</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrées de type Pathologie -->
+          <!-- Paralysie (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="4982B981-59A3-499B-99BE-D330527351F2" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#paralysie">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="F-A0840" displayName="Paralysie" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                <originalText>
+                  <reference value="#paralysie">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!-- Spasticité genante (oui : negationInd="false") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="7546D442-0A88-4B19-9F91-82071EC299A0" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#spasticite">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-329" displayName="Spasticité génante" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#spasticite">
+                  </reference>
+                </originalText>
+              </value>
+              <!-- Sévérité -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.55" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.29" />
+                  <code code="SEV" displayName="Severity" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+                  <text>
+                    <reference value="#spasticite-severite">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <value xsi:type="CD" code="H" codeSystem="2.16.840.1.113883.5.1063" codeSystemName="ObservationValue" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+          <!-- Anesthésie (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="D63179D5-64CA-4072-954D-DC0069AC8CE6" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#anesthesie">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="F-A2005" displayName="Anesthésies" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                <originalText>
+                  <reference value="#anesthesie">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!-- Aphasie (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="CE633C7F-B05D-4265-8A6B-FEA68D00D816" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#aphasie">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="F-A6000" displayName="Aphasie" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                <originalText>
+                  <reference value="#aphasie">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!--- Négligence visuospatiale (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="A631F961-8CED-441A-8B26-8330C95AF3D9" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#negliVisuospatiale">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-330" displayName="Négligence visuospatiale" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#negliVisuospatiale">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!-- HLH-QLH (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="C3599E69-A622-48CA-A715-8D936561D24E" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#hlh">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-331" displayName="HLH-QLH" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#hlh">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!--- Troubles de la déglutition (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="342B2555-DB76-4A98-B5EF-9729CA04CAB0" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#troubleDeglutition">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-332" displayName="Troubles de la déglutition " codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#troubleDeglutition">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!--- Troubles de l'élimination urinaire (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="7F1335E8-375F-479A-8C20-D7B1F2A68C9D" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#troubleUrinaire">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-333" displayName="Troubles de l'élimination urinaire" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#troubleUrinaire">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!-- Troubles de l'élimination fécale (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="53591A68-E890-4CE7-B3E5-779FBD3C6EE7" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#troubleFecale">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-334" displayName="Troubles de l'élimination fécale" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#troubleFecale">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!--- Troubles de la sexualité (non : negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="76201176-0685-412E-A148-A30D63FECCBD" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#troubleSexualite">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-335" displayName="Troubles de la sexualité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="troubleSexualite">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- Section Fonctions physiques -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.2.5" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.115" />
+          <id root="5E2226D0-37B5-4BC1-9DD0-4062DA76E336" />
+          <code code="46006-3" displayName="Problèmes physiques fonctionnels et structurels" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Délimitation d'activité</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Se lever seul</td>
+                  <td>
+                    <content ID="seLeverSeul">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Risque de chute</td>
+                  <td>
+                    <content ID="chute">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Faire ses transferts (une surface à l'autre)</td>
+                  <td>
+                    <content ID="transferts">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marcher seul à l'intérieur</td>
+                  <td>
+                    <content ID="marcherSeulInt">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marcher seul à l'extérieur (transports)</td>
+                  <td>
+                    <content ID="marcherSeulExt">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Se déplacer en fauteuil roulant seul</td>
+                  <td>
+                    <content ID="fauteuilRoulant">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Faire sa toilette seul</td>
+                  <td>
+                    <content ID="toiletteSeul">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Utiliser les wc seul</td>
+                  <td>
+                    <content ID="wcSeul">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Manger un repas préparé seul</td>
+                  <td>
+                    <content ID="repasSeul">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Incontinence</td>
+                  <td>
+                    <content ID="incontinence">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Communiquer : proches</td>
+                  <td>
+                    <content ID="communiquer">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Extérieur (appel secours, courses…)</td>
+                  <td>
+                    <content ID="exterieur">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Gérer ses comptes /affaires personnelles</td>
+                  <td>
+                    <content ID="gererComptes">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Gérer seul ses traitements</td>
+                  <td>
+                    <content ID="traitementsSeul">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Le patient bénéficie-t-il d'une aide humaine ?</td>
+                  <td>
+                    <content ID="aideHumaine">oui (Aide soignante : 2 heures/jour)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Faire ses transferts -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="B8086370-587E-41C7-8FFD-6DF9682E2BDE" />
+              <code code="45590-7" displayName="Faire ses transferts" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#transferts">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Se lever seul -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="95720237-A14A-4C04-AC99-1B7AEC0618CE" />
+              <code code="45588-1" displayName="se lever seul" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#seLeverSeul">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Marcher seul à l'intérieur -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="C96D7E46-5ECB-4AA1-A5A4-6CDAE79DC935" />
+              <code code="45592-3" displayName="Marcher seul à l'intérieur" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="marcherSeulInt">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Marcher seul à l'extérieur -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="36F1FD35-2AB3-4E67-A156-68C922EB823B" />
+              <code nullFlavor="NA">
+                <translation code="GEN-148" displayName="Marcher seul à l'exterieur (transports)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="marcherSeulExt">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Se déplacer en fauteuil roulant seul -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="C7785E05-E365-4460-9114-C76C3A15DCBD" />
+              <code code="45537-8" displayName="Se déplacer en fauteuil roulant seul" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#fauteuilRoulant">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!--risque de chute -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="A2171B8F-C3F8-4DCE-806C-909A394197DE" />
+              <code nullFlavor="NA">
+                <translation  code="GEN-144" displayName="Risque de chute" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#chute">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Faire sa toilette seul -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="4C760AD2-7A03-42D9-851F-2BC617FBFCE2" />
+              <code code="45606-1" displayName="Faire sa toilette seul" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#toiletteSeul">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Utiliser les wc seul -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="DB68D11C-900A-4FDC-8D5C-8F8D46E8D031" />
+              <code code="45604-6" displayName="Utiliser les wc seul" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#wcSeul">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Manger un repas preparé seul -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="C0B1AE25-1A6C-42BD-AFE1-46B8BF5A1685" />
+              <code code="45602-0" displayName="Manger un repas preparé seul" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#repasSeul">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Gérer seul ses traitements -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="8F4F692D-2F19-4A19-ABB5-F61F7DE90FDF" />
+              <code nullFlavor="NA">
+                <translation code="GEN-147" displayName="Gérer seul ses traitements" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#traitementsSeul">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!--incontinence-->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="5A8A46CD-FAB8-471F-80F1-93192AA4455B" />
+              <code nullFlavor="NA">
+                <translation code="GEN-145" displayName="Incontinence" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#incontinence">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Communiquer : proches -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="328DA3C3-9097-47EC-9107-E19FC878E87E" />
+              <code nullFlavor="NA">
+                <translation code="GEN-149" displayName="Communiquer : proches" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#communiquer">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Extérieur (appel secours, courses…) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="F5367428-AE29-4D17-8439-47B226836C40" />
+              <code nullFlavor="NA">
+                <translation code="GEN-150" displayName="Extérieur (appel secours, courses…)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#exterieur">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Gérer ses comptes et ses affaires personnelles -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="CA16EB87-2EDF-4DC4-9DAB-C1BDDD2C23ED" />
+              <code nullFlavor="NA">
+                <translation code="GEN-146" displayName="Gérer ses comptes et ses affaires personnelles" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="comptes">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Le patient bénéficie-t-il d'une aide humaine ? -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="FE59DB5E-DBFE-425E-9C72-D9CEDAAFD145" />
+              <code nullFlavor="NA">
+                <translation code="GEN-151" displayName="Le patient bénéficie-t-il d'une aide humaine ?" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#aideHumaine">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+              <!-- Si oui laquelle ? -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#aideHumaine" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- section Système nerveux  -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.35" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.104" />
+          <id root="3DB2BEC3-5905-4B3E-9635-C5099FB8560B" />
+          <code code="10202-0" displayName="Système nerveux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Evaluation neuropsychocognitive (E3)</title>
+          <text>
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Délimitation d'activité</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Syndrome dysexécutif</td>
+                  <td>
+                    <content ID="dysexecutif">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Détérioration intellectuelle</td>
+                  <td>
+                    <content ID="deterioration">oui (Sévère)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Syndrôme dysexecutif / absent (negationInd="true") -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="51D223CA-2B1C-4F11-B2B0-CE70FC02A682" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#dysexecutif">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-337" displayName="Syndrôme dysexecutif" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#dysexecutif">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!-- Détérioration intellectuelle -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <id root="F271E102-BA09-465A-A34A-F67F4EA1CEA2" />
+              <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#deterioration">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-338" displayName="Détérioration intellectuelle" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#deterioration">
+                  </reference>
+                </originalText>
+              </value>
+              <!-- Sévérité -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.55" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.29" />
+                  <code code="SEV" displayName="Severity" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+                  <text>
+                    <reference value="#deterioration-sev">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <value xsi:type="CD" code="H" codeSystem="2.16.840.1.113883.5.1063" codeSystemName="ObservationValue" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- Section Plan de soins  1 -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.158" />
+          <id root="DE7F8B97-3615-4538-A786-C721324F2712" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Plan de soins</title>
+          <text>
+            <table border="0">
+              <tbody align="left">
+                <tr>
+                  <td>Bilan initial étiologique</td>
+                  <td>
+                    <content ID="bilanInitial">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ce qui a été prévu ultérieurement a-t-il été fait ?</td>
+                  <td>
+                    <content ID="fait">oui</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Besoin d'un bilan complémentaire</th>
+                  <th>Fait</th>
+                  <th>A faire ou à refaire</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>
+                    <content ID="bilanOrtho">Orthophoniste</content>
+                  </td>
+                  <td>
+                    <content ID="bilanOrthoFait">oui</content>
+                  </td>
+                  <td>
+                    <content ID="bilanOrthoAFaire">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Kinésithérapeute</td>
+                  <td>non</td>
+                  <td>non</td>
+                </tr>
+                <tr>
+                  <td>Ergothérapeute</td>
+                  <td>non</td>
+                  <td>non</td>
+                </tr>
+                <tr>
+                  <td>Autre</td>
+                  <td>non</td>
+                  <td>non</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Besoin d'un avis médical complémentaire</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Neurologue</td>
+                  <td>
+                    <content ID="neuro">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MPR</td>
+                  <td>
+                    <content ID="mpr">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Gériatre</td>
+                  <td>
+                    <content ID="geriatre">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cardiologue</td>
+                  <td>
+                    <content ID="cardio">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Autre</td>
+                  <td>
+                    <content ID="autre">Orthopédiste</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Besoin d'un soutien psychothérapeutique</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Patient</td>
+                  <td>
+                    <content ID="soutienPatient">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Proche</td>
+                  <td>
+                    <content ID="soutienProche">Enfant</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Mesures de protection</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Juridique</td>
+                  <td>
+                    <content ID="protectionJuridique">A envisager</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Reprise professionnelle</td>
+                  <td>
+                    <content ID="protectionProfessionnelle">Reprise à envisager. Démarches faites</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Conduite automobile</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Conduite formellement contre-indiquée</td>
+                  <td>
+                    <content ID="conduiteContreindiquee">oui</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Evaluation entourage environnemental (E5)</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Lieu de vie</td>
+                  <td>
+                    <content ID="lieuDeVie">Domicile</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mode de vie</td>
+                  <td>
+                    <content ID="modeDeVie">En couple</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Diagnostic autonomie de l'habitat</td>
+                  <td>
+                    <content ID="diagnosticHabitat">Fait</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dossier Maison départementale des personnes handicapées (MDPH) en cours, adapté</td>
+                  <td>
+                    <content ID="mdph">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Allocation personnalisée d'autonomie (APA) à mettre en oeuvre ou à rédapter</td>
+                  <td>
+                    <content ID="apa">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Prestation de compensation du handicap (PCH) à mettre en oeuvre ou à rédapter</td>
+                  <td>
+                    <content ID="pch">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Allocation aux adultes handicapés (AAH) à mettre en oeuvre ou à rédapter</td>
+                  <td>
+                    <content ID="aah">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Allocation de solidarité aux personnes âgées (ASPA) /Allocation supplémentaire d'invalidité (ASI) à mettre en oeuvre ou à rédapter</td>
+                  <td>
+                    <content ID="aspa">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Souhait et projet de vie de la personne</td>
+                  <td>
+                    <content ID="souhait">Retour au domicile</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Bilan initial étiologique -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="7B87569D-DE67-4A34-A59B-4DB4F42B8F38" />
+              <code code="MED-326" displayName="Bilan initial étiologique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#bilanInitial">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Ce qui a été prévu ultérieurement a-t-il été fait ? -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="8A13C8E2-82C1-49FD-8CCE-8612FDCDF1AC" />
+              <code code="MED-327" displayName="Ce qui a été prévu ultérieurement a-t-il été fait?" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#fait" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Besoin d'un bilan complémentaire -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="F6849C4E-FE7E-4870-9330-CA728AE495D7" />
+              <code code="MED-319" displayName="Besoin d'un bilan complémentaire" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#bilanOrtho" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="G15_91" displayName="Orthophoniste" codeSystem="1.2.250.1.213.1.1.4.5" />
+              <!-- Fait ? -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="E8428249-EBDE-4A0B-8DFC-E0625B9AA521" />
+                  <code code="GEN-118" displayName="Fait" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#bilanOrthoFait">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!-- A faire / A refaire ? -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="4C202BC1-2291-4874-9491-24EAC961DA6D" />
+                  <code code="GEN-118" displayName="A faire / A refaire" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#bilanOrthoAFaire">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+          <!-- Besoin d'un avis médical complémentaire / MPR (besoin 	absent) -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="A8F5C626-C1D3-49E1-BBE0-1E64C6467FE7" />
+              <code code="MED-012" displayName="Avis spécialisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#ortho">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="ORG-169" displayName="MPR" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Besoin d'un avis medical complémentaire / Cardiologue (besoin présent) v-->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="410358DD-BC43-4CEA-BC53-61E931B7F28D" />
+              <code code="MED-012" displayName="Avis spécialisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#cardio">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="G15_10/C07" displayName="Cardiologue" codeSystem="1.2.250.1.213.1.1.4.5" />
+            </observation>
+          </entry>
+          <!-- Besoin d'un avis medical complémentaire / Neurologue (besoin présent) v-->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="4AE418FD-C651-4974-B609-7721108CAA27" />
+              <code code="MED-012" displayName="Avis spécialisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#neuro">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="G15_10/C43" displayName="Neurologue" codeSystem="1.2.250.1.213.1.1.4.5" />
+            </observation>
+          </entry>
+          <!-- Besoin d'un avis medical complémentaire / Gériatre (besoin absent) v-->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="79F3A15A-48FB-4410-A0F5-D47828406053" />
+              <code code="MED-012" displayName="Avis spécialisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#geriatre">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="G15_10/DSM213" displayName="Gériatre" codeSystem="1.2.250.1.213.1.1.4.5" />
+            </observation>
+          </entry>
+          <!-- Besoin d'un avis medical complémentaire / Autre (besoin présent) v-->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="99826168-908F-470A-81D9-42C8BDF94AB9" />
+              <code code="MED-012" displayName="Avis spécialisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#autre">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="ST">Orthopédiste</value>
+            </observation>
+          </entry>
+          <!-- Besoin d'un soutien psychothérapeutique / Patient -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="48130D0D-266C-432F-8F11-F2C141B0A2E2" />
+              <code code="MED-317" displayName="Besoin d'un soutien psychotérapeutique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#soutienPatient">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Besoin d'un soutien psychothérapeutique / Proche -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="0CC1B8C5-E223-4A5F-A793-FEEEAE5F8D7F" />
+              <code code="MED-317" displayName="Besoin d'un soutien psychotérapeutique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#soutienProche">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="BL" value="true" />
+              <subject typeCode="SBJ">
+                <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.15.2" />
+                <relatedSubject classCode="PRS">
+                  <code code="CHILD" displayName="Enfant" codeSystem="2.16.840.1.113883.5.111" codeSystemName="roleCode" />
+                </relatedSubject>
+              </subject>
+            </observation>
+          </entry>
+          <!-- Mesure de protection juridique -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="0BD6EE83-18FB-4E4D-ADDD-40BEF23B0872" />
+              <code code="GEN-120" displayName="Mesure de protection" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#protectionJuridique">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="GEN-121" displayName="A envisager" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Mesure de protection / Reprise professionnelle -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="FF32F986-7F13-4B4F-B891-261F244EDA9C" />
+              <code code="GEN-124" displayName="Mesures de protection / Reprise professionnelle" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#protectionProfessionnelle">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="GEN-125" displayName="Reprise à envisager. Démarches faites." codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Mesure de protection / Conduite automobile -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="9C54D4C5-55C5-458E-A4F5-7CEC417C4DB9" />
+              <code code="GEN-127" displayName="Mesures de protection / Conduite automobile" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#conduiteContreindiquee">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="GEN-128" displayName="Conduite formellement contre-indiquée" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Mesure de protection / Conduite automobile -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="A0AFAFA4-1DAC-4850-9BBA-71DBE97BB6F1" />
+              <code code="GEN-127" displayName="Mesures de protection / Conduite automobile" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#conduitePossible">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="GEN-129" displayName="Conduite possible sans permis spécial" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Mesure de protection / Conduite automobile -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="7FD19A94-97B9-46D0-9900-61B4A2336722" />
+              <code code="GEN-127" displayName="Mesures de protection / Conduite automobile" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#conduiteDemarche">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="GEN-130" displayName="Les démarches ont-elles été faites ? (Commission médicale)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Lieu de vie -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="D6A98DD7-7313-4D3B-86FE-DCABFFB8267F" />
+              <code code="GEN-131" displayName="Lieu de vie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#lieuDeVie">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="GEN-117" displayName="Domicile" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Mode de vie -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="CFB9878B-4F47-450E-ADB4-BE5BD8529084" />
+              <code code="GEN-132" displayName="Mode de vie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#modeDeVie">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="MSK" />
+              <value xsi:type="CD" code="GEN-133" displayName="En couple" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Diagnostic autonomie de l'habitat -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="3558613A-A1DE-406A-A272-3832FCF452E4" />
+              <code code="GEN-142" displayName="Diagnostic autonomie de l'habitat" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#diagnosticHabitat">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="ST" />
+              <!-- Fait ? -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="36CBE9D0-9575-4390-9B13-EEA87B692056" />
+                  <code code="GEN-118" displayName="Fait" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#bilanFait">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!-- A faire / A refaire ? -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="706C7AB9-1A90-4873-8554-46BE1341B8C8" />
+                  <code code="GEN-118" displayName="A faire / A refaire" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#bilanAFaire">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+          <!-- Aides de mises en œuvre / Dossier Maison départementale des personnes handicapées (MDPH) en cours, adapté -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="B909E7F2-66A4-4DDE-84DF-8B23A533B2F8" />
+              <code code="GEN-136" displayName="Dossier MDPH en cours,adapté" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#mdph">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Aides de mises en œuvre / APA / à ne pas mettre en oeuvre (negationInd='true') -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="E4B7AF18-E627-43DA-8ABD-4E888E1F006B" />
+              <code code="GEN-137" displayName="Dossier à mettre en œuvre ou à réadapter" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#apa">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="GEN-138" displayName="Allocation personnalisée d'autonomie (APA)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Aides de mises en œuvre / PCH / à ne pas mettre en oeuvre (negationInd='true') -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="88BB70CF-E4DD-4599-8328-05DC21AEBB51" />
+              <code code="GEN-137" displayName="Dossier à mettre en œuvre ou à réadapter" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#pch">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="GEN-139" displayName="Prestation de compensation du handicap (PCH)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Aides de mises en œuvre / AAH / à ne pas mettre en oeuvre (negationInd='true') -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="C730BA53-9E11-4BD3-B0DA-D26EA95311EA" />
+              <code code="GEN-137" displayName="Dossier à mettre en œuvre ou à réadapter" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#aah">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="GEN-140" displayName="Allocation aux adultes handicapés (AAH)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Aides de mises en œuvre / ASPA-ASI / à ne pas mettre en oeuvre (negationInd='true') -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="DE106603-AF76-4591-8063-FF7FECC691AE" />
+              <code code="GEN-137" displayName="Dossier à mettre en œuvre ou à réadapter" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#aspa">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="GEN-141" displayName="Allocation de solidarité aux personnes âgées (ASPA) /Allocation supplémentaire d'invalidité (ASI)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Souhait et projet de vie -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="40ADC3B4-E207-4985-A076-583C46F466D0" />
+              <code code="GEN-143" displayName="Souhait et projet de vie de la personne" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#souhait">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="ORG-101" displayName="Retour au domicile" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- Section Plan de soins  2 -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.158" />
+          <id root="7587B951-1708-4F57-92B1-A78F52CBC099" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Synthèse</title>
+          <text>
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Contraintes du parcours de soin</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Réadaptation</td>
+                  <td>
+                    <content ID="readaptation">Infirmier</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Appareillage</td>
+                  <td>
+                    <content ID="appareillage">Grand</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Soins ou traitements nocturnes</td>
+                  <td>
+                    <content ID="soinsNocturnes">oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ventilation</td>
+                  <td>
+                    <content ID="ventilation">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Contrainte alimentaire</td>
+                  <td>
+                    <content ID="alim">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Association de soutien</td>
+                  <td>
+                    <content ID="associationSoutien">non</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Traitement</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Traitement médical préventif de récidive</td>
+                  <td>
+                    <content ID="traitementPreventifRecidive">à modifier</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Traitement médical préventif de complication</td>
+                  <td>
+                    <content ID="traitementPreventifComplication">à poursuivre</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Prise en charge régulière / Consultation de spécialité</td>
+                  <td>
+                    <content ID="pecReguliereSpecialite">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Prise en charge régulière / Education thérapeutique</td>
+                  <td>
+                    <content ID="pecReguliereEducation">non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Prévoir / Séjour de répit</td>
+                  <td>
+                    <content ID="prevoir1">
+                    </content>non</td>
+                </tr>
+                <tr>
+                  <td>Prévoir / Maison d'accueil spécialisé (MAS) / Foyer d'accueil médicalisé (FAM)</td>
+                  <td>
+                    <content ID="prevoir2">
+                    </content>non</td>
+                </tr>
+                <tr>
+                  <td>Prévoir / Hospitalisation complète</td>
+                  <td>
+                    <content ID="prevoir3">
+                    </content>non</td>
+                </tr>
+                <tr>
+                  <td>Prévoir / Hospitalisation à domicile (HAD)</td>
+                  <td>
+                    <content ID="prevoir4">
+                    </content>non</td>
+                </tr>
+                <tr>
+                  <td>Prévoir / Hôpital de jour (HDJ)</td>
+                  <td>
+                    <content ID="prevoir5">
+                    </content>non</td>
+                </tr>
+                <tr>
+                  <td>Prévoir / Services de soins infirmiers à domicile (SSIAD)</td>
+                  <td>
+                    <content ID="prevoir6">
+                    </content>oui</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Contraintes du parcours de soin / Réadaptation  -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="8A51A0DD-F784-4950-847D-0087B7FC65B0" />
+              <code code="GEN-158" displayName="Soins de réadaptation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#readaptation">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="CD" code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5" />
+            </observation>
+          </entry>
+          <!-- Contraintes du parcours de soin / Appareillage  -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="C08DFDF1-EA42-4883-A283-F406C59E1C17" />
+              <code code="MED-345" displayName="Appareillage" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#appareillage">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="CD" code="GEN-153" displayName="Grand" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Contraintes du parcours de soin / Soins ou traitements nocturnes  -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="23A75D93-427F-4ED0-80CE-E5361C9D039C" />
+              <code code="MED-527" displayName="Soins ou traitements nocturnes" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#soinsNocturnes">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- Contraintes du parcours de soin / Ventilation  -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="F1B7174D-AE37-41DB-8974-C7E4225DCEE8" />
+              <code code="MED-528" displayName="Ventilation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#ventilation">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Contraintes du parcours de soin / Contrainte alimentaire -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="F309CABE-56D0-486B-AE5A-53D808E27DFC" />
+              <code code="MED-529" displayName="Contrainte alimentaire" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#alim">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Objectif global du projet de vie / Association de soutien -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="4CEC61BB-0D34-4C87-AC0D-4383546DA2D3" />
+              <code code="MED-318" displayName="Association de soutien" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#associationSoutien">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Traitement / Traitement médical préventif de récidive -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="8C4F9C89-D721-4B67-8712-5A084AF6736B" />
+              <code code="MED-530" displayName="Traitement médical préventif de récidive" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#traitementPreventifRecidive">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="GEN-157" displayName="A modifier" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Traitement / Traitement médical préventif de complication -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="6BAFEB17-7225-435C-A14C-0FAD88D0F801" />
+              <code code="MED-531" displayName="Traitement médical préventif de complication" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#traitementPreventifComplication">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="GEN-156" displayName="A poursuivre" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prise en charge régulière / Consultation de spécialité -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="B6C16798-F700-45A6-A2FD-6357F6BB5A86" />
+              <code code="ORG-163" displayName="Consultation de spécialité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#pecReguliereSpecialite">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prise en charge régulière / Education thérapeutique -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="539F6992-10CC-4C2A-ABC2-A8A23D10DBE5" />
+              <code code="ORG-164" displayName="Education thérapeutique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#pecReguliereEducation">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prévoir / Séjour de répit -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="57E5AD79-C245-470E-B7DC-3FC382611DA4" />
+              <code code="GEN-161" displayName="Prévoir" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#prevoir1">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="ORG-165" displayName="Séjour de répit" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prévoir / Maison d'accueil spécialisé (MAS) / Foyer d'accueil médicalisé (FAM) -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="64258030-EF69-4306-8749-81A5610AB7F4" />
+              <code code="GEN-161" displayName="Prévoir" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#prevoir2">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="ORG-166" displayName="Maison d'accueil spécialisé (MAS) / Foyer d'accueil médicalisé (FAM)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prévoir / Maison d'accueil spécialisé (MAS) / Hospitalisation complète -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="7A07A692-5967-4E80-BD45-C8A3401223E8" />
+              <code code="GEN-161" displayName="Prévoir" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#prevoir3">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="ORG-167" displayName="Hospitalisation complète" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prévoir / Maison d'accueil spécialisé (MAS) / Hospitalisation à domicile (HAD) -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="C67D3F70-2EFE-4BB8-AAD9-23467328C8E3" />
+              <code code="GEN-161" displayName="Prévoir" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#prevoir4">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="ORG-072" displayName="Hospitalisation à domicile (HAD)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prévoir / Maison d'accueil spécialisé (MAS) / Hôpital de jour (HDJ) -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="true">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="8C165EA7-E47C-4A69-99A9-001599CADEAB" />
+              <code code="GEN-161" displayName="Prévoir" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#prevoir4">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="ORG-044" displayName="Hôpital de jour (HDJ)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Traitement / Prévoir / Services de soins infirmiers à domicile (SSIAD) -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27" />
+              <id root="2B754E96-3619-4F9A-BBBE-DD640C01D937" />
+              <code code="GEN-161" displayName="Prévoir1" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#prevoir1">
+                </reference>
+              </text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NASK" />
+              <value xsi:type="CD" code="ORG-168" displayName="Services de soins infirmiers à domicile (SSIAD)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- Section Fonctions physiques (codé) -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.2.5" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.115" />
+          <id root="238EDDFA-0F83-4390-BB26-C005BAADB6F7" />
+          <code code="46006-3" displayName="Problèmes physiques fonctionnels et structurels" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <table border="0">
+              <thead align="left">
+                <tr>
+                  <th>Objectif global du projet de vie</th>
+                  <th>Observation</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Perte d'autonomie</td>
+                  <td>
+                    <content ID="perteAuto">GIR -1</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Realisation effective d'activités</td>
+                  <td>
+                    <content ID="realisation">Seul</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+          </text>
+          <!-- Entrée de type Questionnaire d'évalutation -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="0B4BF53E-B737-4D00-AF6B-D6419B54A500" />
+              <code nullFlavor="NA">
+                <translation code="MED-346" displayName="Perte d'autonomie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#perteAuto">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="MED-339" displayName="GIR -1" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!--Realisation effective activites-->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.31" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.25" />
+              <id root="83CE8D98-B6FD-4415-BA6D-9E07585E9C31" />
+              <code nullFlavor="NA">
+                <translation code="MED-347" displayName="Realisation effective d'activités" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              </code>
+              <text>
+                <reference value="#realisation">
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <value xsi:type="CD" code="GEN-135" displayName="Seul" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+    
+    </structuredBody>
+  </component>
+</ClinicalDocument>

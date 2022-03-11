@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="rapportSchematronToHtml4.xsl"?><svrl:schematron-output xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:cda="urn:hl7-org:v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:jdv="http://esante.gouv.fr"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:svs="urn:ihe:iti:svs:2008"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        title="Rapport de conformité du document aux spécifications du volet DLU-FLUDR_2021.01"
+                        schemaVersion="CI-SIS_DLU-FLUDR_2021.01.sch"
+                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/DLU-FLUDR_2021.01.xml"
+                        dateHeure="9/3/2022 à 15:52:59 (temps UTC+01:00)">
+   <svrl:active-pattern id="JDV_CheckListDLU-FLUDR">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.2.250.1.213.1.1.3.48.18']/cda:value"/>
+   <svrl:fired-rule context="cda:observation[cda:templateId/@root='1.2.250.1.213.1.1.3.48.18']/cda:value"/>
+   <svrl:active-pattern id="JDV_ProtheseObjetPersonnel-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.53']/cda:entry/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13']/cda:code"/>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.53']/cda:entry/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13']/cda:code"/>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.53']/cda:entry/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13']/cda:code"/>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.53']/cda:entry/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13']/cda:code"/>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.53']/cda:entry/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13']/cda:code"/>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.53']/cda:entry/cda:observation[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.4.13']/cda:code"/>
+   <svrl:active-pattern id="Entete_DLU-FLUDR"/>
+   <svrl:fired-rule context="cda:ClinicalDocument"/>
+   <svrl:active-pattern id="S_ResultatsEvenements_DLU-FLUDR"/>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root=&#34;1.3.6.1.4.1.19376.1.7.3.1.1.13.7&#34;]/cda:entry/cda:observation[cda:templateId/@root=&#34;1.3.6.1.4.1.19376.1.5.3.1.4.13&#34;]"/>
+   <svrl:active-pattern id="variables"/>
+   <svrl:fired-rule context="cda:ClinicalDocument"/>
+</svrl:schematron-output>

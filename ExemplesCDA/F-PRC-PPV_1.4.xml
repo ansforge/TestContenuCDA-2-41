@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_F-PRC_1.4.sch"?>
+<!-- 
+      **********************************************************************************************************
+      Document : UFCV - Porteur d'une Prothèse Valvulaire (F-PRC-PPV_1.4)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Historique :
+      25/03/2009 : Création 
+     	11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons    
+     	13/07/2021 : Correction de l'unité "mmHg" par "mm[Hg]"   	
+     	22/09/2021 : correction de l'unité UCUM "tbl" par "{tbl}"
+      **********************************************************************************************************
+   -->
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:lab="urn:hl7-org:lab" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd">
+  <!-- 
+   ***********************
+   Entête du document
+   ***********************
+   -->
+  <realmCode code="FR" />
+  <!-- Référence au standard CDA R2  -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Déclaration de conformité aux spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Déclaration de conformité aux spécifications du CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Déclarations de conformité aux spécifications PCC Medical Summary -->
+  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.2" />
+  <!-- Déclaration de conformité aux spécifications F-PRC -->
+  <templateId root="1.2.250.1.213.1.1.1.2.1" />
+  <!-- Déclaration de conformité aux spécifications F-PRC-PPV -->
+  <templateId root="1.2.250.1.213.1.1.1.2.1.5" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="F-PRC-PPV_1.4_20080929_001_1" />
+  <!-- Type de document -->
+  <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>Fiche patient à risque en cardiologie - Porteur d'une prothèse valvulaire</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20080929094914+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="F-PRC-PPV_1.4_20080929_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- Auteur du document -->
+  <author contextControlCode="OP" typeCode="AUT">
+    <time value="20080929094914+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <addr nullFlavor="NASK" />
+      <telecom nullFlavor="NASK" />
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>DUNANT</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1750803447" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation de santé responsable du document -->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Centre Hospitalier DUNANT</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetAddressLine>25 rue Pasteur</streetAddressLine>
+          <streetAddressLine>91000 EVRY</streetAddressLine>
+          <streetAddressLine>France</streetAddressLine>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable (signataire) du document -->
+  <legalAuthenticator>
+    <time value="20060922" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71" extension="801234567897" />
+      <addr nullFlavor="NAV" />
+      <telecom nullFlavor="NAV" />
+      <!-- PS identifié par son N°ADELI -->
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>DUNANT</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Cardiologue Traitant -->
+  <participant typeCode="INF">
+    <functionCode code="ATTPHYS" displayName="Référent - Responsable du patient dans la structure de soins" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20060922" />
+      <high value="20060922" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="802926406900" />
+      <addr>
+        <city>Orléans</city>
+        <state>45</state>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <telecom value="mailto:jacques.andre@cardio.fr" />
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Jacques</given>
+          <family>ANDRE</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Médecin Traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20060922" />
+      <high value="20060922" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="802926406900" />
+      <addr>
+        <city>Paris</city>
+        <state>75</state>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <telecom value="mailto:charles.michels@generaliste.fr" />
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles</given>
+          <family>MICHELS</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Acte documenté -->
+  <documentationOf>
+    <serviceEvent>
+      <id root="1.2.250.1.213.1.1.9" extension="123" />
+      <effectiveTime>
+        <low value="20100104152530+0100" />
+        <high value="20100104152530+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+        <time>
+          <low value="20100104152530+0100" />
+          <high value="20100104152530+0100" />
+        </time>
+        <assignedEntity>
+          <id root="1.2.250.1.213.1.1.9" extension="801234567897" />
+          <addr nullFlavor="MSK" />
+          <telecom nullFlavor="MSK" />
+          <assignedPerson>
+            <name>
+              <family>Grandrobert</family>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+            <name>Cardio du parc</name>
+            <telecom nullFlavor="MSK" />
+            <addr nullFlavor="MSK" />
+            <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Contexte de la prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <id root="1.2.250.1.213.1.1.9" extension="234567890" />
+      <effectiveTime>
+        <low value="201001020735+0100" />
+        <high value="201001041635+0100" />
+      </effectiveTime>
+      <responsibleParty>
+        <assignedEntity>
+          <id root="1.2.250.1.213.1.1.9" extension="801234567892" />
+          <addr nullFlavor="MSK" />
+          <telecom nullFlavor="MSK" />
+          <assignedPerson>
+            <name>
+              <family nullFlavor="MSK" />
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <name>chirurgie gynécologique</name>
+            <asOrganizationPartOf>
+              <wholeOrganization>
+                <name>Hôpital des papillons</name>
+              </wholeOrganization>
+            </asOrganizationPartOf>
+          </representedOrganization>
+        </assignedEntity>
+      </responsibleParty>
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.213.1.1.9" extension="11223344" assigningAuthorityName="Hôpital des papillons" />
+          <code code="SA21" displayName="Etab. Hébergt Réadaptation" codeSystem="1.2.250.1.71.4.2.4" />
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      <!-- 
+            ********************************************************
+            Active Problems section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.11" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <id root="BF004117-2249-4B9C-BDB2-1D895BE5136C" />
+          <code code="11450-4" displayName="PROBLEM LIST" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>PATHOLOGIE COURANTE</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Pathologie</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>20/06/2006</td>
+                  <td>
+                    <content ID="avk0027">Accident ischémique cérébral transitoire</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>22/06/2009</td>
+                  <td>
+                    <content ID="avk0028">Angine de poitrine instable</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>12/08/1999</td>
+                  <td>
+                    <content ID="avk0029">Insuffisance aortique sévère</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- AIT -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Problem Act template -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="327E85E1-AF8B-403F-94DB-64954A42A6F6" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem observation template -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="F93F69B4-BEF6-4738-866E-4B676BA396B7" />
+                  <!-- ID de l'observation -->
+                  <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                    <originalText mediaType="text/xml">
+                      <reference value="#avk0027" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#avk0027" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20060620" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="G45.9" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Accident ischémique cérébral transitoire">
+                    <originalText>
+                      <reference value="#avk0027" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <!-- Angine de Poitrine instable -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Problem Act template -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="104C1E11-9967-4B4D-A0CC-81A6C27E6547" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem observation template -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="844487D0-D337-464C-A757-D5C5AD1A2BB5" />
+                  <!-- ID de l'observation -->
+                  <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                    <originalText mediaType="text/xml">
+                      <reference value="#avk0028" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#avk0028" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20090622" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="I20.0" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Angine de poitrine instable">
+                    <originalText>
+                      <reference value="#avk0028" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <!-- Insuffisance aortique sévère -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Problem Act template -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="35FD5F0D-C6B5-4108-9431-705D4F50EBFE" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem observation template -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="297EF413-9B05-4DE7-9F17-3507AE0DBC44" />
+                  <!-- ID de l'observation -->
+                  <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                    <originalText mediaType="text/xml">
+                      <reference value="#avk0029" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#avk0029" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="19990912" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="E78.2" displayName="Insuffisance Aortique Sévère" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                    <originalText>
+                      <reference value="#avk0029" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Problem Act template -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="051ACF3C-E1A3-4769-A663-D52FFFB2F3AE" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <!-- Liaison du Traitement Antivitalmine K à sa cause -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem observation template -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="481B7C2F-424C-4ECD-A0B2-187CF4E2D62D" />
+                  <code code="F-01000" displayName="Problème" codeSystem="1.2.250.1.213.2.12" />
+                  <text>
+                    <reference value="#ppv0006" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="20000328" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="G45.9" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Accident Ischémique Cérébral Transitoire, SP">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0006" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- Liaison du traitement Antivitalmine K à un résultat d'INR -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Result observation template -->
+                  <id root="1D784912-576F-4B9C-A95C-C64F63E15CB5" />
+                  <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0007" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0007" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20090512" />
+                  <value xsi:type="REAL" value="2.5" />
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Problem Act template -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="DFF3D082-3169-46AF-AE66-22B49AFD3C0D" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <!-- Liaison du traitement Antiaggrégants plaquettaires à sa cause -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem observation template -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="031B555D-DFD8-4942-8B2E-2BBE75DE6208" />
+                  <code code="F-01000" displayName="Problème" codeSystem="1.2.250.1.213.2.12" />
+                  <text>
+                    <reference value="#ppv0010" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                    <high nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="I20.0" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Angine de poitrine instable">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0010" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Results section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27" />
+          <!-- Results section template -->
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" />
+          <title>Examens Biologiques</title>
+          <text>
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th>Analyse</th>
+                  <th>Résultat</th>
+                  <th>Date</th>
+                  <th>Référence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>TP (INR)</td>
+                  <td>
+                    <content ID="ppv0001">2.5</content>
+                  </td>
+                  <td>12/05/2009</td>
+                  <td>2.5 - 3.5</td>
+                </tr>
+                <tr>
+                  <td>TP (INR)</td>
+                  <td>
+                    <content ID="ppv0002">1.5</content>
+                  </td>
+                  <td>11/06/2009</td>
+                  <td>2.5 - 3.5</td>
+                </tr>
+                <tr>
+                  <td>TP (INR)</td>
+                  <td>
+                    <content ID="ppv0003">2.0</content>
+                  </td>
+                  <td>15/06/2009</td>
+                  <td>2.5 - 3.5</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <!-- Procedure Entry -->
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <id root="74A52D6D-80F8-4941-A7F0-AD0FEADDD5CC" />
+              <code code="MED-036" displayName="Examen réalisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#exam" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="200905121430" />
+            </procedure>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Result observation template -->
+              <id root="969BE9CC-A765-44BF-866F-4B1FD935649A" />
+              <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
+                <originalText mediaType="text/xml">
+                  <reference value="#ppv0001" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#ppv0001" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="200905121430" />
+              <value xsi:type="REAL" value="2.5" />
+              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal" />
+              <referenceRange>
+                <observationRange>
+                  <text>2.5 - 3.5</text>
+                </observationRange>
+              </referenceRange>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Result observation template -->
+              <id root="203FA731-2511-46FA-BA6D-1FB2CE24F09F" />
+              <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
+                <originalText mediaType="text/xml">
+                  <reference value="#ppv0002" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#ppv0002" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="200905121430" />
+              <value xsi:type="REAL" value="1.5" />
+              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal" />
+              <referenceRange>
+                <observationRange>
+                  <text>2.5 - 3.5</text>
+                </observationRange>
+              </referenceRange>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Result observation template -->
+              <id root="0C5D4ADA-81B2-475B-BE9A-3AA18A150E9A" />
+              <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
+                <originalText mediaType="text/xml">
+                  <reference value="#ppv0003" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#ppv0003" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="200905121430" />
+              <value xsi:type="REAL" value="2.0" />
+              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal" />
+              <referenceRange>
+                <observationRange>
+                  <text>2.5 - 3.5</text>
+                </observationRange>
+              </referenceRange>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Medication Section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.8" />
+          <!-- CCD -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19" />
+          <!-- PCC Medications section template -->
+          <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" />
+          <title>Médications</title>
+          <text>
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th>Médicament (Spécialité)</th>
+                  <th>Médicament (DC)</th>
+                  <th>Motif</th>
+                  <th>Date</th>
+                  <th>INR</th>
+                  <th>Posologie</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="6">
+                    <content styleCode="BoldItalics">AVK</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="ppv0004">COUMADINE 5mg, comprimé sécable</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0005">WARFARINE SODIQUE</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0006">Accident Ischémique Cérébral Transitoire, SP</content>
+                  </td>
+                  <td>12/05/2009</td>
+                  <td>
+                    <content ID="ppv0007">2.5</content>
+                  </td>
+                  <td>1cp</td>
+                </tr>
+                <tr>
+                  <td colspan="6">
+                    <content styleCode="BoldItalics">Antiagrégants</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="ppv0008">PLAVIX 75mg, comprimé pelliculé</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0009">CLOPIDOGREL</content>
+                  </td>
+                  <td>
+                    <content ID="p000816">Angine de poitrine instable, SP</content>
+                  </td>
+                  <td>12/05/2009</td>
+                  <td />
+                  <td>1cp</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- ************ Traitement Antivitalmine K ************ -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <!-- template CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <!-- template 'PCC Medication' -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
+              <!-- template 'Normal dosing' -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <id root="625EB1D8-2231-473F-B6E9-2FEBCE024E52" />
+              <text>
+                <reference>
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20000328" />
+                <high value="20000404" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A">
+                <period value="6" unit="h" />
+              </effectiveTime>
+              <routeCode code="PO" displayName="per os" codeSystem="2.16.840.1.113883.5.112" />
+              <doseQuantity>
+                <low value="1" unit="{tbl}" />
+                <high value="1" unit="{tbl}" />
+              </doseQuantity>
+              <rateQuantity nullFlavor="NASK" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Product template -->
+                  <manufacturedMaterial>
+                    <code code="63245753" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS" displayName="COUMADINE 5mg, comprimé sécable">
+                      <originalText mediaType="text/xml">
+                        <reference value="#ppv0004" />
+                      </originalText>
+                      <translation code="678" codeSystem="1.2.250.1.213.2.3.2" codeSystemName="CIP" displayName="WARFARINE SODIQUE">
+                        <originalText mediaType="text/xml">
+                          <reference value="#ppv0005" />
+                        </originalText>
+                      </translation>
+                    </code>
+                    <name>COUMADINE 5mg</name>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+          <!-- Traitement Antiaggrégants plaquettaires -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <!-- template CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <!-- template 'PCC Medication' -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
+              <!-- template 'Normal dosing' -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <id root="42BD065B-DCCB-4374-A3CC-6FE9C1A4B89F" />
+              <text>
+                <reference>
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20090512" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A">
+                <period value="1" unit="d" />
+              </effectiveTime>
+              <routeCode code="PO" displayName="per os" codeSystem="2.16.840.1.113883.5.112" />
+              <doseQuantity>
+                <low value="1" unit="{tbl}" />
+                <high value="1" unit="{tbl}" />
+              </doseQuantity>
+              <rateQuantity nullFlavor="NASK" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Product template -->
+                  <manufacturedMaterial>
+                    <code code="63564053" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS" displayName="PLAVIX 75mg, comprimé pelliculé">
+                      <originalText mediaType="text/xml">
+                        <reference value="#ppv0008" />
+                      </originalText>
+                      <translation code="52920" codeSystem="1.2.250.1.213.2.3.2" codeSystemName="CIP" displayName="CLOPIDOGREL (HYDROGÉNOSULFATE DE)L">
+                        <originalText mediaType="text/xml">
+                          <reference value="#ppv0009" />
+                        </originalText>
+                      </translation>
+                    </code>
+                    <name>PLAVIX 75 mg</name>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Coded List of surgeries section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.12" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.11" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12" />
+          <id root="739A6F87-8AD4-40EE-AD45-EF91B6412EE6" />
+          <code code="47519-4" displayName="HISTORY OF PROCEDURES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Intervention</title>
+          <text>
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Indication</th>
+                  <th>Etablissement</th>
+                  <th>Adresse</th>
+                  <th>N° téléphone d'urgence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12/08/1999</td>
+                  <td>
+                    <content ID="ppv0011">Remplacement de la valve aortique par bioprothèse sans armature, par thoracotomie avec CEC</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0012">Insuffisance Aortique Sévère</content>
+                  </td>
+                  <td>Clinique Bonséjour</td>
+                  <td>17 rue du Chat qui pêche - 75005 PARIS</td>
+                  <td>+33 1 68 69 88 550</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <id root="EC6FC218-B715-465F-843C-0A28DFC32E4F" />
+              <code code="DBKA003" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM" displayName="Remplacement de la valve aortique par bioprothèse sans armature, par thoracotomie avec CEC">
+                <originalText mediaType="text/xml">
+                  <reference value="#ppv0011" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#ppv0011" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="19990812" />
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45" />
+                <!-- Location participation template -->
+                <participantRole classCode="SDLOC">
+                  <!-- Location where healthcare have been provided -->
+                  <addr>
+                    <streetAddressLine>17 rue du Chat qui pêche - 75005 PARIS</streetAddressLine>
+                  </addr>
+                  <telecom value="tel:+33 1 68 69 88 550" use="EC" />
+                  <playingEntity classCode="PLC">
+                    <name>Clinique Bonséjour</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <participant typeCode="DEV">
+                <participantRole classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.1.52" />
+                  <!-- Product instance template -->
+                  <id root="45ABC65F-FB6D-41DB-92B9-2FEE853BA87D" />
+                  <!-- ID du matériel implanté -->
+                </participantRole>
+              </participant>
+              <entryRelationship typeCode="RSON">
+                <observation classCode="COND" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem observation template -->
+                  <id root="675136D6-6B82-4F79-9772-383EFA30831F" />
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0012" />
+                    </originalText>
+                  </code>
+                  <value xsi:type="CE" code="E78.2" displayName="Insuffisance Aortique Sévère" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
+                </observation>
+              </entryRelationship>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Section CI-SIS Dispositifs médicaux
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <!-- Implanted Medical Device Review section template -->
+          <!--
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.46"/>-->
+          <!-- Dispositifs médicaux -->
+          <templateId root="1.2.250.1.213.1.1.2.1" />
+          <id root="5CB98DD2-5F77-4F9A-A95D-B3A5341DC331" />
+          <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" />
+          <title>Prothèse Valvulaire</title>
+          <text>
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th>Type Prothèse</th>
+                  <th>Modèle Prothèse</th>
+                  <th>N° Série</th>
+                  <th>Valve</th>
+                  <th>Composant</th>
+                  <th>Diamètre</th>
+                  <th>Gradient</th>
+                  <th>Niveau d'anticoagulation souhaitée</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="ppv0013">Bioprothèse</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0014">60-0007-21</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0020">615225 Z</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0015">Aortique</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0016">Homogreffe</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0017">21 mm</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0018">67.5 mm[Hg]</content>
+                  </td>
+                  <td>
+                    <content ID="ppv0019">0,5 - 1,0</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!--=<<o#%@O[ Organizer Prothèse valvulaire ]O@%#o>>=-->
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!--  Template Organizer DMI -->
+              <templateId root="1.2.250.1.213.1.1.3.2" />
+              <id root="6A0AC55C-9DE4-484A-A947-B9129A3D3D4B" />
+              <code code="D0001-11" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Prothèse valvulaire" />
+              <statusCode code="completed" />
+              <!-- Type de matériel implanté -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="BC4F2862-F15E-48E5-A4B5-2368AFC34C25" />
+                  <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Type de matériel implanté">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0013" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0013" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0010-2" displayName="Bioprothèse" codeSystem="1.2.250.1.213.1.1.4.2" />
+                </observation>
+              </component>
+              <!-- Date d'implantation -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
+                  <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0022" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0022" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="TS" nullFlavor="UNK" />
+                </observation>
+              </component>
+              <!-- Modèle de prothèse valvulaire -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="CBF3AA0A-804C-4F55-AF5C-6EBA3E0D05DC" />
+                  <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0014" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0014" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">60-0007-21</value>
+                </observation>
+              </component>
+              <!-- N° de série -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="53B0FCA5-9571-4F13-A213-8AAAFFEEBF92" />
+                  <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0020" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0020" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">615225 Z</value>
+                </observation>
+              </component>
+              <!-- Valve -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="87B908FA-F131-44D6-8C95-67ABCD8BD170" />
+                  <code code="L0031" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Valve">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0015" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0015" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0011-1" displayName="Aortique" codeSystem="1.2.250.1.213.1.1.4.2" />
+                </observation>
+              </component>
+              <!-- Composant -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="B43E0D96-2A28-479E-B31F-109A5C479064" />
+                  <code code="L0032" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Composant">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0016" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0016" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0012-1" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Homogreffe" />
+                </observation>
+              </component>
+              <!-- Diamètre -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="2ED53647-414C-40B7-BF59-339FB8E0735A" />
+                  <code code="L0033" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Gradient">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0018" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0018" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="67.5" unit="mm[Hg]" />
+                </observation>
+              </component>
+              <!-- Gradient -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="A99DF2B4-109D-4C24-8B85-91986F285ACD" />
+                  <code code="L0034" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Gradient">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0018" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0018" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="67.5" unit="mm[Hg]" />
+                </observation>
+              </component>
+              <!-- Niveau Anticoagulation -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="DEF70CD9-8C10-4688-B8CB-E8E257AA43C5" />
+                  <code code="L0035" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Niveau Anticoagulation Souhaitée">
+                    <originalText mediaType="text/xml">
+                      <reference value="#ppv0019" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#ppv0019" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="REAL" value="0.5" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Patient Information section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.38" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.39" />
+          <code code="34895-3" codeSystem="2.16.840.1.113883.6.1" />
+          <title>  Information du patient</title>
+          <text>
+            <list>
+              <item>
+                <linkHtml href="Documents/PPV.pdf">Documentation Prothèse Valvulaire</linkHtml>
+              </item>
+            </list>
+          </text>
+          <!-- Document Externe -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4" />
+              <id root="207B6BCB-62BC-484C-8D47-5B592E917984" />
+              <code nullFlavor="NASK" />
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <text>
+                    <reference value="http://..." />
+                  </text>
+                </externalDocument>
+              </reference>
+            </act>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20101116000000" description="XDS confidentialityCode - CI-SIS" displayName="JDV_J08-XdsConfidentialityCode-CISIS.tabs" id="1.2.250.1.213.1.1.5.463" typeFichier="JDV" urlFichier="https://mos.esante.gouv.fr/NOS/JDV_J08-XdsConfidentialityCode-CISIS">
+        <ConceptList>
+            <Concept code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+            <Concept code="R" codeSystem="2.16.840.1.113883.5.25" displayName="Restreint"/>
+            <Concept code="V" codeSystem="2.16.840.1.113883.5.25" displayName="Très restreint"/>
+            <Concept code="INVISIBLE_PATIENT" codeSystem="1.2.250.1.213.1.1.4.13" displayName="Non visible par le patient"/>
+            <Concept code="INVISIBLE_REPRESENTANTS_LEGAUX" codeSystem="1.2.250.1.213.1.1.4.13" displayName="Non visible par les représentants légaux du patient"/>
+            <Concept code="MASQUE_PS" codeSystem="1.2.250.1.213.1.1.4.13" displayName="Masqué aux professionnels de santé"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

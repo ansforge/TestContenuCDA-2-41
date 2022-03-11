@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_OBP-SNE_2021.01.sch"?>
+<!-- 
+      **********************************************************************************************************
+      Document :  Synthèse Salle de Naissance Enfant (OBP-SNE_2021.01)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Historique :
+      28/03/2012 : Création
+      11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons   
+      13/09/2021 : Mise en conformité avec le volet 2021.01
+      **********************************************************************************************************
+-->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- 
+   **************************************************************************************************************
+	EN TETE DU DOCUMENT
+	**************************************************************************************************************
+   -->
+  <realmCode code="FR" />
+  <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications au CI-SIS de l'ASIP Santé -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au Volet Synthèse Salle de Naissance Enfant (SNE)-->
+  <templateId root="1.2.250.1.213.1.1.1.12.3" extension="2021.01"/>
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="OBP-SNE_2021.01_20210328_001_1" />
+  <!-- Type de document -->
+  <code code="15508-5" displayName="Compte-rendu d'accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>Synthèse Salle de Naissance Enfant</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20210328111700+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="OBP-SNE_2021.01_20210328_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- Auteur du document - Clinicien ayant suivi la patiente -->
+  <author>
+    <time value="20210328111700+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Gynécologie-obstétrique (SM)" />
+      <addr nullFlavor="NASK" />
+      <telecom nullFlavor="NASK" />
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>BOILEAU</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <!-- Numéro FINESS de l'ES (optionnel)  -->
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Clinique du Belvédère</name>
+        <telecom nullFlavor="NAV" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation de santé responsable du document -->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Clinique du Belvédère</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable de la validation de la synthèse -->
+  <legalAuthenticator>
+    <time value="20210329094914-0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Gynécologie-obstétrique (SM)" />
+      <assignedPerson>
+        <name>
+          <given>Jacques </given>
+          <family>BIDEAULT</family>
+          <suffix>PR</suffix>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Médecin traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20210505" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>Paris</city>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <associatedPerson>
+        <name>
+          <family>MEDIONI</family>
+          <given>Jacques</given>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Acte documenté -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <id root="5A931FFC-E3D3-4153-953F-4C314500A410" />
+      <code code="57057-2" displayName="Synthèse du travail et de l'accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <low value="20210328111700+0100" />
+        <high value="20210330111700+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <!-- PS identifié par son N°RPPS -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Gynécologie-obstétrique (SM)" />
+          <assignedPerson>
+            <name>
+              <given>Jacques </given>
+              <family>BIDEAULT</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>Clinique du Belvédère</name>
+            <telecom nullFlavor="NAV" />
+            <addr>
+              <houseNumber>142</houseNumber>
+              <streetName>Rue Belvédère</streetName>
+              <postalCode>92100</postalCode>
+              <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <code code="EXTERNE" displayName="acte et consultation externe (établissement)" codeSystem="1.2.250.1.213.1.1.4.2.291" />
+      <effectiveTime>
+        <high value="20210328111700+0100" />
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.213.1.1.9" extension="11223344" assigningAuthorityName="Clinique de Breteuil" />
+          <code code="SA04" displayName="Etablissement Privé Non PSPH" codeSystem="1.2.250.1.71.4.2.4" />
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      <!-- [0..1] Section FR-Travail-et-accouchement -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.3" />
+          <templateId root="1.2.250.1.213.1.1.2.123" />
+          <id root="1B465436-2243-445F-959E-A421D96C1522" />
+          <code code="57074-7" displayName="Travail et accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Travail et Accouchement</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="3"> </th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td rowspan="4">
+                    <content ID="methAccou">Méthode d'accouchement</content>
+                  </td>
+                  <td>Abord</td>
+                  <td>intervention voie basse</td>
+                </tr>
+                <tr>
+                  <td>Référence</td>
+                  <td>
+                    <linkHtml ID="a3" href="http://reference/exemple.pdf">A7102400008_630#</linkHtml>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="methDiff">Raison Intervention</content>
+                  </td>
+                  <td>Travail prolongé</td>
+                </tr>
+                <tr>
+                  <td>Type d'intervention</td>
+                  <td>ventouse<br /></td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="rang">Rang de naissance</content>
+                  </td>
+                  <td colspan="2">1<br /></td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="ageGest">Age gestationnel</content>
+                  </td>
+                  <td colspan="2">33 SA<br /></td>
+                </tr>
+                <tr>
+                  <td rowspan="4">Accouchement</td>
+                  <td>
+                    <content ID="presFoet">Présentation foetale</content>
+                  </td>
+                  <td>Sommet</td>
+                </tr>
+                <tr>
+                  <td>Quantité du liquide amniotique</td>
+                  <td>quantité de liquide amniotique normale<br /></td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="aspLiq">Aspect du liquide amniotique à la naissance</content>
+                  </td>
+                  <td>Clair<br /></td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="dureeOeuf">Durée d'ouverture de l'oeuf</content>
+                  </td>
+                  <td>12 mn<br /></td>
+                </tr>
+                <tr>
+                  <td rowspan="2">Issues de l'ccouchement</td>
+                  <td>
+                    <content ID="enfantViv">Enfant vivant</content>
+                  </td>
+                  <td>Non</td>
+                </tr>
+                <tr>
+                  <td>Circonstances décès</td>
+                  <td>
+                    <content ID="decedeTravail">Décédé pendant travail</content>
+                    <br />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [0..1] Sous-section FR-Actes-et-interventions -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
+              <templateId root="1.2.250.1.213.1.1.2.118" />
+              <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+              <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text />
+              <!-- Méthode d'accouchement  -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                  <code code="MED-169" displayName="Méthode d'accouchement" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="methAccou" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="NA" />
+                  </effectiveTime>
+                  <approachSiteCode code="OBS_221" displayName="intervention voie basse" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <!-- Cas d'un accouchement différent d'un accouchement spontané voie basse: 
+                              CR d'extraction ou CR de césarienne -->
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <act classCode="ACT" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                      <id root="1E2DF585-ACF2-4004-B179-3010A99DD158" />
+                      <code nullFlavor="NA">
+                        <originalText><reference value="#a3"/></originalText>
+                      </code>
+                      <reference typeCode="REFR">
+                        <externalDocument classCode="DOC" moodCode="EVN">
+                          <!-- Identifiant unique du document de référence -->
+                          <id root="1.2.250.1.213.1.1.9" extension="A7102400008_630" />
+                          <text>
+                            <reference value="http://reference/exemple.pdf" />
+                          </text>
+                        </externalDocument>
+                      </reference>
+                    </act>
+                  </entryRelationship>
+                  <!-- Cas d'un accouchement différent d'un accouchement spontané voie basse: Raison  -->
+                  <entryRelationship typeCode="RSON">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="441DF6CB-D9A8-4023-BFC3-2F0A5D4DC0A5" />
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
+                      <text>
+                        <reference value="methDiff" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="CE" code="O63.9" displayName="Travail prolongé" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Dans le cas d'une intervention voie basse : type d'intervention voie basse -->
+                  <entryRelationship typeCode="COMP" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="721A82E2-3775-4705-9FC7-BDB87872C948" />
+                      <code code="OBS_040" displayName="Type intervention voie basse" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                      <text>
+                        <reference value="VBasse" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="CD" code="P1-86EA0" displayName="ventouse" codeSystem="1.2.250.1.213.2.12" codeSystemName="TA_OBS" />
+                    </observation>
+                  </entryRelationship>
+                </procedure>
+              </entry>
+            </section>
+          </component>
+          <!-- [0..1] Sous-section FR-Resultats-evenements -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
+              <templateId root="1.2.250.1.213.1.1.2.163" />
+              <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+              <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text />
+              <!-- Rang et date de naissance -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="F50090E5-B029-41D0-B00A-380A45E3E3D8" />
+                  <code code="MED-162" displayName="Rang de naissance" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="rang" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="INT" value="1" />
+                </observation>
+              </entry>
+              <!-- Age gestationnel -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="29E37FE1-C7EC-4C1B-A3C0-C68E66DBE5F1" />
+                  <code code="11884-4" displayName="Age gestationnel" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="ageGest" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="PQ" value="35" unit="wk" />
+                </observation>
+              </entry>
+              <!-- Présentation Foetale -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="8CD9BA94-498C-4741-AFA7-2A4D3A33479D" />
+                  <code code="F-87000" displayName="Présentation Foetale" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="presFoet" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD" code="F-87050" displayName="Sommet" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                </observation>
+              </entry>
+              <!-- Quantité du liquide amniotique -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="FF14E7F0-A73C-4F91-AB7B-8A04F713B36B" />
+                  <code code="OBS_036" displayName="Quantité du liquide amniotique" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <text>
+                    <reference value="ageGest" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD" code="OBS_214" displayName="quantité de liquide amniotique normale" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                </observation>
+              </entry>
+              <!-- Aspect du liquide amniotique à la naissance -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="074B1861-D92E-4441-9E52-0C563D7AB51C" />
+                  <code code="OBS_037" displayName="Aspect du liquide amniotique à la naissance" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="aspLiq" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD" code="G-A456" displayName="Clair" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                </observation>
+              </entry>
+              <!-- Durée d'ouverture de l'oeuf -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="B3C83C2D-3667-4FE7-BFAB-B2B554E920C5" />
+                  <code code="OBS_038" displayName="Durée d'ouverture de l'oeuf" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <text>
+                    <reference value="DureeOeuf" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="PQ" value="12" unit="min" />
+                </observation>
+              </entry>
+              <!-- Enfant vivant -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <id root="DE89B61E-6EF0-4EFB-B1C2-FDEE89138E04" />
+                  <code code="OBS_039" displayName="Enfant vivant" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <text>
+                    <reference value="enfantViv" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                  <entryRelationship typeCode="RSON">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="FE062A9D-6E00-4DE2-B866-D60C892B0AC3" />
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
+                      <text>
+                        <reference value="decedeTravail" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="CD" code="D8-72300" displayName="décédé pendant travail" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+
+      <!-- [0..1] Section FR-Informations-sur-l-accouchement -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.4" />
+          <templateId root="1.2.250.1.213.1.1.2.124" />
+          <id root="F5DADC43-8E1A-4699-9BBD-BFDB84091BFB" />
+          <code code="57075-4" displayName="Informations sur l'accouchement et le nouveau-né" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Information sur le nouveau-né</title>
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="3"> </th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td rowspan="6">Interventions et/ou actes réalisés dans les suites de l'accouchement</td>
+                  <td rowspan="2">
+                    <content ID="rea">Réanimation</content>
+                  </td>
+                  <td>
+                    <content ID="massCar">Massage cardiaque</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Autre Geste</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="k">Administration de Vitamine K</content>
+                  </td>
+                  <td>Oui</td>
+                </tr>
+                <tr>
+                  <td rowspan="3">
+                    <content ID="prelBact">Prélèvements bactériologiques</content>
+                  </td>
+                  <td>Oui</td>
+                </tr>
+                <tr>
+                  <td>Gastrique</td>
+                </tr>
+                <tr>
+                  <td>Autre périphérique (texte)</td>
+                </tr>
+                <tr>
+                  <td rowspan="3">Examen physique du nouveau-né</td>
+                  <td>
+                    <content ID="choanes">Perméabilité des choanes</content>
+                  </td>
+                  <td>Oui</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="oesophag">Perméabilité oesophagienne</content>
+                  </td>
+                  <td>Oui<br /></td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="anale">Perméabilité anale</content>
+                  </td>
+                  <td>Oui<br /></td>
+                </tr>
+                <tr>
+                  <td rowspan="3">APGAR</td>
+                  <td>
+                    <content ID="apgar1mn">1 minute</content>
+                  </td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="apgar5mn">5 minutes</content>
+                  </td>
+                  <td>10<br /></td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="apgar10mn">10 minutes</content>
+                  </td>
+                  <td>10<br /></td>
+                </tr>
+                <tr>
+                  <td rowspan="3">Mensurations du nouveau-né</td>
+                  <td>
+                    <content ID="poids">Poids (g)</content>
+                  </td>
+                  <td>3900</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="taille">Taille (cm)</content>
+                  </td>
+                  <td>52<br /></td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="perimetre-cranien">Périmètre cranien (cm)</content>
+                  </td>
+                  <td>35<br /></td>
+                </tr>
+                <tr>
+                  <td rowspan="5">
+                    <content ID="sort">Mode de sortie</content>
+                  </td>
+                  <td colspan="2">Transfert d'un patient dans un autre ES</td>
+                </tr>
+                <tr>
+                  <td>Type</td>
+                  <td>Autre maternité<br /></td>
+                </tr>
+                <tr>
+                  <td>44</td>
+                  <td>Geoffroy St-Hilaire<br /></td>
+                </tr>
+                <tr>
+                  <td>75005</td>
+                  <td>Paris<br /></td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- [1..1] Sous-section FR-Examen-physique-detaille-code -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15.1" />
+              <templateId root="1.2.250.1.213.1.1.2.84" />
+              <id root="4A402640-1CF6-4153-B5BA-D56B623004C8" />
+              <code code="29545-1" displayName="Examen physique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text />
+              
+              <!-- [1..1] Sous-sous-section FR-Signes-vitaux -->
+              <component>
+                <section>
+                  <templateId root="2.16.840.1.113883.10.20.1.16"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2"/>
+                  <templateId root="1.2.250.1.213.1.1.2.75"/>
+                  <id root="3B6E8DA4-C82E-4C3F-9DF9-3A7599EE6D63"/>
+                  <code code="8716-3" displayName="Signes vitaux"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <title>Signes vitaux</title>
+                  <text/>                    
+                  <!-- Entrée FR-Signes-vitaux -->
+                  <entry>
+                    <organizer classCode="CLUSTER" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.32"/>
+                      <templateId root="2.16.840.1.113883.10.20.1.35"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1"/>
+                      <templateId root="1.2.250.1.213.1.1.3.49"/>
+                      <id root="0FD525FD-8712-40F9-BC31-AF9E25069C24"/>
+                      <code code="F-03400" displayName="Signes vitaux"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                      <statusCode code="completed"/>
+                      <effectiveTime value="20190901"/>
+
+                      <!-- Entrée FR-Signe-vital-observe : APGAR à 1 mn -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <templateId root="1.2.250.1.213.1.1.3.50"/>
+                          <id root="4461355E-71B1-41B9-8D48-80D672C8D08C"/>
+                          <code code="9272-6" displayName="APGAR à 1mn"
+                            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                          <text>
+                            <reference value="#apgar1mn"/>
+                          </text>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20190901"/>
+                          <value xsi:type="PQ" value="10" unit="{score}"/>
+                        </observation>
+                      </component>
+                      
+                      <!-- Entrée FR-Signe-vital-observe : APGAR à 5 mn -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <templateId root="1.2.250.1.213.1.1.3.50"/>
+                          <id root="2D06DA10-5A5E-4782-BA57-9A0DC1FA5CFA"/>
+                          <code code="9274-2" displayName="APGAR à 5mn"
+                            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                          <text>
+                            <reference value="#apgar5mn"/>
+                          </text>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20190901"/>                          
+                          <value xsi:type="PQ" value="10" unit="{score}"/>
+                        </observation>
+                      </component>
+                      
+                      <!-- Entrée FR-Signe-vital-observe : APGAR à 10 mn -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <templateId root="1.2.250.1.213.1.1.3.50"/>
+                          <id root="1AC40147-D987-475D-9C57-B7B91CBAC1C5"/>
+                          <code code="9271-8" displayName="APGAR à 10mn"
+                            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                          <text>
+                            <reference value="#apgar10mn"/>
+                          </text>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20190901"/>                          
+                          <value xsi:type="PQ" value="10" unit="{score}"/>
+                        </observation>
+                      </component>
+                      
+                      <!-- Entrée FR-Signe-vital-observe : Poids -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <templateId root="1.2.250.1.213.1.1.3.50"/>
+                          <id root="222B0A68-94C4-47B2-BC51-2375CD896B42"/>
+                          <code code="29463-7" codeSystem="2.16.840.1.113883.6.1"
+                            displayName="Poids" codeSystemName="LOINC"/>
+                          <text>
+                            <reference value="#poids"/>
+                          </text>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20190901"/>
+                          <value xsi:type="PQ" value="3900" unit="g"/>
+                        </observation>
+                      </component>
+                      
+                      <!-- Entrée FR-Signe-vital-observe : Taille -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <templateId root="1.2.250.1.213.1.1.3.50"/>
+                          <id root="2D8611C6-9F6B-4964-9837-7F999E092A1B"/>
+                          <code code="8302-2" codeSystem="2.16.840.1.113883.6.1"
+                            displayName="Taille" codeSystemName="LOINC"/>
+                          <text>
+                            <reference value="#taille"/>
+                          </text>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20190901"/>
+                          <value xsi:type="PQ" value="52" unit="cm"/>
+                        </observation>
+                      </component>
+                      
+                      <!-- Entrée FR-Signe-vital-observe : Périmètre cranien -->
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <templateId root="1.2.250.1.213.1.1.3.50"/>
+                          <id root="F3FF9F82-8188-47F8-912B-FF848621F210"/>
+                          <code code="8287-5" displayName="Périmètre cranien"
+                            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                          <text>
+                            <reference value="#perimetre-cranien"/>
+                          </text>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20190901"/>
+                          <value xsi:type="PQ" value="35" unit="cm"/>
+                        </observation>
+                      </component>
+                      
+                    </organizer>
+                  </entry>
+                </section>
+              </component>
+              
+              <!-- [0..1] Sous-sous-section FR-ORL  -->
+              <component>
+                <section>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.20" />
+                  <templateId root="1.2.250.1.213.1.1.2.89" />
+                  <id root="4A402640-1CF6-4153-B5BA-D56B623004C8" />
+                  <code code="11393-6" displayName="ORL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <title>ORL</title>
+                  <text/>                    
+                  <entry>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="55E0941C-424C-4844-B811-394A67F8C67D" />
+                      <code code="OBS_232" displayName="Perméabilité des choanes" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                      <text>
+                        <reference value="choanes" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entry>
+                  <entry>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="53273E78-FE07-4C71-B3EA-28B88A1D2C0E" />
+                      <code code="OBS_247" displayName="Perméabilité oesophagienne" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                      <text>
+                        <reference value="oesophag" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entry>
+                </section>
+              </component>
+              <!-- [0..1] Sous-sous-section FR-Colon-rectum -->
+              <component>
+                <section>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.37" />
+                  <templateId root="1.2.250.1.213.1.1.2.106" />
+                  <id root="4A402640-1CF6-4153-B5BA-D56B623004C8" />
+                  <code code="10205-3" displayName="Côlon rectum" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <title>Colon-Rectum</title>
+                  <text/>                    
+                  <entry>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="F912B74F-F888-4C82-B4CF-7D0889C5D8AD" />
+                      <code code="OBS_248" displayName="Perméabilité anale" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                      <text>
+                        <reference value="anale" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entry>
+                </section>
+              </component>
+              <!-- [0..1] Sous-sous-section FR-Etat-general -->
+              <component>
+                <section>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.16" />
+                  <templateId root="1.2.250.1.213.1.1.2.85" />
+                  <id root="4A402640-1CF6-4153-B5BA-D56B623004B4" />
+                  <code code="10210-3" displayName="État général" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <title>Etat général</title>
+                  <text/>                    
+                  <entry>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="55E0941C-424C-4844-B811-394A67F8C68D" />
+                      <code code="OBS_249" displayName="Émission d’urine" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                      <text>
+                        <reference value="urine" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entry>
+                  <entry>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <id root="53273E78-FE07-4C71-B3EA-28B88A1D2C9I" />
+                      <code code="OBS_250" displayName="Émission de méconium" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                      <text>
+                        <reference value="meconium" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entry>
+                </section>
+              </component>
+
+            </section>
+          </component>
+          
+          <!-- [0..1] Sous-section FR-Actes-et-interventions -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
+              <templateId root="1.2.250.1.213.1.1.2.118" />
+              <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+              <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text/>                    
+              <!-- Réanimation -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                  <code code="OBS_241" displayName="Réanimation" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <text>
+                    <reference value="rea" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="NAV" />
+                  </effectiveTime>
+                  <!-- Massage cardiaque -->
+                  <entryRelationship typeCode="COMP" negationInd="false">
+                    <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                      <templateId root="2.16.840.1.113883.10.20.1.29" />
+                      <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                      <code code="OBS_239" displayName="massage cardiaque" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                      <text>
+                        <reference value="massCar" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low nullFlavor="NAV" />
+                      </effectiveTime>
+                    </procedure>
+                  </entryRelationship>
+                  <!-- Autre geste -->
+                  <entryRelationship typeCode="COMP" negationInd="false">
+                    <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                      <templateId root="2.16.840.1.113883.10.20.1.29" />
+                      <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                      <code code="MED-174" displayName="Geste technique spécialisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                        <originalText>
+                          <reference value="#SNE_001" />
+                        </originalText>
+                      </code>
+                      <text>
+                        <reference value="#SNE_001" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low nullFlavor="NAV" />
+                      </effectiveTime>
+                    </procedure>
+                  </entryRelationship>
+                </procedure>
+              </entry>
+              <!-- Administration de Vitamine K -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                  <code code="OBS_242" displayName=" Administration de Vitamine K" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <text>
+                    <reference value="k" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="NAV" />
+                  </effectiveTime>
+                  <approachSiteCode code="PO" displayName="per os" codeSystem="2.16.840.1.113883.5.112" codeSystemName="HL7:RouteOfAdministration" />
+                </procedure>
+              </entry>
+              <!-- Prélèvements bactériologiques -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                  <code code="OBS_243" displayName="Prélévement bactériologique" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <text>
+                    <reference value="prelBact" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="NAV" />
+                  </effectiveTime>
+                  <!-- périphérique gastrique -->
+                  <targetSiteCode code="OBS_244" displayName="Gastrique" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS">
+                  </targetSiteCode>
+                </procedure>
+              </entry>
+              <!-- Prélèvements bactériologiques -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <id root="B8783B31-44FD-450C-953C-AAD5C075DCEE" />
+                  <code code="OBS_243" displayName="Prélévement bactériologique" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+                  <text>
+                    <reference value="prelAutre" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="NAV" />
+                  </effectiveTime>
+                  <!-- Autre périphérique -->
+                  <targetSiteCode nullFlavor="OTH">
+                    <originalText>
+                      <reference value="#SNE_2" />
+                    </originalText>
+                  </targetSiteCode>
+                </procedure>
+              </entry>
+            </section>
+          </component>
+          
+        </section>
+      </component>
+
+      <!-- [0..1] Section FR-Resultats-evenements -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
+          <templateId root="1.2.250.1.213.1.1.2.163" />
+          <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+          <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <table border="0">
+              <thead align="center">
+                <tr>
+                  <th align="center" colspan="2">Resultats d'évènements</th>
+                </tr>
+              </thead>
+              <tbody align="left">
+                <tr>
+                  <td>Mode de sortie</td>
+                  <td>
+                    <content ID="sortie">Transfert d'un patient dans un autre ES</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- FR-Simple-Observation : Mode de sortie -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="A59E0EBD-018D-4289-B879-0A8D55F64D02" />
+              <code code="OBS_050" displayName="Mode de sortie" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
+              <text>
+                <reference value="#sortie" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="CD" code="P0-20300" displayName="Transfert d'un patient dans un autre ES" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+            </observation>
+          </entry>
+          <!-- FR-Transfert-du-patient  -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN" negationInd="false">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1" />
+              <templateId root="1.2.250.1.213.1.1.3.28" />
+              <id root="9DE53C07-2608-44DF-B7FA-0555AB7CCC4B" />
+              <code code="80413-8" displayName="Transfert du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text><reference value="transfert"/></text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20130811" />
+                <high nullFlavor="NA" />
+              </effectiveTime>
+              <participant typeCode="DST">
+                <!-- Identification de l'établissement (ou du service) de transfert (FINESS) -->
+                <templateId root="1.2.250.1.71.4.2.2" extension="101238889" />
+                <participantRole classCode="SDLOC">
+                  <id root="177A9B28-69AA-433E-835D-6E70D8A35D16"/>
+                  <!-- Type d'établissement si transfert ou mutation -->
+                  <code code="SA41" displayName="Autre établissement du domaine social ou médico-social" codeSystem="1.2.250.1.71.4.2.4"/>
+                  <addr>
+                    <houseNumber>44</houseNumber>
+                    <streetName>Rue Geoffroy St-Hilaire</streetName>
+                    <postalCode>75005</postalCode>
+                    <city>Paris</city>
+                  </addr>
+                  <telecom nullFlavor="NAV" />
+                  <playingEntity classCode="ENT">
+                    <name>Clinique Geoffroy St-Hilaire</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </act>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- [1..1] Section FR-CR-BIO-Chapitre -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
+          <templateId root="1.2.250.1.213.1.1.2.70" />
+          <code code="18767-4" displayName="Gaz du Sang" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Gaz du sang</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Examen</th>
+                  <th>Résultat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>pH Sang de cordon artériel</td>
+                  <td>7.0</td>
+                </tr>
+                <tr>
+                  <td>pH Sang de cordon veineux</td>
+                  <td>7.0</td>
+                </tr>
+                <tr>
+                  <td>Lactates</td>
+                  <td>xx mmol/L</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée Laboratory Report Data Processing Entry -->
+          <entry typeCode="DRIV">
+            <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+            <templateId root="1.2.250.1.213.1.1.3.21" />
+            <act classCode="ACT" moodCode="EVN">
+              <code code="18767-4" displayName="Gaz du Sang" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode code="completed" />
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <statusCode code="completed" />
+                  <!-- pH du cordon (artériel) -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="D5086904-99AA-482E-86AE-BA33CF8C421F" />
+                      <code code="28646-8" codeSystem="2.16.840.1.113883.6.1" displayName="pH Sang de cordon artériel" codeSystemName="LOINC">
+                        <originalText><reference value="#phCordonArteriel"/></originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="REAL" value="7.0" />
+                    </observation>
+                  </component>
+                  <!-- pH du cordon (veineux) -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="1D07547D-7AFD-4589-8F4D-40B34961899E" />
+                      <code code="28647-6" codeSystem="2.16.840.1.113883.6.1" displayName="pH Sang de cordon veineux" codeSystemName="LOINC">
+                        <originalText><reference value="#phCordonVeineux"/></originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="REAL" value="7.0" />
+                    </observation>
+                  </component>
+                  <!-- Lactates -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <id root="4FDB71EE-B896-4AC8-BDA9-C1F5A895F60D" />
+                      <code code="32693-4" codeSystem="2.16.840.1.113883.6.1" displayName="Lactate [Moles/Volume] Sang" codeSystemName="LOINC">
+                        <originalText><reference value="#lactates"/></originalText>
+                      </code>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="PQ" value="7.0" unit="mmol/L" />
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <!-- [1..1] Section FR-Statut-du-document -->
+      <component>
+        <section>
+          <templateId root="1.2.250.1.213.1.1.2.35"/>
+          <id root="40BA1599-AFD6-4625-969E-FBAB97694C99"/>
+          <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Statut du document</title>
+          <text>En cours</text>
+          <!-- [1..1] Entrée FR-Statut-document -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <templateId root="1.2.250.1.213.1.1.3.48.16"/>
+              <id root="878F54EB-D561-4F90-855C-71BF3D97FE1D"/>
+              <code code="GEN-065" displayName="Statut du document"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              <text>
+                <reference value="#"/>
+              </text>
+              <statusCode code="completed"/>
+              <effectiveTime value="20190314"/>
+              <value xsi:type="CD" code="GEN-034" displayName="En cours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>             
+            </observation>
+          </entry>
+        </section>
+      </component>
+      
+    </structuredBody>
+  </component>
+</ClinicalDocument>

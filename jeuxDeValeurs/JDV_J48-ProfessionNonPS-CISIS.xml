@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20211029120000" dateValid="20180330120000" description="Jeux de Valeurs des professions/spécialités des Non Ps" displayName="JDV_J48-ProfessionNonPS-CISIS.tabs" id="1.2.250.1.213.1.1.5.123" typeFichier="JDV" urlFichier="https://mos.esante.gouv.fr/NOS/JDV_J48-ProfessionNonPS-CISIS">
+        <ConceptList>
+            <Concept code="71" codeSystem="1.2.250.1.213.1.6.1.109" displayName="Ostéopathe"/>
+            <Concept code="72" codeSystem="1.2.250.1.213.1.6.1.109" displayName="Psychothérapeute"/>
+            <Concept code="73" codeSystem="1.2.250.1.213.1.6.1.109" displayName="Chiropracteur"/>
+            <Concept code="93" codeSystem="1.2.250.1.213.1.6.1.109" displayName="Psychologue"/>
+            <Concept code="97" codeSystem="1.2.250.1.213.1.6.1.109" displayName="Conseiller en génétique"/>
+            <Concept code="41" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Assistant de service social"/>
+            <Concept code="42" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Auxiliaire de vie sociale"/>
+            <Concept code="43" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Technicien de l'intervention sociale et familiale"/>
+            <Concept code="44" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Conseiller en économie sociale et familiale"/>
+            <Concept code="45" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Médiateur familial"/>
+            <Concept code="46" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Assistant familial"/>
+            <Concept code="47" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Aide médico-psychologique (AMP)"/>
+            <Concept code="48" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Moniteur éducateur"/>
+            <Concept code="49" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Educateur de jeunes enfants"/>
+            <Concept code="51" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Educateur spécialisé"/>
+            <Concept code="52" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Educateur technique spécialisé"/>
+            <Concept code="53" codeSystem="1.2.250.1.213.1.6.1.4" displayName="Accompagnant éducatif et social"/>
+            <Concept code="300" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Assistant de service social (PAERPA)"/>
+            <Concept code="301" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Coordination territoriale d'appui (PAERPA)"/>
+            <Concept code="302" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Aide et accompagnement à domicile (PAERPA)"/>
+            <Concept code="303" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Avocat participant aux processus de soins sans consentement (eSSS)"/>
+            <Concept code="307" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Mandataire judiciaire à la protection des majeurs (MJPM)"/>
+            <Concept code="308" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Pilote MAIA"/>
+            <Concept code="309" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Gestionnaire de cas MAIA"/>
+            <Concept code="310" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Equipe médico-sociale APA"/>
+            <Concept code="311" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Autre acteur mettant en oeuvre la méthode MAIA"/>
+            <Concept code="312" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Autre salarié ou intervenant au sein d'un ESMS"/>
+            <Concept code="313" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Aide-soignant"/>
+            <Concept code="314" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Ambulancier"/>
+            <Concept code="315" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Auxiliaire de puériculture"/>
+            <Concept code="316" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Préparateur en pharmacie hospitalière"/>
+            <Concept code="317" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Préparateur en pharmacie (officine)"/>
+            <Concept code="318" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Auxiliaire de vie sociale"/>
+            <Concept code="319" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Technicien de l'intervention sociale et familiale"/>
+            <Concept code="320" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Conseiller en économie sociale et familiale"/>
+            <Concept code="321" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Médiateur familial"/>
+            <Concept code="322" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Assistant familial"/>
+            <Concept code="323" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Aide médico-psychologique (AMP)"/>
+            <Concept code="324" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Moniteur éducateur"/>
+            <Concept code="325" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Educateur de jeunes enfants"/>
+            <Concept code="326" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Educateur spécialisé"/>
+            <Concept code="327" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Educateur technique spécialisé"/>
+            <Concept code="328" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Accompagnant éducatif et social"/>
+            <Concept code="329" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Conseiller en génétique"/>
+            <Concept code="330" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Coordonnateur de parcours"/>
+            <Concept code="350" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Aide à domicile"/>
+            <Concept code="351" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Assistant(e) maternel(le)"/>
+            <Concept code="353" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Membre de l'équipe de soins"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

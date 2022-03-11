@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20160519000000" description="HL7 confidentiality" displayName="TRE_A08-HL7Confidentiality.tabs" id="2.16.840.1.113883.5.25" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_A08-HL7Confidentiality">
+        <ConceptList>
+            <Concept code="N" codeSystem="2.16.840.1.113883.5.25" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Normal" longDesignation="Normal" shortDesignation="Normal" descriptionMetier="Y"/>
+            <Concept code="R" codeSystem="2.16.840.1.113883.5.25" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Restreint" longDesignation="Restreint" shortDesignation="Restreint" descriptionMetier="Y"/>
+            <Concept code="V" codeSystem="2.16.840.1.113883.5.25" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Très restreint" longDesignation="Très restreint" shortDesignation="Très restreint" descriptionMetier="Y"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

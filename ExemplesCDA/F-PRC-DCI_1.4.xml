@@ -1,0 +1,2701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_F-PRC_1.4.sch"?>
+<!-- 
+      **********************************************************************************************************
+      Document : UFCV - Porteur d'un Défibrillateur Cardiaque (F-PRC-DCI_1.4)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Historique :
+      25/03/2009 : Création 
+     	11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons
+     	13/07/2021 : Correction de l'unité "ohms" par "Ohm"
+     	13/07/2021 : Correction de l'unité "mn" par "min"
+      **********************************************************************************************************
+   -->
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:lab="urn:hl7-org:lab" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd">
+  <!-- 
+      ***********************
+      Entête du document
+      ***********************
+   -->
+  <realmCode code="FR" />
+  <!-- Référence au standard CDA R2  -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Déclaration de conformité aux spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Déclaration de conformité aux spécifications du CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Déclarations de conformité aux spécifications PCC Medical Summary -->
+  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.2" />
+  <!-- Déclaration de conformité aux spécifications F-PRC -->
+  <templateId root="1.2.250.1.213.1.1.1.2.1" />
+  <!-- Déclaration de conformité aux spécifications F-PRC-DCI -->
+  <templateId root="1.2.250.1.213.1.1.1.2.1.3" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="2021.01" />
+  <!-- Type de document -->
+  <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>Fiche patient à risque en cardiologie - Défibrillateur cardiaque interne</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20080929094914+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="F-PRC-CDI_1.4_20080929_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="276059205062865" root="1.2.250.1.213.1.4.8" />
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H" />
+      <telecom value="tel:0647151010" use="MC" />
+      <telecom value="mailto:marie.decourcy@mail.fr" />
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given>Marie</given>
+          <family qualifier="BR">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19760531" />
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>24</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H" />
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>DECOURCY</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <postalCode>92100</postalCode>
+              <city>BOULOGNE-BILLANCOURT</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+
+  <!-- Auteur du document -->
+  <author contextControlCode="OP" typeCode="AUT">
+    <time value="20080929094914+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>DUNANT</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1750803447" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation de santé responsable du document -->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Centre Hospitalier DUNANT</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetAddressLine>25 rue Pasteur</streetAddressLine>
+          <streetAddressLine>91000 EVRY</streetAddressLine>
+          <streetAddressLine>France</streetAddressLine>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable (signataire) du document -->
+  <legalAuthenticator>
+    <time value="20060922" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71" extension="801234567897" />
+      <!-- PS identifié par son N°ADELI -->
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>DUNANT</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Cardiologue Traitant -->
+  <participant typeCode="INF">
+    <functionCode code="ATTPHYS" displayName="Référent - Responsable du patient dans la structure de soins" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20060922100000" />
+      <high value="20060922110000" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="802926406900" />
+      <addr>
+        <city>Orléans</city>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <telecom value="mailto:jacques.andre@cardio.fr" />
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Jacques</given>
+          <family>ANDRE</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Médecin Traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20060922100000" />
+      <high value="20060922110000" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="802926406900" />
+      <addr>
+        <city>Paris</city>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <telecom value="mailto:charles.michels@generaliste.fr" />
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles</given>
+          <family>MICHELS</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Acte documenté -->
+  <documentationOf>
+    <serviceEvent>
+      <id root="1.2.250.1.213.1.1.9" extension="123" />
+      <effectiveTime>
+        <low value="20100104152500+0100" />
+        <high value="20100104152530+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+        <time>
+          <low value="20100104152500+0100" />
+          <high value="20100104152530+0100" />
+        </time>
+        <assignedEntity>
+          <id root="1.2.250.1.213.1.1.9" extension="801234567897" />
+          <assignedPerson>
+            <name>
+              <family>Grandrobert</family>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+            <name>Cardio du parc</name>
+            <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Contexte de la prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <id root="1.2.250.1.213.1.1.9" extension="234567890" />
+      <effectiveTime>
+        <low value="201001020735+0100" />
+        <high value="201001041635+0100" />
+      </effectiveTime>
+      <responsibleParty>
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="801234567892" />
+          <assignedPerson>
+            <name>
+              <family nullFlavor="MSK" />
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <name>chirurgie gynécologique</name>
+            <asOrganizationPartOf>
+              <wholeOrganization>
+                <name>Hôpital des papillons</name>
+              </wholeOrganization>
+            </asOrganizationPartOf>
+          </representedOrganization>
+        </assignedEntity>
+      </responsibleParty>
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.213.1.1.9" extension="11223344" assigningAuthorityName="Hôpital des papillons" />
+          <code code="SA21" displayName="Etab. Hébergt Réadaptation" codeSystem="1.2.250.1.71.4.2.4">
+          </code>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      <!-- 
+            ********************************************************
+            Active Problems section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.11" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <id root="D2C8A9D3-970F-4EB0-BF08-940269F5AC0F" />
+          <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Pathologie courante</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Pathologie</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12/05/1985</td>
+                  <td>
+                    <content ID="avk0027">Tachycardie ventriculaire</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Tachycardie ventriculaire -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Problem Act template -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="8B672F7C-7851-42AE-BF9A-EF0023A8DE92" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem observation template -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- ID de l'observation -->
+                  <id root="E4E334D4-7EC6-408B-B608-D1CFFF90A97C" />
+                  <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="avk0027" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="19850512" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="I47.2" displayName="Tachycardie Ventriculaire" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                    <originalText>
+                      <reference value="avk0027" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- Problème actif -->
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.50" />
+                  <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status" />
+                  <statusCode code="completed" />
+                  <value xsi:type="CE" code="G-A230" codeSystem="1.2.250.1.213.2.12" displayName="Actif" />
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Coded List of surgeries section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.12" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.11" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12" />
+          <id root="80D632D6-3BB4-40A7-A31E-26E01D3977FC" />
+          <code code="47519-4" displayName="HISTORY OF PROCEDURES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>INTERVENTIONS</title>
+          <text>
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th colspan="6">
+                    <content styleCode="BoldItalics">Défibrillateur</content>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Motif d'implantation</th>
+                  <th>Lieu d'Implantation</th>
+                  <th>Adresse</th>
+                  <th>N° tél. d'urgence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12/08/1985</td>
+                  <td>
+                    <content ID="def0001">Implantation d'un défibrillateur cardiaque
+                                 automatique, avec pose d'une sonde intraventriculaire droite par
+                                 voie veineuse transcutanée</content>
+                  </td>
+                  <td>
+                    <content ID="def0002">Tachycardie Ventriculaire</content>
+                  </td>
+                  <td>Clinique Moulinsart</td>
+                  <td>1 rue du château 41700 - Cheverny</td>
+                  <td>+33 2 68 69 88 650</td>
+                </tr>
+                <tr>
+                  <td>12/08/1999</td>
+                  <td>
+                    <content ID="def0003">Implantation d'un défibrillateur cardiaque
+                                 automatique, avec pose d'une sonde intraatriale et d'une sonde
+                                 intraventriculaire droites, et d'une sonde dans une veine cardiaque
+                                 gauche par voie veineuse transcutanée</content>
+                  </td>
+                  <td>
+                    <content ID="def0004">Tachycardie Ventriculaire</content>
+                  </td>
+                  <td>Clinique Bonséjour</td>
+                  <td>17 rue du Chat qui pêche - 75005 PARIS</td>
+                  <td>+33 1 68 69 88 550</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <id root="08A225F0-928B-471F-A493-B5083D1E9365" />
+              <code code="DELF013" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM">
+                <originalText mediaType="text/xml">
+                  <reference value="#def0001" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#def0001" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="19850812" />
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45" />
+                <!-- Location participation template -->
+                <participantRole classCode="SDLOC">
+                  <!-- Location where healthcare have been provided -->
+                  <addr>
+                    <streetAddressLine>1 rue du château</streetAddressLine>
+                    <streetAddressLine>41700 Cheverny</streetAddressLine>
+                  </addr>
+                  <telecom value="tel:+33 1 68 69 88 550" use="EC" />
+                  <playingEntity classCode="PLC">
+                    <name>Clinique Moulinsart</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <entryRelationship typeCode="RSON">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                  <id root="E4E334D4-7EC6-408B-B608-D1CFFF90A97C" />
+                  <code code="I47.2" displayName="Tachycardie Ventriculaire" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0002" />
+                    </originalText>
+                  </code>
+                </act>
+              </entryRelationship>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <id root="FC663C65-F1B2-4737-BB89-0D1B553C6BC8" />
+              <code code="DELF014" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM">
+                <originalText mediaType="text/xml">
+                  <reference value="#def0001" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#def0001" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="19990812" />
+              <participant typeCode="LOC">
+                <templateId root="2.16.840.1.113883.10.20.1.45" />
+                <!-- Location participation template -->
+                <participantRole classCode="SDLOC">
+                  <!-- Location where healthcare have been provided -->
+                  <addr>
+                    <streetAddressLine>17 rue du Chat qui pêche - 75005
+                                 PARIS</streetAddressLine>
+                  </addr>
+                  <telecom value="tel:+33 1 68 69 88 550" use="EC" />
+                  <playingEntity classCode="PLC">
+                    <name>Clinique Bonséjour</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <participant typeCode="DEV">
+                <participantRole classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.1.52" />
+                  <!-- Product instance template -->
+                  <id root="F071F67E-8A55-4835-9F74-86C184DEA262" />
+                  <!-- ID du défibrillateur -->
+                </participantRole>
+              </participant>
+              <participant typeCode="DEV">
+                <participantRole classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.1.52" />
+                  <!-- Product instance template -->
+                  <id root="32B21AAF-3E7F-4D76-82D5-EE52B8356A00" />
+                  <!-- ID de la sonde auriculaire -->
+                </participantRole>
+              </participant>
+              <participant typeCode="DEV">
+                <participantRole classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.1.52" />
+                  <!-- Product instance template -->
+                  <id root="AC6371DC-A741-4F83-BBC9-DCFC69F92E61" />
+                  <!-- ID de la sonde ventriculaire droite -->
+                </participantRole>
+              </participant>
+              <participant typeCode="DEV">
+                <participantRole classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.1.52" />
+                  <!-- Product instance template -->
+                  <id root="0D922AC0-D3A2-4A0F-B0CC-4A8EA8E9AA28" />
+                  <!-- ID de la sonde ventriculaire gauche -->
+                </participantRole>
+              </participant>
+              <entryRelationship typeCode="RSON">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                  <id root="E4E334D4-7EC6-408B-B608-D1CFFF90A97C" />
+                  <code code="I47.2" displayName="Tachycardie Ventriculaire" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0004" />
+                    </originalText>
+                  </code>
+                </act>
+              </entryRelationship>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Section ASIP Dispositifs médicaux
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <!-- Implanted Medical Device Review section template 
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.46"/>-->
+          <!-- Dispositifs médicaux -->
+          <templateId root="1.2.250.1.213.1.1.2.1" />
+          <id root="D37582EF-8068-417D-84A0-C81000F40C4F" />
+          <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" />
+          <title>MATÉRIEL IMPLANTÉ</title>
+          <text>
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th colspan="15">
+                    <content styleCode="BoldItalics">Défibrillateur</content>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Date</th>
+                  <th>Dispositif</th>
+                  <th>Localisation</th>
+                  <th>Latéralité</th>
+                  <th>Marque</th>
+                  <th>Modèle</th>
+                  <th>N° Série</th>
+                  <th>Tension pile (ERI)</th>
+                  <th>IRE</th>
+                  <th>Type DEF</th>
+                  <th>Asserv</th>
+                  <th>Télésuivi</th>
+                  <th>Télésuivi activé</th>
+                  <th>NYHA</th>
+                  <th>FEVG</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="def0005">12/09/2009</content>
+                  </td>
+                  <td>
+                    <content ID="def0006">Défibrillateur</content>
+                  </td>
+                  <td>
+                    <content ID="def0007">Sous-cutané</content>
+                  </td>
+                  <td>
+                    <content ID="def0088">Gauche</content>
+                  </td>
+                  <td>
+                    <content ID="def0008">St.Jude Medical</content>
+                  </td>
+                  <td>
+                    <content ID="def0009">Victory SR 5610</content>
+                  </td>
+                  <td>
+                    <content ID="def0010">1723182</content>
+                  </td>
+                  <td>
+                    <content ID="def0012">1.5 V</content>
+                  </td>
+                  <td>
+                    <content ID="def0015">Texte</content>
+                  </td>
+                  <td>
+                    <content ID="def0016">Triple Chambre</content>
+                  </td>
+                  <td>
+                    <content ID="def0017">Oui</content>
+                  </td>
+                  <td>
+                    <content ID="def0018">Oui</content>
+                  </td>
+                  <td>
+                    <content ID="def0019">Oui</content>
+                  </td>
+                  <td>
+                    <content ID="def0020">III</content>
+                  </td>
+                  <td>
+                    <content ID="def0021">33%</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <br />
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th colspan="10">
+                    <content styleCode="BoldItalics">Sondes</content>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Date</th>
+                  <th>Dispositif</th>
+                  <th>Marque</th>
+                  <th>Modèle</th>
+                  <th>N° Série</th>
+                  <th>Polarité</th>
+                  <th>Connexions</th>
+                  <th>Adaptateur</th>
+                  <th>Voie d'abord</th>
+                  <th>Localisation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="def0022">12/11/2009</content>
+                  </td>
+                  <td>
+                    <content ID="def0023">Sonde auriculaire</content>
+                  </td>
+                  <td>
+                    <content ID="def0024">St.Jude Medical</content>
+                  </td>
+                  <td>
+                    <content ID="def0025">Mod.55</content>
+                  </td>
+                  <td>
+                    <content ID="def0026">223-Y87609</content>
+                  </td>
+                  <td>
+                    <content ID="def0027">Bipolaire</content>
+                  </td>
+                  <td>
+                    <content ID="def0029">IS-1</content>
+                  </td>
+                  <td>
+                    <content ID="def0030">Oui</content>
+                  </td>
+                  <td>
+                    <content ID="def0031">Sous-Clavière</content>
+                  </td>
+                  <td>
+                    <content ID="def0032">Infundibulum</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="def0044">12/11/2009</content>
+                  </td>
+                  <td>
+                    <content ID="def0045">Sonde Ventriculaire Gauche</content>
+                  </td>
+                  <td>
+                    <content ID="def0046">St.Jude Medical</content>
+                  </td>
+                  <td>
+                    <content ID="def0047">Mod.55</content>
+                  </td>
+                  <td>
+                    <content ID="def0048">223-Y87609</content>
+                  </td>
+                  <td>
+                    <content ID="def0049">Bipolaire</content>
+                  </td>
+                  <td>
+                    <content ID="def0051">IS-1</content>
+                  </td>
+                  <td>
+                    <content ID="def0052">Oui</content>
+                  </td>
+                  <td>
+                    <content ID="def0053">Sous-Clavière</content>
+                  </td>
+                  <td>
+                    <content ID="def0054">Infundibulum</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="def00065">09/12/2009</content>
+                  </td>
+                  <td>
+                    <content ID="def00066">Sonde Ventriculaire Gauche</content>
+                  </td>
+                  <td>
+                    <content ID="def00067">St.Jude Medical</content>
+                  </td>
+                  <td>
+                    <content ID="def00068">Mod.55</content>
+                  </td>
+                  <td>
+                    <content ID="def00069">223-Y87609</content>
+                  </td>
+                  <td>
+                    <content ID="def00070">Bipolaire</content>
+                  </td>
+                  <td>
+                    <content ID="def00072">IS-1</content>
+                  </td>
+                  <td>
+                    <content ID="def00073">Oui</content>
+                  </td>
+                  <td>
+                    <content ID="def00074">Sous-Clavière</content>
+                  </td>
+                  <td>
+                    <content ID="def00075">Infundibulum</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="4">
+                    <content styleCode="BoldItalics">Mesures à l'Implantation</content>
+                  </th>
+                </tr>
+                <tr>
+                  <th />
+                  <th>A</th>
+                  <th>VD</th>
+                  <th>VG</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Courant (mA)</td>
+                  <td>
+                    <content ID="def0033">66 mA</content>
+                  </td>
+                  <td>
+                    <content ID="def0055">68.6 mA</content>
+                  </td>
+                  <td>
+                    <content ID="def0077">70 mA</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Détection (mV)</td>
+                  <td>
+                    <content ID="def0034">69.6 mV</content>
+                  </td>
+                  <td>
+                    <content ID="def0056">71.6 mV</content>
+                  </td>
+                  <td>
+                    <content ID="def0078">75.6 mV</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Impédance</td>
+                  <td>
+                    <content ID="def0035">72.6 ohms</content>
+                  </td>
+                  <td>
+                    <content ID="def0057">74.6 ohms</content>
+                  </td>
+                  <td>
+                    <content ID="def0079">75 ohms</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Seuil à ms (V)</td>
+                  <td>
+                    <content ID="def0036">75.6 V</content>
+                  </td>
+                  <td>
+                    <content ID="def0058">77.6 V</content>
+                  </td>
+                  <td>
+                    <content ID="def0080">78 V</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Défibrillation efficace à (J): </td>
+                  <td>-</td>
+                  <td>
+                    <content ID="def0059">60 J</content>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Impédance de choc</td>
+                  <td>-</td>
+                  <td>
+                    <content ID="def0060">77 ohms</content>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Temps de Charge</td>
+                  <td>
+                    <content ID="def0039">50 s</content>
+                  </td>
+                  <td>
+                    <content ID="def0061">51 s</content>
+                  </td>
+                  <td>
+                    <content ID="def0083">52 s</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="5">
+                    <content styleCode="BoldItalics">Examen de Dernier Contrôle
+                                 Défibrillateur</content>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Date</th>
+                  <th>Mode Programmé</th>
+                  <th>Tension</th>
+                  <th>Impédance</th>
+                  <th>Temps de Charge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="def00022">12/08/2009</content>
+                  </td>
+                  <td>
+                    <content ID="def00023">Texte</content>
+                  </td>
+                  <td>
+                    <content ID="def00024">90.6 V</content>
+                  </td>
+                  <td>
+                    <content ID="def00025">91.6 ohms</content>
+                  </td>
+                  <td>
+                    <content ID="def00026">92.6 s</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="4">
+                    <content styleCode="BoldItalics">Examen de Dernier Contrôle
+                                 Sondes</content>
+                  </th>
+                </tr>
+                <tr>
+                  <th />
+                  <th>A</th>
+                  <th>VD</th>
+                  <th>VG</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Seuil de stimulation(V)</td>
+                  <td>
+                    <content ID="def00040">66.6 V</content>
+                  </td>
+                  <td>
+                    <content ID="def00062">70 V</content>
+                  </td>
+                  <td>
+                    <content ID="def00084">71 V</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Recueil (mV)</td>
+                  <td>
+                    <content ID="def00041">0.5 mV</content>
+                  </td>
+                  <td>
+                    <content ID="def00063">10 mV</content>
+                  </td>
+                  <td>
+                    <content ID="def00085">11 mV</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Impédance</td>
+                  <td>
+                    <content ID="def00042">69.6 ohms</content>
+                  </td>
+                  <td>
+                    <content ID="def00064">75 ohms</content>
+                  </td>
+                  <td>
+                    <content ID="def00086">71 ohms</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Impédance de choc</td>
+                  <td>-</td>
+                  <td>
+                    <content ID="def00076">65 ohms</content>
+                  </td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!--=<<o#%@O[ Organizer Défibrillateur ]O@%#o>>=-->
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!--  Template Organizer DMI -->
+              <templateId root="1.2.250.1.213.1.1.3.2" />
+              <id root="9507EA9D-B12C-4F48-B346-AEE4BEFCA96D" />
+              <code code="D0001-1" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Défibrillateur" />
+              <statusCode code="completed" />
+              <!-- Date d'implantation -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
+                  <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0005" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0005" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="TS" value="20090912" />
+                </observation>
+              </component>
+              <!-- Type de matériel implanté -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="3F4E6CE9-4124-43FC-8D52-A734258ABA32" />
+                  <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0006" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0006" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0001-1" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Défibrillateur" />
+                </observation>
+              </component>
+              <!-- Localisation de l'implant -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="7D60EAC1-0CCA-4777-AF85-B067BC9A0A6A" />
+                  <code code="L0054" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Localisation">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0007" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0007" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0002-1" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sous-Cutané">
+                    <qualifier>
+                      <name code="L0005" displayName="Latéralité" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC">
+                        <originalText mediaType="text/xml">
+                          <reference value="#def0088" />
+                        </originalText>
+                      </name>
+                      <value code="C25229" displayName="Gauche" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT" />
+                    </qualifier>
+                  </value>
+                </observation>
+              </component>
+              <!-- Marque de l'implant -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="38C20A77-8F24-4858-985F-3BADD2C79E73" />
+                  <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0007" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0007" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">St.Jude Medical</value>
+                </observation>
+              </component>
+              <!-- Modèle de l'implant -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="DE5772CC-4AC9-47B9-83E6-4B3FEE13EB08" />
+                  <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0009" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0009" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">Victory SR 5610</value>
+                </observation>
+              </component>
+              <!-- Numéro de série -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="BFB56CB8-7952-4B27-B251-53ED35EF67EA" />
+                  <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="N° Série">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0010" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0010" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">1723182</value>
+                </observation>
+              </component>
+              <!-- Tension de la pile à ERI (défibrillateurs) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="1D0BAADD-37AF-4665-8AEC-00CB0E1D461B" />
+                  <code code="L0001" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Tension de la pile à ERI">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0012" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0012" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="1.5" unit="V" />
+                </observation>
+              </component>
+              <!-- IRE  (défibrillateurs) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="42A91250-0335-40B5-9DBE-25C4338BBECF" />
+                  <code code="L0003" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="IRE">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0015" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0015" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">Texte</value>
+                </observation>
+              </component>
+              <!-- Type défibrillateur -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="737FCF00-FF99-4273-9308-A752F773E879" />
+                  <code code="L0004" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Type Défibrillateur">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0016" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0016" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0013-3" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Triple Chambre">
+                  </value>
+                </observation>
+              </component>
+              <!-- Asservissement -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="067E3984-7C16-4491-B96C-ECA91105BF9A" />
+                  <code code="L0006" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Asservissement">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0017" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0017" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0013-3" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Triple Chambre" />
+                </observation>
+              </component>
+              <!-- Télésuivi -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="BB9EAA32-AA81-4F4C-829F-BAF9D7E9892B" />
+                  <code code="L0007" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Télésuivi">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0018" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0018" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </component>
+              <!-- Télésuivi Activé -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="CABEA55A-2C80-4BED-82B4-C88699268451" />
+                  <code code="L0008" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Télésuivi Activé">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0019" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0019" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </component>
+              <!-- Stades NYHA -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="3F075A18-3973-4E69-80A9-F7E282146937" />
+                  <code code="L0009" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Stade NYHA">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0020" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0020" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="G-E404" displayName="Stade III (NYHA)" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                </observation>
+              </component>
+              <!-- FEVG -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="022BDB78-2E3D-443D-9A04-5ECD1A242B86" />
+                  <code code="L0010" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="FEVG">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0021" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0021" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="33" unit="%" />
+                </observation>
+              </component>
+              <!-- Date Examen de dernier contrôle -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="9AEBF56B-28D8-40C6-B73A-FCD2879C2CF5" />
+                  <code code="L0012" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date dernier controle">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0022" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0022" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="TS" value="20090812" />
+                </observation>
+              </component>
+              <!-- Mode Programmé -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="01775B7C-E5FB-4A5B-B222-768EB8A1967C" />
+                  <code code="L0013" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Mode Programmé">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0023" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0023" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">Texte</value>
+                </observation>
+              </component>
+              <!-- Tension dernier contrôle -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="C3FF41E1-8ADE-4281-9E2F-7115A2909AB8" />
+                  <code code="L0014" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Tension">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0024" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0024" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="90.6" unit="V" />
+                </observation>
+              </component>
+              <!-- Impédance dernier contrôle -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="A0EF02B5-6E37-41D3-811B-A08481F47BC4" />
+                  <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0025" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0025" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="91.6" unit="Ohm" />
+                </observation>
+              </component>
+              <!-- Temps de charge dernier contrôle -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="E38CBFA3-2521-42AC-AF7B-8A087368DED1" />
+                  <code code="L0016" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Temps de Charge">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0026" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0026" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="92.6" unit="min"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <!--=<<o#%@O[ Organizer Sonde Auriculaire ]O@%#o>>=-->
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!--  Template Organizer DMI -->
+              <templateId root="1.2.250.1.213.1.1.3.2" />
+              <id root="9EEEB1B3-B26F-46E1-9F01-3F088CAE73B8" />
+              <code code="D0001-3" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sonde Auriculaire" />
+              <statusCode code="completed" />
+              <effectiveTime value="199911" />
+              <!-- Date d'implantation (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
+                  <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0022" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0022" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="TS" value="20090912" />
+                </observation>
+              </component>
+              <!-- Dispositif implanté (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="65029603-8E29-4278-9179-82532D0B43EB" />
+                  <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0023" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0023" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0001-3" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sonde Auriculaire" />
+                </observation>
+              </component>
+              <!-- Localisation (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="23CEC3B2-A62E-4FFD-9C2A-C80C672AAFCC" />
+                  <code code="L0054" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Localisation sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0032" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0032" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0009-3" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Infundibulum" />
+                </observation>
+              </component>
+              <!-- Marque de la sonde (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="7CEB38BF-8DE6-4768-908D-7C646AC5D245" />
+                  <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0024" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0024" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">St.Jude Medical</value>
+                </observation>
+              </component>
+              <!-- Modèle de la sonde (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="3EFD53CD-164D-4705-8586-9A5675A32A49" />
+                  <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0025" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0025" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">Mod.55</value>
+                </observation>
+              </component>
+              <!-- N° de série (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="A0B69517-97AC-4DFF-BF10-88DDDA453047" />
+                  <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0026" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0026" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">223-Y87609</value>
+                </observation>
+              </component>
+              <!-- Polarité (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="2A8352AE-FE40-4898-880B-7DD8CCE0E2BA" />
+                  <code code="L0053" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Polarité">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0027" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0027" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0007-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Bipolaire" />
+                </observation>
+              </component>
+              <!-- Connexions (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="DEFA2A03-3842-42DE-96A0-4C282F9CB3C4" />
+                  <code code="L0017" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Connexions">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0029" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0029" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0020-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="IS-1" />
+                </observation>
+              </component>
+              <!-- Adapteur (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="4E23CF76-3469-407E-B50F-DA7FCC391709" />
+                  <code code="L0018" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Adaptateur">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0030" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0030" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </component>
+              <!-- Voie d'abord (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="1E9FFA75-20D0-48CA-ADDE-B921D5935295" />
+                  <code code="L0019" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Voie d'abord">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0031" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0031" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0008-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sous-Clavière" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Courant (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="BA91FBF1-8A62-4B62-93CF-B89315A46E94" />
+                  <code code="L0021" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Courant">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0033" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0033" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="66.6" unit="mA" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Détection (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="801A4781-D846-4E6D-B2ED-B900F24C5447" />
+                  <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0034" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0034" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="69.6" unit="mV" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Impédance (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="59506BB2-626F-4561-BCE8-1D2D7E562442" />
+                  <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0035" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0035" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="72.6" unit="Ohm" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Seuil à ms (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="EE3D253F-70CF-47FB-864E-16584D211F36" />
+                  <code code="L0023" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil à ms">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0036" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0036" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="75.6" unit="V" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Temps de Charge (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="6715845E-97B2-429D-ADF0-C0BE0C01BB87" />
+                  <code code="L0016" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Temps de Charge">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0039" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0039" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="50" unit="s" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Seuil de Stimulation (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="1492872E-DE7F-4971-9EE0-7C4D50AD46ED" />
+                  <code code="L0026" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil de stimulation">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00040" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00040" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="66.6" unit="V" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Recueil (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="A75B175F-77A1-4BD0-ADBC-69DBD03097DA" />
+                  <code code="L0027" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Recueil">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00041" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00041" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="0.5" unit="mV" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Impédance (Sonde A) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="6C7F963B-91DF-438B-A8E6-E9D77C7CD6FB" />
+                  <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00042" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00042" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="69.6" unit="Ohm" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <!--=<<o#%@O[ Organizer Sonde Ventriculaire Droite ]O@%#o>>=-->
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!--  Template Organizer DMI -->
+              <templateId root="1.2.250.1.213.1.1.3.2" />
+              <id root="DD050CBA-581B-47A4-9C98-D730E3D80F18" />
+              <code code="D0001-4" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sonde Ventricule Droit" />
+              <statusCode code="completed" />
+              <effectiveTime value="199911" />
+              <!-- Date d'implantation (Sonde VD) -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0022" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0022" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="TS" value="20091112" />
+                </observation>
+              </component>
+              <!-- Type de la sonde (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="3AA7CAF7-3DC2-4830-B6E5-112F239B3CEE" />
+                  <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0045" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0045" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0001-4" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sonde Ventricule Droit" />
+                </observation>
+              </component>
+              <!-- Marque (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="E90A83D7-7539-484B-91B0-9AF4E34E13B9" />
+                  <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0046" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0046" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">St.Jude Medical</value>
+                </observation>
+              </component>
+              <!-- Modèle (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="C5F67A40-1D8D-45C3-8FD5-5A29D3EC3AFD" />
+                  <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0047" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0047" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">Mod.55</value>
+                </observation>
+              </component>
+              <!-- N° de série (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="48CC4EC1-BFA4-40D1-8E5B-7D3C5308DF86" />
+                  <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0048" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0048" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">223-Y87609</value>
+                </observation>
+              </component>
+              <!-- Polarité (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="524A1AEC-B1DD-49B4-8DBE-39AC281BDB36" />
+                  <code code="L0053" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Polarité">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0049" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0049" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0007-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Bipolaire" />
+                </observation>
+              </component>
+              <!-- Connexions (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="1605E861-B840-466C-BA3B-C9E4155D652C" />
+                  <code code="L0017" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Connexions">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0051" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0051" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0020-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="IS-1" />
+                </observation>
+              </component>
+              <!-- Adapteur (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="93380E6B-EA79-4215-9A4D-E63750A3A825" />
+                  <code code="L0018" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Adaptateur">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0052" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0052" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </component>
+              <!-- Voie d'abord (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="EC08279C-B47B-40D6-AE58-5EA7BFAF4694" />
+                  <code code="L0019" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Voie d'abord">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0053" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0053" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0008-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sous-Clavière" />
+                </observation>
+              </component>
+              <!-- Localisation (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="E5F39848-0E49-417D-9005-2967209B0A00" />
+                  <code code="L0054" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Localisation sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0054" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0054" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0009-3" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Infundibulum" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Courant (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="0E87484F-D870-4BF3-A4EE-EE6C534F2298" />
+                  <code code="L0021" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Courant">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0055" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0055" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="68.6" unit="mA" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Détection (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="C41E6767-67E1-49E2-B78D-30F7D84A698F" />
+                  <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0056" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0056" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="71.6" unit="mV" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Impédance (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="8E0775C6-F3A2-4E04-81FC-E42CBEF7DA5B" />
+                  <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0057" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0057" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="74.6" unit="Ohm" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Seuil à ms (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="EFA1D8F4-2A2D-4107-A579-5A696E6CE38A" />
+                  <code code="L0023" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil à ms">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0058" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0058" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="77.6" unit="V" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Seuil de défibrillation Défibrillateurs seulement (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="E597DE6E-A86F-4BCE-9B30-BF19DD22833B" />
+                  <code code="L0024" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Défibrillation efficace à:">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0059" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0059" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="60" unit="J" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Impédance de choc (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="966226D3-C914-47EF-A456-D9DBB77AE073" />
+                  <code code="L0025" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance de choc">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0060" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0060" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="77" unit="Ohm" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Temps de Charge (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="C2F7BF40-F940-4E4C-B159-ED69F0516053" />
+                  <code code="L0016" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Temps de Charge">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0061" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0061" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="51" unit="s" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Seuil de Stimulation (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="79E97C0C-D133-413F-87AC-75E8806BB0DF" />
+                  <code code="L0026" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil de Stimulation">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00062" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00062" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="70" unit="V" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Recueil (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="527D82D7-69AB-4E4D-B5F5-2E869674FE71" />
+                  <code code="L0027" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Recueil">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00063" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00063" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="10" unit="mV" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Impédance (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="BC35BC60-4DE6-46CF-9B58-68944A1204CD" />
+                  <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00064" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00064" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="75" unit="Ohm" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Impédance de choc (Sonde VD) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="962DF6DC-08C2-460D-B6F1-EFD0D5430F8E" />
+                  <code code="L0025" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance de choc">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00076" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00076" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="65" unit="Ohm" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <!--=<<o#%@O[ Organizer Sonde Ventriculaire Gauche ]O@%#o>>=-->
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!--  Template Organizer DMI -->
+              <templateId root="1.2.250.1.213.1.1.3.2" />
+              <id root="828E2DD9-2DC5-418B-A125-D145A34CE788" />
+              <code code="D0001-5" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sonde Ventricule Gauche" />
+              <statusCode code="completed" />
+              <effectiveTime value="199911" />
+              <!-- Date d'implantation (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00065" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00065" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="TS" value="20090912" />
+                </observation>
+              </component>
+              <!-- Type de la sonde -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00066" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00066" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0001-5" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sonde Ventricule Gauche" />
+                </observation>
+              </component>
+              <!-- Marque (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00067" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00067" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">St.Jude Medical</value>
+                </observation>
+              </component>
+              <!-- Modèle (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00068" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00068" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">Mod.55</value>
+                </observation>
+              </component>
+              <!-- N° de série (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00069" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00069" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="ST">223-Y87609</value>
+                </observation>
+              </component>
+              <!-- Polarité (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0053" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Polarité">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00070" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00070" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0007-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Bipolaire" />
+                </observation>
+              </component>
+              <!-- Connexions (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0017" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Connexions">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00072" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00072" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0020-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="IS-1" />
+                </observation>
+              </component>
+              <!-- Adapteur (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0018" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Adapteur">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00073" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00073" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </component>
+              <!-- Voie d'abord (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0019" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Voie d'abord">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00074" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00074" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0008-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Sous-Clavière" />
+                </observation>
+              </component>
+              <!-- Localisation (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="24ADC0E0-37C8-4845-B9B6-27FC953D2AFD" />
+                  <code code="L0054" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Localisation sonde">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00075" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00075" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="D0009-3" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Infundibulum" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Courant (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="C82C4C7E-CDFE-4AC8-9128-A9675A9AE162" />
+                  <code code="L0021" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Courant">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0077" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0077" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="70" unit="mA" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Détection (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="3B20BDB4-5167-4861-859C-155A2E747B7E" />
+                  <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0078" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0078" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="75.6" unit="mV" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Impédance (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="0AA2AED7-3CEC-4DD0-A222-4AA8A79FE67C" />
+                  <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0079" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0079" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="75" unit="Ohm" />
+                </observation>
+              </component>
+              <!-- Mesures à l'Implantation Seuil à ms (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="9F1E2A44-E01E-4BE9-BD77-96AF7B7C2D01" />
+                  <code code="L0023" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil à ms">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0080" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0080" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="78" unit="V" />
+                </observation>
+              </component>
+              <!-- Mesure Implantation Temps de Charge (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="D5C66DE5-0A99-4D3A-ADD7-0F74B4F5834B" />
+                  <code code="L0016" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Temps de Charge">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def0083" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def0083" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="52" unit="s" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Seuil de stimulation (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="F7B9C7BB-A4C4-43D4-85EE-7CE1C9103378" />
+                  <code code="L0026" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil de stimulation">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00084" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00084" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="71" unit="V" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Recueil (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="70F7D106-3D46-4760-B58D-661A1DF880B1" />
+                  <code code="L0027" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Recueil">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00085" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00085" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="11" unit="mV" />
+                </observation>
+              </component>
+              <!-- Dernier Examen de contrôle Impédance (Sonde VG) -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- PCC Simple Observation template Id -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <templateId root="1.2.250.1.213.1.1.3.1" />
+                  <id root="A1D200BA-8EEC-4EF4-B72A-CA551BF692D6" />
+                  <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
+                    <originalText mediaType="text/xml">
+                      <reference value="#def00086" />
+                    </originalText>
+                  </code>
+                  <text>
+                    <reference value="#def00086" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="PQ" value="71" unit="Ohm" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <!-- 
+            ********************************************************
+            Patient Information section
+            ********************************************************
+         -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.38" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.39" />
+          <code code="34895-3" codeSystem="2.16.840.1.113883.6.1" />
+          <title>INFORMATION DU PATIENT</title>
+          <text>
+            <list>
+              <item>
+                <linkHtml href="Documents/DCI.pdf">Documentation Défibrillateur
+                           Cardiaque</linkHtml>
+              </item>
+            </list>
+          </text>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <id root="255828D6-C6AC-4E1C-A6CF-09ED128A58C0" />
+              <code nullFlavor="NA"/>
+              <text>
+                <reference value="acte"></reference>
+              </text>
+              <statusCode code="completed"/>
+              
+            </procedure>
+          </entry>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4" />
+              <id root="BF96610C-53C7-44C3-B143-5F05CE075922" />
+              <code nullFlavor="NA" />
+              <text>
+                <reference value="avk0035"></reference>
+              </text>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="66DB1312-E27C-4CBF-B7C7-AFFA9073FF37"/>
+                  <text>
+                    <reference value="http://..." />
+                  </text>
+                </externalDocument>
+              </reference>
+            </act>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

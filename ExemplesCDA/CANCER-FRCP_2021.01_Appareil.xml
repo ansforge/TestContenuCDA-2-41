@@ -1,0 +1,3367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_CANCER-FRCP_2021.01.sch"?>
+<!-- 
+      **********************************************************************************************************      
+      Document : Fiche de Réunion de concertation pluridisciplinaire (FRCP_2021.01)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 
+      **********************************************************************************************************
+      Notes:
+      01/03/2011 : Création du document
+      01/03/2011 : Mise à jour du document
+      03/03/2017 : Ajout de la sous section obligatoire Pain Scale Assessment dans la section Coded Functional Status Assessment
+      10/10/2017 : Correction de plusieurs erreurs
+      11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons et du volet
+      11/05/2021 : Nouvelle version FRCP_2021.01 
+      31/05/2021 : Nouvelle patiente
+      **********************************************************************************************************
+   -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
+  <!-- 
+   **************************************************************************************************************
+	EN TETE DU DOCUMENT
+	**************************************************************************************************************
+   -->
+  <!-- Périmètre d'utilisation -->
+  <realmCode code="FR" />
+  <!-- Référencement au standard CDAr2 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au modèle de document FRCP version 2021.01-->
+  <templateId root="1.2.250.1.213.1.1.1.8" extension="2021.01" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.3.4.567.8.9.10" extension="FRCP_2021.01_20190218_001_1" />
+  <!-- Type du document -->
+  <code code="34794-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="CR de réunion de concertation pluridisciplinaire" />
+  <!-- Titre du document = Acronyme RRC / Acronyme GestRCP / dénomination RCP -->
+  <title>FRCP ONCO PAYS DE LA LOIRE / 3C CHU Angers / Sein</title>
+  <!-- Date et heure du document -->
+  <effectiveTime value="20190218094914+0100" />
+  <!-- Niveau de confidentialité -->
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" displayName="Normal" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.3.4.567.8.9.10" extension="FRCP_2021.01_20190218_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8" />
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H" />
+      <telecom value="tel:0647151010" use="MC" />
+      <telecom value="mailto:ruth.decourcy@mail.fr" />
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19770714" />
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H" />
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <!-- Auteur du document -->
+  <author>
+    <functionCode code="353" displayName="Membre de l'équipe de soins" codeSystem="1.2.250.1.213.1.6.1.107">
+      <!-- Commentaire sur l'auteur -->
+      <originalText>Médecin coordonnateur de la RCP</originalText>
+    </functionCode>
+    <time value="20110929094914+0100" />
+    <assignedAuthor>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <!-- Profession / Spécialité du PS -->
+      <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Oncologie, opt médicale (SM)" />
+      <!-- Adresse du PS -->
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <!-- Coordonnées télécom du PS -->
+      <telecom value="tel:0242515151" use="WP" />
+      <!-- Identité du PS -->
+      <assignedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Charles </given>
+          <family>MULLER</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <!-- Organisation du PS -->
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+        <name>Centre Hospitalier d'Angers</name>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111" />
+      <addr nullFlavor="NAV" />
+      <telecom value="tel:0647150100" use="MC" />
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111" />
+      <addr nullFlavor="NAV" />
+      <telecom value="tel:0647150100" use="MC" />
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  <!-- Organisation chargée de la conservation du document -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <!-- Nom de l'organisation -->
+        <name>Centre Hospitalier d'Angers</name>
+        <!-- Coordonnées télécom de l'organisation -->
+        <telecom value="tel:0242515100" use="PUB" />
+        <!-- Adresse de l'organisation -->
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <!-- Responsable du document -->
+  <legalAuthenticator>
+    <!-- Date et heure de la prise de responsabilité -->
+    <time value="20190218094914+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <!-- Profession / spécialité du PS -->
+      <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Oncologie option médicale (SM)" />
+      <!-- Adresse du PS-->
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <!-- Coordonnées télécom du PS-->
+      <telecom value="tel:0242515151" use="WP" />
+      <telecom value="tel:0642515152" use="MC" />
+      <!-- Identité du PS -->
+      <assignedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Charles </given>
+          <family>MULLER</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <!-- Etablissement de rattachement du PS -->
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+        <name>Centre Hospitalier d'Angers</name>
+        <telecom value="tel:0242515100" use="PUB" />
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <!-- PS Coordonnateur (typeCode="RESP")-->
+  <participant typeCode="RESP">
+    <functionCode nullFlavor="NA">
+      <!-- Commentaire sur le Coordonnateur -->
+      <originalText>PS Coordonnateur de la RCP</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <!-- Profession / spécialité du PS -->
+      <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Oncologie option médicale (SM)" />
+      <!-- Adresse du PS-->
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue Larrey</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <!-- Coordonnées télécom du PS-->
+      <telecom value="tel:0242515151" use="WP" />
+      <telecom value="tel:0642515152" use="MC" />
+      <!-- Identité du PS -->
+      <associatedPerson>
+        <name>
+          <prefix>M</prefix>
+          <given>Charles </given>
+          <family>MULLER</family>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <!-- Etablissement de rattachement du PS -->
+      <scopingOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+        <name>Centre Hospitalier d'Angers</name>
+        <telecom value="tel:0242515100" use="PUB" />
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue Larrey</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- PS Demandeur (typeCode="REFB")-->
+  <participant typeCode="REFB">
+    <functionCode nullFlavor="NA">
+      <!-- Commentaire sur le Demandeur -->
+      <originalText>PS Demandeur</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <!-- Identifiant RPPS du PS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <!-- spécialité  -->
+      <code code="G15_10/SM45" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Radiothérapie (SM)" />
+      <addr>
+        <streetName>Rue Pasteur</streetName>
+        <houseNumber>25</houseNumber>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0142511313" use="WP" />
+      <associatedPerson>
+        <name>
+          <given>Julie</given>
+          <family>PRENT</family>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Cabinet médical du Docteur Julie PRENT</name>
+        <telecom value="tel:0142511313" use="WP" />
+        <addr>
+          <streetName>Rue Pasteur</streetName>
+          <houseNumber>25</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- PS Présentateur (typeCode="PRF")-->
+  <participant typeCode="PRF">
+    <functionCode nullFlavor="NA">
+      <!-- Commentaire sur le Demandeur -->
+      <originalText>PS Présentateur</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <!-- Identifiant RPPS du PS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <!-- spécialité  -->
+      <code code="G15_10/SM45" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Radiothérapie (SM)" />
+      <addr>
+        <streetName>Rue Pasteur</streetName>
+        <houseNumber>25</houseNumber>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0142511313" use="WP" />
+      <associatedPerson>
+        <name>
+          <given>Julie</given>
+          <family>PRENT</family>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Cabinet médical du Docteur Julie PRENT</name>
+        <telecom value="tel:0142511313" use="WP" />
+        <addr>
+          <streetName>Rue Pasteur</streetName>
+          <houseNumber>25</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- Médecin traitant (typeCode="INF" et functionCode="PCP") : obligatoire pour la FRCP avec nullFlvaor autorisé -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88">
+      <!-- Commentaire sur le MT -->
+      <originalText>Inconnu</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="124789224582101" />
+      <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0147150000" use="WP" />
+      <associatedPerson>
+        <name>
+          <given>Gilbert</given>
+          <family>MAGNE</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+    <!-- <associatedEntity classCode="PROV" nullFlavor="NA"/> -->
+  </participant>
+  <!-- PS participant à la RCP et appartenant au quorum (typeCode="PRF" et functionCode="353") -->
+  <participant typeCode="PRF">
+    <functionCode code="353" displayName="Membre de l'équipe de soins" codeSystem="1.2.250.1.213.1.6.1.107">
+      <!-- Commentaire sur le participant -->
+      <originalText>Participant du quorum</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <!-- Identifiant RPPS du PS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <!-- spécialité  -->
+      <code code="G15_10/SM45" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Radiothérapie (SM)" />
+      <associatedPerson>
+        <name>
+          <given>Julie</given>
+          <family>PRENT</family>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Cabinet médical du Docteur Julie PRENT</name>
+        <telecom value="tel:+33-142515151" use="WP" />
+        <addr>
+          <streetName>Rue Pasteur</streetName>
+          <houseNumber>25</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- PS participant à la RCP et appartenant au quorum (typeCode="PRF" et functionCode="353") -->
+  <participant typeCode="PRF">
+    <functionCode code="353" displayName="Membre de l'équipe de soins" codeSystem="1.2.250.1.213.1.6.1.107">
+      <!-- Commentaire sur le participant -->
+      <originalText>Participant du quorum</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <!-- Identifiant RPPS du PS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <!-- spécialité  -->
+      <code code="G15_10/SM45" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Radiothérapie (SM)" />
+      <associatedPerson>
+        <name>
+          <family>DECOURT</family>
+          <given>Guillaume</given>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <!-- Etablissement de santé d'appartenance -->
+      <scopingOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1801234588930" />
+        <name>Cabinet médical du Docteur DECOURT</name>
+        <telecom value="tel:+33-142515151" use="WP" />
+        <addr>
+          <houseNumber>25</houseNumber>
+          <streetName>Rue Pasteur</streetName>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- PS participant à la RCP et n'appartenant pas au quorum (typeCode="PRF" et functionCode="CORRE") -->
+  <participant typeCode="PRF">
+    <functionCode code="CORRE" displayName="Correspondant" codeSystem="1.2.250.1.213.1.1.4.2.280">
+      <!-- Commentaire sur le participant -->
+      <originalText>Participant hors quorum</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="124789224458877" />
+      <code code="G15_10/SM21" displayName="Médecin - Hématologie (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <associatedPerson>
+        <name>
+          <given>Cécile</given>
+          <family>MANON</family>
+          <prefix>MME</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Clinique Médicale du Mail</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetName>Rue du Mail</streetName>
+          <houseNumber>4</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- PS participant à la RCP et n'appartenant pas au quorum (typeCode="PRF" et functionCode="CORRE") : Personne inconnue du RPPS et ADELI -->
+  <participant typeCode="PRF">
+    <functionCode code="CORRE" displayName="Correspondant" codeSystem="1.2.250.1.213.1.1.4.2.280">
+      <!-- Commentaire sur le participant -->
+      <originalText>Participant hors quorum</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <associatedPerson>
+        <name>
+          <given>Véronique</given>
+          <family>LILOU</family>
+          <prefix>MME</prefix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Etablissement du Reuil</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetName>Rue du Reuil</streetName>
+          <houseNumber>12</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- Correspondant (typeCode="CON" et functionCodee="CORRE")-->
+  <participant typeCode="CON">
+    <functionCode code="CORRE" displayName="Médecin correspondant" codeSystem="1.2.250.1.213.1.1.4.2.280">
+      <!-- Commentaire sur le correspondant -->
+      <originalText>PS Correspondant</originalText>
+    </functionCode>
+    <time nullFlavor="UNK" />
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="124789224458877" />
+      <code code="G15_10/SM21" displayName="Médecin - Hématologie (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <associatedPerson>
+        <name>
+          <given>Pierre</given>
+          <family>FABRE</family>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Clinique Médicale du Mail</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetName>Rue du Mail</streetName>
+          <houseNumber>4</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <!-- Numéro d'inscription du patient à une session de RCP -->
+  <inFulfillmentOf>
+    <order>
+      <id root="2CE71A5B-FD99-4958-ADE4-CA39E86625ED" />
+      <code nullFlavor="NA">
+        <originalText>(Texte libre) Commentaire sur l'inscription RCP</originalText>
+      </code>
+    </order>
+  </inFulfillmentOf>
+  <!-- Acte documenté (acte principal = RCP + "Acronyme RRC / Acronyme GestRCP / dénomination RCP") -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <!-- Code de l'acte = RCP -->
+      <code code="ORG-113" displayName="RCP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+        <!-- Acronyme RRC / Acronyme GestRCP / dénomination RCP -->
+        <translation>
+          <qualifier>
+            <name displayName="ONCO PAYS DE LA LOIRE / 3C CHU Angers / Sein" />
+          </qualifier>
+        </translation>
+      </code>
+      <!-- Date de début d'exécution de l'acte -->
+      <effectiveTime>
+        <low value="20190218154500+0100" />
+      </effectiveTime>
+      <!-- La personne ayant exécuté l'acte -->
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <!-- PS identifié par son N°RPPS -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <!-- Profession / spécialité du PS -->
+          <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Oncologie option médicale (SM)" />
+          <!-- Adresse du PS-->
+          <addr>
+            <houseNumber>4</houseNumber>
+            <streetName>Rue Larrey</streetName>
+            <postalCode>49933</postalCode>
+            <city>ANGERS</city>
+          </addr>
+          <!-- Coordonnées télécom du PS-->
+          <telecom value="tel:0242515151" use="WP" />
+          <telecom value="tel:0642515152" use="MC" />
+          <!-- Identité du PS -->
+          <assignedPerson>
+            <name>
+              <prefix>M</prefix>
+              <given>Charles </given>
+              <family>MULLER</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <!-- Etablissement de rattachement du PS -->
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+            <name>Centre Hospitalier d'Angers</name>
+            <telecom value="tel:0242515100" use="PUB" />
+            <addr>
+              <houseNumber>4</houseNumber>
+              <streetName>Rue Larrey</streetName>
+              <postalCode>49933</postalCode>
+              <city>ANGERS</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <!-- Acte documenté (Topographie de la tumeur primitive) -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <!-- Topographie : JDV_Tumeur-CISIS (1.2.250.1.213.1.1.4.2.281.21) -->
+      <code code="C50.2" displayName="Quadrant supéro-interne du sein" codeSystem="2.16.840.1.113883.6.43.1" codeSystemName="CIM-O" />
+      <!-- si Topographie ne peut être codée avec le JDV_Tumeur-CISIS : texte libre dans <originalText> 
+         <code code="GEN-243" displayName="Topographie"
+            codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+            <originalText>(texte libre)</originalText>
+         </code> -->
+    </serviceEvent>
+  </documentationOf>
+  <!-- Prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <!-- [1..1] Identifiant national du RRC -->
+      <id root="1.2.250.1.161.1.20.1.1" extension="5201" />
+      <!-- [1..1] Identifiant national du Gestionnaire RCP -->
+      <id root="1.2.250.1.161.1.20.2.1" extension="520114" />
+      <!-- [1..1] Identifiant national de la RCP -->
+      <id root="1.2.250.1.161.1.20.3.1" extension="27011113" />
+      <!-- [0..1] Identifiant de la session de la RCP -->
+      <id root="1.2.250.1.213.1.1.9" extension="234567890" />
+      <!-- [0..*] Identifiant local de la RCP -->
+      <id root="1.2.3.4.567.8.9.10" extension="54678" />
+      <!-- Type de prise en charge -->
+      <code code="VR" displayName="Virtuelle" codeSystem="2.16.840.1.113883.5.4" />
+      <!-- Date de la RCP -->
+      <effectiveTime>
+        <low value="20190218" />
+      </effectiveTime>
+      <!-- [1..1] Etablissement de santé au sein duquel la RCP est organisée -->
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+          <code code="SA01" displayName="Etablissement public de santé" codeSystem="1.2.250.1.71.4.2.4" codeSystemName="healthCareFacilityTypeCode" />
+          <location>
+            <name>Centre Hospitalier d'Angers</name>
+            <addr>
+              <houseNumber>4</houseNumber>
+              <streetName>Rue Larrey</streetName>
+              <postalCode>49933</postalCode>
+              <city>ANGERS</city>
+            </addr>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!--
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      <!-- ********************************************* -->
+      <!-- Section FR-Raison-de-la-recommandation [1..1] -->
+      <!-- ********************************************* -->
+      <!-- Cette section permet d'indiquer le type de RCP et le motif de la RCP -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC parent (Raison de la recommandation non codé) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.2" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.128" />
+          <id root="41FEABE2-D1D7-4390-8CD5-F5BC78E07B7D" />
+          <code code="42349-1" displayName="Raison de la recommandation" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>TYPE DE RCP / MOTIF DE LA RCP</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Type de RCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nature de la discussion</td>
+                  <td>
+                    <content ID="nature-discussion">RCP Appareil - Organe(s)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Appareil</td>
+                  <td>
+                    <content ID="appareil">Sein [JDV_ANRCPAppareil-CISIS]</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Organe</td>
+                  <td>
+                    <content ID="organe">Sein [JDV_ANRCPOrgane-CISIS]</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RCP de recours</td>
+                  <td>
+                    <content ID="RCPrecours">Non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RCP pédiatrique</td>
+                  <td>
+                    <content ID="RCPpediatrique">Non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Commentaire</td>
+                  <td>
+                    <content ID="Commentaire-type-de-RCP">(Texte libre)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Motif de la RCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Avis diagnostique</td>
+                  <td>
+                    <content ID="avisDiagnostic">Oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Proposition thérapeutique (dont surveillance, ajustement du traitement)</td>
+                  <td>
+                    <content ID="propositionTherapeutique">Oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Recours</td>
+                  <td>
+                    <content ID="recours">Non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pédiatrique</td>
+                  <td>
+                    <content ID="pédiatrique">Non</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Statut du cas présenté</td>
+                  <td>
+                    <content ID="statut-cas-presente">Cas enregistré</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Commentaire</td>
+                  <td>
+                    <content ID="Commentaire-motif-de-la-RCP">(Texte libre)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Simple-Observation [1..1] : Type de RCP + Motif de la RCP -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="287C665A-B129-409A-B231-01A8FF70CC1D" />
+              <code code="GEN-098" displayName="Nature de la discussion" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#nature-discussion" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NAV" />
+              <!-- Nature de la RCP : JDV_NatureDiscussion-CISIS (1.2.250.1.213.1.1.4.2.281.8) -->
+              <value xsi:type="CD" code="ORG-117" displayName="RCP Appareil - Organes" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <!-- Entrée FR-Simple-Observation [1..1] : Type de RCP (Appareil / Organe) + RCP-recours + RCP-Pédiatrique + Commentaire sur le type de RCP -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="91688420-D829-47A4-9D2A-B22897867353" />
+                  <code code="ORG-118" displayName="Appareil concerné" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#appareil" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <!-- Appareil : JDV_RCP-Appareil-CISIS (1.2.250.1.213.1.1.5.597) -->
+                  <value xsi:type="CD" code="C12971" displayName="Sein" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT" />
+                  <!-- Entrée FR-Simple-Observation [1..*] : Organe -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="DAB13486-B7C7-419B-B2BA-15A2CFE43DF8" />
+                      <code code="ORG-119" displayName="Organe" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#organe" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NAV" />
+                      <!-- Organe : JDV_RCP-Organe-CISIS (1.2.250.1.213.1.1.5.598) -->
+                      <value xsi:type="CD" code="C12971" displayName="Sein" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Simple-Observation [1..1] : RCP de Recours (O/N) -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="AFAE9365-CE24-4E27-A98A-555E9BC2AEEC" />
+                      <code code="ORG-184" displayName="RCP de recours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#RCPrecours" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20190301" />
+                      </effectiveTime>
+                      <value xsi:type="BL" value="false" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Simple-Observation [1..1] : RCP pédiatrique (O/N) -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="B95156E1-B262-40DA-A4BB-3C9C71D19F4F" />
+                      <code code="ORG-185" displayName="RCP pédiatrique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#RCPpediatrique" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NAV" />
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Commentaire-ER : Commentaire sur le type de RCP -->
+                  <entryRelationship typeCode="SUBJ">
+                    <act classCode="ACT" moodCode="EVN">
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.32"/>
+                      <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#Commentaire-type-de-RCP" />
+                      </text>
+                      <statusCode code="completed" />
+                    </act>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+              <!-- Entrée FR-Simple-Observation [1..1] : Motif de la RCP + Statut du cas présenté + Commentaire sur le motif de RCP -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="91688420-D829-47A4-9D2A-B22897867353" />
+                  <code code="ORG-186" displayName="Motif de la RCP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#motifRCP" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="CD" nullFlavor="NA" />
+                  <!-- Entrée FR-Simple-Observation [1..1] : Avis diagnostique (O/N) -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="E094FF03-798E-4D13-AC95-80FDC5E09A72" />
+                      <code code="MED-235" displayName="Avis diagnostique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#avisDiagnostic" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20190301" />
+                      </effectiveTime>
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Simple-Observation [1..1] : Proposition therapeutique (O/N) -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="B95156E1-B262-40DA-A4BB-3C9C71D19F4F" />
+                      <code code="ORG-114" displayName="Proposition de traitement (dont ajustement et surveillance)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#propositionTherapeutique" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20190301" />
+                      </effectiveTime>
+                      <value xsi:type="BL" value="true" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Simple-Observation [1..1] : Recours (O/N) -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="AFAE9365-CE24-4E27-A98A-555E9BC2AEEC" />
+                      <code code="ORG-115" displayName="Recours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#recours" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20190301" />
+                      </effectiveTime>
+                      <value xsi:type="BL" value="false" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Simple-Observation [1..1] : Pédiatrique (O/N) -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="B95156E1-B262-40DA-A4BB-3C9C71D19F4F" />
+                      <code code="ORG-116" displayName="Pédiatrie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#pédiatrique" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NAV" />
+                      <value xsi:type="BL" value="false" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Simple-Observation [1..1] : Statut du cas présenté -->
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id root="989F9A50-2F28-48D3-881D-48551708914C" />
+                      <code code="ORG-127" displayName="Statut du cas présenté" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                      <text>
+                        <reference value="#statut-cas-presente" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <!-- Statut du cas présenté : issue du JDV_StatutCasPresente-CISIS (1.2.250.1.213.1.1.4.2.281.17) -->
+                      <value xsi:type="CD" code="ORG-128" displayName="Cas enregistré" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                    </observation>
+                  </entryRelationship>
+                  <!-- Entrée FR-Commentaire-ER [0..1] : Commentaire sur le motif de RCP -->
+                  <entryRelationship typeCode="SUBJ">
+                    <act classCode="ACT" moodCode="EVN">
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.32"/>
+                      <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#Commentaire-motif-de-RCP" />
+                      </text>
+                      <statusCode code="completed" />
+                    </act>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+          <!-- Entrée FR-Probleme [1..1] -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+              <!-- Conformité CI-SIS -->   
+              <templateId root="1.2.250.1.213.1.1.3.37"/>
+              <id root="D434EF50-56EA-4337-8A3C-C6112EB56397" />
+              <code code="F-01000" displayName="Problème" codeSystem="1.2.250.1.213.2.12" />
+              <text>
+                <reference value="#raison" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190301" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="NA">
+                <originalText>
+                  <reference value="#raison" />
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- ************************************** -->
+      <!-- Section FR-Resultats-evenements [1..1] -->
+      <!-- ************************************** -->
+      <!-- Cette section permet d'indiquer le mode de découverte du cancer (par dépistage ou pas). -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC parent Resultats d'événements non codé -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.163" />
+          <id root="41FEABE2-D1D7-4390-8CD5-F5BC78E07B7D" />
+          <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>MODE DE DÉCOUVERTE DU CANCER</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2" align="left">Mode de découverte du cancer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patient issu du dépistage</td>
+                  <td>
+                    <content ID="depistage">Oui</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Simple-Observation [1..*] : Mode de découverte du cancer -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="E2598BC5-2574-4FF2-9F6E-B503CAC76FD3" />
+              <code code="63921-1" displayName="Dépistage du cancer" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#depistage" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20190215" />
+              </effectiveTime>
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- ************************************** -->
+      <!-- Section FR-Diagnostic-du-cancer [0..1] -->
+      <!-- ************************************** -->
+      <!-- Cette section permet de décrire le diagnostic du cancer -->
+      <component>
+        <section>
+          <!-- Conformité CCD Problems section-->
+          <templateId root="2.16.840.1.113883.10.20.1.11" />
+          <!-- Conformité IHE PCC parent Active Problem Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.3.14.1" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.27" />
+          <id root="A6617910-3ABF-4B30-AAC5-D58DD3A75479" />
+          <code code="72135-7" displayName="Diagnostic du cancer" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>TUMEUR</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3" ID="tumeurPrim">Tumeur Primitive</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date du diagnostic initial (minimum mois et année)</td>
+                  <td colspan="2">29/01/2019</td>
+                </tr>
+                <tr>
+                  <td>Topographie</td>
+                  <td>C50.2 [CIM-10]</td>
+                  <td ID="topographie-1">Quadrant supéro-interne du sein</td>
+                </tr>
+                <tr>
+                  <td>Latéralité (si applicable)</td>
+                  <td>C25228 [NCIT]</td>
+                  <td ID="lateralite-1">Droit</td>
+                </tr>
+                <tr>
+                  <td>Morphologie</td>
+                  <td>8000/3 [CIM-O]</td>
+                  <td ID="morphologie-1">Tumeur maligne, SAI</td>
+                </tr>
+                <tr>
+                  <td>Stade clinique</td>
+                  <td>IB [TNM_UICC 7ème édition]</td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TNM (T)</td>
+                  <td ID="TNM-T">T1b : Tumeur envahissant la sous-muqueuse</td>
+                  <td>2-3cm</td>
+                </tr>
+                <tr>
+                  <td>TNM (N)</td>
+                  <td ID="TNM-N">N1 : Envahissement de 1 à 2 ganglions lymphatiques régionaux</td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TNM (M)</td>
+                  <td ID="TNM-M">M0 : Pas de métastases à distance</td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Autre stade si pertinent</td>
+                  <td colspan="2" ID="autre-classification-11">(Texte libre)</td>
+                </tr>
+                <tr>
+                  <td>Commentaire sur la tumeur</td>
+                  <td colspan="2" ID="commentaire-tumeur-1">(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée FR-Liste-des-problemes : Tumeur 1 -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern Entry -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
+              <id root="015B3222-62B8-4A27-801F-A414B285D58B" />
+              <code nullFlavor="NA" />
+              <statusCode code="active" />
+              <!-- Date du diagnostic -->
+              <effectiveTime>
+                <low value="20190129" />
+              </effectiveTime>
+              <!-- <effectiveTime><low nullFlavor="UNK"/></effectiveTime> : nullFlavr autorisé -->
+              <!-- [1..*] Entrée FR-Diagnostic-du-cancer : Tumeur -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC Problème -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS Problème -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <!-- Conformité IHE PCC Diagnostic du cancer -->
+                  <templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.1" />
+                  <!-- Conformité CI-SIS Diagnostic du cancer -->
+                  <templateId root="1.2.250.1.213.1.1.3.113" />
+                  <id root="F4A5860F-5FDB-4EDE-93EF-EF8F33F245BC" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#tumeurPrim" />
+                  </text>
+                  <statusCode code="completed" />
+                  <!-- Date de diagnostic -->
+                  <effectiveTime>
+                    <low value="20190129" />
+                  </effectiveTime>
+                  <!-- <effectiveTime><low nullFlavor="UNK"/></effectiveTime> : nullFlavor autorisé -->
+                  <!-- [1..1] Morphologie : JDV_Morphologie-CISIS (1.2.250.1.213.1.1.5.585) -->
+                  <value xsi:type="CD" code="8000/3" displayName="Tumeur maligne, SAI" codeSystem="2.16.840.1.113883.6.43.1" codeSystemName="CIM-O">
+                    <originalText>
+                      <reference value="#morphologie-1" />
+                    </originalText>
+                  </value>
+                  <!-- si JDV_Morphologie-CISIS non applicable : précision dans la partie narrative -->
+                  <!-- <value xsi:type="CD" nullFlavor="OTH">
+                                    <originalText><reference value="#morphologie-1"/></originalText>
+                                </value> -->
+                  <!-- [0..1] Topographie : JDV_Tumeur-CISIS (1.2.250.1.213.1.1.4.2.281.21) -->
+                  <targetSiteCode code="C502" displayName="Quadrant supéro-interne du sein" codeSystem="2.16.840.1.113883.6.43.1" codeSystemName="CIM-O">
+                    <originalText>
+                      <reference value="#topographie-1" />
+                    </originalText>
+                    <!-- Latéralité -->
+                    <qualifier>
+                      <name code="20228-3" displayName="Latéralité" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <!-- code latéralité : JDV_LateraliteNCIT-CISIS (1.2.250.1.213.1.1.5.586) -->
+                      <value code="C25228" displayName="droit" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT">
+                        <originalText>
+                          <reference value="#lateralite-1" />
+                        </originalText>
+                      </value>
+                    </qualifier>
+                  </targetSiteCode>
+                  <!-- Si JDV_Tumeur-CISIS non applicable : précision dans la partie narrative -->
+                  <!-- <targetSiteCode nullFlavor="OTH">
+                                    <originalText><reference value="#topographie-1"/></originalText>
+                                </targetSiteCode> 
+                           -->
+                  <!-- [0..1] Stade clinique TNM -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.2" />
+                      <code code="75620-5" displayName="Stade TNM Clinique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime>
+                        <low value="20190129" />
+                      </effectiveTime>
+                      <value xsi:type="CD">
+                        <!--  Stade clinique -->
+                        <qualifier>
+                          <name code="21909-7" displayName="Stade clinique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                          <value xsi:type="CD" code="IB" displayName="None" codeSystem="2.16.840.1.113883.15.6" codeSystemName="TNM_UICC" />
+                        </qualifier>
+                        <!-- Version de la nomenclature TNM utilisée -->
+                        <qualifier>
+                          <name code="21917-0" displayName="Version TNM utilisée" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                          <value xsi:type="CD" code="7" displayName="TNM_UICC 7ème édition" codeSystem="2.16.840.1.113883.15.6" codeSystemName="TNM_UICC" />
+                        </qualifier>
+                      </value>
+                      <!-- T – Tumeur primitive -->
+                      <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC -->
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.48"/>
+                          <id root="02DF6527-DEF2-45CB-BB8C-D9A9E5AB6872" />
+                          <code code="21905-5" displayName="TNM Clinique T" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                          <text>
+                            <reference value="#TNM-T" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NA" />
+                          <value xsi:type="CD" code="T1b" displayName="Tumeur envahissant la sous-muqueuse" codeSystem="2.16.840.1.113883.15.6" codeSystemName="TNM_UICC" codeSystemVersion="7" />
+                        </observation>
+                      </entryRelationship>
+                      <!-- N – Adénopathies régionales -->
+                      <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC -->
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.48"/>
+                          <id root="351A3E1F-A1EC-4211-8863-E3C24EBECAE5" />
+                          <code code="21906-3" displayName="TNM Clinique N" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                          <text>
+                            <reference value="#TNM-N" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NAV" />
+                          <value xsi:type="CD" code="N1" displayName="Envahissement de 1 à 2 ganglions lymphatiques régionaux" codeSystem="2.16.840.1.113883.15.6" codeSystemName="TNM_UICC" codeSystemVersion="7" />
+                        </observation>
+                      </entryRelationship>
+                      <!-- M – Métastases à distance -->
+                      <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC -->
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.48"/>
+                          <id root="AE14D1C8-2268-4468-B015-EE7EA7A495AA" />
+                          <code code="21907-1" displayName="TNM Clinique M" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                          <text>
+                            <reference value="#TNM-M" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NAV" />
+                          <value xsi:type="CD" code="M0" displayName="Pas de métastases à distance" codeSystem="2.16.840.1.113883.15.6" codeSystemName="TNM_UICC" codeSystemVersion="7" />
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                  <!-- [0..*] Autre stade si pertinent -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
+                      <id />
+                      <code code="21918-8" displayName="Autre classification du stade" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime nullFlavor="NA" />
+                      <value xsi:type="CD">
+                        <originalText>
+                          <reference value="#autre-classification-11" />
+                        </originalText>
+                      </value>
+                      <!-- Nom de l'autre classification -->
+                      <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC -->
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.48"/>
+                          <id root="02DF6527-DEF2-45CB-BB8C-D9A9E5AB6851" />
+                          <code code="GEN-101" displayName="Nom de la classification" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                          <text>
+                            <reference value="#autre-classification-nom" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NA" />
+                          <value xsi:type="CD">
+                            <originalText>
+                              <reference value="#autre-classification-nom" />
+                            </originalText>
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <!-- Version de l'autre classification -->
+                      <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC -->
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.48"/>
+                          <id root="02DF6527-DEF2-45CB-BB8C-D9A9E5AB6851" />
+                          <code code="GEN-102" displayName="Version de la classification" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                          <text>
+                            <reference value="#autre-classification-version" />
+                          </text>
+                          <statusCode code="completed" />
+                          <effectiveTime nullFlavor="NA" />
+                          <value xsi:type="CD">
+                            <originalText>
+                              <reference value="#autre-classification-version" />
+                            </originalText>
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                  <!-- [0..1] Entrée FR-Commentaire-ER : Commentaire sur la tumeur -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                    <act classCode="ACT" moodCode="EVN">
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.32"/>
+                      <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text>
+                        <reference value="#commentaire-tumeur-1" />
+                      </text>
+                      <statusCode code="completed" />
+                    </act>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- *********************************************** -->
+      <!-- Section FR-Antecedents-medicaux-non-code [0..1] -->
+      <!-- *********************************************** -->
+      <!-- Cette section contient les antécédents médicaux du patient, notables pour l'avis de la RCP, sous forme textuelle (non codée) . -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.2" />
+          <id root="31009FA0-0691-4582-9A12-4E6137DC9E46" />
+          <code code="11348-0" displayName="Antécédents médicaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>CLINIQUE</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Antécédents médicaux (ceux notables pour l'avis)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1978</td>
+                  <td>
+                    <content ID="antecedent_001">Mastectomie</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <!-- ******************************************* -->
+      <!-- Section FR-Problemes-actifs-non-code [0..1] -->
+      <!-- ******************************************* -->
+      <!-- Cette section contient les comorbidités du cancer sous forme textuelle (non codée). -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.176" />
+          <id root="CFD98797-193F-4D19-AECA-86B20693CA8C" />
+          <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Comorbidités</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10/01/2019</td>
+                  <td>
+                    <content ID="comorbidite_002">Diabète sucré</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>03/01/2019</td>
+                  <td>
+                    <content ID="comorbidite_001">Epilepsie</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <!-- ************************************************** -->
+      <!-- Section FR-Evaluation-du-statut-fonctionnel [0..1] -->
+      <!-- ************************************************** -->
+      <!-- Cette section contient l'évaluation fonctionnelle du patient selon l'échelle de performance OMS et l'évaluation du dépistage de la fragilité gériatrique -->
+      <component>
+        <section>
+          <!-- Conformité CCD Functional Status section -->
+          <templateId root="2.16.840.1.113883.10.20.1.5" />
+          <!-- Conformité IHE PCC Functional Status Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.17" />
+          <!-- Conformité IHE PCC Coded Functional Status Assessment Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.2.1" />
+          <!-- Conformité CI-SIS FR-Evaluation-du-statut-fonctionnel -->
+          <templateId root="1.2.250.1.213.1.1.2.111" />
+          <id root="C4544707-DA56-4AD5-8672-37E2B0A3AAC3" />
+          <code code="47420-5" displayName="Évaluation du statut fonctionnel" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Échelle de performance OMS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15/02/2019</td>
+                  <td>
+                    <content ID="performance-OMS">Grade 0</content>
+                  </td>
+                  <td>Capable d'une activité identique à celle précédant la maladie sans aucune
+                    restriction.</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Dépistage de la fragilité gériatrique (Age &gt; ou = à 75
+                    ans)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15/02/2019</td>
+                  <td>Score 2</td>
+                  <td>
+                    <content ID="depistage-fragilite">Nom de l'outil de dépistage</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Sous-section FR-Evaluation-de-la-douleur [1..1] : non porteur d'information dans la FRCP -->
+          <component>
+            <section>
+              <!-- Conformité IHE PCC Pain scale assessment -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.2.2" />
+              <!-- Conformité CI-SIS FR-Evaluation-de-la-douleur -->
+              <templateId root="1.2.250.1.213.1.1.2.112" />
+              <id root="9D42DBDF-D78C-4A46-90AE-E05A3F06CFBC" />
+              <code code="38208-5" displayName="Sévérité de la douleur" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text />
+              <!-- Entrée FR-Observation-sur-echelle-douleur [1..*] -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité IHE PCC Braden Score Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.1" />
+                  <!-- Conformité CI-SIS FR-Observation-sur-echelle-de-la-douleur -->
+                  <templateId root="1.2.250.1.213.1.1.3.89" />
+                  <id root="51362F0D-D023-4C87-8B25-9E5D8161A032" />
+                  <code code="38208-5" displayName="Sévérité de la douleur" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <text>
+                    <reference value="#severite-douleur" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="UNK" />
+                  <value xsi:type="CO" nullFlavor="UNK" />
+                </observation>
+              </entry>
+            </section>
+          </component>
+          <!-- Sous-section FR-Fonctions-physiques [0..1] : Échelle de performance OMS -->
+          <component>
+            <section>
+              <!-- Conformité IHE PCC Physical Function Section -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.2.5" />
+              <!-- Conformité CI-SIS FR-Fonctions-physiques -->
+              <templateId root="1.2.250.1.213.1.1.2.115" />
+              <id root="C949ED42-E76D-4F42-A3F0-9AF56B14836E" />
+              <code code="46006-3" displayName="Problèmes physiques fonctionnels et structurels" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text />
+              <entry>
+                <!-- Entrée FR-Evaluation [0..*] : Échelle de performance OMS -->
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6"/>
+                  <!-- Conformité CI-SIS-->
+                  <templateId root="1.2.250.1.213.1.1.3.25"/>
+                  <id root="8BD1C820-95A6-44ED-80C3-4399F97E5D37" />
+                  <code code="MED-239" displayName="Echelle de performance OMS" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#performance-OMS" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20190215" />
+                  <!-- Valeur issue du JDV_OMSEchPerf-CISIS -->
+                  <value xsi:type="CD" code="MED-240" displayName="Stade 0" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <!-- Valeur issue du JDV_OMSInterpret-CISIS -->
+                  <interpretationCode code="MED-241" displayName="Capable d'une activité identique à celle précédant la maladie sans aucune restriction." codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                </observation>
+              </entry>
+            </section>
+          </component>
+          <!-- Sous-section FR-Evaluation-de-la-depression-geriatrique [0..1] -->
+          <component>
+            <section>
+              <!-- Conformité IHE PCC Geriatric Depression Scale -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.2.4" />
+              <!-- Conformité CI-SIS FR-Evaluation-de-la-depression-geriatrique -->
+              <templateId root="1.2.250.1.213.1.1.2.114" />
+              <id root="83CC113C-7D76-41B7-A9CF-3E3F5809D7F8" />
+              <code code="48542-5" displayName="Évaluation de la dépression gériatrique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text />
+              <!-- Entrée FR-Score-Depression-Geriatrique [1..*] : Dépistage de la fragilité gériatrique -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31" />
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité IHE PCC Geriatric Depression Score Observation-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.12.3.4" />
+                  <!-- Conformité CI-SIS FR-Score-depression-geriatrique -->
+                  <templateId root="1.2.250.1.213.1.1.3.110" />
+                  <id root="7640E0DE-7EC8-4D3A-B3B0-DF976E22DD51" />
+                  <code code="48544-1" displayName="Score de la dépression gériatrique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#depistage-fragilite" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20190215" />
+                  <value xsi:type="INT" value="2" />
+                </observation>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- ******************************************** -->
+      <!-- Section FR-Resultats-examens-non-code [0..1] -->
+      <!-- ******************************************** -->
+      <!-- Cette section contient les éléments paracliniques (examens pratiqués dans un but diagnostique : imagerie médicale, biologie, génétique, etc.), sous forme textuelle (non codé) -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC Results Section-->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27" />
+          <!-- Conformité CI-SIS FR-Resultats-examens-non-code -->
+          <templateId root="1.2.250.1.213.1.1.2.150" />
+          <id root="F410161A-63E3-46C3-937E-2D4E45798D57" />
+          <code code="30954-2" displayName="Résultats d'examens" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Eléments paracliniques</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15/02/2019</td>
+                  <td>
+                    <content ID="examen-001">Clairance de la créatinine</content>
+                  </td>
+                  <td>
+                    <content ID="resultat-001">Créatinine normale</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>15/02/2019</td>
+                  <td>
+                    <content ID="examen-002">Scanner thoraco abdomino pelvien</content>
+                  </td>
+                  <td>
+                    <content ID="resultat-002">Nodule mammaire supéro externe droit. Pas
+                      d'adénomégalie axillaire droite mais présence de deux ganglions d'aspect dense
+                      millimétriques. Au niveau mammaire gauche, présence d'une prise de contraste
+                      de 6,5 mm para aréolaire externe que l'on vérifiera par une échographie
+                      (l'échographie réalisée retrouve un nodule bien limité d'allure fibreuse de
+                      5,5 mm).<br />Bilan d'extension thoraco-abdomino-pelvien négatif par
+                      ailleurs.</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>15/02/2019</td>
+                  <td>
+                    <content ID="examen-003">Mammographie</content>
+                  </td>
+                  <td>
+                    <content ID="resultat-003">Nodule du quadrant supéro-externe droit avec
+                      micro-calcifications, classé ACR5 pour lequel une microbiopsie est programmée.
+                      ACR2 du côté gauche.</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Commentaires / Précisions sur les éléments cliniques</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="commentaire-elements-cliniques" />(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <!-- ************************************* -->
+      <!-- Section FR-Note-de-progression [0..1] -->
+      <!-- ************************************* -->
+      <!-- Cette section contient la phase du cancer (phase initiale ou rechute et la date de la rechute), 
+               la progression du cancer (locale, régionale, à distance) et un commentaire sur la phase du cancer -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC Progress Note -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.7" />
+          <!-- Conformité CI-SIS FR-Note-de-progression -->
+          <templateId root="1.2.250.1.213.1.1.2.25" />
+          <id root="172602A2-8E13-4AE0-A636-6DD1FEAAF129" />
+          <code code="18733-6" displayName="Note de progression" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>PHASE CLINIQUE DE LA MALADIE</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th align="left" colspan="4">Phase et progression du cancer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="phase">Phase</td>
+                  <td>Rechute du cancer</td>
+                  <td>15/02/2019</td>
+                </tr>
+                <tr>
+                  <td rowspan="3">Progression</td>
+                  <td ID="progression-locale">Locale</td>
+                  <td>Oui</td>
+                </tr>
+                <tr>
+                  <td ID="progression-regionale">Régionale</td>
+                  <td>Oui</td>
+                </tr>
+                <tr>
+                  <td ID="progression-distance">A distance</td>
+                  <td>Non</td>
+                </tr>
+                <tr>
+                  <td>Commentaires / Précisions</td>
+                  <td colspan="3">
+                    <content ID="commentaire-phase">(Texte libre)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Simple-Observation [1..1] : Phase du cancer -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="B1D68C8E-4A83-4ED5-A5E3-60B55B54B016" />
+              <code code="MED-243" displayName="Phase du cancer" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#phase" />
+              </text>
+              <statusCode code="completed" />
+              <!-- Date de l'observation si phase initiale ou Date de la rechute si rechute -->
+              <effectiveTime value="20190215" />
+              <!-- <effectiveTime nullFlavor="UNK"/> : nullFlavor autorisé -->
+              <value xsi:type="CD" code="MED-244" displayName="Rechute du cancer" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <!-- Commentaire sur la phase du cancer -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#commentaire-phase" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20190215" />
+                </act>
+              </entryRelationship>
+            </observation>
+          </entry>
+          <!-- Entrée FR-Simple-Observation [1..1] : Progression du cancer -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="0E68CDF8-A1D4-4CE0-9029-7FBB6C10599A" />
+              <code code="MED-245" displayName="Progression du cancer" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190215" />
+              <value xsi:type="BL" value="true" />
+              <!-- Entrée FR-Simple-Observation [0..1] : progression locale (entrée obligatoire si value="true" dans l'observation supérieure) -->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="01E2F991-A70D-474A-B0C1-5A13B7838981" />
+                  <code code="MED-246" displayName="Progression locale du cancer" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#progression-locale" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!-- Entrée FR-Simple-Observation [0..1] : progression régionale (entrée obligatoire si value="true" dans l'observation supérieure) -->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="A8B56C5E-EC4D-40AA-92DA-C0040A1A1054" />
+                  <code code="MED-247" displayName="Progression régionale du cancer" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#progression-regionale" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!-- Entrée FR-Simple-Observation [0..1] : progression à distance (entrée obligatoire si value="true" dans l'observation supérieure) -->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="BC37A3A6-BAB3-4EA4-9583-23C89FC16D76" />
+                  <code code="MED-248" displayName="Progression à distance du cancer" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#progression-distance" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NAV" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- **************************************** -->
+      <!-- Section FR-Actes-et-interventions [0..1] -->
+      <!-- **************************************** -->
+      <!-- Cette section décrit les prises en charge thérapeutiques passés et en cours (réalisés ou pas) de la tumeur discutée en RCP. -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC Procedures and Interventions -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
+          <!-- Conformité CI-SIS FR-Actes-et-interventions -->
+          <templateId root="1.2.250.1.213.1.1.2.118" />
+          <id root="9DC19D96-2054-48CE-97A1-E384ED77F4FC" />
+          <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>TRAITEMENTS THÉRAPEUTIQUES PASSÉS OU EN COURS (réalisé ou pas)</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Type de traitement</th>
+                  <th>Précision</th>
+                  <th>Date de début</th>
+                  <th>Date de fin</th>
+                  <th>Statut</th>
+                  <th>Commentaire</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="traitement-01">Surveillance active</td>
+                  <td ID="autre-traitement-01">-</td>
+                  <td ID="debut-traitement-01">02/10/2018</td>
+                  <td ID="fin-traitement-01">15/02/2019</td>
+                  <td ID="statut-traitement-01">En cours de réalisation</td>
+                  <td ID="commentaire-traitement-01">(Texte libre)</td>
+                </tr>
+                <tr>
+                  <td ID="traitement-02">Autres traitements</td>
+                  <td ID="autre-traitement-02">(Texte libre)</td>
+                  <td ID="debut-traitement-02">10/02/2019</td>
+                  <td ID="fin-traitement-02">15/02/2019</td>
+                  <td ID="statut-traitement-02">Déjà réalisé</td>
+                  <td ID="commentaire-traitement-02">(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Acte [1..*] : Acte 1 -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <!-- template CCD utilisé pour le moodCode="EVN" -->
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <!-- Conformité CI-SIS FR-Acte -->
+              <templateId root="1.2.250.1.213.1.1.3.62" />
+              <id root="75C517FE-D623-4B2E-AADF-22A906371428" />
+              <!-- Type de traitement JDV_TypeTraitement-CISIS (1.2.250.1.213.1.1.4.2.281.9) -->
+              <code code="MED-227" displayName="Surveillance active" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <!-- Précision si type de traitement = 'Autre' -->
+              <text>
+                <reference value="#autre-traitement-01" />
+              </text>
+              <!-- Statut de l'acte : Déjà réalisé (completed), En cours (active), Non réalisé (cancelled) -->
+              <statusCode code="active" />
+              <!-- Date de l'acte -->
+              <effectiveTime>
+                <low value="20181002" />
+                <high value="20190215" />
+              </effectiveTime>
+              <!-- Commentaire sur le traitement -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#commentaire-traitement-01" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </procedure>
+          </entry>
+          <!-- Entrée FR-Acte [1..*] : Acte 2 -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <!-- template CCD utilisé pour le moodCode="EVN" -->
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <!-- Conformité CI-SIS FR-Acte -->
+              <templateId root="1.2.250.1.213.1.1.3.62" />
+              <id root="8804F37A-8D1B-46C1-B139-774C2AAC584B" />
+              <!-- Type de traitement JDV_TypeTraitement-CISIS (1.2.250.1.213.1.1.4.2.281.9) -->
+              <code code="MED-124" displayName="Autres traitements (à préciser)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <!-- Précision si type de traitement = 'Autre' -->
+              <text>
+                <reference value="#autre-traitement-02" />
+              </text>
+              <!-- Statut de l'acte : Déjà réalisé (completed), En cours (active), Non réalisé (cancelled) -->
+              <statusCode code="completed" />
+              <!-- Date de l'acte -->
+              <effectiveTime>
+                <low value="20190210" />
+                <high value="20190215" />
+              </effectiveTime>
+              <!-- Commentaire sur le traitement -->
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
+                  <code code="48767-8" displayName="Annotation Comment" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#commentaire-traitement-02" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      <!-- *********************************** -->
+      <!-- Section FR-Conclusion-de-CRO [0..1] -->
+      <!-- *********************************** -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.26" />
+          <id root="FB8038FD-CC24-4B85-BE3D-D39FDC50EE2C" />
+          <code code="10218-6" displayName="Note postopératoire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>COMPTE RENDU OPÉRATOIRE (CRO)</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Conclusion du CRO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date de l'opération</td>
+                  <td>15/01/2019</td>
+                </tr>
+                <tr>
+                  <td>Chirurgien</td>
+                  <td>DR Michel ZENBERGER (Centre Hospitalier d'Angers)</td>
+                </tr>
+                <tr>
+                  <td>Conclusion</td>
+                  <td ID="CRO-conclusion">Texte de la conclusion du CRO</td>
+                </tr>
+                <tr>
+                  <td>Auteur de la conclusion</td>
+                  <td>DR Michel ZENBERGER (Centre Hospitalier d'Angers)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Auteur de cette conclution du CRO [1..1] (dans cet exemple, auteur de la FRCP car ressaisie manuelle) -->
+          <author>
+            <!-- Date du CRO -->
+            <time value="20190218" />
+            <assignedAuthor>
+              <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+              <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS" displayName="Médecin - Oncologie option médicale (SM)" />
+              <addr>
+                <houseNumber>4</houseNumber>
+                <streetName>Rue Larrey</streetName>
+                <postalCode>49933</postalCode>
+                <city>ANGERS</city>
+              </addr>
+              <telecom value="tel:0242515151" use="WP" />
+              <assignedPerson>
+                <name>
+                  <prefix>M</prefix>
+                  <given>Charles </given>
+                  <family>MULLER</family>
+                  <suffix>DR</suffix>
+                </name>
+              </assignedPerson>
+              <representedOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                <name>Centre Hospitalier d'Angers</name>
+                <addr>
+                  <houseNumber>4</houseNumber>
+                  <streetName>Rue Larrey</streetName>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+                </addr>
+                <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+              </representedOrganization>
+            </assignedAuthor>
+          </author>
+          <!-- Entrée FR-Simple-Observation [1..1] -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="607DC674-E21D-4D25-A24D-4492AD6515ED" />
+              <code code="10218-6" displayName="Note postopératoire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#conclusion-cro" />
+              </text>
+              <statusCode code="completed" />
+              <!-- Date de l'opération -->
+              <effectiveTime>
+                <low value="20190129094900+0100" />
+                <high value="20190129101800+0100" />
+              </effectiveTime>
+              <!-- <effectiveTime nullFlavor="UNK"/> : nullflavor autorisé -->
+              <!-- Conclusion du CRO -->
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#CRO-conclusion" />
+                </originalText>
+              </value>
+              <!-- Chirurgien ayant réalisé l'opération -->
+              <performer>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234568875" />
+                  <code code="G15_10/SCH10" displayName="Médecin - Chirurgie générale (SCH)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <streetName>Rue Larrey</streetName>
+                    <houseNumber>4</houseNumber>
+                    <postalCode>49933</postalCode>
+                    <city>ANGERS</city>
+                  </addr>
+                  <telecom value="tel:0242514747" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <prefix>M</prefix>
+                      <family>ZENBERGER</family>
+                      <given>Michel</given>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                    <name>Centre Hospitalier d'Angers</name>
+                    <addr>
+                      <streetName>Rue Larrey</streetName>
+                      <houseNumber>4</houseNumber>
+                      <postalCode>49933</postalCode>
+                      <city>ANGERS</city>
+                    </addr>
+                    <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur de la conclusion d'origine -->
+              <author>
+                <time value="20190115" />
+                <assignedAuthor>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234568875" />
+                  <code code="G15_10/SCH10" displayName="Médecin - Chirurgie générale (SCH)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <streetName>Rue Larrey</streetName>
+                    <houseNumber>4</houseNumber>
+                    <postalCode>49933</postalCode>
+                    <city>ANGERS</city>
+                  </addr>
+                  <telecom value="tel:0242514747" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <prefix>M</prefix>
+                      <family>ZENBERGER</family>
+                      <given>Michel</given>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                    <name>Centre Hospitalier d'Angers</name>
+                    <addr>
+                      <streetName>Rue Larrey</streetName>
+                      <houseNumber>4</houseNumber>
+                      <postalCode>49933</postalCode>
+                      <city>ANGERS</city>
+                    </addr>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+            </observation>
+          </entry>
+          <!-- Sous-section FR-Commentaire-non-code : commentaire sur le CRO [0..1] -->
+          <component>
+            <section>
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.12.201"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+              <!-- Conformité CI-SIS FR-Commentaire-non-code -->
+              <templateId root="1.2.250.1.213.1.1.2.73"/>
+              <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <title nullFlavor="NA" />
+              <text>
+                <table border="0">
+                  <tbody>
+                    <tr>
+                      <th colspan="4">Commentaires / Précisions</th>
+                    </tr>
+                    <tr>
+                      <td ID="commentaire-cro">(Texte libre)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </text>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- ************************************** -->
+      <!-- Section FR-Conclusion-du-CR-ACP [0..1] -->
+      <!-- ************************************** -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS FR-Conclusion-du-CR-ACP -->
+          <templateId root="1.2.250.1.213.1.1.2.34" />
+          <id root="0169A5B6-0884-4514-AB85-AFB7FF699011" />
+          <code code="30954-2" displayName="Résultats d’examens" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>COMPTE RENDU ANATOMOCYTOPATHOLOGIQUE (CR-ACP)</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Prélèvement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date</td>
+                  <td>15/01/2019</td>
+                </tr>
+                <tr>
+                  <td>Préleveur</td>
+                  <td>DR Jacques ROUSSEAU (Centre Hospitalier d'Angers)</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Examen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date</td>
+                  <td>15/01/2019</td>
+                </tr>
+                <tr>
+                  <td>Anatomopathologiste</td>
+                  <td>DR Philippe LEGRAND (Laboratoire Pasteur)</td>
+                </tr>
+                <tr>
+                  <td>Conclusion</td>
+                  <td ID="CR-ACP-conclusion">Texte de la conclusion du CR-ACP</td>
+                </tr>
+                <tr>
+                  <td>Auteur de la conclusion</td>
+                  <td>DR Philippe LEGRAND (Laboratoire Pasteur)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Auteur de cette conclution du CR-ACP (dans cet exemple, auteur de la FRCP car ressaisie manuelle) -->
+          <author>
+            <time value="20190218" />
+            <assignedAuthor>
+              <!-- PS identifié par son N°RPPS -->
+              <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+              <!-- Profession / Spécialité du PS -->
+              <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Oncologie option médicale (SM)" />
+              <!-- Adresse du PS -->
+              <addr>
+                <houseNumber>4</houseNumber>
+                <streetName>Rue Larrey</streetName>
+                <postalCode>49933</postalCode>
+                <city>ANGERS</city>
+              </addr>
+              <!-- Coordonnées télécom du PS -->
+              <telecom value="tel:0242515151" use="WP" />
+              <!-- Identité du PS -->
+              <assignedPerson>
+                <name>
+                  <prefix>M</prefix>
+                  <given>Charles </given>
+                  <family>MULLER</family>
+                  <suffix>DR</suffix>
+                </name>
+              </assignedPerson>
+              <!-- Organisation du PS -->
+              <representedOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                <name>Centre Hospitalier d'Angers</name>
+                <addr>
+                  <houseNumber>4</houseNumber>
+                  <streetName>Rue Larrey</streetName>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+                </addr>
+                <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+              </representedOrganization>
+            </assignedAuthor>
+          </author>
+          <!-- Entrée FR-Simple-Observation [0..*] : car ressaisie manuelle dans cet exemple -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="607DC674-E21D-4D25-A24D-4492AD6515ED" />
+              <code code="22637-3" displayName="Conclusion - Diagnostic" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#CR-ACP-conclusion" />
+              </text>
+              <statusCode code="completed" />
+              <!-- Date de l'examen -->
+              <effectiveTime>
+                <low value="201901151130+0100" />
+                <high value="201901151131+0100" />
+              </effectiveTime>
+              <!-- <effectiveTime nullFlavor="UNK"/> : nullFlavor autorisé -->
+              <!-- Conclusion du CR-ACP manuelle -->
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#CR-ACP-conclusion" />
+                </originalText>
+              </value>
+              <!-- Anatomopathologiste ayant réalisé l'examen : obligatoire dans la FRCP -->
+              <performer>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>10</houseNumber>
+                    <streetName>Boulevard Pasteur</streetName>
+                    <postalCode>75002</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <assignedPerson>
+                    <name>
+                      <prefix>M</prefix>
+                      <given>Philippe</given>
+                      <family>LEGRAND </family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                    <name>Laboratoire Pasteur</name>
+                    <addr>
+                      <houseNumber>10</houseNumber>
+                      <streetName>Boulevard Pasteur</streetName>
+                      <postalCode>49933</postalCode>
+                      <city>ANGERS</city>
+                    </addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur de la conclusion d'origine -->
+              <author>
+                <time value="20190115" />
+                <assignedAuthor>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM01" displayName="Médecin - Anatomie et Cytologie pathologiques (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>10</houseNumber>
+                    <streetName>Boulevard Pasteur</streetName>
+                    <postalCode>75002</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <assignedPerson>
+                    <name>
+                      <given>Philippe</given>
+                      <family>LEGRAND </family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                    <name>Laboratoire Pasteur</name>
+                    <addr>
+                      <houseNumber>10</houseNumber>
+                      <streetName>Boulevard Pasteur</streetName>
+                      <postalCode>49933</postalCode>
+                      <city>ANGERS</city>
+                    </addr>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+              <!-- PS ayant effectué le prélèvement -->
+              <participant contextControlCode="OP" typeCode="PRF">
+                <!-- Date du prélèvement -->
+                <time value="201901151000+0100" />
+                <participantRole>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>4</houseNumber>
+                    <streetName>Rue Larrey</streetName>
+                    <postalCode>49933</postalCode>
+                    <city>ANGERS</city>
+                  </addr>
+                  <playingEntity>
+                    <name>
+                      <prefix>M</prefix>
+                      <given>Jacques</given>
+                      <family>ROUSSEAU</family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </playingEntity>
+                  <scopingEntity>
+                    <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+                    <desc>Centre Hospitalier d'Angers</desc>
+                  </scopingEntity>
+                </participantRole>
+              </participant>
+            </observation>
+          </entry>
+          <!-- Sous-section FR-Commentaire-non-code : commentaire sur le CR-ACP [0..1] -->
+          <component>
+            <section>
+              <!-- Conformité IHE CCD -->
+              <templateId root="2.16.840.1.113883.10.12.201"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.73"/>
+              <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <title nullFlavor="NA" />
+              <text>
+                <table border="0">
+                  <tbody>
+                    <tr>
+                      <th colspan="4" align="left">Commentaires / Précisions</th>
+                    </tr>
+                    <tr>
+                      <td ID="commentaire-conclusion-CR-ACP">(Texte libre)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </text>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- ********************************** -->
+      <!-- Section FR-Conclusion-CR-GM [0..*] -->
+      <!-- ********************************** -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS FR-Conclusion-CR-GM -->
+          <templateId root="1.2.250.1.213.1.1.2.67" />
+          <id root="FB8038FD-CC24-4B85-BE3D-D39FDC50DD2C" />
+          <code code="50397-9" displayName="Génétique moléculaire - Interprétation" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>COMPTE RENDU D'ANALYSE MOLECULAIRE (CR-GM)</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Prélèvement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date</td>
+                  <td>15/01/2019</td>
+                </tr>
+                <tr>
+                  <td>Préleveur</td>
+                  <td>DR Marc DUBOIS (Centre Hospitalier Régional d'Angers)</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Examen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date</td>
+                  <td>15/01/2019</td>
+                </tr>
+                <tr>
+                  <td>Biologie moléculaire</td>
+                  <td>DR Eric DUCOUT (Laboratoire Pasteur)</td>
+                </tr>
+                <tr>
+                  <td>Titre de l'examen et Conclusion</td>
+                  <td>
+                    <content ID="CR-GM-conclusion">Titre de l'examen<br />Conclusion du CR-GM</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Auteur de la conclusion</td>
+                  <td>DR Eric DUCOUT (Laboratoire Pasteur)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Auteur de cette conclution du CR-GM (dans cet exemple, auteur de la FRCP car ressaisie manuelle) -->
+          <author>
+            <time value="20190218" />
+            <assignedAuthor>
+              <!-- PS identifié par son N°RPPS -->
+              <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+              <!-- Profession / Spécialité du PS -->
+              <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Oncologie option médicale (SM)" />
+              <!-- Adresse du PS -->
+              <addr>
+                <houseNumber>4</houseNumber>
+                <streetName>Rue Larrey</streetName>
+                <postalCode>49933</postalCode>
+                <city>ANGERS</city>
+              </addr>
+              <!-- Coordonnées télécom du PS -->
+              <telecom value="tel:0242515151" use="WP" />
+              <!-- Identité du PS -->
+              <assignedPerson>
+                <name>
+                  <prefix>M</prefix>
+                  <given>Charles </given>
+                  <family>MULLER</family>
+                  <suffix>DR</suffix>
+                </name>
+              </assignedPerson>
+              <!-- Organisation du PS -->
+              <representedOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                <name>Centre Hospitalier d'Angers</name>
+                <addr>
+                  <houseNumber>4</houseNumber>
+                  <streetName>Rue Larrey</streetName>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+                </addr>
+                <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+              </representedOrganization>
+            </assignedAuthor>
+          </author>
+          <!-- Entrée FR-Simple-Observation [0..*] : car ressaisie manuelle dans cet exemple -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="607DC674-E21D-4D25-A24D-4492AD6515ED" />
+              <code code="22637-3" displayName="Conclusion - Diagnostic" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#conclusion-crgm2" />
+              </text>
+              <statusCode code="completed" />
+              <!-- Date de l'examen -->
+              <effectiveTime>
+                <low value="201901151130+0100" />
+                <high value="201901151131+0100" />
+              </effectiveTime>
+              <!-- Titre et Conclusion du CR-GM manuels -->
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#conclusion-crgm2" />
+                </originalText>
+              </value>
+              <!-- Biologiste moléculaire ayant réalisé l'examen -->
+              <performer>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>10</houseNumber>
+                    <streetName>Boulevard Pasteur</streetName>
+                    <postalCode>75002</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <assignedPerson>
+                    <name>
+                      <prefix>M</prefix>
+                      <given>Eric</given>
+                      <family>DUCOUT</family>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                    <name>Laboratoire Pasteur</name>
+                    <addr>
+                      <houseNumber>10</houseNumber>
+                      <streetName>Boulevard Pasteur</streetName>
+                      <postalCode>75002</postalCode>
+                      <city>PARIS</city>
+                    </addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- PS ayant réalisé le prélèvement et date du prélèvement -->
+              <performer>
+                <time value="20190115">
+                </time>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="803103203303" />
+                  <code code="G15_10/SM05" displayName="Médecin - Chirurgie générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>4</houseNumber>
+                    <streetName>Rue Larrey</streetName>
+                    <postalCode>49933</postalCode>
+                    <city>ANGERS</city>
+                  </addr>
+                  <assignedPerson>
+                    <name>
+                      <suffix>DR</suffix>
+                      <given>Marc</given>
+                      <family>DUBOIS</family>
+                      <prefix>M</prefix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1490000049" />
+                    <name>Centre Hospitalier Régional d'Angers</name>
+                    <addr>
+                      <houseNumber>4</houseNumber>
+                      <streetName>Rue Larrey</streetName>
+                      <postalCode>49933</postalCode>
+                      <city>ANGERS</city>
+                    </addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur de la conclusion d'origine -->
+              <author contextControlCode="OP" typeCode="AUT">
+                <!-- Date du CR-GM -->
+                <time value="201901151130+0100" />
+                <assignedAuthor>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>10</houseNumber>
+                    <streetName>Boulevard Pasteur</streetName>
+                    <postalCode>75002</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <assignedPerson>
+                    <name>
+                      <given>Eric</given>
+                      <family>DUCOUT</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="1801234567897" />
+                    <name>Laboratoire Pasteur</name>
+                    <addr>
+                      <houseNumber>10</houseNumber>
+                      <streetName>Boulevard Pasteur</streetName>
+                      <postalCode>75002</postalCode>
+                      <city>PARIS</city>
+                    </addr>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+            </observation>
+          </entry>
+          <!-- Sous-section FR-Commentaire-non-code : commentaire sur le CR-GM [0..1] -->
+          <component>
+            <section>
+              <!-- Conformité IHE CCD -->
+              <templateId root="2.16.840.1.113883.10.12.201"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.73"/>
+              <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <title nullFlavor="NA" />
+              <text>
+                <table border="0">
+                  <tbody>
+                    <tr>
+                      <th colspan="4" align="left">Commentaires / Précisions</th>
+                    </tr>
+                    <tr>
+                      <td ID="commentaire-crgm">(Texte libre)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </text>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- ************************************************* -->
+      <!-- Section FR-Histoire-de-la-maladie-non-code [0..1] -->
+      <!-- ************************************************* -->
+      <!-- Cette section permet de donner une synthèse du cas présenté et la question posée à la RCP et les données indispensables à l'avis de la RCP. -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC History of Present Illness Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.4" />
+          <!-- Conformité CI-SIS FR-Histoire-de-la-maladie-non-code -->
+          <templateId root="1.2.250.1.213.1.1.2.130" />
+          <id root="11DAC22A-77DD-448B-8D67-BC22941D60EA" />
+          <code code="10164-2" displayName="Histoire de la maladie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>SYNTHÈSE DU CAS PRÉSENTÉ ET QUESTION POSÉE A LA RCP - AUTRES DONNÉES INDISPENSABLES
+            À L'AVIS DE LA RCP</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Synthèse du cas présenté et question posée à la RCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Autres données indispensables à l'avis de la RCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <!-- ************************************ -->
+      <!-- Section FR-Statut-dossier-RCP [1..1] -->
+      <!-- ************************************ -->
+      <!-- Cette section permet d'indiquer le statut du dossier présenté à la RCP (complet ou incomplet), si le quorum est atteint ou pas, un commentaire sur le dossier. -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS FR-Statut-dossier-RCP -->
+          <templateId root="1.2.250.1.213.1.1.2.33" />
+          <id root="F7274C0C-C0CB-4A16-A1B0-F19523B7133B" />
+          <code code="21874-3" displayName="Statut du dossier présenté en RCP" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>PROPOSITION DE LA RCP</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2">Statut du dossier présenté à la RCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dossier complet</td>
+                  <td>
+                    <content ID="dossier-complet">Oui</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Quorum</td>
+                  <td>
+                    <content ID="quorum-atteint">Quorum atteint</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Commentaire</td>
+                  <td>
+                    <content ID="commentaire-dossier">(Texte libre)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Statut-du-dossier-presente-en-RCP -->
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS FR-Statut-du-dossier-presente-en-RCP -->
+              <templateId root="1.2.250.1.213.1.1.3.7" />
+              <code code="GEN-099" displayName="Information RCP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <statusCode code="completed" />
+              <!-- Dossier complet O/N -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="79404234-CE6B-43E1-8DED-49B94C332ACD" />
+                  <code code="GEN-100" displayName="Dossier complet" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#dossier-complet" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </component>
+              <!-- Quorum RCP -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
+                  <id root="FA08B7EF-A920-4C73-8B1B-077B41C8FC91" />
+                  <code code="ORG-125" displayName="Quorum RCP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#quorum-atteint" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD" code="ORG-126" displayName="Quorum atteint" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA-ASIP" />
+                </observation>
+              </component>
+              <!-- Commentaire sur le dossier -->
+              <component typeCode="COMP">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#commentaire-dossier" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <!-- ******************************* -->
+      <!-- Section FR-Plan-de-soins [1..1] -->
+      <!-- ******************************* -->
+      <!-- Cette section permet d'indiquer un passage en RCP de recours, des demandes d'examens / expertises complémentaires, de surveillance, la proposition thérapeutique et un commentaire. -->
+      <component>
+        <section>
+          <!-- Conformité CCD Plan of care Section -->
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <!-- Conformité IHE PCC Coded Care Plan Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <!-- Conformité CI-SIS FR-Plan-de-soins -->
+          <templateId root="1.2.250.1.213.1.1.2.158" />
+          <id root="B7240F7D-58B9-417B-83A3-057C65126DAA" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Passage en RCP de recours</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="demande-RCP-recours">OUI</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="3">Examens / expertises complémentaires</th>
+                </tr>
+                <tr>
+                  <th>Type</th>
+                  <th>Date au plus tôt souhaitée</th>
+                  <th>Date au plus tard (si pertinent)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="demande-expertise-01">(Texte libre)</td>
+                  <td>18/02/2019</td>
+                  <td>28/02/2019</td>
+                </tr>
+                <tr>
+                  <td ID="demande-expertise-02">(Texte libre)</td>
+                  <td>18/02/2019</td>
+                  <td>28/02/2019</td>
+                </tr>
+                <tr>
+                  <td ID="demande-expertise-03">(Texte libre)</td>
+                  <td>18/02/2019</td>
+                  <td>28/02/2019</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Surveillance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="surveillance">OUI (Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="5">Proposition(s) thérapeutique(s)</th>
+                </tr>
+                <tr>
+                  <th>Numéro d’intention</th>
+                  <th>Numéro séquentiel du traitement</th>
+                  <th>Type de traitement</th>
+                  <th>Précision sur le traitement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 (Première intention)</td>
+                  <td>1</td>
+                  <td>
+                    <content ID="traitement-1-01">Radiothérapie</content>
+                  </td>
+                  <td>(Texte libre)</td>
+                </tr>
+                <tr>
+                  <td>2 (Alternative)</td>
+                  <td>1</td>
+                  <td>Autres Soins - <content ID="traitement-2-01">Autre traitement XYZ</content></td>
+                  <td>(Texte libre)</td>
+                </tr>
+                <tr>
+                  <td>2 (Alternative)</td>
+                  <td>2</td>
+                  <td>
+                    <content ID="traitement-2-02">Chimiothérapie conventionnelle</content>
+                  </td>
+                  <td>(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Commentaires / Précisions sur la proposition de la RCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="commentaire-proposition-RCP" />(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Rencontre [0..1] : Proposition de passage en RCP de recours (présent si demande de passage en RCP de recours) -->
+          <entry>
+            <encounter classCode="ENC" moodCode="ARQ">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.58"/>
+              <id root="DE0D1EE6-F3E3-45DA-92DA-3606F912A51E" />
+              <code code="ORG-120" displayName="Passage en RCP recours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text mediaType="text/xml">
+                <reference value="#demande-RCP-recours" />
+              </text>
+            </encounter>
+          </entry>
+          <!-- Entrée FR-Demande-d-examen-ou-de-suivi [0..*] : demande d'expertise complémentaire n°1 -->
+          <entry>
+            <observation classCode="OBS" moodCode="PRP">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
+              <id root="5042333E-F929-4B07-BB09-B65ED98BFAF0" />
+              <code code="ORG-064" displayName="Demande d'examen ou de suivi" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#demande-expertise-01" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20190218" />
+                <high value="20190228" />
+              </effectiveTime>
+            </observation>
+          </entry>
+          <!-- Entrée FR-Demande-d-examen-ou-de-suivi [0..*] : demande d'expertise complémentaire n°2 -->
+          <entry>
+            <observation classCode="OBS" moodCode="PRP">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
+              <id root="5042333E-F929-4B07-BB09-B65ED98BFAF0" />
+              <code code="ORG-064" displayName="Demande d'examen ou de suivi" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text mediaType="text/xml">
+                <reference value="#demande-expertise-02" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20190218" />
+                <high value="20190228" />
+              </effectiveTime>
+            </observation>
+          </entry>
+          <!-- Entrée FR-Demande-d-examen-ou-de-suivi [0..*] : demande d'expertise complémentaire n°3 -->
+          <entry>
+            <observation classCode="OBS" moodCode="PRP">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
+              <id root="5042333E-F929-4B07-BB09-B65ED98BFAF0" />
+              <code code="ORG-064" displayName="Demande d'examen ou de suivi" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#demande-expertise-03" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20190218" />
+                <high value="20190228" />
+              </effectiveTime>
+            </observation>
+          </entry>
+          <!-- Entrée FR-Rencontre [0..1] : Surveillance (présent si surveillance) -->
+          <entry>
+            <encounter classCode="ENC" moodCode="ARQ">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.58"/>
+              <id root="1F798E84-D899-48CE-A9BF-D80F732E5B2F" />
+              <code code="MED-226" displayName="Surveillance seule" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text mediaType="text/xml">
+                <reference value="#surveillance" />
+              </text>
+            </encounter>
+          </entry>
+          <!-- Entrée FR-Acte [0..*] : Proposition thérapeutique de 1ère intention - 1 -->
+          <entry>
+            <procedure classCode="PROC" moodCode="INT" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
+              <id root="a6bc7fd2-ec3f-4e01-b567-854b087d1d9b"/>
+              <id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE" />
+              <!-- Code du traitement : JDV_TypeTraitement-FRCP-CISIS (1.2.250.1.213.1.1.5.595) -->
+              <code code="C15313" displayName="Radiothérapie" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT">
+                <originalText>
+                  <reference value="#traitement-1-01" />
+                  <!-- numéro séquentiel du traitement --><!--
+                  <priorityNumber xmlns="urn:hl7-org:sdtc" value="1" />-->
+                </originalText>
+              </code>
+              <text>
+                <reference value="#traitement-1-01" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20190220" />
+                <high value="20190820" />
+              </effectiveTime>
+              <!-- numéro séquentiel du traitement -->
+              <priorityCode>
+                <originalText>1</originalText>
+              </priorityCode>
+            </procedure>
+          </entry>
+          <!-- Entrée FR-Acte [0..*] : Proposition thérapeutique Alternative - 2 - Traitement 1 -->
+          <entry>
+            <procedure classCode="PROC" moodCode="INT" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
+              <id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE" />
+              <!-- Code du traitement : JDV_TypeTraitement-FRCP-CISIS (1.2.250.1.213.1.1.5.595) -->
+              <code code="MED-124" displayName="Autres traitements (à préciser)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#traitement-2-01" />
+                  <!-- numéro séquentiel du traitement --><!--
+                  <priorityNumber xmlns="urn:hl7-org:sdtc" value="2" />-->
+                </originalText>
+              </code>
+              <text>
+                <reference value="#traitement-2-01" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20190220" />
+                <high value="20190820" />
+              </effectiveTime>
+              <!-- numéro séquentiel du traitement -->
+              <priorityCode>
+                <originalText>2</originalText>
+              </priorityCode>
+            </procedure>
+          </entry>
+          <!-- Entrée FR-Acte [0..*] : Proposition thérapeutique Alternative - 2 - Traitement 2 -->
+          <entry>
+            <procedure classCode="PROC" moodCode="INT" negationInd="false">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
+              <id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE" />
+              <!-- Code du traitement : JDV_TypeTraitement-FRCP-CISIS (1.2.250.1.213.1.1.5.595) -->
+              <code code="C15632" displayName="Chimiothérapie conventionnelle" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT">
+                <originalText>
+                  <reference value="#traitement-2-02" />
+                  <!-- numéro séquentiel du traitement --><!--
+                  <priorityNumber xmlns="urn:hl7-org:sdtc" value="3" />-->
+                </originalText>
+              </code>
+              <text>
+                <reference value="#traitement-2-02" />
+              </text>
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20190220" />
+                <high value="20190820" />
+              </effectiveTime>
+              <!-- numéro séquentiel du traitement -->
+              <priorityCode>
+                <originalText>3</originalText>
+              </priorityCode>
+            </procedure>
+          </entry>
+          <!-- Entrée FR-Commentaire-ER [0..1] : Commentaire sur la proposition de la RCP -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.40"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+              <!-- Conformité CI-SIS FR-Commentaire -->
+              <templateId root="1.2.250.1.213.1.1.3.32"/>
+              <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#commentaire-proposition-RCP" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190215" />
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- ******************************************************* -->
+      <!-- Section FR-Cadre-de-la-proposition-therapeutique [0..1] -->
+      <!-- ******************************************************* -->
+      <!-- Cette section permet de préciser le cadre de la proposition thérapeutique : recommandation / référentiel de pratique clinique, essai clinique, commentaire -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS FR-Cadre-de-la-proposition-therapeutique -->
+          <templateId root="1.2.250.1.213.1.1.2.45" />
+          <id root="F52D9DC1-4FD7-4AE9-AC2C-6976BADB1658" />
+          <code code="35510-7" displayName="Essais cliniques - Informations générales" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>CADRE DE LA PROPOSITION THÉRAPEUTIQUE</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="4">Cadre de la proposition thérapeutique</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Proposition correspondant à la recommandation / au référentiel de pratique clinique</td>
+                  <td>
+                    <content ID="pratique-clinique" />Oui</td>
+                  <td>Nom et version du référentiel utilisé : <content ID="nom-referentiel">(Texte libre)</content></td>
+                  <td>Date : <content ID="date-referentiel">01/01/2018</content></td>
+                </tr>
+                <tr>
+                  <td>Proposition d'inclusion dans un essai clinique</td>
+                  <td colspan="3">
+                    <content ID="essai-clinique" />Non</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Commentaires / Précisions sur le cadre de la proposition thérapeutique</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="commentaire-cadre-proposition" />(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée FR-Simple-Observation [0..*] : Recommandation/référentiel de pratique clinique (obligatoire si Statut du cas présenté = enregistré) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="1A8E2BE6-E115-4ECA-90CA-CE4A1ADEEE8E" />
+              <code code="MED-249" displayName="Recommandation/référentiel de pratique clinique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <translation>
+                  <originalText>
+                    <reference value="#nom-referentiel" />
+                  </originalText>
+                </translation>
+              </code>
+              <text>
+                <reference value="#referentiel-clinique" />
+              </text>
+              <statusCode code="completed" />
+              <!-- Date du référentiel utilisé -->
+              <effectiveTime value="20180101" />
+              <!-- Nom et version du référentiel utilisé -->
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#nom-referentiel">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!-- Entrée FR-Simple-Observation [0..1] : Proposition d'inclusion dans un essai clinique (O/N) - obligatoire si Oui -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <id root="534329A4-AAAC-4D2C-A135-190C8986C0CA" />
+              <code code="MED-250" displayName="Proposition d'inclusion dans un essai clinique" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#essai-clinique" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+          <!-- Entrée FR-Commentaire-ER [0..1] : Commentaire sur la proposition de la RCP -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.40"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+              <!-- Conformité CI-SIS FR-Commentaire -->
+              <templateId root="1.2.250.1.213.1.1.3.32"/>
+              <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#commentaire-cadre-proposition" />
+              </text>
+              <statusCode code="completed" />
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- ************************************** -->
+      <!-- Section FR-Commentaire-non-code [0..1] -->
+      <!-- ************************************** -->
+      <!-- Cette section permet d'apporter des commentaires ou des précisions sur le patient -->
+      <component>
+        <section>
+          <!-- Conformité IHE CCD -->
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.73"/>
+          <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>COMMENTAIRES / PRÉCISIONS SUR LE PATIENT</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Commentaires / précisions sur le patient</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <!-- ************************************ -->
+      <!-- Section FR-Statut-du-document [1..1] -->
+      <!-- ************************************ -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS FR-Statut-du-document -->
+          <templateId root="1.2.250.1.213.1.1.2.35" />
+          <id root="40BA1599-AFD6-4625-969E-FBAB97694C91" />
+          <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Statut du document</title>
+          <text>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <td>Statut du document</td>
+                  <td>en cours</td>
+                </tr>
+                <tr>
+                  <td>Date du statut du document</td>
+                  <td>18/02/2019</td>
+                </tr>
+                <tr>
+                  <td>Commentaire sur la fiche RCP</td>
+                  <td ID="commentaire-ficheRCP">(Texte libre)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée Statut du document -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS FR-Simple-Observation-->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS FR-Statut-document -->
+              <templateId root="1.2.250.1.213.1.1.3.48.16" />
+              <id root="878F54EB-D561-4F90-855C-71BF3D97FE1D" />
+              <code code="GEN-065" displayName="Statut du document" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20190314" />
+              <value xsi:type="CD" code="GEN-034" displayName="En cours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <!-- Entrée Commentaire sur la fiche RCP -->
+              <entryRelationship typeCode="SUBJ">
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
+                  <id root="61950213-0CA5-47F2-B3FD-C49F9FB98AAB" />
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#commentaire-ficheRCP" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </observation>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

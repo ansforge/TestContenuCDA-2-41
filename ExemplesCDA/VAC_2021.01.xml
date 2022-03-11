@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?> 
+<?oxygen SCHSchema="../schematrons/CI-SIS_VAC_2021.01.sch"?>
+<!-- 
+      **********************************************************************************************************
+      Document : Historique de vaccination (VAC_2021.01) créé par le DMP
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA
+      **********************************************************************************************************
+      Historique :
+      09/04/2021 : Création
+      **********************************************************************************************************
+   -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- ************************* -->
+  <!--   En-tête du document     -->
+  <!-- ************************* -->
+  <!-- Périmètre d'utilisation -->
+  <realmCode code="FR" />
+  <!-- Référence au standard CDAr2 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Déclarations de conformité aux spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Déclarations de conformité aux spécifications du CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Déclarations de conformité au profil PCC Immunization Content -->
+  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.1.2" />
+  <!-- Déclarations de conformité au modèle Historique de vaccination (créé par le DMP) -->
+  <templateId root="1.2.250.1.213.1.1.1.37" extension="2021.01"/>
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.3.4" extension="VAC_2021.01_20210409_001_1" />
+  <!-- Type du document -->
+  <code code="11369-6" displayName="Historique de vaccinations" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>HISTORIQUE DE VACCINATIONS</title>
+  <!-- Date et heure du document -->
+  <effectiveTime value="20210409170000+0100" />
+  <!-- Niveau de confidentialité -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.3.4" extension="VAC_2021.01_20210409_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- [1..*] Auteurs : tous les auteurs des documents Note de vaccination (VAC-NOTE) -->
+  <author contextControlCode="OP" typeCode="AUT">
+    <time value="20100603094914+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>25</houseNumber>
+        <streetName>Rue Pasteur</streetName>
+        <postalCode>92100</postalCode>
+        <city>EVRY</city>
+      </addr>
+      <telecom value="tel:+33-142515151" use="WP" />
+      <assignedPerson>
+        <name>
+          <family>MULLER</family>
+          <given>Charles</given>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Cabinet Médical du Dr MULLER</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation chargée de la conservation du document : Assurance maladie -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <!-- Identifiant de l'organisation -->
+        <id root="1.2.250.1.71.4.2.2" extension="318003502400041"/>
+        <!-- Nom de l'organisation -->
+        <name>Assurance Maladie</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  
+  <!-- Responsable du document : Patient -->
+  <legalAuthenticator>
+    <!-- date de création du document -->
+    <time value="20210409170000+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="276059205062865" root="1.2.250.1.213.1.4.8" />
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H" />
+      <telecom value="tel:0647151010" use="MC" />
+      <telecom value="mailto:marie.decourcy@mail.fr" />
+      <!-- Identité du responsable -->
+      <assignedPerson>
+        <name>
+          <family qualifier="BR">DECOURCY</family>
+          <given qualifier="BR">Marie</given>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+  
+  <!-- Acte principal documenté : Historique de vaccination / Assurance maladie -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <code code="11369-6" displayName="Historique de vaccinations" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <low value="20210409170000+0100" />
+      </effectiveTime>
+      <!-- Personne qui a réalisé l'acte principal -->
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id nullFlavor="NA"/>
+          <representedOrganization>
+            <standardIndustryClassCode code="AMO"
+              displayName="Organisme d'assurance maladie obligatoire"
+              codeSystem="1.2.250.1.213.1.1.4.9"/>
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Association du document à une prise en charge : Organisme de sécurité sociale -->
+  <componentOf>
+    <encompassingEncounter>
+      <effectiveTime nullFlavor="NA"/>
+      <location>
+        <healthCareFacility>
+          <!-- Secteur d'activité -->
+          <code code="SA24" displayName="Organisme de sécurité sociale"
+            codeSystem="1.2.250.1.71.4.2.4"/>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+
+  <!-- ************************* -->
+  <!-- ************************* -->
+  <!--     Corps du document     -->
+  <!-- ************************* -->
+  <!-- ************************* -->
+  <component>
+    <structuredBody>
+      
+      <!-- Section FR-Vaccinations [1..1] (unique section consolidée par le DMP à partir des documents Note de vaccination) -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.6" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23" />
+          <templateId root="1.2.250.1.213.1.1.2.147" />
+          <id root="DF6B5534-B28E-499B-968E-2CCAC9B98924" />
+          <code code="11369-6" displayName="Historique des vaccinations" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Historique des vaccinations</title>
+          <text>
+            <!-- BCG -->
+            <list>
+              <item>
+                <content styleCode="BoldItalics">Vaccination Antituberculeuse : BCG</content>
+              </item>
+            </list>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Vaccin</th>
+                  <th>Lot n°</th>
+                  <th>Rang</th>
+                  <th>Voie</th>
+                  <th>Réaction observée</th>
+                  <th>Région d'administration</th>
+                  <th>Référence prescription</th>
+                  <th>Dose à administrer</th>
+                  <th>Commentaire</th>
+                  <th>Vaccinateur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1975</td>
+                  <td>
+                    <content ID="bcg">VACCIN BCG SSI, poudre et solvant pour suspension injectable</content>
+                  </td>
+                  <td>235421176</td>
+                  <td>1</td>
+                  <td>injection intradermique</td>
+                  <td>
+                    <content ID="bcg-reac">fièvre due à des médicaments</content>
+                  </td>
+                  <td>
+                    <content ID="approachSiteCode-01">Deltoïde gauche</content>
+                  </td>
+                  <td ID="bcg-prescription">-</td>
+                  <td>1</td>
+                  <td ID="bcg-comment">L'usager a été informé des avantages et risques liés à
+                              la vaccination</td>
+                  <td>Dr Charles MULLER</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- DTCP HB -->
+            <list>
+              <item>
+                <content styleCode="BoldItalics">Vaccination contre la diphtérie, le
+                           tétanos, la poliomyélite, la coqueluche (pertussis), l'Haemophilus
+                           influenzae b</content>
+              </item>
+            </list>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Vaccin</th>
+                  <th>Lot n°</th>
+                  <th>Rang</th>
+                  <th>Voie</th>
+                  <th>Réaction observée</th>
+                  <th>Région d'administration</th>
+                  <th>Référence prescription</th>
+                  <th>Dose à administrer</th>
+                  <th>Commentaire</th>
+                  <th>Vaccinateur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>25/08/2009</td>
+                  <td>
+                    <content ID="tetanos1">VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé</content>
+                  </td>
+                  <td>4456668</td>
+                  <td>1</td>
+                  <td>injection intramusculaire</td>
+                  <td>
+                    <content ID="tetanos1-reac">fièvre due à des médicaments</content>
+                  </td>
+                  <td>
+                    <content ID="approachSiteCode-02">Deltoïde gauche</content>
+                  </td>
+                  <td ID="tetanos1-prescription">-</td>
+                  <td>1</td>
+                  <td ID="tetanos1-comment">-</td>
+                  <td>Dr Charles MULLER</td>
+                </tr>
+                <tr>
+                  <td>28/09/2009</td>
+                  <td>
+                    <content ID="tetanos2">VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé</content>
+                  </td>
+                  <td>4456672</td>
+                  <td>2</td>
+                  <td>injection intramusculaire</td>
+                  <td>
+                    <content ID="tetanos2-reac">fièvre due à des médicaments</content>
+                  </td>
+                  <td>
+                    <content ID="approachSiteCode-03">Deltoïde gauche</content>
+                  </td>
+                  <td ID="tetanos2-prescription">-</td>
+                  <td>1</td>
+                  <td ID="tetanos2-comment">Prise récente et ponctuelle de solupred (60mg) en une prise pendant 2 jours</td>
+                  <td>Dr Charles MULLER</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Pneumocoque -->
+            <list>
+              <item>
+                <content styleCode="BoldItalics">Vaccination contre les infections
+                           invasives à pneumocoques</content>
+              </item>
+            </list>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Vaccin</th>
+                  <th>Lot n°</th>
+                  <th>Rang</th>
+                  <th>Voie</th>
+                  <th>Réaction observée</th>
+                  <th>Région d'administration</th>
+                  <th>Référence prescription</th>
+                  <th>Dose à administrer</th>
+                  <th>Commentaire</th>
+                  <th>Vaccinateur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>09/04/2021</td>
+                  <td>
+                    <content ID="meningo">VACCIN MENINGOCOCCIQUE A+C POLYOSIDIQUE</content>
+                  </td>
+                  <td>357904636</td>
+                  <td>1</td>
+                  <td>injection intramusculaire</td>
+                  <td>
+                    <content ID="meningo-reac">-</content>
+                  </td>
+                  <td>
+                    <content ID="approachSiteCode-04">Deltoïde gauche</content>
+                  </td>
+                  <td ID="meningo-prescription">-</td>
+                  <td>1</td>
+                  <td>
+                    <content ID="meningo-comment">-</content>
+                  </td>
+                  <td>Dr Charles MULLER</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Vaccination contre l'hépatite B -->
+            <list>
+              <item>
+                <content styleCode="BoldItalics">Vaccination contre l'hépatite B</content>
+              </item>
+            </list>
+            <!-- Vaccination ROR -->
+            <list>
+              <item>
+                <content styleCode="BoldItalics">Vaccination contre la rougeole, les
+                           oreillons et la rubéole</content>
+              </item>
+            </list>
+            <!-- Autres Vaccinations -->
+            <list>
+              <item>
+                <content styleCode="BoldItalics">Autres Vaccinations</content>
+              </item>
+            </list>
+          </text>
+          
+          <!-- Entrée FR-Vaccination [1..*] : BCG -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
+              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
+              <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
+              <text>
+                <reference value="bcg" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="1975" />
+              <!-- Voie d'administration : JDV_HL7_ImmunizationRouteCodes-CISIS [FR] (2.16.840.1.113883.5.4.642.3.289) -->
+              <routeCode code="IM" displayName="injection intramusculaire" codeSystem="2.16.840.1.113883.5.112" codeSystemName="routeOfAdministration" />
+              <!-- Région d'administration : JDV_ImmunizationApproachSiteCode-CISIS (1.2.250.1.213.1.1.5.621) -->
+              <approachSiteCode code="LD" displayName="Deltoïde gauche" codeSystem="2.16.840.1.113883.5.1052">
+                <originalText>
+                  <reference value="#approachSiteCode-01">
+                  </reference>
+                </originalText>
+              </approachSiteCode>
+              <!-- Dose à administrer -->
+              <doseQuantity value="1" />
+              <!-- Vaccin -->
+              <consumable typeCode="CSM">
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code code="61077869" displayName="VACCIN BCG SSI, poudre et solvant pour suspension injectable" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                      <originalText>
+                        <reference value="bcg" />
+                      </originalText>
+                      <translation code="3400936466425" displayName="1 flacon(s) en verre jaune(brun) - 1 flacon(s) en verre de 1 ml avec nécessaire(s) avec aiguille(s)" codeSystem="1.2.250.1.213.2.3.3" codeSystemName="CIP" />
+                    </code>
+                    <lotNumberText>235421176</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <!-- Exécutant -->
+              <performer>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles </given>
+                      <family>MULLER</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet médical du Dr MULLER</name>
+                    <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+                    <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur -->
+              <author contextControlCode="OP" typeCode="AUT">
+                <time value="20100603094914+0100" /> 
+                <assignedAuthor classCode="ASSIGNED">
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <family>MULLER</family>
+                      <given>Charles</given>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet Médical du Dr MULLER</name>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+              <!-- Personne qui apporte de l'information -->
+              <informant>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles </given>
+                      <family>MULLER</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet médical du Dr MULLER</name>
+                    <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+                    <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+                  </representedOrganization>
+                </assignedEntity>
+              </informant>
+              <!-- FR-Probleme : Réaction observée -->
+              <entryRelationship typeCode="CAUS" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
+                  <id root="5D002088-67F2-47BF-A256-F2F2A2C8941D" />
+                  <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
+                  <text>
+                    <reference value="#bcg-reac" />Fièvre due à des médicaments</text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20120505" />
+                  </effectiveTime>
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#bcg-reac" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- FR-Prescription : Référence prescription -->
+              <entryRelationship typeCode="REFR" inversionInd="false">
+                <supply moodCode="INT" classCode="SPLY">
+                  <templateId root="2.16.840.1.113883.10.20.1.34" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3" />
+                  <templateId root="1.2.250.1.213.1.1.3.44" />
+                  <id root="B6DAA144-ABFA-4D43-BF8A-1603216FE746" />
+                  <!-- Entrée FR-Instructions-au-dispensateur -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                    <act classCode="ACT" moodCode="INT">
+                      <templateId root="2.16.840.1.113883.10.20.1.43" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3.1" />
+                      <templateId root="1.2.250.1.213.1.1.3.34" />
+                      <code code="FINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
+                      <text>
+                        <reference value="#bcg-prescription" />
+                      </text>
+                      <statusCode code="completed" />
+                    </act>
+                  </entryRelationship>
+                </supply>
+              </entryRelationship>
+              <!-- FR-Rang-de-la-vaccination -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.46" />
+                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <value xsi:type="INT" value="1" />
+                </observation>
+              </entryRelationship>
+              <!-- FR-Commentaire-ER -->
+              <entryRelationship typeCode="SUBJ">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#bcg-comment" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          
+          <!-- Entrée FR-Vaccination [1..*] : Vaccination tétanos (1er injection) -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
+              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
+              <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
+              <text>
+                <reference value="#tetanos1" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20090928094914+0100" />
+              <!-- Voie d'administration : JDV_HL7_ImmunizationRouteCodes-CISIS [FR] (2.16.840.1.113883.5.4.642.3.289) -->
+              <routeCode code="IM" displayName="injection intramusculaire" codeSystem="2.16.840.1.113883.5.112" codeSystemName="routeOfAdministration" />
+              <!-- Région d'administration : JDV_ImmunizationApproachSiteCode-CISIS (1.2.250.1.213.1.1.5.621) -->
+              <approachSiteCode code="LD" displayName="Deltoïde gauche" codeSystem="2.16.840.1.113883.5.1052">
+                <originalText>
+                  <reference value="#approachSiteCode-02">
+                  </reference>
+                </originalText>
+              </approachSiteCode>
+              <!--Dose à administrer-->
+              <doseQuantity value="1" />
+              <!-- Vaccin -->
+              <consumable typeCode="CSM">
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code code="68747507" displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                      <originalText>
+                        <reference value="#tetanos1" />
+                      </originalText>
+                      <translation code="3400932857241" displayName="1 seringue(s) préremplie(s) en verre de 0,5 ml" codeSystem="1.2.250.1.213.2.3.3" codeSystemName="CIP" />
+                    </code>
+                    <lotNumberText>4456668</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <!-- Exécutant -->
+              <performer typeCode="PRF">
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles </given>
+                      <family>MULLER</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet médical du Dr MULLER</name>
+                    <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+                    <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur -->
+              <author contextControlCode="OP" typeCode="AUT">
+                <time value="20090928094914+0100" /> 
+                <assignedAuthor classCode="ASSIGNED">
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <family>MULLER</family>
+                      <given>Charles</given>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet Médical du Dr MULLER</name>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+              <!-- FR-Probleme : Réaction observée -->
+              <entryRelationship typeCode="CAUS" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
+                  <id root="3374F9E9-6175-442E-929A-73B07F3D2484" />
+                  <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
+                  <text>
+                    <reference value="#tetanos1-reac" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20090825" />
+                  </effectiveTime>
+                  <value xsi:type="CD" nullFlavor="NA">
+                    <originalText>
+                      <reference value="#tetanos1-reac" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- FR-Rang-de-la-vaccination -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.46" />
+                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <value xsi:type="INT" value="1" />
+                </observation>
+              </entryRelationship>
+              <!-- FR-Commentaire-ER -->
+              <entryRelationship typeCode="SUBJ">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#tetanos1-comment" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          
+          <!-- Entrée FR-Vaccination [1..*] : Vaccination tétanos (2ème injection) -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
+              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
+              <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
+              <text>
+                <reference value="#tetanos2" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20090928094914+0100" />
+              <!-- Voie d'administration : JDV_HL7_ImmunizationRouteCodes-CISIS [FR] (2.16.840.1.113883.5.4.642.3.289) -->
+              <routeCode code="IM" displayName="injection intramusculaire" codeSystem="2.16.840.1.113883.5.112" codeSystemName="routeOfAdministration" />
+              <!-- Région d'administration : JDV_ImmunizationApproachSiteCode-CISIS (1.2.250.1.213.1.1.5.621) -->
+              <approachSiteCode code="LD" displayName="Deltoïde gauche" codeSystem="2.16.840.1.113883.5.1052">
+                <originalText>
+                  <reference value="#approachSiteCode-03">
+                  </reference>
+                </originalText>
+              </approachSiteCode>
+              <!-- Dose à administrer -->
+              <doseQuantity value="1" />
+              <!-- Vaccin -->
+              <consumable typeCode="CSM">
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code code="68747507" displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                      <originalText>
+                        <reference value="#tetanos2" />
+                      </originalText>
+                      <translation code="3400932857241" displayName="1 seringue(s) préremplie(s) en verre de 0,5 ml" codeSystem="1.2.250.1.213.2.3.3" codeSystemName="CIP" />
+                    </code>
+                    <lotNumberText>4456672</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <!-- Exécutant -->
+              <performer typeCode="PRF">
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles </given>
+                      <family>MULLER</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet médical du Dr MULLER</name>
+                    <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+                    <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur -->
+              <author contextControlCode="OP" typeCode="AUT">
+                <time value="20090928094914+0100" /> 
+                <assignedAuthor classCode="ASSIGNED">
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <family>MULLER</family>
+                      <given>Charles</given>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet Médical du Dr MULLER</name>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+              <!-- FR-Probleme : Réaction observée -->
+              <entryRelationship inversionInd="false" typeCode="CAUS">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
+                  <id root="F9E020E2-D219-43D4-8BF8-6B275E1F726D" />
+                  <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
+                  <text>
+                    <reference value="#tetanos2-reac" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20090928" />
+                  </effectiveTime>
+                  <value xsi:type="CD" nullFlavor="NA">
+                    <originalText>
+                      <reference value="#tetanos2-reac" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- FR-Rang-de-la-vaccination -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.46" />
+                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <value xsi:type="INT" value="2" />
+                </observation>
+              </entryRelationship>
+              <!-- FR-Commentaire-ER -->
+              <entryRelationship typeCode="SUBJ">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#tetanos2-comment" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          
+          <!-- Entrée FR-Vaccination [1..*] : VACCIN MENINGOCOCCIQUE A+C POLYOSIDIQUE -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
+              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <id root="41DAC707-7C96-47B7-B600-AC63D8004465" />
+              <code code="INITIMMUNIZ" codeSystem="2.16.840.1.113883.5.4" displayName="1ère série vaccinante" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
+              <text>
+                <reference value="#meningo" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20210409" />
+              <!-- Voie d'administration : JDV_HL7_ImmunizationRouteCodes-CISIS [FR] (2.16.840.1.113883.5.4.642.3.289) -->
+              <routeCode code="IM" displayName="injection intramusculaire" codeSystem="2.16.840.1.113883.5.112" codeSystemName="routeOfAdministration" />
+              <!-- Région d'administration : JDV_ImmunizationApproachSiteCode-CISIS (1.2.250.1.213.1.1.5.621) -->
+              <approachSiteCode code="LD" displayName="Deltoïde gauche" codeSystem="2.16.840.1.113883.5.1052">                
+                <originalText>
+                  <reference value="#approachSiteCode-04">
+                  </reference>
+                </originalText>
+              </approachSiteCode>
+              <!-- Dose à administrer -->
+              <doseQuantity value="1" />
+              <!-- Vaccin -->
+              <consumable typeCode="CSM">
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code code="65277632" displayName="VACCIN MENINGOCOCCIQUE A+C POLYOSIDIQUE, poudre et solvant pour suspension injectable en multidose" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
+                      <originalText>
+                        <reference value="#meningo" />
+                      </originalText>
+                      <translation code="3400933465841" displayName="1 flacon(s) en verre de 10 dose(s) - 1 flacon(s) en verre de 5 ml" codeSystem="1.2.250.1.213.2.3.3" codeSystemName="CIP" />
+                    </code>
+                    <lotNumberText>357904636</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <!-- Exécutant -->
+              <performer typeCode="PRF">
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <given>Charles </given>
+                      <family>MULLER</family>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet médical du Dr MULLER</name>
+                    <!-- JDV_J04-XdsPracticeSettingCode-CISIS (1.2.250.1.213.1.1.5.467) -->
+                    <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <!-- Auteur -->
+              <author contextControlCode="OP" typeCode="AUT">
+                <time value="20210409153514+0100" /> 
+                <assignedAuthor classCode="ASSIGNED">
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+                  <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+                  <addr>
+                    <houseNumber>25</houseNumber>
+                    <streetName>Rue Pasteur</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>EVRY</city>
+                  </addr>
+                  <telecom value="tel:+33-142515151" use="WP" />
+                  <assignedPerson>
+                    <name>
+                      <family>MULLER</family>
+                      <given>Charles</given>
+                      <prefix>M</prefix>
+                      <suffix>DR</suffix>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+                    <name>Cabinet Médical du Dr MULLER</name>
+                  </representedOrganization>
+                </assignedAuthor>
+              </author>
+              <!-- FR-Rang-de-la-vaccination -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.46" />
+                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <value xsi:type="INT" value="1" />
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+        
+        </section>
+      </component>
+ 
+    </structuredBody>
+  </component>
+</ClinicalDocument>

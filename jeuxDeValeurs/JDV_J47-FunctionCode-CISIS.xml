@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20201217120000" dateValid="20180330120000" description="Jeux de valeurs des Rôles fonctionnels HL7 et CI-SIS" displayName="JDV_J47-FunctionCode-CISIS.tabs" id="1.2.250.1.213.1.1.5.124" typeFichier="JDV" urlFichier="https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS">
+        <ConceptList>
+            <Concept code="CORRE" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Correspondant"/>
+            <Concept code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+            <Concept code="ADMPHYS" codeSystem="2.16.840.1.113883.5.88" displayName="Responsable de l'admission"/>
+            <Concept code="ATTPHYS" codeSystem="2.16.840.1.113883.5.88" displayName="Référent - Responsable du patient dans la structure de soins"/>
+            <Concept code="DISPHYS" codeSystem="2.16.840.1.113883.5.88" displayName="Responsable de la sortie"/>
+            <Concept code="PCP" codeSystem="2.16.840.1.113883.5.88" displayName="Médecin traitant"/>
+            <Concept code="353" codeSystem="1.2.250.1.213.1.6.1.107" displayName="Membre de l'équipe de soins"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

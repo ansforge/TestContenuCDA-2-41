@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par nmahraz, le 09/03/2022-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008"><ValueSet id="1.2.250.1.213.1.1.5.569" displayName="JDV_ExamenMicroscopiqueZoneInteretReponseTraitementPreOperatoire_CISIS" version="test"><ConceptList><Concept code="MED-739" displayName="TRG0 : réponse complète - absence de cellules tumorale viables" codeSystem="1.2.250.1.213.1.1.4.322"/><Concept code="MED-740" displayName="TRG1 : réponse modérée - cellules tumorales isolées ou rares 
+petits amas de cellules tumorales" codeSystem="1.2.250.1.213.1.1.4.322"/><Concept code="MED-741" displayName="TRG2 : réponse minime - cancer avec régression tumorale 
+évidente, mais persistance de plus que des cellules tumorales isolées ou de rares petits amas de cellules tumorales" codeSystem="1.2.250.1.213.1.1.4.322"/><Concept code="MED-742" displayName="TRG3 : absence de réponse - pas d'aspect de régression tumorale" codeSystem="1.2.250.1.213.1.1.4.322"/></ConceptList></ValueSet></RetrieveValueSetResponse>

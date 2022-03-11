@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20201217120000" dateValid="20180330120000" description="Relation dans la prise en charge du patient" displayName="TRE_R258-RelationPriseCharge.tabs" id="1.2.250.1.213.1.1.4.2.280" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R258-RelationPriseCharge">
+        <ConceptList>
+            <Concept code="CORRE" codeSystem="1.2.250.1.213.1.1.4.2.280" dateFin="" dateMaj="20180330120000" dateValid="20180330120000" displayName="Correspondant" longDesignation="Correspondant" shortDesignation="Correspondant"/>
+            <Concept code="MES" codeSystem="1.2.250.1.213.1.1.4.2.280" dateFin="20190426120000" dateMaj="20190426120000" dateValid="20180330120000" displayName="Membre de l'équipe de soins" longDesignation="Membre de l'équipe de soins" shortDesignation="Membre de l'équipe de soins"/>
+            <Concept code="NUM" codeSystem="1.2.250.1.213.1.1.4.2.280" dateFin="20190426120000" dateMaj="20190426120000" dateValid="20190125120000" displayName="Numérisateur du document de santé" longDesignation="Numérisateur du document de santé" shortDesignation="Numérisateur document santé"/>
+            <Concept code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" dateFin="" dateMaj="20201217120000" dateValid="20201217120000" displayName="Préleveur" longDesignation="Préleveur" shortDesignation="Préleveur"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

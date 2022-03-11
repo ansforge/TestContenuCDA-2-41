@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="rapportSchematronToHtml4.xsl"?><svrl:schematron-output xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:cda="urn:hl7-org:v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:jdv="http://esante.gouv.fr"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:svs="urn:ihe:iti:svs:2008"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        title="Vérification de conformité du document aux spécifications du modèle CNAM-HR_2021.01"
+                        schemaVersion="CI-SIS_CNAM-HR_2021.01.sch"
+                        phase="CI-SIS_CNAM-HR_2021.01"
+                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/CNAM-HR_2021.01.xml"
+                        dateHeure="9/3/2022 à 15:04:36 (temps UTC+01:00)">
+   <svrl:active-pattern id="variables"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:component/cda:structuredBody"/>
+</svrl:schematron-output>

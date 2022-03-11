@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?> 
+<?oxygen SCHSchema="../schematrons/CI-SIS_PPS-PAERPA_2021.01.sch"?>
+<!-- 
+      **********************************************************************************************************
+      Document : Plan Personnalisé de Santé - PAERPA (PPS-PAERPA_2021.01)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************      
+      Historique :   
+      24/08/2021 : Version 2021.01
+      **********************************************************************************************************
+-->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- 
+  **************************************************************************************************************
+	EN TETE DU DOCUMENT
+	**************************************************************************************************************
+    -->
+  <realmCode code="FR" />
+  <!-- Référencement au standard CDAr2 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au modèle de document PPS-PAERPA -->
+  <templateId root="1.2.250.1.213.1.1.1.20" extension="2021.01" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="PPS-PAERPA_2021.01_20210824_001.01" />
+  <!-- Type du document -->
+  <code code="18776-5" displayName="Plan Personnalisé de Soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>Plan personnalisé de santé</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20210824094914+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="PPS-PAERPA_2021.01_20210824_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Avenue de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Avenue de Breteuil</streetName>
+            <unitID>Escalier A</unitID>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- Auteur du document = réferent du PPS (souvent le médecin traitant) -->
+  <author>
+    <time value="20210824094914+0100" />
+    <assignedAuthor>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM36" displayName="Médecin - Oncologie, opt médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <houseNumber>4</houseNumber>
+        <streetName>Rue de Limoges</streetName>
+        <postalCode>49933</postalCode>
+        <city>Angers</city>
+      </addr>
+      <telecom value="tel:0242515151" use="WP" />
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>Müller</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="2801234567897" />
+        <name>Cabinet du Dr.Müller</name>
+        <addr>
+          <houseNumber>4</houseNumber>
+          <streetName>Rue de Limoges</streetName>
+          <postalCode>49933</postalCode>
+          <city>Angers</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Référents amicaux -->
+  <informant>
+    <relatedEntity classCode="CON">
+      <code code="FRND" displayName="Autre proche" codeSystem="2.16.840.1.113883.5.111">
+        <originalText>
+          <reference value="pps" />
+        </originalText>
+      </code>
+      <addr>
+        <streetName>Rue de Paris</streetName>
+        <houseNumber>52</houseNumber>
+        <postalCode>49000</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242515181" use="WP" />
+      <relatedPerson>
+        <name>
+          <family>DUPONT</family>
+          <given>François</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+
+  <!-- Référents familiaux -->
+  <informant>
+    <relatedEntity classCode="CON">
+      <code code="FAMMEMB" displayName="Autre membre de la famille" codeSystem="2.16.840.1.113883.5.111">
+        <originalText>
+          <reference value="pps" />
+        </originalText>
+      </code>
+      <addr>
+        <streetName>Rue de Flandres</streetName>
+        <houseNumber>235</houseNumber>
+        <postalCode>49000</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242515181" use="WP" />
+      <relatedPerson>
+        <name>
+          <family>DECOURCY</family>
+          <given>François</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+
+  <!-- Organisation de santé responsable du document -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Centre de Coordination en Cancérologie d'Angers</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetName>Place du Ralliement</streetName>
+          <houseNumber>12</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable du document -->
+  <legalAuthenticator>
+    <time value="20210824094914+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM36" displayName="Médecin - Oncologie, opt médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <streetName>Rue de Limoges</streetName>
+        <houseNumber>4</houseNumber>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0242515151" use="WP" />
+      <assignedPerson>
+        <name>
+          <given>Charles </given>
+          <family>Müller</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="2801234567897" />
+        <name>Cabinet du Dr.Müller</name>
+        <addr>
+          <streetName>Rue de Limoges</streetName>
+          <houseNumber>4</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Correspondants Médicaux -->
+  
+  <!-- Médecin traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88" />
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="124789224582101" />
+      <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <associatedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles</given>
+          <family>Muller</family>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Clinique Médicale du Mail</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetName>Rue du Mail</streetName>
+          <houseNumber>4</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Contacts utiles: Autres PS: Infirmier -->
+  <participant typeCode="PRF">
+    <functionCode code="353" displayName="Membre de l'équipe de soins" codeSystem="1.2.250.1.213.1.6.1.107" />
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="124789224582101" />
+      <code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr>
+        <streetName>Avenue Georges Clemenceau</streetName>
+        <houseNumber>3</houseNumber>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="tel:0556537597" use="WP" />
+      <associatedPerson>
+        <name>
+          <given>Isabelle</given>
+          <family>LEFRANC</family>
+          <prefix>MME</prefix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <id root="CFC81717-7495-4D87-9474-3D14E4FA79DE" />
+        <name>Cabinet d'infirmières d'Angers</name>
+        <telecom value="tel:0556537597" use="WP" />
+        <addr>
+          <streetName>Avenue Georges Clemenceau</streetName>
+          <houseNumber>3</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Contacts utiles: Médecin - Hématologie (SM) -->
+  <participant typeCode="PRF">
+    <functionCode code="353" displayName="Membre de l'équipe de soins" codeSystem="1.2.250.1.213.1.6.1.107" />
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="124789224458877" />
+      <code code="G15_10/SM21" displayName="Médecin - Hématologie (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <associatedPerson>
+        <name>
+          <given>Nathalie</given>
+          <family>FANCY</family>
+          <prefix>MME</prefix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Clinique Médicale du Mail</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <streetName>Rue du Mail</streetName>
+          <houseNumber>4</houseNumber>
+          <postalCode>49933</postalCode>
+          <city>ANGERS</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Contacts utiles : Centre médicopsychologique participant à l'élaboration du PPS -->
+  <participant typeCode="PRF">
+    <functionCode code="353" displayName="Membre de l'équipe de soins" codeSystem="1.2.250.1.213.1.6.1.107" />
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="787987897987" />
+      <associatedPerson>
+        <name>
+          <given>Pierrette</given>
+          <family>LELONG</family>
+          <prefix>MME</prefix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>CMP d'Angers</name>
+        <telecom value="mailto:contact@cmpangers.fr" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+
+  <!-- Contacts utiles : Pharmacien -->
+  <participant typeCode="INF">
+    <functionCode code="CORRE" displayName="Correspondant" codeSystem="1.2.250.1.213.1.1.4.2.280"/>
+    <time nullFlavor="NA"/>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="787987897987"/>
+      <code code="G15_21/A" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Pharmacien titulaire d'officine"/>
+      <addr>
+        <streetName>Rue des 3 bornes</streetName>
+        <houseNumber>4</houseNumber>
+        <postalCode>49933</postalCode>
+        <city>ANGERS</city>
+      </addr>
+      <telecom value="mailto:jean.martin@pharmacien-xxxx.fr" />
+      <telecom value="tel:02784400" />
+      <associatedPerson>
+        <name>
+          <family>Martin</family>
+          <given>Jean</given>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+      <scopingOrganization>
+        <name>Pharmacie d'Angers</name>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  
+  <!-- Acte documenté : le PPS -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <code code="18776-5" displayName="Plan Personnalisé de Soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+      <!-- Date de la création du document -->
+      <effectiveTime>
+        <low value="20210824094914+0100" />
+      </effectiveTime>
+      <!-- La personne ayant réalisé l'acte principal du document : le référent -->
+      <performer typeCode="PRF">
+        <time>
+          <high value="20210824094914+0100" />
+        </time>
+        <assignedEntity>
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <code code="G15_10/SM36" displayName="Médecin - Oncologie, opt médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+          <addr>
+            <streetName>Rue de Limoges</streetName>
+            <houseNumber>4</houseNumber>
+            <postalCode>49933</postalCode>
+            <city>ANGERS</city>
+          </addr>
+          <telecom value="tel:0242515151" use="WP" />
+          <assignedPerson>
+            <name>
+              <given>Charles </given>
+              <family>Müller</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="2801234567897" />
+            <name>Cabinet du Dr.Müller</name>
+            <addr>
+              <streetName>Rue de Limoges</streetName>
+              <houseNumber>4</houseNumber>
+              <postalCode>49933</postalCode>
+              <city>ANGERS</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Consentement du patient à l'échange des données contenues dans le PPS -->
+  <authorization typeCode="AUTH">    
+    <consent classCode="CONS" moodCode="EVN">
+      <code code="IDSCL" displayName="Consentement du patient au partage des informations collectées" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActConsentType"/>
+      <statusCode code="completed"/>      
+    </consent>
+  </authorization>
+  
+  <!-- Contexte organisationnel du PPS -->
+  <componentOf>
+    <encompassingEncounter>
+      <!-- Type de la rencontre -->
+      <code code="VR" displayName="Virtuelle" codeSystem="2.16.840.1.113883.5.4" />
+      <!-- Date de la réunion du PPS -->
+      <effectiveTime nullFlavor="NA"/>
+      <!-- Référent du PPS -->
+      <responsibleParty>
+        <assignedEntity classCode="ASSIGNED">
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <code code="G15_10/SM36" displayName="Médecin - Oncologie, opt médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+          <addr>
+            <streetName>Rue de Limoges</streetName>
+            <houseNumber>4</houseNumber>
+            <postalCode>49933</postalCode>
+            <city>ANGERS</city>
+          </addr>
+          <telecom value="tel:0242515151" use="WP" />
+          <assignedPerson>
+            <name>
+              <given>Charles </given>
+              <family>Müller</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+        </assignedEntity>
+      </responsibleParty>
+      <!-- Lieu de prise en charge  -->
+      <location typeCode="LOC">
+        <healthCareFacility>
+          <code code="SA51" codeSystem="1.2.250.1.71.4.2.4" displayName="Réseau de santé" />
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      
+      <!-- [1..1] Section FR-Problemes-actifs -->
+      <component>
+        <section>
+          <!-- Problems Section (CCD) -->
+          <templateId root="2.16.840.1.113883.10.20.1.11" />
+          <!-- Active Problems Section (IHE PCC) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <!-- FR-Problemes-actifs (FR CI-SIS) -->
+          <templateId root="1.2.250.1.213.1.1.2.132" />
+          <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+          <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>ALD</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Nombre d'ALD</th>
+                </tr>
+                <tr>
+                  <td><content ID="nombre-ALD">3</content></td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée FR-Liste-des-problemes -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <!-- Problem Act (CCD) -->
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Concern Entry (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <!-- Problem Concern Entry (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- FR-Liste-des-problemes (CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.39" />
+              <id root="12DA3A06-18E7-40B7-9397-1FA5B1552472" />
+              <code nullFlavor="NA" />
+              <statusCode code="active" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20210824" />
+              </effectiveTime>
+              <!-- [1..1] Entrée FR-Probleme (ALD) -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Problem observation (CCD) -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Problem Entry (IHE PCC) -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- FR-Probleme (FR CI-SIS) -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="12DA3A06-18E7-40B7-9397-1FA5B1552472" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#ALD" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20210824" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="MED-320" displayName="Affection longue durée (ALD)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                    <originalText>
+                      <reference value="#ALD" />
+                    </originalText>
+                  </value>
+                  <!-- [1..1] Entrée FR-Commentaire-ER : Nombre d'ALD -->
+                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                    <act classCode="ACT" moodCode="EVN">
+                      <!-- Comment (CCD) -->
+                      <templateId root="2.16.840.1.113883.10.20.1.40" />
+                      <!-- Comment Entry (IHE PCC) -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                      <!-- Comment FR-Commentaire-ER (FR CI-SIS) -->
+                      <templateId root="1.2.250.1.213.1.1.3.32" />
+                      <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                      <text><reference value="#nombre-ALD"/></text>
+                      <statusCode code="completed" />
+                    </act>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>          
+        </section>
+      </component>
+      
+      <!-- [1..1] Section FR-Directives-anticipees -->
+      <component>
+        <section>
+          <!-- Advanced directives (CCD) -->
+          <templateId root="2.16.840.1.113883.10.20.1.1" />             
+          <!-- Advanced directives (IHE PCC) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.34" />          
+          <!-- coded Advanced directives (IHE PCC) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.35" />    
+          <!-- FR-Directives-anticipees (FR CI-SIS) -->
+          <templateId root="1.2.250.1.213.1.1.2.157" />
+          <id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE"/>
+          <code code="42348-3" displayName="Directives anticipées" 
+            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Directives anticipées</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Directive anticipées</th>
+                </tr>
+              </thead>
+              <tbody>               
+                <tr>
+                  <td><content ID="directives-anticipees">oui</content></td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          
+          <!-- [1..*] Entrée FR-Directive-anticipee : Directives anticipées (O/N) -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Advance directive observation (CCD) -->
+              <templateId root="2.16.840.1.113883.10.20.1.17"/>
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Advance Directive Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7"/>
+              <!-- FR-Directive-Anticipee (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.54"/>
+              <id root="EB45376A-18AF-4D64-AE2D-592C04302205"/>
+              <code code="42348-3" codeSystem="2.16.840.1.113883.6.1"
+                displayName="Directives anticipées" codeSystemName="LOINC"/>
+              <text><reference value="#directives-anticipees"/></text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20210824100000"/>
+                <high value="20210824101000"/>
+              </effectiveTime>
+              <value xsi:type="BL" value="true"/>
+            </observation>
+          </entry>          
+          
+        </section>        
+      </component>
+      
+      <!-- Section FR-Dispositions-medico-sociales -->
+      <component>
+        <section>
+          <!-- FR-Dispositions-medico-sociales (FR CI-SIS) -->
+          <templateId root="1.2.250.1.213.1.1.2.44" />
+          <id root="246B36ED-6A68-4EF5-9F9A-5A45C3CFAB1A" />
+          <code code="34841-7" displayName="Dispositions médico-sociales" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Dispositions médico-sociales</title>
+          <text>            
+            <table>
+              <tbody>
+                <tr>
+                  <th>Préférences et priorités</th>
+                  <th>Précision</th>
+                </tr>
+                <tr>
+                  <td>Préférences de la personne</td>
+                  <td>
+                    <content ID="pref">Aucune</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Priorité actuelle de la personne</td>
+                  <td>
+                    <content ID="priorite">Aucune</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table>
+              <tbody>
+                <tr>
+                  <th>Dispositions médico-sociales</th>
+                  <th>Précision</th>
+                </tr>
+                <tr>
+                  <td>Caisse de retraite</td>
+                  <td>
+                    <content ID="cretraite1">Caisse de retraite d'Angers</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pension</td>
+                  <td>Oui</td>
+                </tr>
+                <tr>
+                  <td>Pension de réversion</td>
+                  <td>Non</td>
+                </tr>
+                <tr>
+                  <td>ASPA (Allocation de Solidarité aux Personnes Âgées)</td>
+                  <td>Non</td>
+                </tr>
+                <tr>
+                  <td>Mutuelle</td>
+                  <td>
+                    Oui / <content ID="mutuelle1">Mutuelle d'Angers</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Aide aux Personnes Âgées (APA)</td>
+                  <td>Oui / Classe GIR: 2</td>
+                </tr>
+                <tr>
+                  <td>Recherche d'hébergement en cours</td>
+                  <td>Non</td>
+                </tr>
+              </tbody>
+            </table>            
+          </text>          
+          
+          <!-- Entrée FR-Simple-Observation : Priorités actuelles de la personne -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">              
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="126DF3D7-B0E3-4D4C-A745-DE2A3DA5511F" />
+              <code code="PAT-009" displayName="Priorités actuelles de la personne" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference nullFlavor="NA" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#priorite" />
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          
+          <!-- Entrée FR-Simple-Observation : Préférences de la personne -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="9F39435B-E4F9-4797-8D92-B33F2ACE29DC" />
+              <code code="PAT-008" displayName="Préférences de la personne" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference nullFlavor="NA" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#pref" />
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+                  
+          <!-- Entrée FR-Simple-Observation : Caisse de retraite -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="37837ADE-5865-4FFC-8D6B-4F55098FC36E" />
+              <code code="PAT-001" displayName="Caisse de retraite" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference nullFlavor="NA" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#cretraite1" />
+                </originalText>
+              </value>
+              <!-- [1..1] Entrée FR-Simple-Observation : Pension -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="D7A8D838-62C3-4C80-AB9A-9CBFE652FD20" />
+                  <code code="PAT-003" displayName="Pension" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference nullFlavor="NA" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!-- [1..1] Entrée FR-Simple-Observation : Pension de réversion -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="D7A8D838-62C3-4C80-AB9A-9CBFE652FD20" />
+                  <code code="PAT-004" displayName="Pension de réversion" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference nullFlavor="NA" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+              <!-- [1..1] Entrée FR-Simple-Observation : ASPA (Allocation de Solidarité aux Personnes Âgées) -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="D7A8D838-62C3-4C80-AB9A-9CBFE652FD20" />
+                  <code code="PAT-005" displayName="ASPA (Allocation de Solidarité aux Personnes Âgées)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference nullFlavor="NA" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="BL" value="false" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+
+          <!-- Entrée FR-Simple-Observation : Mutuelle -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="3FAC4E8E-7394-4351-98A1-7AB0FA16444D" />
+              <code code="PAT-002" displayName="Mutuelle" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference nullFlavor="NA" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="NA" />
+              <value xsi:type="BL" value="true" />
+              <!-- Nom de la mutuelle -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="BC13370F-997D-430C-AF00-A9EB0061FC35" />
+                  <code code="PAT-002" displayName="Mutuelle" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference nullFlavor="NA" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#mutuelle1" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+
+          <!-- Entrée FR-Simple-Observation : APA - Aide aux Personnes Âgées -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="94B867F7-60C5-41B9-AB1A-CA6E4B16B209" />
+              <code code="PAT-006" displayName="Aide aux Personnes Âgées (APA)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference nullFlavor="NA" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="BL" value="true" />
+              <!-- Classe GIR -->
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="87C13E9A-8B07-4714-A500-8EDE5E1106F5" />
+                  <code code="PAT-007" displayName="Classe GIR" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference nullFlavor="NA" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="UNK" />
+                  <value xsi:type="INT" value="2" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+
+          <!-- Entrée FR-Simple-Observation : Recherche d'hébergement en cours -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN" negationInd="false">
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="921253C9-B120-425D-9AE6-7153510B0242" />
+              <code code="ORG-013" displayName="Recherche d'hébergement en cours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference nullFlavor="NA" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>        
+          
+        </section>
+      </component>
+
+      <!-- Section FR-Plan-de-soins -->
+      <component>
+        <section>
+          <!-- Care Plan Section (CCD) -->
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <!-- Plan of care Section (IHE PCC) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <!-- FR-Plan-de-soins (FR CI-SIS) -->
+          <templateId root="1.2.250.1.213.1.1.2.158" />
+          <id root="41FEABE2-D1D7-4390-8CD5-F5BC78E07B7D" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Plan de soins / Plan d'aides</title>
+          <text>
+            <table>
+              <thead>
+                <tr>
+                  <th>Problème</th>
+                  <th>Objectifs partagés</th>
+                  <th>Actions (dont ETP)</th>
+                  <th>Intervenants</th>
+                  <th>Critères d'atteinte des résultats</th>
+                  <th>Bilan d'étape (avec date)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="probleme-01">Problème de mobilité : Risque de chute</content>
+                  </td>
+                  <td>
+                    <content ID="objectif-01">(texte libre)</content>
+                  </td>
+                  <td>
+                    <content ID="action-01">(texte libre)</content>
+                  </td>
+                  <td>Kiné</td>
+                  <td>
+                    <content ID="critere-01">(texte libre)</content>
+                  </td>
+                  <td>
+                    <content ID="bilan-01">(texte libre)</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="probleme-02">Isolement : Isolement géographique</content>
+                  </td>
+                  <td>
+                    <content ID="objectif-02">(texte libre)</content>
+                  </td>
+                  <td>
+                    <content ID="action-02">(texte libre)</content>
+                  </td>
+                  <td>Assistante sociale</td>
+                  <td>
+                    <content ID="critere-02">(texte libre)</content>
+                  </td>
+                  <td>
+                    <content ID="bilan-02">(texte libre)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          
+          <!-- [1..*] Entrée FR-Demande-d-examen-ou-de-suivi -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Plan of care activity (CCD) -->
+              <templateId root='2.16.840.1.113883.10.20.1.25'/>
+              <!-- Observation Request (IHE PCC) -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+              <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+              <templateId root='1.2.250.1.213.1.1.3.27'/>
+              <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F46" />
+              <!-- valeur issue du JDV_ProblemePPSPAERPA-CISIS (1.2.250.1.213.1.1.5.37) -->
+              <code code="MED-057" displayName="Problème de mobilité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              <!-- Précision sur le problème identifié -->
+              <text><reference value="#probleme-01"/></text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NAV" />
+              <!-- Objectifs partagés (texte libre) -->
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#objectif-01" />
+                </originalText>
+              </value>        
+              
+              <!-- [0..*] Entrée FR-Demande-d-examen-ou-de-suivi : Actions et intervenants -->
+              <entryRelationship typeCode="SPRT">
+                <observation classCode="OBS" moodCode="GOL">
+                  <!-- Plan of care activity (CCD) -->
+                  <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                  <!-- Observation Request (IHE PCC) -->
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                  <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+                  <templateId root='1.2.250.1.213.1.1.3.27'/>
+                  <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F76" />
+                  <code code="ORG-014" displayName="Actions dont ETP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#action-01" />
+                  </text>                  
+                  <statusCode code="active" />
+                  <effectiveTime nullFlavor="NAV" />                  
+                  <!-- [0..*] Libellé des actions dont ETP (texte libre) -->
+                  <value xsi:type="CD" nullFlavor="NAV"/>
+                  <!-- [0..*] FR-Participant -->
+                  <participant typeCode="PRF">
+                    <templateId root="1.2.250.1.213.1.1.3.109"/>
+                    <time nullFlavor="UNK"/>
+                    <participantRole>
+                      <addr nullFlavor="UNK"/>
+                      <telecom nullFlavor="UNK"/>
+                      <playingEntity>
+                        <name>Kiné</name>
+                      </playingEntity>										  
+                    </participantRole>
+                  </participant> 
+                </observation>
+              </entryRelationship>
+              
+              <!-- [0..*] Entrée FR-Simple-Observation : Critères et Bilan d'étape -->
+              <entryRelationship typeCode="GEVL">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Simple Observation (IHE PCC) -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- FR-Simple-Observation (FR CI-SIS) -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="9F39435B-E4F9-4797-8D92-B33F2ACE29DC" />
+                  <code code="ORG-012" displayName="Bilan d'étape" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                  <text>
+                    <reference nullFlavor="NA" />
+                  </text>
+                  <statusCode code="completed" />
+                  <!-- Date du bilan -->
+                  <effectiveTime value="20211220"/>
+                  <!-- Bilan (texte libre) -->
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#bilan-01" />
+                    </originalText>
+                  </value>        
+                  <!-- Critères (texte libre) -->
+                  <precondition>
+                    <criterion>
+                      <text>
+                        <reference value="critere-01"/>                        
+                      </text>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+          
+          <!-- [1..*] Entrée FR-Demande-d-examen-ou-de-suivi -->
+          <entry>
+            <observation classCode="OBS" moodCode="GOL">
+              <!-- Plan of care activity (CCD) -->
+              <templateId root='2.16.840.1.113883.10.20.1.25'/>
+              <!-- Observation Request (IHE PCC) -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+              <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+              <templateId root='1.2.250.1.213.1.1.3.27'/>
+              <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F46" />
+              <!-- valeur issue du JDV_ProblemePPSPAERPA-CISIS (1.2.250.1.213.1.1.5.37) -->
+              <code code="MED-058" displayName="Isolement" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+              <!-- Précision sur le problème identifié -->
+              <text><reference value="#probleme-02"/></text>
+              <statusCode code="active" />
+              <effectiveTime nullFlavor="NAV" />
+              <!-- Objectifs partagés (texte libre) -->
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#objectif-02" />
+                </originalText>
+              </value>        
+              
+              <!-- [0..*] Entrée FR-Demande-d-examen-ou-de-suivi : Actions et intervenants -->
+              <entryRelationship typeCode="SPRT">
+                <observation classCode="OBS" moodCode="GOL">
+                  <!-- Plan of care activity (CCD) -->
+                  <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                  <!-- Observation Request (IHE PCC) -->
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                  <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+                  <templateId root='1.2.250.1.213.1.1.3.27'/>
+                  <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F76" />
+                  <code code="ORG-014" displayName="Actions dont ETP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                  <text>
+                    <reference value="#action-02" />
+                  </text>                  
+                  <statusCode code="active" />
+                  <effectiveTime nullFlavor="NAV" />                  
+                  <!-- [0..*] Libellé des actions dont ETP (texte libre) -->
+                  <value xsi:type="CD" nullFlavor="NAV"/>
+                  <!-- [0..*] FR-Participant -->
+                  <participant typeCode="PRF">
+                    <templateId root="1.2.250.1.213.1.1.3.109"/>
+                    <time nullFlavor="UNK"/>
+                    <participantRole>
+                      <addr nullFlavor="UNK"/>
+                      <telecom nullFlavor="UNK"/>
+                      <playingEntity>
+                        <name>Assistante sociale</name>
+                      </playingEntity>										  
+                    </participantRole>
+                  </participant> 
+                </observation>
+              </entryRelationship>
+              
+              <!-- [0..*] Entrée FR-Simple-Observation : Critères et Bilan d'étape -->
+              <entryRelationship typeCode="GEVL">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Simple Observation (IHE PCC) -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- FR-Simple-Observation (FR CI-SIS) -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="9F39435B-E4F9-4797-8D92-B33F2ACE29DC" />
+                  <code code="ORG-012" displayName="Bilan d'étape" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                  <text>
+                    <reference nullFlavor="NA" />
+                  </text>
+                  <statusCode code="completed" />
+                  <!-- Date du bilan -->
+                  <effectiveTime value="20211220"/>
+                  <!-- Bilan (texte libre) -->
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#bilan-02" />
+                    </originalText>
+                  </value>        
+                  <!-- Critères (texte libre) -->
+                  <precondition>
+                    <criterion>
+                      <text>
+                        <reference value="critere-02"/>                        
+                      </text>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+          
+        </section>
+      </component>
+
+      <!-- Section FR-Statut-du-document (En cours / Complété / Validé) -->
+      <component>
+        <section>
+          <!-- FR-Statut-du-document (FR CI-SIS) --> 
+          <templateId root="1.2.250.1.213.1.1.2.35" />
+          <id root="C5A8924F-A134-400E-8A65-E52BEF720DFD" />
+          <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Statut du document</title>
+          <text>
+            <content ID="statutDoc">Statut du document : validé le 24/08/2021</content>
+          </text>
+          <!-- Entrée FR-Statut-document -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Simple Observation (IHE PCC) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- FR-Statut-document (FR CI-SIS) -->
+              <templateId root="1.2.250.1.213.1.1.3.48.16" />
+              <id root="D5279804-D9A7-41DF-820E-B5D8C344828B"/>
+              <code code="GEN-065" displayName="Statut du document" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="statutDoc"/>                
+              </text>
+              <statusCode code="completed" />
+              <!-- Date du statut du document -->
+              <effectiveTime value="20210824" />
+              <!-- Statut du document -->
+              <value xsi:type="CD" code="GEN-068" displayName="Validé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+
+    </structuredBody>
+  </component>
+</ClinicalDocument>

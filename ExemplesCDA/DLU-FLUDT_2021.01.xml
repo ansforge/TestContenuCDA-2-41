@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_DLU-FLUDT_2021.01.sch"?>
+<!-- 
+      *************************************************************************
+      Document : Dossier de liaison d'urgence (DLU-FLUDT_2021.01)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:            
+      11/06/2018 : Correction d'erreurs suite à la mise à jour des schématrons  
+      26/08/2020 : Amélioration mise en forme du document (pas de modification technique)   
+	  09/09/2020 : Correctifs vs Art Decor
+	  06/01/2021 : Nouvelle version 2021.01 :
+	  -	Ajoût du numéro de version pour différencier les différentes versions du modèle DLU-FLUDT
+	  - Remplacement des sections FR-Raison-de-la-recommandation-non-code (motif du transfert) et FR-Historique-prises-en-charge-medicales (description du transfert) 
+	    par la nouvelle section FR-Resultats-evenements qui comprend une entrée FR-Simple-Observation pour le motif et 
+	    une entrée FR-Transfert-du-patient pour la description du transfert.
+	  -	Section Evaluation fonctionnelle du sommeil et de l’alimentation / Entrée FR-Simple-Observation : Utilisation du code GEN-244 "Date et heure du dernier repas"
+	  - Remplacement de la section FR-Commentaire-Asip (1.2.250.1.213.1.1.2.47) par la section FR-Commentaire-non-code (1.2.250.1.213.1.1.2.73) qui ne contient pas d’entrée. 
+      **********************************************************************************************************
+ -->
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd">
+  <!-- 
+      ********************************************************
+      Entête du document
+      ********************************************************
+	-->
+  <realmCode code="FR" />
+  <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+  <!-- Conformité aux spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité aux spécifications du CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Conformité au modèle DLU-FLUDT v2021.01 -->
+  <templateId root="1.2.250.1.213.1.1.1.23" extension="2021.01" />
+  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
+  <id root="1.2.250.1.213.1.1.9" extension="DLU-FLUDT_2021.01_20200327_001_1" />
+  <!-- Type de document -->
+  <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title> FICHE DE LIAISON D'URGENCE/DOCUMENT DE TRANSFERT DE L'EHPAD VERS LE SERVICE DES
+		URGENCES</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20200327153500+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant commun à toutes les versions successives du document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="DLU-FLUDT_2021.01_20200327_001" />
+  <!-- Numéro de la version du présent document (entier positif) -->
+  <versionNumber value="1" />
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8" />
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Av de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H" />
+      <telecom value="tel:0647151010" use="MC" />
+      <telecom value="mailto:ruth.decourcy@mail.fr" />
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19770714" />
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Av de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H" />
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <!-- Auteur du document -->
+  <author>
+    <time value="20200327153500+0100" />
+    <assignedAuthor>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Qualifié en Médecine Générale (SM)" />
+      <addr>
+        <houseNumber>142</houseNumber>
+        <streetName>Rue du Belvédère</streetName>
+        <postalCode>92100</postalCode>
+        <city>BOULOGNE-BILLANCOURT</city>
+      </addr>
+      <telecom value="tel:0131931902" use="DIR" />
+      <telecom value="tel:0605061902" use="EC" />
+      <assignedPerson>
+        <name>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+          <given>Charles</given>
+          <family>BOILEAU</family>
+        </name>
+      </assignedPerson>
+      <!-- ES de rattachement du PS -->
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>EHPAD DE BOULOGNE-BILLANCOURT</name>
+        <telecom value="tel:0131931902" use="DIR" />
+        <telecom value="tel:0605061902" use="EC" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue du Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111" />
+      <addr nullFlavor="NAV" />
+      <telecom value="tel:0647150100" use="MC" />
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111" />
+      <addr nullFlavor="NAV" />
+      <telecom value="tel:0647150100" use="MC" />
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  <!-- Organisation de santé responsable du document -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>EHPAD DE BOULOGNE-BILLANCOURT</name>
+        <telecom value="tel:0131931902" use="DIR" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue du Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <!-- Destinataire en copie du document (le médecin traitant) -->
+  <informationRecipient>
+    <intendedRecipient>
+      <id root="1.2.250.1.71.4.2.1" extension="801234545872" />
+      <addr>
+        <houseNumber>38</houseNumber>
+        <streetName>Rue Jean Moulin</streetName>
+        <postalCode>92000</postalCode>
+        <city>NANTERRE</city>
+      </addr>
+      <telecom value="tel:0175693567" use="WP" />
+      <informationRecipient>
+        <name>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+          <given>Pierre</given>
+          <family>PETIT</family>
+        </name>
+      </informationRecipient>
+      <receivedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1137051849" />
+        <name>CHU DE NANTERRE</name>
+        <telecom value="tel:0175693567" use="WP" />
+        <addr>
+          <houseNumber>38</houseNumber>
+          <streetName>Rue Jean Moulin</streetName>
+          <postalCode>92000</postalCode>
+          <city>NANTERRE</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+  <!-- Signataire légal du document -->
+  <legalAuthenticator>
+    <time value="20200327153500+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <!-- PS identifié par son N°RPPS -->
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Qualifié en Médecin Générale (SM)" />
+      <addr>
+        <houseNumber>142</houseNumber>
+        <streetName>Rue du Belvédère</streetName>
+        <postalCode>92100</postalCode>
+        <city>BOULOGNE-BILLANCOURT</city>
+      </addr>
+      <telecom value="tel:0131931902" use="DIR" />
+      <telecom value="tel:0605061902" use="EC" />
+      <assignedPerson>
+        <name>
+          <suffix>DR</suffix>
+          <given>Charles</given>
+          <family>BOILEAU</family>
+        </name>
+      </assignedPerson>
+      <!-- ES de rattachement du PS -->
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>EHPAD DE BOULOGNE-BILLANCOURT</name>
+        <telecom value="tel:0131931902" use="DIR" />
+        <telecom value="tel:0605061902" use="EC" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue du Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>BOULOGNE-BILLANCOURT</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <!-- Médecin traitant =-->
+  <participant typeCode="INF">
+    <functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" displayName="Médecin Traitant" />
+    <time xsi:type="IVL_TS">
+      <low value="20200327153500+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>PARIS</city>
+      </addr>
+      <telecom value="tel:0147150000" use="WP" />
+      <associatedPerson>
+        <name>
+          <prefix>M</prefix>
+          <suffix>DR</suffix>
+          <given>Stéphane</given>
+          <family>MEDIONI</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+  <!-- Acte documenté par le document -->
+  <documentationOf>
+    <serviceEvent>
+      <code code="28651-8" displayName="Transfert du patient au service des urgences" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <low value="20200327175000+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <!-- N° RPPS du PS -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <addr nullFlavor="NASK" />
+          <telecom nullFlavor="NASK" />
+          <assignedPerson>
+            <name>
+              <given>Charles </given>
+              <family>BOILEAU</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <!-- Numéro FINESS de l'ES  -->
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>EHPAD DE BOULOGNE-BILLANCOURT</name>
+            <telecom value="tel:0131931902" use="EC" />
+            <addr>
+              <houseNumber>142</houseNumber>
+              <streetName>Rue Belvédère</streetName>
+              <postalCode>92100</postalCode>
+              <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <!-- Contexte de la prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <code code="IMP" displayName="Consultation interne à la structure de soins" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActEncounterCode" />
+      <effectiveTime>
+        <high value="20200327175000+0100" />
+      </effectiveTime>
+      <responsibleParty>
+        <assignedEntity>
+          <!-- N° RPPS du PS -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <addr nullFlavor="NASK" />
+          <telecom nullFlavor="NASK" />
+          <assignedPerson>
+            <name>
+              <given>Charles </given>
+              <family>BOILEAU</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <!-- Numéro FINESS de l'ES  -->
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>EHPAD DE BOULOGNE-BILLANCOURT</name>
+            <telecom value="tel:0131931902" use="DIR" />
+            <telecom value="tel:0605061902" use="EC" />
+            <addr>
+              <houseNumber>142</houseNumber>
+              <streetName>Rue du Belvédère</streetName>
+              <postalCode>92100</postalCode>
+              <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </responsibleParty>
+      <location>
+        <healthCareFacility>
+          <code code="SA17" displayName="Etablissement pour personnes âgées" codeSystem="1.2.250.1.71.4.2.4" />
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+    -->
+  <component>
+    <structuredBody>
+      <!-- [1..1] Section FR-Resultats-evenements : Transfert du patient de l'EHPAD vers le SU -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC Event Outcomes -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+          <!-- Conformité IHE PCC Coded Event Outcomes -->
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.163"/>
+          <id root="BCE86697-249D-431B-A97C-1AC53B70BC89" />
+          <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Transfert du patient de l'EHPAD vers le SU</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Transfert</th>
+                  <th>Précision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="transfert-motif">Motif</content>
+                  </td>
+                  <td>La patiente présente un problème respiratoire.</td>
+                </tr>
+                <tr>
+                  <td>Date</td>
+                  <td>le 27 mars 2020 à 15h35</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="transfert-ES">Etablissement</content>
+                  </td>
+                  <td>Service des urgences du CHU de Nanterre</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [0..1] Entrée FR-Simple-Observation : Motif du transfert  -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="2914B83F-B6EB-4DD4-9178-7C737E4B35B1" />
+              <code code="57277-6" displayName="Motif du transfert vers le service des urgences" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#transfert-motif" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="CD">
+                <originalText>
+                  <reference value="#transfert-motif">
+                  </reference>
+                </originalText>
+              </value>
+            </observation>
+          </entry>
+          <!-- [1..*] Entrée FR-Transfert-du-patient : Transfert du résident en service des urgences (SU) -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.28"/>
+              <id root="6DA489A9-D085-4D7E-B669-1EC4973EFA64" />
+              <code code="80413-8" displayName="Transfert du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#transfert-ES" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20200327153500+0100" />
+                <high value="20200327154500+0100" />
+              </effectiveTime>
+              <participant typeCode="DST">
+                <!-- Identifiant de l'ES de destination -->
+                <templateId root="1.2.250.1.71.4.2.2" extension="1137051849" />
+                <participantRole classCode="SDLOC">
+                  <!-- Identifiant de l’entité ayant effectué le transfert -->
+                  <id root="B0305026-22FA-4619-9CFC-D88DF93B7658" />
+                  <!-- Type de l’établissement de destination -->
+                  <code code="SA01" displayName="Etablissement public de santé" codeSystem="1.2.250.1.71.4.2.4" />
+                  <!-- Adresse de l’établissement de destination -->
+                  <addr>
+                    <houseNumber>38</houseNumber>
+                    <streetName>Rue Jean Moulin</streetName>
+                    <postalCode>92000</postalCode>
+                    <city>NANTERRE</city>
+                  </addr>
+                  <telecom value="tel:0175693567" use="WP" />
+                  <!-- Établissement de destination -->
+                  <playingEntity classCode="ENT">
+                    <name>CHU DE NANTERRE</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- [1..1] Section FR-Signes-vitaux : Pouls / Température / Poids / Tension artérielle haute / Tension artérielle basse -->
+      <component>
+        <section>
+          <!-- Conformité CCD Parent Template Vital Signs -->
+          <templateId root="2.16.840.1.113883.10.20.1.16"/>
+          <!-- Conformité IHE PCC Vital Signs narrative -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25"/>
+          <!-- Conformité IHE PCC Coded Vital Signs -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.75"/>
+          <code code="8716-3" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Constantes du patient</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th align="left">Constante</th>
+                  <th>Mesure</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="pouls">Pouls</content>
+                  </td>
+                  <td>80 /min</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="temp">Température</content>
+                  </td>
+                  <td>37 °C</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="poids">Poids récent</content>
+                  </td>
+                  <td>80 kg</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="tensionH">Tension artérielle haute</content>
+                  </td>
+                  <td>155 mm[Hg]</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="tensionB">Tension artérielle basse</content>
+                  </td>
+                  <td>85 mm[Hg]</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..1] Entrée FR-Signes-vitaux -->
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CCD Result organizer -->
+              <templateId root="2.16.840.1.113883.10.20.1.32"/>
+              <!-- Conformité CCD Vital signs organizer -->
+              <templateId root="2.16.840.1.113883.10.20.1.35"/>
+              <!-- Conformité IHE PCC Vital Signs Organizer -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.49"/>
+              <id root="0E08A205-50D2-48E4-8F11-029DE794264F" />
+              <!--<code code="F-03400" displayName="Signes vitaux" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />-->
+              <code code="85353-1" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <!-- [1..*] Entrée FR-Signe-vital-observe : Pouls -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CCD Result observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
+                  <id root="32DD091E-8820-4E21-A08C-527B96F0EF3A" />
+                  <code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Fréquence cardiaque" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="pouls">
+                    </reference>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20200327153500+0100" />
+                  <value xsi:type="PQ" value="80" unit="/min" />
+                </observation>
+              </component>
+              <!-- [1..*] Entrée FR-Signe-vital-observe : Température -->
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CCD Result observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
+                  <id root="0E08A205-50D2-48E4-8F11-029DE794264F" />
+                  <code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Température corporelle" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#temp"/>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20200327153500+0100" />
+                  <value xsi:type="PQ" value="37" unit="Cel" />
+                </observation>
+              </component>
+              <!-- [1..*] Entrée FR-Signe-vital-observe : Poids récent -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CCD Result observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
+                  <id root="3237D4E1-402A-43A5-B905-0D0A8442B634" />
+                  <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Poids" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#poids"/>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20200327153500+0100" />
+                  <value xsi:type="PQ" value="80" unit="kg" />
+                </observation>
+              </component>
+              <!-- [1..*] Entrée FR-Signe-vital-observe : Tension artérielle haute -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CCD Result observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
+                  <id root="22C8375A-5B6E-4600-8E42-9CEBE15988DB" />
+                  <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Pression artérielle systolique" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#tensionH"/>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20200327153500+0100" />
+                  <value xsi:type="PQ" value="155" unit="mm[Hg]" />
+                </observation>
+              </component>
+              <!-- [1..*] Entrée FR-Signe-vital-observe : Tension artérielle basse -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CCD Result observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
+                  <id root="842AD920-6A99-4841-AAA9-3E212F9D1B92" />
+                  <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Pression artérielle diastolique" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#tensionB"/>
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20200327153500+0100" />
+                  <value xsi:type="PQ" value="85" unit="mm[Hg]" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <!-- [1..1] Section FR-Resultats-examens : Patient Conscient et éveillé / Eveillable / Non éveillable + Douleurs récentes -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+          <!-- Conformité IHE PCC parent (Hospital Studies Summary) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+          <!-- Conformité CI-SIS -->            
+          <templateId root="1.2.250.1.213.1.1.2.151"/>
+          <id root="2914B83F-B6EB-4DD4-9178-7C737E4B35B1" />
+          <code code="30954-2" displayName="Résultats d'examens" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Observations</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Observation</th>
+                  <th>Résultat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="etat-conscience">Etat de conscience</content>
+                  </td>
+                  <td>Conscient et éveillé</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="douleur">Douleur récente</content>
+                  </td>
+                  <td>
+                    <content ID="douleur-localisation-01">Membre inférieur</content>
+                    <br />
+                    <content ID="douleur-localisation-02">Bras droit</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée FR-Acte : utiliser ici un code nullFlavor="NA" -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->            
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
+              <id root="2914B83F-B6EB-4DD4-9178-7C737E4B35B1" />
+              <code nullFlavor="NA" />
+              <text>
+                <reference value="#xxx" />
+              </text>
+              <statusCode code="cancelled" />
+              <effectiveTime value="20200327153500+0100" />
+            </procedure>
+          </entry>
+          <!-- [0..1] Entrée FR-Simple-Observation : Conscient et éveillé  -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="2914B83F-B6EB-4DD4-9178-7C737E4B35B1" />
+              <code code="DLU_002" displayName="Conscient et éveillé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#etat-conscience" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- [0..*] Entrée FR-Simple-Observation : Douleur récente  -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="2914B83F-B6EB-4DD4-9178-7C737E4B35B1" />
+              <code code="R52.9" displayName="Douleur" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+              <text>
+                <reference value="#douleur" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <!-- Entrée FR-Simple-Observation : Localisation de la douleur -->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="24314A2F-4243-4E0F-ACCB-70231A787700" />
+                  <code code="39111-0" displayName="Localisation anatomique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#douleur-localisation-01" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#douleur-localisation-01" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+              <!-- Entrée FR-Simple-Observation : Localisation de la douleur -->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="24314A2F-4243-4E0F-ACCB-70231A787700" />
+                  <code code="39111-0" displayName="Localisation anatomique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#douleur-localisation-01" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD" code="24895" displayName="Bras droit" codeSystem="2.16.840.1.113883.6.119" codeSystemName="FMA">
+                    <originalText>
+                      <reference value="#douleur-localisation-02" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+          <!-- [0..*] Entrée FR-Simple-Observation : Douleur récente  -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="2914B83F-B6EB-4DD4-9178-7C737E4B35B1" />
+              <code code="R52.9" displayName="Douleur" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
+              <text>
+                <reference value="#douleur" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <!-- Entrée FR-Simple-Observation : Localisation de la douleur -->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="24314A2F-4243-4E0F-ACCB-70231A787700" />
+                  <code code="39111-0" displayName="Localisation anatomique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#douleur-localisation" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="NASK" />
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#douleur-localisation" />
+                    </originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- [1..1] Section FR-Traitements : date et l’heure de la dernière prise du traitement habituel  -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.143"/>
+          <!-- Conformité CCD Medication -->
+          <templateId root="2.16.840.1.113883.10.20.1.8"/>
+          <!-- Conformité IHE PCC Medication -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+          <code code="10160-0" displayName="Traitements" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Date et heure de la dernière prise du traitement habituel</title>
+          <text>Dernière prise du traitement habituel le 27 mars 2020 à 12h00.</text>
+          <!-- [1..*] Entrée FR-Traitement -->
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.42"/>
+              <!-- Conformité CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Medication -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <!-- Conformité IHE Mode d’administration "Normal" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+              <id root="BADC9E92-AD6F-4D95-A3C4-2294C18C2FE9" />
+              <code nullFlavor="NA" />
+              <text>
+                <reference>
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <!-- date et l’heure de la dernière prise du traitement habituel -->
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20200327120000" />
+                <high value="20200327120100" />
+              </effectiveTime>
+              <effectiveTime operator="A" />
+              <routeCode nullFlavor="NA" />
+              <!-- Entrée FR-Produit-de-sante -->
+              <consumable>
+                <manufacturedProduct>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
+                  <!-- Conformité IHE CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC IHE Product Entry-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <manufacturedMaterial>
+                    <code nullFlavor="UNK" />
+                    <name nullFlavor="UNK" />
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <!-- [1..1] Section FR-Evaluation-fonctionnelle-du-sommeil-et-de-l-alimentation : date et l’heure du dernier repas -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.5"/>
+          <!-- Conformité CI-SIS-->
+          <templateId root="1.2.250.1.213.1.1.2.162"/>
+          <code code="47420-5" displayName="Évaluation du statut fonctionnel" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Date et heure du dernier repas</title>
+          <text>Dernier repas pris le 27 mars 2020 à 12h00.</text>
+          <!-- [1..*] Entrée FR-Simple-Observation -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="673E3AA9-9962-4D43-AF57-8559E8F477B4" />
+              <code code="GEN-244" displayName="Date et heure du dernier repas" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#xxx" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327120000" />
+              <value xsi:type="REAL" nullFlavor="NA" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- [1..1] Section FR-Protheses-et-objets-personnels -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.53"/>
+          <id root="A0E6E8E4-520A-4B4C-90D3-3ED305FF68B1" />
+          <code code="46264-8" displayName="Dispositifs médicaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Prothèses et objets personnels</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th align="left">Prothèse / Objet personnel</th>
+                  <th>Commentaire</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="lunettes">Lunettes</content>
+                  </td>
+                  <td>oui</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="protDentHaut">Prothèse dentaire (Haut)</content>
+                  </td>
+                  <td>oui</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="protDentBas">Prothèse dentaire (bas)</content>
+                  </td>
+                  <td>oui</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="protAudDroit">Prothèse auditive (droite)</content>
+                  </td>
+                  <td>oui</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="protAudGauche">Prothèse auditive (gauche)</content>
+                  </td>
+                  <td>oui</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="autreDispoST">Autres dispositifs ou objets personnels</content>
+                  </td>
+                  <td>texte libre</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- [1..*] Entrée FR-Prothese-et-objet-personnel : Lunettes du patient -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.12" />
+              <id root="29D020AA-168F-4D98-A706-D6AD009EECE1" />
+              <!-- valeur issue du JDV_ProtheseObjetPersonnel-CISIS (1.2.250.1.213.1.1.5.515) -->
+              <code code="A-04242" displayName="Lunettes" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#lunettes" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <targetSiteCode nullFlavor="NASK" />
+            </observation>
+          </entry>
+          <!-- [1..*] Entrée FR-Prothese-et-objet-personnel : Prothèse dentaire haute du patient -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.12" />
+              <id root="00845861-509F-432A-96B7-1898E3574609" />
+              <!-- valeur issue du JDV_ProtheseObjetPersonnel-CISIS (1.2.250.1.213.1.1.5.515) -->
+              <code code="A-04200" displayName="Prothèses dentaires" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#protDentHaut" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <targetSiteCode code="C25235" displayName="supérieur" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT" />
+            </observation>
+          </entry>
+          <!-- [1..*] Entrée FR-Prothese-et-objet-personnel : Prothèse dentaire basse du patient -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.12" />
+              <id root="BC760D09-4F49-41F0-8529-3ED75F5CA9C5" />
+              <!-- valeur issue du JDV_ProtheseObjetPersonnel-CISIS (1.2.250.1.213.1.1.5.515) -->
+              <code code="A-04200" displayName="Prothèses dentaires" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#protDentBas" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <targetSiteCode code="C25353" displayName="inférieur" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT" />
+            </observation>
+          </entry>
+          <!-- [1..*] Entrée FR-Prothese-et-objet-personnel : Prothèse auditive droite du patient -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.12" />
+              <id root="2603E6C3-1ED7-4505-A2C9-AE97E53C8B1D" />
+              <!-- valeur issue du JDV_ProtheseObjetPersonnel-CISIS (1.2.250.1.213.1.1.5.515) -->
+              <code code="A-04236" displayName="Prothèses auditives" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#protAudDroit" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <targetSiteCode code="C25228" displayName="droit" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT" />
+            </observation>
+          </entry>
+          <!-- [1..*] Entrée FR-Prothese-et-objet-personnel : Prothèse auditive gauche du patient -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.12" />
+              <id root="3AEBD44A-0A9B-403B-8748-53BB788A740E" />
+              <!-- valeur issue du JDV_ProtheseObjetPersonnel-CISIS (1.2.250.1.213.1.1.5.515) -->
+              <code code="A-04236" displayName="Prothèses auditives" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#protAudGauche" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <targetSiteCode code="C25229" displayName="gauche" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCIT" />
+            </observation>
+          </entry>
+          <!-- [1..*] Entrée FR-Prothese-et-objet-personnel : Autres dispositifs ou objets personnels -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.12" />
+              <id root="591BFAC8-4850-4324-B6D3-443A4AAE481D" />
+              <!-- valeur issue du JDV_ProtheseObjetPersonnel-CISIS (1.2.250.1.213.1.1.5.515) -->
+              <code code="A-00100" displayName="Autre dispositif ou objet personnel" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="#autreDispoST" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20200327153500+0100" />
+              <value xsi:type="BL" value="true" />
+              <targetSiteCode nullFlavor="NASK" />
+              <!-- entrée FR-Simple-Observation : Autres dispositifs ou objets personnels -->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <id root="FED30749-050C-4039-B5D8-9D82BFAC5BBC" />
+                  <code code="A-00100" displayName="Autres dispositifs ou objets personnels" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#autreDispoST" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20200327153500+0100" />
+                  <value xsi:type="ST" />
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- [0..1] Section FR-Commentaire-non-code -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.73"/>
+          <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Commentaires</title>
+          <text>(Texte libre)</text>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

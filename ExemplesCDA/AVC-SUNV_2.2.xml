@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
+<?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?> 
+<?oxygen SCHSchema="../schematrons/CI-SIS_AVC-SUNV_2.2.sch"?>
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../infrastructure/cda/CDA_extended.xsd" xmlns="urn:hl7-org:v3">
+  <!-- 
+      **********************************************************************************************************
+      Document : Sortie de l'UNV (AVC-SUNV_2.2)
+      Auteur : ANS / PML
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+   -->
+  <realmCode code="FR" />
+  <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <!-- Conformité spécifications HL7 France -->
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <!-- Conformité spécifications au CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <!-- Sortie de l'UNV (SUNV)-->
+  <templateId root="1.2.250.1.213.1.1.1.17" extension="2020.01"/>
+  <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+  <id root="1.2.250.1.213.1.1.9" extension="AVC-SUVN_v2.2_20181003_001_1" />
+  <!-- Type de document -->
+  <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <!-- Titre du document -->
+  <title>SORTIE DE L'UNV (SUNV)</title>
+  <!-- Date de création du document -->
+  <effectiveTime value="20181003111700+0100" />
+  <!-- Niveau de confidentialité du document -->
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" displayName="Normal" />
+  <!-- Langue du document -->
+  <languageCode code="fr-FR" />
+  <!-- Identifiant du lot de version d'un même document -->
+  <setId root="1.2.250.1.213.1.1.9" extension="AVC-SUVN_v2.2_20181003_001" />
+  <!-- Version du document -->
+  <versionNumber value="1" />
+
+  <!-- Patient -->
+  <recordTarget>
+    <patientRole>
+      <!-- INS-NIR de production : 1.2.250.1.213.1.4.8 -->
+      <id extension="277076322082910" root="1.2.250.1.213.1.4.8"/>
+      <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
+      <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+      <!-- Adresse du patient -->
+      <addr>
+        <houseNumber>28</houseNumber>
+        <streetName>Avenue de Breteuil</streetName>
+        <unitID>Escalier A</unitID>
+        <postalCode>75007</postalCode>
+        <city>PARIS</city>
+        <country>FRANCE</country>
+      </addr>
+      <!-- Coordonnées télécom du patient -->
+      <telecom value="tel:0144534551" use="H"/>
+      <telecom value="tel:0647151010" use="MC"/>
+      <telecom value="mailto:ruth.decourcy@mail.fr"/>
+      <!-- Identité du patient -->
+      <patient classCode="PSN">
+        <name>
+          <given qualifier="BR">RUTH</given>
+          <given>ISABELLE</given>
+          <family qualifier="BR">NESSI</family>
+          <family qualifier="SP">DECOURCY</family>
+          <family qualifier="CL">DECOURCY</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19770714"/>
+        <!-- Représentant du patient -->
+        <guardian>
+          <addr use="H">
+            <houseNumber>28</houseNumber>
+            <streetName>Avenue de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>PARIS</city>
+            <country>FRANCE</country>
+          </addr>
+          <telecom value="tel:0147150000" use="H"/>
+          <guardianPerson>
+            <name>
+              <prefix>MME</prefix>
+              <family>NESSI</family>
+              <given>Jeanne</given>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <!-- Lieu de naissance du patient -->
+        <birthplace>
+          <place>
+            <addr>
+              <county>63220</county>
+              <city>MAZOIRES</city>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- Auteur du document -->
+  <author>
+    <time value="20181003111700+0100" />
+    <assignedAuthor classCode="ASSIGNED">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM32" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Neurologie (SM)" />
+      <addr nullFlavor="NASK" />
+      <telecom nullFlavor="NASK" />
+      <assignedPerson>
+        <name>
+          <given>Jacques</given>
+          <family>BIDEAULT</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+        <name>Clinique du Belvédère</name>
+        <telecom nullFlavor="NAV" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+        <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- Personne à prévenir en cas d'urgence -->
+  <informant>
+    <relatedEntity classCode="ECON">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Personne de confiance -->
+  <informant>
+    <relatedEntity classCode="NOK">
+      <code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"/>
+      <addr nullFlavor="NAV"/>
+      <telecom value="tel:0647150100" use="MC"/>
+      <relatedPerson>
+        <name>
+          <family>NESSI</family>
+          <given>Sophie</given>
+        </name>
+      </relatedPerson>
+    </relatedEntity>
+  </informant>
+  
+  <!-- Organisation chargée de la conservation du document -->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Clinique du Belvédère</name>
+        <telecom value="tel:0442515151" use="WP" />
+        <addr>
+          <houseNumber>142</houseNumber>
+          <streetName>Rue Belvédère</streetName>
+          <postalCode>92100</postalCode>
+          <city>Boulogne-Billancourt</city>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- Responsable/signataire légal -->
+  <legalAuthenticator>
+    <time value="20181003094914+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM32" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Neurologie (SM)" />
+      <assignedPerson>
+        <name>
+          <given>Jacques </given>
+          <family>BIDEAULT</family>
+          <suffix>DR</suffix>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- Médecin traitant -->
+  <participant typeCode="INF">
+    <functionCode code="PCP" displayName="Médecin Traitant" codeSystem="2.16.840.1.113883.5.88" />
+    <time xsi:type="IVL_TS">
+      <low value="20181003111700+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <addr>
+        <houseNumber>3</houseNumber>
+        <streetName>Rue Petit Pont</streetName>
+        <postalCode>75005</postalCode>
+        <city>Paris</city>
+      </addr>
+      <telecom value="tel:0147150000" use="EC" />
+      <associatedPerson>
+        <name>
+          <family>MEDIONI</family>
+          <given>Jacques</given>
+          <suffix>DR</suffix>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+
+  <!-- Acte documenté -->
+  <documentationOf>
+    <serviceEvent classCode="ACT">
+      <id root="5A931FFC-E3D3-4153-953F-4C314500A410" />
+      <code code="47039-3" displayName="Historique et examen physique aux admissions de l'hôpital" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <low value="20181003120000+0100" />
+        <high value="20181003120000+0100" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <!-- PS identifié par son N°RPPS -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+          <code code="G15_10/SM32" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Neurologie (SM)" />
+          <assignedPerson>
+            <name>
+              <given>Jacques </given>
+              <family>BIDEAULT</family>
+              <suffix>DR</suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" />
+            <name>Clinique du Belvédère</name>
+            <telecom nullFlavor="NAV" />
+            <addr>
+              <houseNumber>142</houseNumber>
+              <streetName>Rue Belvédère</streetName>
+              <postalCode>92100</postalCode>
+              <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <!-- Association du document à une prise en charge -->
+  <componentOf>
+    <encompassingEncounter>
+      <effectiveTime>
+        <high value="20181003111700+0100" />
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <id root="1.2.250.1.213.1.1.9" extension="11223344" assigningAuthorityName="Clinique de Breteuil" />
+          <code code="SA04" displayName="Etablissement Privé Non PSPH" codeSystem="1.2.250.1.71.4.2.4" />
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+  <component>
+    <structuredBody>
+      
+      <!-- Section Diagnostic de sortie de l'épisode de soins (codé) -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.7" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.133.1" />
+          <id root="533CCEBD-8B91-46C2-A109-58E9D0F369AA" />
+          <code code="11535-2" displayName="Diagnostic de sortie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Diagnostic de sortie</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Diagnostic de sortie</th>
+                  <th>Raison</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="infarCereb">Infarctus cérébral</content>
+                  </td>
+                  <td>Athérome extracranien</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée de type Pathologies non allergiques (R) -->
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <!-- Conformité IHE PCC parent (Concern Entry) -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39" />
+              <id root="3F916907-F8ED-4CC9-BEE4-C557588A1528" />
+              <code nullFlavor="NA" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20181003" />
+                <high value="20181004" />
+              </effectiveTime>
+              <!-- Entrée Pathologie / Infarctus cérébral (présent) -->
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <id root="45E07A3F-4F31-4805-8FAF-7FC722A2F9BA" />
+                  <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+                  <text>
+                    <reference value="#infarCereb" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20180923" />
+                    <high value="20181003" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="D3-89400" displayName="Infarctus cérébral" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                    <originalText>
+                      <reference value="#infarCereb" />
+                    </originalText>
+                  </value>
+                  <!-- Raison de l'étiologie -->
+                  <entryRelationship typeCode="RSON">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48" />
+                      <id root="F4B0093C-7A21-4B49-9713-77904F7664D3" />
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
+                      <text>
+                        <reference value="#assert1" />
+                      </text>
+                      <statusCode code="completed" />
+                      <effectiveTime value="2018" />
+                      <value xsi:type="CD" code="MED-479" displayName="Athérome extracrânien" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section Résultats d'examens (codé) -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC parent (Hospital Studies Summary) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.151" />
+          <id root="93CE00BA-C5F8-48F6-9B73-E5F5585CE860"/>
+          <code code="30954-2" displayName="Résultats d'examens" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Evaluation fonctionnelle</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Évaluation fonctionnelle</th>
+                  <th>Fait</th>
+                  <th>Date</th>
+                  <th>Résultats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Score de Rankin</td>
+                  <td>Oui</td>
+                  <td>03/10/2018</td>
+                  <td>
+                    <content ID="avc_42">0 </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Score NIHSS</td>
+                  <td>Oui</td>
+                  <td>03/10/2018</td>
+                  <td>
+                    <content ID="avc_43">4 </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Evaluation en kinésithérapie</td>
+                  <td>Oui</td>
+                  <td>03/10/2018</td>
+                  <td>
+                    <content ID="avc_44">Description textuelle de l'évaluation</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Evaluation en orthophonie</td>
+                  <td>Oui</td>
+                  <td>03/10/2018</td>
+                  <td>
+                    <content ID="avc_45">Description textuelle de l'évaluation
+                              </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Evaluation en ergothérapie</td>
+                  <td>Oui</td>
+                  <td>03/10/2018</td>
+                  <td>
+                    <content ID="avc_46">Description textuelle de l'évaluation
+                              </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Evaluation de l'assistance sociale</td>
+                  <td>Oui</td>
+                  <td>03/10/2018</td>
+                  <td>
+                    <content ID="avc_47">Description textuelle de l'évaluation
+                              </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Evaluation en neuropsychologie</td>
+                  <td>Oui</td>
+                  <td>03/10/2018</td>
+                  <td>
+                    <content ID="avc_48">Description textuelle de l'évaluation
+                              </content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Rééducation en cours d'hospitalisation</td>
+                  <td>Non</td>
+                  <td />
+                  <td>
+                    <content ID="avc_49" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entrée de type Acte obligatoire -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62" />
+              <id root="AADF4F65-5072-439A-A552-222A4078C378" />
+              <code code="30954-2" displayName="Résultats d'examens" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
+              <text>
+                <reference value="avc_re" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+            </procedure>
+          </entry>
+          <!-- 		Score de Rankin -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="D2E4CDE5-9596-4AC1-B963-AB78E0C111FC" />
+              <code code="75859-9" displayName="Score de Rankin" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#avc_42" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="INT" value="0" />
+              <interpretationCode xsi:type="CE" code="MED-382" displayName="Absence de symptômes" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
+                <originalText>
+                  <reference value="#rankin" />
+                </originalText>
+              </interpretationCode>
+            </observation>
+          </entry>
+          <!-- 		Score NIHSS -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="6F4C7311-3CFD-4552-9C8D-81A71E831B89" />
+              <code code="70182-1" displayName="Score NIH Stroke Scale" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#avc_43" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- 		Evaluation en kinésithérapie -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="F2E6A0B7-95F5-465D-813E-802D9847CF5E" />
+              <code code="MED-513" displayName="Evaluation en kinésithérapie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#avc_44" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- 		Evaluation en orthophonie -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="52B928F8-6597-449B-AEAD-91C3B4F0E2E1" />
+              <code code="MED-514" displayName="Evaluation en orthophonie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#avc_45" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- 			Evaluation en ergothérapie -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="53FD5020-E85E-4385-812D-DC4B3200D9A4" />
+              <code code="MED-515" displayName="Evaluation en ergothérapie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#avc_46" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- 			Evaluation de l'assistance sociale -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="FD64DAB3-562E-4D0F-85B7-2515D1B493CE" />
+              <code code="MED-516" displayName="Evaluation de l'assistance sociale" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#avc_47" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- 	Evaluation en neuropsychologie -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="DA259E25-7B05-4332-9B29-83B695A57AC3" />
+              <code code="MED-513" displayName="Evaluation en neuropsychologie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#avc_48" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <!-- 	Rééducation en cours d'hospitalisation -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="699354F7-86EB-4AC4-9AA2-35213F46F2AB" />
+              <code code="MED-218" displayName="Rééducation en cours d'hospitalisation" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#avc_49" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20181003" />
+              <value xsi:type="BL" value="false" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section Résultats d'évènements (codé) -->
+      <component>
+        <section>
+          <!-- Conformité IHE PCC parent Résultats d’évènements (non codé)-->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.163" />
+          <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
+          <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Mode de sortie</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Orientation</th>
+                  <th>Destination</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3">03/10/2018</td>
+                  <td rowspan="3">Autre Etablissement de santé</td>
+                  <td>Clinique Geoffroy St-Hilaire<br />44 Rue Geoffroy St-Hilaire<br />75005 PARIS</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Mode de sortie -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <id root="7BBD22BA-89C9-467E-AD2F-04A8DFD2F9C6" />
+              <code code="ORG-074" displayName="Modalité de sortie" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#sortie" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20181003" />
+              </effectiveTime>
+              <value xsi:type="CD" code="ORG-073" displayName="Autre Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+          <!-- Destination -->
+          <entry>
+            <act classCode="ACT" moodCode="INT">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.28" />
+              <id root="781FA177-1F90-40A9-B884-2E994EB93848" />
+              <code code="80413-8" displayName="Transfert du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <text>
+                <reference value="#transfert" />
+              </text>
+              <statusCode code="normal" />
+              <effectiveTime>
+                <low value="20181003" />
+              </effectiveTime>
+              <participant typeCode="DST">
+                <templateId root="1.2.250.1.71.4.2.2" extension="101238889" />
+                <participantRole classCode="SDLOC">
+                  <code code="SA01" displayName="Etablissement public de santé" codeSystem="1.2.250.1.71.4.2.4" />
+                  <addr>
+                    <houseNumber>44</houseNumber>
+                    <streetName>Rue Geoffroy St-Hilaire</streetName>
+                    <postalCode>75005</postalCode>
+                    <city>PARIS</city>
+                  </addr>
+                  <telecom nullFlavor="NAV" />
+                  <playingEntity classCode="ENT">
+                    <name>Clinique Geoffroy St-Hilaire</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </act>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- Section Plan de soins -->
+      <component>
+        <section>
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.158" />
+          <id root="02ECB231-7BD2-4A45-B7BF-2C839982A982" />
+          <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Plan de soins</title>
+          <text>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th align="center">Type</th>
+                  <th>Précision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Consultations</td>
+                  <td>
+                    <content ID="CONSULT01">Consultation de cardiologie pour
+                                 HTA</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Actes</td>
+                  <td>
+                    <content ID="ACT01">Aucun</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Examens / Suivis</td>
+                  <td>
+                    <content ID="EXAM01">Aucun</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Recommandations et surveillances particulières</td>
+                  <td>
+                    <content ID="RECO01">Aucune</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Traitements médicamenteux</td>
+                  <td>
+                    <content ID="MEDIC01">PLAVIX 75 mg, comprimé pelliculé</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!--  Consultation - en attente de confirmation (moodCode="ARQ")-->
+          <entry>
+            <encounter classCode="ENC" moodCode="ARQ">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.58" />
+              <id root="4B3B5473-69E4-47E4-9B84-C6CD2CDF237D" />
+              <code code="AMB" displayName="Ambulatoire" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActEncounterCode" />
+              <text mediaType="text/xml">
+                <reference value="#CONSULT01" />
+              </text>
+              <effectiveTime value="201810150930" />
+              <performer>
+                <assignedEntity>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>     
+                  <code code="G15_10/C07" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Cardiologie (C)" />
+                  <assignedPerson>
+                    <name>
+                      <family nullFlavor="NASK" />
+                    </name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <participantRole classCode="SDLOC">
+                  <addr>
+                    <houseNumber>142</houseNumber>
+                    <streetName>Rue Belvédère</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>Boulogne-Billancourt</city>
+                  </addr>
+                  <playingEntity classCode="PLC" determinerCode="INSTANCE">
+                    <name>Clinique du Belvédère</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+          <!-- Traitement de sortie -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
+              <!-- Conformité Mode d'administration "normal" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.42" />
+              <id root="AADC9C14-F1CA-4177-B2C8-A5178D5B3CA0" />
+              <text>
+                <reference>
+                </reference>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <effectiveTime operator="A" />
+              <doseQuantity nullFlavor="NA">
+                 </doseQuantity>
+              <consumable>
+                <manufacturedProduct>
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <manufacturedMaterial>
+                    <code code="63564053" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS" displayName="PLAVIX 75 mg, comprimé pelliculé">
+                      <originalText mediaType="text/xml">
+                        <reference value="#MEDIC01" />
+                      </originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+    
+      <!-- Section Statut du document -->
+      <component>
+        <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.35" />
+          <id root="6F63C305-3C4F-4E11-B5C6-51196F4BAB60" />
+          <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Statut du document</title>
+          <text>CR validé le 23/09/2018 à 23h20</text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS Simple Observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48.16" />
+              <id root="7E8F0E39-C756-4B73-BC00-BC72D29E41BB" />
+              <code code="GEN-065" displayName="Statut du document" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+              <text>
+                <reference value="#statut"/>
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime value="20180923232000+0100" />
+              <value xsi:type="CD" code="GEN-068" displayName="Validé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      
+      
+    </structuredBody>
+  </component>
+</ClinicalDocument>

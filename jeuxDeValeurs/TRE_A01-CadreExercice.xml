@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20160519000000" description="Cadre d'exercice" displayName="TRE_A01-CadreExercice.tabs" id="1.2.250.1.213.1.1.4.9" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice">
+        <ConceptList>
+            <Concept code="AMBULATOIRE" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Ambulatoire" longDesignation="Ambulatoire" shortDesignation="Ambulatoire"/>
+            <Concept code="AMO" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Organisme d'assurance maladie obligatoire" longDesignation="Organisme d'assurance maladie obligatoire" shortDesignation="Organisme AMO"/>
+            <Concept code="DEPISTAGE" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Dépistage" longDesignation="Dépistage" shortDesignation="Dépistage"/>
+            <Concept code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Etablissement de santé" longDesignation="Etablissement de santé" shortDesignation="Etab de santé"/>
+            <Concept code="HAD" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Hospitalisation à domicile" longDesignation="Hospitalisation à domicile" shortDesignation="Hosp à domicile"/>
+            <Concept code="MAD" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Maintien à domicile" longDesignation="Maintien à domicile" shortDesignation="Maintien à domicile"/>
+            <Concept code="PALLIATIF" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Soins palliatifs" longDesignation="Soins palliatifs" shortDesignation="Soins palliatifs"/>
+            <Concept code="SAD" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="Soins à domicile" longDesignation="Soins à domicile" shortDesignation="Soins à domicile"/>
+            <Concept code="SAMU_SMUR" codeSystem="1.2.250.1.213.1.1.4.9" dateFin="" dateMaj="20160519000000" dateValid="20160519000000" displayName="SAMU/SMUR" longDesignation="SAMU/SMUR" shortDesignation="SAMU/SMUR"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

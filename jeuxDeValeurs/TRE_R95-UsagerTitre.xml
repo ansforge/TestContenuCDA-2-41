@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200529120000" dateValid="20171013120000" description="Usager de titre professionnel" displayName="TRE_R95-UsagerTitre.tabs" id="1.2.250.1.213.1.6.1.109" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R95-UsagerTitre">
+        <ConceptList>
+            <Concept code="171" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="20200529120000" dateMaj="20200529120000" dateValid="20171013120000" displayName="Ostéopathe" longDesignation="Ostéopathe" shortDesignation="Ostéopathe"/>
+            <Concept code="172" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="20200529120000" dateMaj="20200529120000" dateValid="20171013120000" displayName="Psychothérapeute" longDesignation="Psychothérapeute" shortDesignation="Psychothérapeute"/>
+            <Concept code="173" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="20200529120000" dateMaj="20200529120000" dateValid="20171013120000" displayName="Chiropracteur" longDesignation="Chiropracteur" shortDesignation="Chiropracteur"/>
+            <Concept code="193" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="20200529120000" dateMaj="20200529120000" dateValid="20171013120000" displayName="Psychologue" longDesignation="Psychologue" shortDesignation="Psychologue"/>
+            <Concept code="194" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="20200529120000" dateMaj="20200529120000" dateValid="20190329120000" displayName="Conseiller en génétique" longDesignation="Conseiller en génétique" shortDesignation="Conseiller en génétique"/>
+            <Concept code="71" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="" dateMaj="20200529120000" dateValid="20200529120000" displayName="Ostéopathe" longDesignation="Ostéopathe" shortDesignation="Ostéopathe"/>
+            <Concept code="72" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="" dateMaj="20200529120000" dateValid="20200529120000" displayName="Psychothérapeute" longDesignation="Psychothérapeute" shortDesignation="Psychothérapeute"/>
+            <Concept code="73" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="" dateMaj="20200529120000" dateValid="20200529120000" displayName="Chiropracteur" longDesignation="Chiropracteur" shortDesignation="Chiropracteur"/>
+            <Concept code="93" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="" dateMaj="20200529120000" dateValid="20200529120000" displayName="Psychologue" longDesignation="Psychologue" shortDesignation="Psychologue"/>
+            <Concept code="97" codeSystem="1.2.250.1.213.1.6.1.109" dateFin="" dateMaj="20200529120000" dateValid="20200529120000" displayName="Conseiller en génétique" longDesignation="Conseiller en génétique" shortDesignation="Conseiller en génétique"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

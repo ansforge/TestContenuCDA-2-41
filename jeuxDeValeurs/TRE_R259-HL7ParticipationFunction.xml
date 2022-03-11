@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20180330120000" description="Rôles fonctionnels HL7" displayName="TRE_R259-HL7ParticipationFunction.tabs" id="2.16.840.1.113883.5.88" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R259-HL7ParticipationFunction">
+        <ConceptList>
+            <Concept code="ADMPHYS" codeSystem="2.16.840.1.113883.5.88" dateFin="" dateMaj="20180330120000" dateValid="20180330120000" displayName="Responsable de l'admission" longDesignation="Responsable de l'admission" shortDesignation="Responsable de l'admission"/>
+            <Concept code="ATTPHYS" codeSystem="2.16.840.1.113883.5.88" dateFin="" dateMaj="20180330120000" dateValid="20180330120000" displayName="Référent - Responsable du patient dans la structure de soins" longDesignation="Référent - Responsable du patient dans la structure de soins" shortDesignation="Réf- Resp_patient_STSoins"/>
+            <Concept code="DISPHYS" codeSystem="2.16.840.1.113883.5.88" dateFin="" dateMaj="20180330120000" dateValid="20180330120000" displayName="Responsable de la sortie" longDesignation="Responsable de la sortie" shortDesignation="Responsable de la sortie"/>
+            <Concept code="PCP" codeSystem="2.16.840.1.113883.5.88" dateFin="" dateMaj="20180330120000" dateValid="20180330120000" displayName="Médecin traitant" longDesignation="Médecin traitant" shortDesignation="Médecin traitant"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

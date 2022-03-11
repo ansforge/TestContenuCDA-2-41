@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ValueSet dateFin="" dateMaj="20200424120000" dateValid="20130628000000" description="Civilité" displayName="TRE_R81-Civilite.tabs" id="1.2.250.1.213.1.6.1.69" typeFichier="TRE" urlFichier="https://mos.esante.gouv.fr/NOS/TRE_R81-Civilite">
+        <ConceptList>
+            <Concept code="M" codeSystem="1.2.250.1.213.1.6.1.69" dateFin="" dateMaj="20070725150435" dateValid="20070725150435" displayName="Monsieur" longDesignation="Monsieur" shortDesignation="M"/>
+            <Concept code="MLLE" codeSystem="1.2.250.1.213.1.6.1.69" dateFin="20160901000000" dateMaj="20160901000000" dateValid="20070725150435" displayName="Mademoiselle" longDesignation="Mademoiselle" shortDesignation="MLLE"/>
+            <Concept code="MME" codeSystem="1.2.250.1.213.1.6.1.69" dateFin="" dateMaj="20070725150435" dateValid="20070725150435" displayName="Madame" longDesignation="Madame" shortDesignation="MME"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

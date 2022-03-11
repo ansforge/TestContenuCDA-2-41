@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par nmahraz, le 24/09/2021-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="2.16.840.1.113883.5.1" displayName="TRE_R303-HL7v3AdministrativeGen"
+        version="test">
+        <ConceptList>
+            <Concept code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+            <Concept code="M" displayName="Masculin" codeSystem="2.16.840.1.113883.5.1"/>
+            <Concept code="UN" displayName="Inconnu" codeSystem="2.16.840.1.113883.5.1"/>
+            <Concept code="U" displayName="Inconnu" codeSystem="2.16.840.1.113883.5.1"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>
