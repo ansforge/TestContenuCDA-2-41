@@ -10,5 +10,5 @@ Le répertoire testContenuCDA contient :
 
 #### Wiki ####
 Pour plus d'informations et détails, vous pouvez consulter la page du wiki : 
--  [Wiki](https://github.com/Mael-Priour/TestContenuCDA/wiki)
+-  [Wiki](https://github.com/ansforge/TestContenuCDA/wiki)
 
