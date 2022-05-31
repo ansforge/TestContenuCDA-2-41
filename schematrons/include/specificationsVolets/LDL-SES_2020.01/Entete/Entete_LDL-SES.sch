@@ -7,6 +7,7 @@
     Historique :
     07/02/2018 : Création   
     03/05/2021 : Modification des msg d'erreur
+    16/03/2022 : Suppresion du test sur le code du serviceEvent
     
 -->
 
@@ -24,9 +25,9 @@
             [Entete_LDL-SES] Erreur de conformité : La date de naissance du patient est obligatoire.
         </assert>
         
-        <assert test="cda:documentationOf/cda:serviceEvent/cda:code[@code='IMP']">
+<!--        <assert test="cda:documentationOf/cda:serviceEvent/cda:code[@code='IMP']">
             [Entete_LDL-SES] Erreur de conformité : L'attribut code de l'élément documentationOf/serviceEvent/code est fixé à 'IMP'.
-        </assert>
+        </assert>-->
         
         <assert test="cda:documentationOf/cda:serviceEvent/cda:effectiveTime">
             [Entete_LDL-SES] Erreur de conformité : La date du début d'exécution de l'acte est obligatoire.
