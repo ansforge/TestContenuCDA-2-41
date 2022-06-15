@@ -46,8 +46,8 @@
    <templateId root="1.2.250.1.213.1.1.1.5"/>
    <!-- Conformité au CS9 -->
    <templateId root="1.2.250.1.213.1.1.1.5.2" extension="2021.01"/>
-   <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-   <id root="1.2.250.1.213.1.1.9" extension="CSE-CS9_2021.01_20210211_001_1" />
+   <!-- Identifiant du document -->
+   <id root="C8712D13-799C-4638-84B6-748C28D84B4C"/>
    <!-- Type du document référencé par le CI-SIS (JDV_J07-XdsTypeCode-CISIS) -->
    <code code="CERT_DECL" displayName="Certificat, déclaration" codeSystem="1.2.250.1.213.1.1.4.12"/>
    <!-- Titre du document -->
@@ -59,7 +59,7 @@
    <!-- Langage utilisé dans le document -->
    <languageCode code="fr-FR"/>
    <!-- Identifiant du lot de version d'un même document -->
-   <setId root="1.2.250.1.213.1.1.9" extension="CSE-CS9_2021.01_20210211_001"/>
+   <setId root="52C9FD4C-A901-494A-BED4-D1795FAFF37D"/>
    <!-- Identifiant du lot de version d'un même document -->
    <versionNumber value="1"/>
 

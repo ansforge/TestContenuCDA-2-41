@@ -31,8 +31,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité spécifications au modèle OPH-CR-RTN_2021.01 -->
   <templateId root="1.2.250.1.213.1.1.1.18" extension="2021.01"/>
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="OPH-CR-RTN_2021.01_20211104_001_1" />
+  <!-- Identifiant du document -->
+  <id root="5ABF4480-2F69-4516-8453-07B55E8AF2CB"/>
   <!-- Type de document -->
   <code code="75492-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="CR d'acte diagnostique à visée préventive ou de dépistage" />
   <!-- Titre du document -->
@@ -44,7 +44,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="OPH-CR-RTN_2021.01_20211104_001" />
+  <setId root="E56081F9-C910-40FE-9D17-67F520F7114B"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -344,9 +344,12 @@
       <!-- Section FR-Commentaire-non-code : Compte rendu d’intervention de l’orthoptiste -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.12.201" />
-          <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16" />
-          <templateId root="1.2.250.1.213.1.1.2.73" />
+          <!-- Conformité IHE CCD -->
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.73"/>
           <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Compte rendu d’intervention de l’orthoptiste</title>
           <text>(texte libre) <br/>
@@ -358,6 +361,7 @@
       <!-- Section FR-Documents-ajoutes -->
       <component>
         <section>
+          <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.37" />
           <code code="55107-7" displayName="Documents ajoutés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Rétinographie</title>
@@ -423,6 +427,7 @@
           <!-- Entrée FR-Document-attache : Cliché Papille Oeil Gauche -->
           <entry>
             <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.3.18" />
               <id root="7FCD2515-53C5-49B8-8C1E-EFC3EDF59829" />
               <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -430,8 +435,11 @@
               <!-- Entrée FR-Type-document-attache : Papille Oeil Gauche -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS Simple Observation -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <!-- Conformité CI-SIS Type document attaché -->
                   <templateId root="1.2.250.1.213.1.1.3.48.18" />
                   <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
                   <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -463,6 +471,7 @@
           <!-- Entrée FR-Document-attache : Cliché Macula Oeil Gauche -->
           <entry>
             <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.3.18" />
               <id root="D541E933-F6E1-4AC7-860D-F97482A6CE2A" />
               <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -470,8 +479,11 @@
               <!-- Entrée FR-Type-document-attache : Macula Oeil Gauche -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS Simple Observation -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <!-- Conformité CI-SIS Type document attaché -->
                   <templateId root="1.2.250.1.213.1.1.3.48.18" />
                   <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
                   <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -504,6 +516,7 @@
           <!-- Entrée FR-Document-attache : Cliché Papille Droite -->
           <entry>
             <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.3.18" />
               <id root="1770D6F1-1E35-407E-881E-FB87A1EF8AD4" />
               <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -511,8 +524,11 @@
               <!-- Entrée FR-Type-document-attache : Papille Droite -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS Simple Observation -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <!-- Conformité CI-SIS Type document attaché -->
                   <templateId root="1.2.250.1.213.1.1.3.48.18" />
                   <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
                   <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -546,6 +562,7 @@
           <!-- Entrée FR-Document-attache : Cliché Macula Oeil Droit -->
           <entry>
             <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.3.18" />
               <id root="E7F75ACE-0727-4DC7-9635-CBA1CD658F67" />
               <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -553,8 +570,11 @@
               <!-- Entrée FR-Type-document-attache : Macula Oeil Droit -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS Simple Observation -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <!-- Conformité CI-SIS Type document attaché -->
                   <templateId root="1.2.250.1.213.1.1.3.48.18" />
                   <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
                   <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -587,6 +607,7 @@
           <!-- Entrée FR-Document-attache : Fichier numérisé des données cliniques d'orientation -->
           <entry>
             <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
               <templateId root="1.2.250.1.213.1.1.3.18" />
               <id root="8F2431E5-96B6-4EE0-8CD6-ABF05E07AE20" />
               <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -594,8 +615,11 @@
               <!-- Entrée FR-Type-document-attache -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS Simple Observation -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <!-- Conformité CI-SIS Type document attaché -->
                   <templateId root="1.2.250.1.213.1.1.3.48.18" />
                   <id root="38D20D12-3CF7-44DF-BBF9-50AF5EA3FB84" />
                   <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -3183,6 +3207,7 @@ MjM2NDM2Pl0gPj4NCnN0YXJ0eHJlZg0KMTQ0MzI2DQolJUVPRg==
           <!-- Entrée FR-Document-attache : Fichier xml des données administratives -->
           <entry>
             <organizer classCode="CLUSTER" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.3.18" />
               <id root="96E3A08A-7983-4B19-BF72-F3501F04B058" />
               <code code="55107-7" displayName="Document attaché" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -3190,8 +3215,11 @@ MjM2NDM2Pl0gPj4NCnN0YXJ0eHJlZg0KMTQ0MzI2DQolJUVPRg==
               <!-- Entrée FR-Type-document-attache -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS Simple Observation -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
+                  <!-- Conformité CI-SIS Type document attaché -->
                   <templateId root="1.2.250.1.213.1.1.3.48.18" />
                   <id root="C6130D3A-C465-4B2C-BB7E-683DCC0D23F5" />
                   <code code="69764-9" displayName="Type de document" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />

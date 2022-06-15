@@ -246,7 +246,7 @@
 
 
 	<!--RULE -->
-<xsl:template match="cda:ClinicalDocument" priority="1004" mode="M5">
+<xsl:template match="cda:ClinicalDocument" priority="1005" mode="M5">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cda:ClinicalDocument"/>
 
 		    <!--ASSERT -->
@@ -259,6 +259,119 @@
                </xsl:attribute>
                <svrl:text>
             [Entete_CR-BIO] L'élément setId est obligatoire.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:title = &#34;Compte rendu d'examens biologiques&#34;"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] L'élément title est obligatoire et doit être fixé à "Compte rendu d'examens biologiques".
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:code[@code=&#34;11502-2&#34; and @displayName=&#34;CR d'examens biologiques&#34; and @codeSystem=&#34;2.16.840.1.113883.6.1&#34;]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] L'élément code est obligatoire et doit être fixé à @code="11502-2" @displayName="CR d'examens biologiques" @codeSystem="2.16.840.1.113883.6.1".
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:templateId[@root=&#34;1.3.6.1.4.1.19376.1.3.3&#34;]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] L'élément templateId fixé à @root="1.3.6.1.4.1.19376.1.3.3" est obligatoire
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M5"/>
+   </xsl:template>
+
+	  <!--RULE -->
+<xsl:template match="cda:ClinicalDocument/cda:recordTarget/cda:patientRole" priority="1004"
+                 mode="M5">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole"/>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="not(cda:addr[@nullFlavor]) or cda:addr[@nullFlavor=&#34;UNK&#34;]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] Si aucune adresse n’est connue, utiliser la valeur nullFlavor='UNK'.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="not(cda:telecom[@nullFlavor]) or cda:telecom[@nullFlavor=&#34;UNK&#34;]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] Si aucune coordonnée n’est connue, utiliser la valeur nullFlavor='UNK'.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="not(cda:patient/cda:administrativeGenderCode[@nullFlavor]) or cda:patient/cda:administrativeGenderCode[@nullFlavor=&#34;UNK&#34;]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] Si le sexe n’est pas connu, utiliser la valeur nullFlavor='UNK'.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="not(cda:patient/cda:birthTime[@nullFlavor]) or cda:patient/cda:birthTime[@nullFlavor=&#34;UNK&#34;]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] Si la date de naissance n’est pas connue, utiliser la valeur nullFlavor='UNK'.
         </svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
@@ -281,6 +394,21 @@
                </xsl:attribute>
                <svrl:text>
             [Entete_CR-BIO] Le templateId "1.3.6.1.4.1.19376.1.3.3.1.5" de l'élément authenticator est obligatoire.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:time"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] La date de la dernière validation effectuée par le biologiste médical est obligatoire.
         </svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
@@ -419,6 +547,51 @@
                </xsl:attribute>
                <svrl:text>
             [Entete_CR-BIO] La date d'exécution de l'acte documenté est obligatoire.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:assignedEntity/cda:addr"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] L'Adresse du directeur du laboratoire est obligatoire.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:assignedEntity/cda:telecom"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] Les Coordonnées télécom du directeur du laboratoire sont obligatoires.
+        </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:assignedEntity/cda:assignedPerson/cda:name"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+            [Entete_CR-BIO] Le nom du directeur de laboratoire est obligatoire.
         </svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>

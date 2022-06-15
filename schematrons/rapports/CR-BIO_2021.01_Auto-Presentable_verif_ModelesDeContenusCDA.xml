@@ -15,8 +15,8 @@
                         title="Rapport de conformité du document aux spécifications françaises (corps – sections, entrées, jeux de valeurs IHE)"
                         schemaVersion="CI-SIS_ModelesDeContenusCDA.sch"
                         phase="CI-SIS_ModelesDeContenusCDA"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/CR-BIO_2021.01_Auto-Presentable.xml"
-                        dateHeure="9/3/2022 à 15:06:51 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/CR-BIO_2021.01_Auto-Presentable.xml"
+                        dateHeure="5/7/2022 à 16:52:28 (temps UTC+02:00)">
    <svrl:active-pattern id="E_allergiesAndIntoleranceConcern_fr"/>
    <svrl:active-pattern id="E_allergiesAndIntolerances_fr"/>
    <svrl:active-pattern id="E_autorisationSubstitution_fr"/>
@@ -30,7 +30,6 @@
    <svrl:active-pattern id="E_instructionsDispensateur_fr"/>
    <svrl:active-pattern id="E_itemPlanTraitement_fr"/>
    <svrl:active-pattern id="E_medications_fr"/>
-   <svrl:active-pattern id="E_observationRequest_fr"/>
    <svrl:active-pattern id="E_patientTransfer_fr"/>
    <svrl:active-pattern id="E_periodeRenouvellement_fr"/>
    <svrl:active-pattern id="E_pregnancyHistoryOrganizer_fr"/>
@@ -59,4 +58,5 @@
    <svrl:active-pattern id="E_identificationMicroOrganismesMultiresistants_fr"/>
    <svrl:active-pattern id="E_accidentsTransfusionnels_fr"/>
    <svrl:active-pattern id="E_payers_fr"/>
+   <svrl:active-pattern id="E_instructionAuPatient_ANS"/>
 </svrl:schematron-output>

@@ -40,8 +40,8 @@
   <templateId root="1.2.250.1.213.1.1.1.2.1" />
   <!-- Déclaration de conformité aux spécifications F-PRC-PSC -->
   <templateId root="1.2.250.1.213.1.1.1.2.1.4" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="F-PRC-PSC_1.4_20080929_001_1" />
+  <!-- Identifiant du document -->
+  <id root="1AEDF606-1502-4353-B2F9-2F0A696F32E0"/>
   <!-- Type de document -->
   <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -53,7 +53,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="F-PRC-PSC_1.4_20080929_001" />
+  <setId root="06094A43-D064-4A23-B470-B0710221B7B9"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -341,8 +341,12 @@
          -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.11" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.11"/>
+          <!-- Conformité IHE PCC Active Problems -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.132"/>
           <id root="BC47E918-D7D9-4A95-AD5E-4644A401E6D8" />
           <code code="11450-4" displayName="PROBLEM LIST" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Pathologie courante</title>
@@ -367,10 +371,14 @@
           <!-- BAV Complet -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <!-- Problem Act template -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité CCD Problem Act  -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC Problem Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="A0569E8E-153E-4E89-8FC4-817E7F35BA0E" />
               <code nullFlavor="NA" />
               <statusCode code="completed" />
@@ -380,9 +388,12 @@
               </effectiveTime>
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <!-- Problem observation template -->
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CCD Problem Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <!-- ID de l'observation -->
                   <id root="EDC895EB-FB96-4E86-816F-F5804F616782" />
                   <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
@@ -401,10 +412,18 @@
                 </observation>
               </entryRelationship>
               <!-- Problème actif -->
-              <entryRelationship typeCode="REFR">
+              <entryRelationship typeCode="REFR" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.50" />
+                  <!-- Conformité CCD Status observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.57"/>
+                  <!-- Conformité CCD Problem status observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.50"/>
+                  <!-- Conformité IHE PCC Problem Status Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root='1.2.250.1.213.1.1.3.30'/>
                   <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status" />
+                  <text><reference value='#avk0027'/></text>
                   <statusCode code="completed" />
                   <value xsi:type="CE" code="G-A230" codeSystem="1.2.250.1.213.2.12" displayName="Actif" />
                 </observation>
@@ -420,9 +439,14 @@
          -->
       <component>
         <section>
+          <!-- Conformité CCD -->
           <templateId root="2.16.840.1.113883.10.20.1.12" />
+          <!-- Conformité IHE PCC Parent Template -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.11" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.136" />
           <id root="5AF7D9F4-B5D9-4FA1-BC48-D80BA4C3C5F5" />
           <code code="47519-4" displayName="HISTORY OF PROCEDURES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>IMPLANTATION</title>
@@ -464,8 +488,12 @@
           </text>
           <entry>
             <procedure classCode="PROC" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
               <id root="21C415B8-533A-4BAA-8EF0-D900E0FDAA27" />
               <code code="DELF015" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM" displayName="Implantation d'un stimulateur cardiaque définitif, &#xD;&#xA;                        avec pose d'une sonde intraatriale et d'une sonde intraventriculaire droites, &#xD;&#xA;                        et d'une sonde dans une veine cardiaque gauche par voie veineuse transcutanée">
                 <originalText mediaType="text/xml">
@@ -478,7 +506,8 @@
               <statusCode code="completed" />
               <effectiveTime value="19990812" />
               <participant typeCode="LOC">
-                <templateId root="2.16.840.1.113883.10.20.1.45" />
+                <!-- Conforimté CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109" />
                 <!-- Location participation template -->
                 <participantRole classCode="SDLOC">
                   <!-- Location where healthcare have been provided -->
@@ -493,6 +522,8 @@
                 </participantRole>
               </participant>
               <participant typeCode="DEV">
+                <!-- Conforimté CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109" />
                 <participantRole classCode="MANU">
                   <templateId root="2.16.840.1.113883.10.20.1.52" />
                   <!-- Product instance template -->
@@ -501,6 +532,8 @@
                 </participantRole>
               </participant>
               <participant typeCode="DEV">
+                <!-- Conforimté CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109" />
                 <participantRole classCode="MANU">
                   <templateId root="2.16.840.1.113883.10.20.1.52" />
                   <!-- Product instance template -->
@@ -509,6 +542,8 @@
                 </participantRole>
               </participant>
               <participant typeCode="DEV">
+                <!-- Conforimté CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109" />
                 <participantRole classCode="MANU">
                   <templateId root="2.16.840.1.113883.10.20.1.52" />
                   <!-- Product instance template -->
@@ -517,6 +552,8 @@
                 </participantRole>
               </participant>
               <participant typeCode="DEV">
+                <!-- Conforimté CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109" />
                 <participantRole classCode="MANU">
                   <templateId root="2.16.840.1.113883.10.20.1.52" />
                   <!-- Product instance template -->
@@ -525,8 +562,11 @@
                 </participantRole>
               </participant>
               <entryRelationship typeCode="RSON">
-                <observation classCode="COND" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
                   <!-- Code de l'observation relevée dans la section Active problem -->
                   <id root="EDC895EB-FB96-4E86-816F-F5804F616782" />
                   <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4">
@@ -534,6 +574,9 @@
                       <reference value="#psc0002" />
                     </originalText>
                   </code>
+                  <text><reference value="#psc0002"></reference></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20200319"/>
                   <value xsi:type="CE" code="I44.2" displayName="Bloc auriculo-ventriculaire complet" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
                 </observation>
               </entryRelationship>
@@ -548,11 +591,12 @@
          -->
       <component>
         <section>
-          <!-- Implanted Medical Device Review section template -->
-          <!--
-               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.46"/>-->
-          <!-- CI-SIS Dispositifs médicaux -->
-          <templateId root="1.2.250.1.213.1.1.2.1" />
+          <!-- Conformité CCD Medical Equipment -->
+          <templateId root="2.16.840.1.11383.10.20.1.7" />
+          <!-- Conformité IHE PCC Medical Devices -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.5" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.1"/>
           <id root="DB7F4800-7C3C-4973-9ABF-C40FF9E5342F" />
           <code code="46264-8" displayName="Abdomen" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>MATÉRIEL IMPLANTÉ</title>
@@ -914,7 +958,7 @@
           <!--=<<o#%@O[ Stimulateur ]O@%#o>>=-->
           <entry typeCode="DRIV">
             <organizer classCode="CLUSTER" moodCode="EVN">
-              <!--  Template Organizer DMI -->
+              <!-- Conformité CI-SIS (obsolète) -->
               <templateId root="1.2.250.1.213.1.1.3.2" />
               <id root="5F835B63-F2E4-4CC7-99FF-BD82918E308F" />
               <code code="D0001-2" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Stimulateur" />
@@ -923,9 +967,9 @@
               <!-- Type de matériel -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="54C1A769-7C19-4971-AC10-E5FA79474D22" />
                   <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif">
@@ -944,9 +988,9 @@
               <!-- Date d'implantation -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="408AA1CE-3200-477D-B6BB-1B39DA205BB0" />
                   <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation">
@@ -965,9 +1009,9 @@
               <!-- Marque -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="CAC76346-0510-44AF-9F73-4A468CD5A775" />
                   <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque">
@@ -986,9 +1030,9 @@
               <!-- Modèle -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="DE5772CC-4AC9-47B9-83E6-4B3FEE13EB08" />
                   <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle">
@@ -1007,9 +1051,9 @@
               <!-- N° de série -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="DD0669A4-D25F-4276-BEFB-A6042E3F687E" />
                   <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
@@ -1028,9 +1072,9 @@
               <!-- Fréquence s/s aimant -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="9E2D9FFC-8BEC-4BD4-AA66-7DADD7AD8694" />
                   <code code="L0060" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Fréquence avec aimant">
@@ -1049,9 +1093,9 @@
               <!-- Tension batterie -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="35BD28EC-4A3F-4924-9C00-9A1E6A706A56" />
                   <code code="L0065" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Tension batterie">
@@ -1070,9 +1114,9 @@
               <!-- Type PM  -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="F4A01984-5477-4095-ACA1-92C99531B99B" />
                   <code code="L0036" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Type Pacemaker">
@@ -1091,9 +1135,9 @@
               <!-- Asservissement -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="038EAE88-357B-4579-83B2-5DB61CE24AD7" />
                   <code code="L0006" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Asservissement">
@@ -1112,9 +1156,9 @@
               <!-- Télésuivi -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="AC733F60-B7E3-436E-97B9-FA83A31216D4" />
                   <code code="L0007" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Télésuivi">
@@ -1133,9 +1177,9 @@
               <!-- Télésuivi Activé -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="151D521A-7839-462B-A1A1-C9FBDFAA1EAD" />
                   <code code="L0008" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Télésuivi Activé">
@@ -1154,9 +1198,9 @@
               <!-- Stades NYHA -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="9408195D-85C9-4990-A6F0-24A4B9813FEA" />
                   <code code="L0009" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Stade NYHA">
@@ -1175,9 +1219,9 @@
               <!-- FEVG -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="F6928DF6-2F36-4C88-A0FF-40BDB2E75C6D" />
                   <code code="L0010" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="FEVG">
@@ -1196,9 +1240,9 @@
               <!-- Date Examen de dernier contrôle -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="356EA8F4-034B-4ABE-9D8B-010EB5A131CD" />
                   <code code="L0012" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date dernier controle">
@@ -1217,9 +1261,9 @@
               <!-- Mode Programmé (dernier contrôle) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="8687EADC-E461-42AB-B0FB-89B762C8521A" />
                   <code code="L0013" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Mode Programmé">
@@ -1238,9 +1282,9 @@
               <!-- Fréquence sans aimant (dernier contrôle) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="457E1331-DA0E-486B-A7B0-3E02A9EC5164" />
                   <code code="L0037" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Fréquence sans aimant">
@@ -1259,9 +1303,9 @@
               <!-- Fréquence sous aimant (dernier contrôle) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="545CB492-1145-4D41-A768-AB5A167A489B" />
                   <code code="L0066" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Fréq. s/s aimant dernier contrôle">
@@ -1280,9 +1324,9 @@
               <!-- Tension dernier contrôle (dernier contrôle) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="F80F0872-059A-4A8B-81DC-727EA88B79E6" />
                   <code code="L0014" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Tension">
@@ -1301,9 +1345,9 @@
               <!-- Impédance dernier contrôle (dernier contrôle) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="470DBA81-DF85-4256-BA72-3020755C1F3B" />
                   <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
@@ -1333,9 +1377,9 @@
               <!-- Date d'implantation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="408AA1CE-3200-477D-B6BB-1B39DA205BB0" />
                   <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation">
@@ -1354,9 +1398,9 @@
               <!-- Dispositif implanté -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="617EB4FB-6324-4ED5-A46F-3B4B5B958AF5" />
                   <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif implanté">
@@ -1375,9 +1419,9 @@
               <!-- Marque de la sonde -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="6277846D-CF2C-416E-ABA0-0F95CF41A733" />
                   <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque sonde">
@@ -1396,9 +1440,9 @@
               <!-- Modèle de la sonde -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="1134D6EC-CBDE-4EBF-94BD-06EE448DF233" />
                   <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle sonde">
@@ -1417,9 +1461,9 @@
               <!-- N° de série -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="4B65537C-91C5-44B0-91D8-30C43FED241E" />
                   <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
@@ -1438,9 +1482,9 @@
               <!-- Polarité -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="185CBA27-93E4-4267-BC06-040E6010FB94" />
                   <code code="L0053" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Polarité">
@@ -1459,9 +1503,9 @@
               <!-- Connexions -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="C4B7A330-2D11-45ED-AEA4-AB357D1F183C" />
                   <code code="L0017" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Connexion">
@@ -1480,9 +1524,9 @@
               <!-- Adaptateur -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="A73C372F-DED6-433D-8861-A01A037C3769" />
                   <code code="L0018" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Adaptateur">
@@ -1501,9 +1545,9 @@
               <!-- Voie d'abord -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="53091222-D11E-47F2-8958-87071D19DE59" />
                   <code code="L0019" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Voie d'abord">
@@ -1522,9 +1566,9 @@
               <!-- Localisation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="95048585-70A3-4F18-A6C7-6CBD3CC76319" />
                   <code code="L0054" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Localisation sonde">
@@ -1544,9 +1588,9 @@
               <!-- Mesure Implantation Courant (Oreillette) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="460D66C3-4F41-4499-9AF0-ABE6B51A1BC9" />
                   <code code="L0021" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Courant">
@@ -1565,9 +1609,9 @@
               <!-- Mesure Implantation Détection (Oreillette) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="84398C71-7494-44BA-BC21-4CCC111026A6" />
                   <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
@@ -1586,9 +1630,9 @@
               <!-- Mesure Implantation Impédance (Oreillette) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="7A701447-DB98-4BDB-BDA0-61E48709BD9C" />
                   <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
@@ -1607,9 +1651,9 @@
               <!-- Mesure Implantation Seuil à ms (Oreillette) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="3C130BA2-331D-4526-AAF2-7461B208AA23" />
                   <code code="L0023" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil à ms">
@@ -1629,9 +1673,9 @@
               <!-- Seuil de stimulation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="F9ADF906-8E11-4D36-B6AB-2B6AF7379CD9" />
                   <code code="L0026" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil de stimulation">
@@ -1650,9 +1694,9 @@
               <!-- Détection  -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="5A032963-1BB1-4278-9991-94E48FF5A5BE" />
                   <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
@@ -1671,9 +1715,9 @@
               <!-- Impédance -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="3A31BE6A-339C-4BF7-B88E-EB9C9135AB9D" />
                   <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
@@ -1703,9 +1747,9 @@
               <!-- Date d'implantation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="20A257A9-58E7-456A-96CC-E66F34063F36" />
                   <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation sonde">
@@ -1724,9 +1768,9 @@
               <!-- Type de la sonde -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="111B7C83-1A55-4A94-ADA4-28BCEB43AA62" />
                   <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif implanté">
@@ -1745,9 +1789,9 @@
               <!-- Marque -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="C0430E79-F1B9-41AA-BD20-556C9652E78D" />
                   <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque sonde">
@@ -1766,9 +1810,9 @@
               <!-- Modèle -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="A9DDFAD5-5A5E-4003-B885-8B25C1764BC6" />
                   <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle sonde">
@@ -1787,9 +1831,9 @@
               <!-- N° de série -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="991319AF-9ED8-437E-BC66-BBC8043626DC" />
                   <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
@@ -1808,9 +1852,9 @@
               <!-- Polarité -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="2E936B0A-5BDC-45DD-8BF6-42C6DD747616" />
                   <code code="L0053" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Polarité">
@@ -1829,9 +1873,9 @@
               <!-- Connexions -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="CA493239-91DE-4FE2-BE16-5D949612BBDF" />
                   <code code="L0017" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Connexions">
@@ -1850,9 +1894,9 @@
               <!-- Adapteur -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="95796814-9FEE-4C3B-BCCB-5ECEC63C4C1C" />
                   <code code="L0018" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Adaptateur">
@@ -1871,9 +1915,9 @@
               <!-- Voie d'abord -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="695F809B-BBBB-4EA5-A44B-C071DCB90B58" />
                   <code code="L0019" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Voie d'abord">
@@ -1892,9 +1936,9 @@
               <!-- Localisation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="00C5607E-E16C-44E6-85D8-3A8FE1F8D2BC" />
                   <code code="L0054" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Localisatiopn sonde">
@@ -1914,9 +1958,9 @@
               <!-- Mesures à l'Implantation Courant (VD) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="154A85C8-97AE-4D96-A32C-C1017E0AACE3" />
                   <code code="L0021" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Courant">
@@ -1935,9 +1979,9 @@
               <!-- Mesures à l'Implantation Détection (VD) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="94C1E46F-4E67-49FC-AFEC-AE4B32B6F250" />
                   <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
@@ -1956,9 +2000,9 @@
               <!-- Mesures à l'Implantation Impédance (VD) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="6E3411E2-5F46-49BB-B6DA-80CAE5DC3537" />
                   <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
@@ -1977,9 +2021,9 @@
               <!-- Mesures à l'Implantation Seuil à ms (VD) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="B840948A-A955-4A69-B9AF-BC87F1A9E228" />
                   <code code="L0023" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil à ms">
@@ -1999,9 +2043,9 @@
               <!-- Seuil de stimulation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="30076BF4-B039-41FA-ADCE-B7C30C824228" />
                   <code code="L0026" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil de stimulation">
@@ -2020,9 +2064,9 @@
               <!-- Détection  -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="0AD4B638-3F6E-40AB-848C-7E5FF5E35125" />
                   <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
@@ -2041,9 +2085,9 @@
               <!-- Impédance -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="BB1CF361-F4C5-40E6-B61E-B573FAC0D1CD" />
                   <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
@@ -2073,9 +2117,9 @@
               <!-- Date d'implantation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="AC92C80F-DC45-4A51-8665-7313959B839E" />
                   <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation sonde">
@@ -2094,9 +2138,9 @@
               <!-- Type de la sonde -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="830BBAC7-EF30-4287-8EC0-3D1D348DDF59" />
                   <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Dispositif implanté">
@@ -2115,9 +2159,9 @@
               <!-- Marque -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="3938B3E8-E833-47CE-B86E-68989ED731AC" />
                   <code code="L0050" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Marque sonde">
@@ -2136,9 +2180,9 @@
               <!-- Modèle -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="EFC651B1-7857-4DB8-B49B-6BC8FE26C0E9" />
                   <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle sonde">
@@ -2157,9 +2201,9 @@
               <!-- N° de série -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="2A70D5E8-D5A0-4E06-9A25-B79FBD402007" />
                   <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
@@ -2178,9 +2222,9 @@
               <!-- Polarité -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="93A56FCD-8B11-4A6C-91A7-9E32DF979B54" />
                   <code code="L0053" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Polarité">
@@ -2199,9 +2243,9 @@
               <!--  Connexions -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="217A84A6-2711-47B5-B323-0E4FF54662D2" />
                   <code code="L0017" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Connexions">
@@ -2220,9 +2264,9 @@
               <!-- Adapteur -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="A31153E4-C928-436B-8651-C0C83BA3CEDC" />
                   <code code="L0018" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Adapteur">
@@ -2241,9 +2285,9 @@
               <!-- Voie d'abord -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="6788B930-B652-4EED-BF95-D4928E669FAD" />
                   <code code="L0019" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Voie d'abord">
@@ -2262,9 +2306,9 @@
               <!-- Localisation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="BAF6429E-A203-4578-96A5-FFD9049225EC" />
                   <code code="L0054" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Localisation sonde">
@@ -2284,9 +2328,9 @@
               <!-- Mesures à l'Implantation Courant (VG) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="86AECA70-B94C-499D-9D22-86B587699C55" />
                   <code code="L0021" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Courant">
@@ -2305,9 +2349,9 @@
               <!-- Mesures à l'Implantation Détection (VG) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="7F97E353-85C1-4A10-8333-98F0A9961D5A" />
                   <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
@@ -2326,9 +2370,9 @@
               <!-- Mesures à l'Implantation Impédance (VG) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="3F8285F4-ECB4-4474-A707-E8CBC22DE1AA" />
                   <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
@@ -2347,9 +2391,9 @@
               <!-- Mesures à l'Implantation Seuil à ms (VG) -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="DA399025-2625-4579-82B4-E6ADB9012020" />
                   <code code="L0023" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil à ms">
@@ -2369,9 +2413,9 @@
               <!-- Seuil de stimulation -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="48DBC025-4439-4D32-8B05-64D62125DA98" />
                   <code code="L0026" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Seuil de stimulation">
@@ -2390,9 +2434,9 @@
               <!-- Détection  -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="21A371AB-8D1D-4D7D-9186-65DA8CBECA57" />
                   <code code="L0022" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Détection">
@@ -2411,9 +2455,9 @@
               <!-- Impédance -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="0B276C49-FCA9-43A9-B7CD-E7F5EEC716F1" />
                   <code code="L0015" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Impédance">
@@ -2440,7 +2484,11 @@
          -->
       <component>
         <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.107" />
+          <!-- Conformité IHE PCC Parent Template Patient Education and Consents -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.38" />
+          <!-- Conformité IHE PCC Coded Patient Education and Consents -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.39" />
           <code code="34895-3" codeSystem="2.16.840.1.113883.6.1" />
           <title>INFORMATION DU PATIENT</title>
@@ -2454,6 +2502,9 @@
           </text>
           <entry>
             <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.35" />
+              <!-- Conformité IHE PCC External References -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4" />
               <id root="3856999D-7907-4A04-9D9D-6D16FA3F9706" />
               <code nullFlavor="NASK" />

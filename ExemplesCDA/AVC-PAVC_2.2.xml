@@ -27,7 +27,7 @@
   <!-- Evaluation Pluri Professionnelle Post AVC (PostAVC)-->
   <templateId root="1.2.250.1.213.1.1.1.25" extension="2020.01"/>
   <!-- Identifiant du document -->
-  <id root="1.2.250.1.213.1.1.9" extension="AVC-PAVC_v2.2_29181201_001_1" />
+  <id root="D2356368-1F6D-413F-9946-5BF6217C0537"/>
   <!-- Type de document -->
   <code code="11488-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="CR ou fiche de consultation ou de visite" />
   <!-- Titre du document -->
@@ -39,7 +39,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant du lot de version d'un même document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="AVC-PAVC_v2.2_29181201_001" />
+  <setId root="0884CBAB-5CBA-43BF-B5AD-9A4A54B659FC"/>
   <!-- Version du document -->
   <versionNumber value="1" />
   <!-- Patient -->

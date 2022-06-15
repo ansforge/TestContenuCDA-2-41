@@ -12,8 +12,8 @@
                         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                         title="Vérification de la conformité au modèle AVC-EUNV_2.2"
                         schemaVersion="CI-SIS_AVC-EUNV_2.2.sch"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/AVC-EUNV_2.2.xml"
-                        dateHeure="9/3/2022 à 14:38:09 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/AVC-EUNV_2.2.xml"
+                        dateHeure="5/7/2022 à 11:45:02 (temps UTC+02:00)">
    <svrl:active-pattern id="JDV_ComplicationNeurologique-CISIS">
       <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
    </svrl:active-pattern>

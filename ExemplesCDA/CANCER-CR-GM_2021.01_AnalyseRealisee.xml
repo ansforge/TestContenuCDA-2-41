@@ -37,8 +37,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au modèle de document CR-GM -->
   <templateId root="1.2.250.1.213.1.1.1.32" extension="2021.01" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="CR-GM_2021.01_20180123_002_1" />
+  <!-- Identifiant du document -->
+  <id root="1166DF78-CD5A-4BD0-A34A-7F61B38BDB4F"/>
   <!-- Type du document -->
   <code code="51969-4" displayName="CR de génétique moléculaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -50,7 +50,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="CR-GM_2021.01_20180123_002" />
+  <setId root="7E7F0590-4B91-48D1-9911-F6A2F83001D3"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 

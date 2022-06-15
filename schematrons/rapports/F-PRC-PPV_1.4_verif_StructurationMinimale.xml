@@ -14,8 +14,8 @@
                         title="Rapport de conformité du document aux spécifications françaises (en-tête)"
                         schemaVersion="CI-SIS_StructurationMinimale.sch"
                         phase="Struct_minimale"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/F-PRC-PPV_1.4.xml"
-                        dateHeure="9/3/2022 à 16:08:08 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/F-PRC-PPV_1.4.xml"
+                        dateHeure="5/7/2022 à 17:08:51 (temps UTC+02:00)">
    <svrl:active-pattern id="addr"/>
    <svrl:fired-rule context="cda:addr"/>
    <svrl:fired-rule context="cda:addr"/>

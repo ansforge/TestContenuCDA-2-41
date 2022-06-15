@@ -34,8 +34,8 @@
   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.1.2" />
   <!-- Déclarations de conformité au modèle Note de vaccination -->
   <templateId root="1.2.250.1.213.1.1.1.46" extension="2021.01"/>
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.3.4" extension="VAC-NOTE_2021.01_20210409_001_1" />
+  <!-- Identifiant du document -->
+  <id root="4c419a73-7d22-4098-9b4e-007e3a47d863"/>
   <!-- Type du document -->
   <code code="87273-9" displayName="Note de vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -47,7 +47,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.3.4" extension="VAC-NOTE_2021.01_20210409_001" />
+  <setId root="1981E7F8-F41F-4B6F-8CC9-BAFAEE661C30"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -289,8 +289,10 @@
       <!-- Section FR-Antecedents-medicaux [0..1] -->
       <component>
         <section>
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8" />
-          <templateId root="1.2.250.1.213.1.1.2.134" />
+          <!-- Conformité IHE PCC History of Past Illness Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+          <!-- Conformité CI-SIS FR-Antecedents-medicaux -->
+          <templateId root="1.2.250.1.213.1.1.2.134"/>
           <id root="8EB396A9-79A4-4716-BF9D-38F5CE2652E3" />
           <code code="11348-0" displayName="Antécédents médicaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Antécédents médicaux</title>
@@ -315,10 +317,14 @@
           <!-- Entrée FR-Liste-des-problemes [1..*] -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
-              <templateId root="1.2.250.1.213.1.1.3.39" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern Entry -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/> 
+              <!-- Conformité CI-SIS FR-Liste-des-problemes -->        
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
               <code nullFlavor="NA" />
               <statusCode code="completed" />
@@ -329,9 +335,12 @@
               <!-- Entrée FR-Probleme [1..*] -->
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
-                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS FR-Probleme -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="EE36A646-4288-49F2-8C8F-1A65C99AADD9" />
                   <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
                   <text>
@@ -356,12 +365,15 @@
       <!-- Section FR-Problemes-actifs [0..1] -->
       <component>
         <section>
+          <!-- Conformité CCD -->
           <templateId root="2.16.840.1.113883.10.20.1.11"/>
+          <!-- Conformité IHE PCC Active Problems Section -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+          <!-- Conformité CI-SIS FR-Problemes-actifs -->
           <templateId root="1.2.250.1.213.1.1.2.132"/>
           <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
           <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
-          <title>Liste des problèmes actifs</title>
+          <title>Problèmes actifs</title>
           <text>
             <table border="0">
               <thead>
@@ -395,10 +407,14 @@
           <!-- Entrée FR-Liste-des-problemes [1..*] -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
-              <templateId root="1.2.250.1.213.1.1.3.39" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern Entry -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/> 
+              <!-- Conformité CI-SIS FR-Liste-des-problemes -->        
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="16ABB7E7-8829-4507-AFB2-54CD2D6D4249" />
               <code nullFlavor="NA" />
               <statusCode code="active" />
@@ -408,9 +424,12 @@
               <!-- Entrée FR-Probleme [1..*] -->
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
-                  <templateId root="1.2.250.1.213.1.1.3.37" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS FR-Probleme -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5" />
                   <code code="F-01250" displayName="Symptôme" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
                   <text>
@@ -428,9 +447,12 @@
                   <!-- Entrée Sévérité [0..1] -->
                   <entryRelationship typeCode="SUBJ" inversionInd="true">
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="2.16.840.1.113883.10.20.1.55" />
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1" />
-                      <templateId root="1.2.250.1.213.1.1.3.29" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.55"/>
+                      <!-- Conformité IHE PCC Severity -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1"/>
+                      <!-- Conformité CI-SIS FR-Sévérité -->
+                      <templateId root="1.2.250.1.213.1.1.3.29"/>
                       <code code="SEV" displayName="Sévérité" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode" />
                       <text>
                         <reference value="#severite-01" />
@@ -442,9 +464,13 @@
                   <!-- Entrée Statut du problème [0..1] -->
                   <entryRelationship typeCode="REFR" inversionInd="false">
                     <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité CCD -->
                       <templateId root="2.16.840.1.113883.10.20.1.57" />
+                      <!-- Conformité CCD -->
                       <templateId root="2.16.840.1.113883.10.20.1.50" />
+                      <!-- Conformité IHE PCC Problem Status Observation -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1" />
+                      <!-- Conformité CI-SIS FR-Statut-du-probleme -->
                       <templateId root="1.2.250.1.213.1.1.3.30" />
                       <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                       <text>
@@ -457,9 +483,12 @@
                   <!-- Entrée Statut clinique du patient [0..1] -->
                   <entryRelationship typeCode="REFR" inversionInd="false">
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="2.16.840.1.113883.10.20.1.51" />
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.2" />
-                      <templateId root="1.2.250.1.213.1.1.3.31" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.51"/>
+                      <!-- Conformité IHE PCC Health Status Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.2"/>
+                      <!-- Conformité CI-SIS FR-Statut-clinique-du-patient -->
+                      <templateId root="1.2.250.1.213.1.1.3.31"/>
                       <code code="11323-3" displayName="Statut clinique du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                       <text>
                         <reference value="#clinique-01" />
@@ -478,9 +507,12 @@
       <!-- Section FR-Traitements [0..1] -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.8" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19" />
-          <templateId root="1.2.250.1.213.1.1.2.143" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.8"/>
+          <!-- Conformité IHE PCC Medications -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+          <!-- Conformité CI-SIS FR-Traitements -->
+          <templateId root="1.2.250.1.213.1.1.2.143"/>
           <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" displayName="Historique des traitements" />
           <title>Traitements</title>
           <text>
@@ -533,11 +565,14 @@
           <!-- Traitement 1 à 2 gélules de Doliprane 500 mg toutes les 4 heures lié à la fièvre décrite dans les problèmes actifs -->
           <entry typeCode="DRIV">
             <substanceAdministration classCode="SBADM" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
-              <templateId root="1.2.250.1.213.1.1.3.42" />
-              <!-- templateId "Normal dosing" -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Medication -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <!-- Conformité CI-SIS FR-Traitement -->
+              <templateId root="1.2.250.1.213.1.1.3.42"/>
+              <!-- [1..1] Mode d'administration : Normal -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
               <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A" />
               <text>
                 <reference>
@@ -575,9 +610,12 @@
               <!-- Médicament -->
               <consumable>
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC Product entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <!-- Conformité CI-SIS FR-Produit-de-sante -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
                   <manufacturedMaterial>
                     <code code="67119691" displayName="DOLIPRANE 500 mg, gélule" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
                       <originalText mediaType="text/xml">
@@ -597,9 +635,12 @@
               <!-- FR-Instructions-au-patient -->
               <entryRelationship typeCode="SUBJ" inversionInd="true">
                 <act classCode="ACT" moodCode="INT">
-                  <templateId root="2.16.840.1.113883.10.20.1.49" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3" />
-                  <templateId root="1.2.250.1.213.1.1.3.33" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                  <!-- Conformité IHE PCC Patient Medication Instructions -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3"/>
+                  <!-- Conformité CI-SIS FR-Instructions-au-patient -->
+                  <templateId root="1.2.250.1.213.1.1.3.33"/>
                   <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
                   <text>
                     <reference value="#instruction-001" />
@@ -610,7 +651,9 @@
               <!-- FR-Reference-interne : Motif (Liaison du traitement à sa cause) -->
               <entryRelationship typeCode="RSON">
                 <act classCode="ACT" moodCode="EVN">
+                  <!-- Conformité IHE PCC Internal Références -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1"/>
+                  <!-- Conformité CI-SIS FR-Reference-interne -->
                   <templateId root="1.2.250.1.213.1.1.3.36"/>
                   <id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5"/>
                   <code code="R50" displayName="fièvre d'origine inconnue" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
@@ -628,10 +671,14 @@
       <!-- Section FR-Signes-vitaux [0..1] -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.16" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2" />
-          <templateId root="1.2.250.1.213.1.1.2.75" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.16"/>
+          <!-- Conformité IHE PCC parent Vital Signs Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25"/>
+          <!-- Conformité IHE PCC Coded Vital Signs Section-->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2"/>
+          <!-- Conformité CI-SIS FR-Signes-vitaux -->
+          <templateId root="1.2.250.1.213.1.1.2.75"/>
           <id root="B70D20AA-0438-4092-AD2F-E376173C00D9" />
           <code code="8716-3" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Signes Vitaux</title>
@@ -675,10 +722,14 @@
           <!-- Entrée FR-Signes-vitaux [1..1] -->
           <entry>
             <organizer classCode="CLUSTER" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.32" />
-              <templateId root="2.16.840.1.113883.10.20.1.35" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1" />
-              <templateId root="1.2.250.1.213.1.1.3.49" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.32"/>
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.35"/>
+              <!-- Conformité IHE PCC Vital Signs Organizer -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1"/>
+              <!-- Conformité CI-SIS FR-Signes-vitaux -->
+              <templateId root="1.2.250.1.213.1.1.3.49"/>
               <id root="0FD525FD-8712-40F9-BC31-AF9E25069C24" />
               <!--<code code="F-03400" displayName="Signes vitaux" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />-->
               <code code="85353-1" displayName="Signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -687,10 +738,14 @@
               <!-- Eléménent FR-Signe-vital-observe [1..*] : Poids -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.31" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC parent Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS FR-Signe-vital-observe -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
                   <id root="ECD72DDD-C2A0-42C8-9BD3-E3C8B408003D" />
                   <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Poids (mesuré)" codeSystemName="LOINC" />
                   <text>
@@ -704,10 +759,14 @@
               <!-- Eléménent FR-Signe-vital-observe [1..*] : Taille(cm) -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.31" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC parent Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS FR-Signe-vital-observe -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
                   <id root="B47243F7-6470-43DC-97FA-4FA67A384BF4" />
                   <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Taille (mesurée)" codeSystemName="LOINC" />
                   <text>
@@ -721,10 +780,14 @@
               <!-- Eléménent FR-Signe-vital-observe [1..*] : IMC -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.31" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC parent Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS FR-Signe-vital-observe -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
                   <id root="02ECCD70-3298-4FD5-A732-4AF23CBCBAF1" />
                   <code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Index de masse corporelle (IMC)" codeSystemName="LOINC" />
                   <text>
@@ -738,10 +801,14 @@
               <!-- Eléménent FR-Signe-vital-observe : Température (°C) -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.31" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.50" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                  <!-- Conformité IHE PCC parent Simple Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité IHE PCC Vital Signs Observation -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                  <!-- Conformité CI-SIS FR-Signe-vital-observe -->
+                  <templateId root="1.2.250.1.213.1.1.3.50"/>
                   <id root="3704BDE3-3BB7-4483-B0A0-037B90A99901" />
                   <code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Température corporelle" codeSystemName="LOINC" />
                   <text>
@@ -762,12 +829,15 @@
       <!-- Section FR-Allergies-et-intolerances [0..1] -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.2" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13" />
-          <templateId root="1.2.250.1.213.1.1.2.137" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.2"/>
+          <!-- Conformité IHE PCC Allergies and Other Adverse Reactions Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
+          <!-- Conformité CI-SIS FR-Allergies-et-intolerances -->
+          <templateId root="1.2.250.1.213.1.1.2.137"/>
           <id root="7649C5FA-A444-49A6-91E9-78D2E5880C67" />
-          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, réactions adverses, alertes" />
-          <title>Allergies et intolérances</title>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies et hypersensibilités" />
+          <title>Allergies et hypersensibilités</title>
           <text>
             <table border="0">
               <thead>
@@ -809,10 +879,14 @@
           <!-- Entrée FR-Liste-des-allergies-et-intolerances [1..*] -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3" />
-              <templateId root="1.2.250.1.213.1.1.3.40" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC parent Concern Entry -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC Allergies and Intolerances Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+              <!-- Conformité CI-SIS FR-Liste-des-allergies-et-intolerances -->
+              <templateId root="1.2.250.1.213.1.1.3.40"/>
               <id root="1269C206-4D59-4A9D-AA2D-AA0C4622D525" />
               <code nullFlavor="NA" />
               <statusCode code="active" />
@@ -822,11 +896,16 @@
               <!-- Entrée FR-Allergie-ou-intolerance [1..*] -->
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
-                  <templateId root="2.16.840.1.113883.10.20.1.18" />
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6" />
-                  <templateId root="1.2.250.1.213.1.1.3.41" />
+                  <!-- Conformité CCD Problem Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité CCD Alert Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.18"/>
+                  <!-- Conformité IHE PCC parent Problem Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité IHE PCC Allergy and Intolerance -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+                  <!-- Conformité CI-SIS FR-Allergie-ou-intolerance -->
+                  <templateId root="1.2.250.1.213.1.1.3.41"/>
                   <id root="C64C6013-C8AF-4938-AD10-1B7D26DEE2A0" />
                   <!-- Type d'allergie ou intolérance -->
                   <code code="DALG" displayName="Allergie médicamenteuse" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode">
@@ -864,9 +943,14 @@
                   <!-- Réaction observée -->
                   <entryRelationship typeCode="MFST" inversionInd="false">
                     <observation classCode="OBS" moodCode="EVN" negationInd="true">
-                      <templateId root="2.16.840.1.113883.10.20.1.28" />
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                      <!-- Conformité CCD -->
                       <templateId root="2.16.840.1.113883.10.20.1.54" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                      <!-- Conformité IHE PCC Problem entry -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                      <!-- Conformité CI-SIS FR-Probleme -->
+                      <templateId root="1.2.250.1.213.1.1.3.37"/>
                       <id root="6A2A251D-097A-48B4-944E-0003E92F843F" />
                       <code code="F-01250" displayName="Symptôme" codeSystem="1.2.250.1.213.2.12" />
                       <text>
@@ -899,9 +983,14 @@
                   <!-- Statut de l'allergie/intolérance -->
                   <entryRelationship typeCode="REFR" inversionInd="false">
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="2.16.840.1.113883.10.20.1.57" />
+                      <!-- Conformité CCD -->
                       <templateId root="2.16.840.1.113883.10.20.1.50" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.57" />
+                      <!-- Conformité IHE PCC Problem Status Observation -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1" />
+                      <!-- Conformité CI-SIS Entrée FR-Statut-du-probleme -->
+                      <templateId root="1.2.250.1.213.1.1.3.30" />
                       <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                       <text>
                         <reference value="#statut-allegie-001" />
@@ -913,8 +1002,12 @@
                   <!-- Commentaire -->
                   <entryRelationship typeCode="SUBJ" inversionInd="true">
                     <act classCode="ACT" moodCode="EVN">
-                      <templateId root="2.16.840.1.113883.10.20.1.40" />
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                      <!-- Conformité IHE PCC Comments -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                      <!-- Conformité CI-SIS  FR-Commentaire-ER -->
+                      <templateId root="1.2.250.1.213.1.1.3.32"/>
                       <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                       <text>
                         <reference value="#commentaire-001" />-</text>
@@ -931,7 +1024,9 @@
       <!-- Section FR-Historique-des-grossesses [0..1] -->
       <component>
         <section>
+          <!-- Conformité IHE PCC Pregnancy History Section -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.4" />
+          <!-- Conformité CI-SIS FR-Historique-des-grossesses -->
           <templateId root="1.2.250.1.213.1.1.2.77" />
           <id root="87B50DAD-C401-406E-00FE-57B02E1E155F" />
           <code code="10162-6" displayName="Historique des grossesses" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -986,9 +1081,12 @@
           <!-- Entrée FR-Observation-sur-la-grossesse [1..1] : Patiente enceinte ? -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
-              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Pregnancy Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+              <!-- Conformité CI-SIS FR-Observation-sur-la-grossesse -->
+              <templateId root="1.2.250.1.213.1.1.3.53"/>
               <id root="F575ADEE-0DC3-4D76-932E-6E23DAF4E163" />
               <code code="11449-6" displayName="Statut de grossesse" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text>
@@ -1002,9 +1100,12 @@
           <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Date de l'accouchement ou date prévisionnelle -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
-              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Pregnancy Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+              <!-- Conformité CI-SIS FR-Observation-sur-la-grossesse -->
+              <templateId root="1.2.250.1.213.1.1.3.53"/>
               <id root="F575ADEE-0DC3-4D76-932E-6E23DAF4E163" />
               <code code="11780-4" displayName="Date prévisionnelle de l'accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text>
@@ -1018,9 +1119,12 @@
           <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Projet de grossesse -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
-              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Pregnancy Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+              <!-- Conformité CI-SIS FR-Observation-sur-la-grossesse -->
+              <templateId root="1.2.250.1.213.1.1.3.53"/>
               <id root="0D5958C7-FD83-4F7D-8909-4342FF7D5E7B" />
               <code code="ORG-173" displayName="Projet de grossesse" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
               <text>
@@ -1034,9 +1138,12 @@
           <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Nombre d'enfants prématurés -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
-              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Pregnancy Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+              <!-- Conformité CI-SIS FR-Observation-sur-la-grossesse -->
+              <templateId root="1.2.250.1.213.1.1.3.53"/>
               <id root="5BEE6908-2116-42D1-8522-025F87389DDA" />
               <code code="11637-6" displayName="Nombre d'enfants prématurés (nés avant 37 semaines)" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text>
@@ -1050,9 +1157,12 @@
           <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Allaitement -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
-              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Pregnancy Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+              <!-- Conformité CI-SIS FR-Observation-sur-la-grossesse -->
+              <templateId root="1.2.250.1.213.1.1.3.53"/>
               <id root="5BEE6908-2116-42D1-8522-025F87389DDA" />
               <code code="MED-279" displayName="Allaitement" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
               <text>
@@ -1066,9 +1176,12 @@
           <!-- Entrée FR-Observation-sur-la-grossesse [0..1] : Accouchement récent -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5" />
-              <templateId root="1.2.250.1.213.1.1.3.53" />
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Pregnancy Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+              <!-- Conformité CI-SIS FR-Observation-sur-la-grossesse -->
+              <templateId root="1.2.250.1.213.1.1.3.53"/>
               <id root="5BEE6908-2116-42D1-8522-025F87389DDA" />
               <code code="MED-280" displayName="Accouchement récent" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
               <text>
@@ -1085,10 +1198,14 @@
       <!-- Section FR-Habitus-mode-de-vie [0..1] -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.15" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16.1" />
-          <templateId root="1.2.250.1.213.1.1.2.141" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.15"/>
+          <!-- Conformité IHE PCC Social History Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16"/>
+          <!-- Conformité IHE PCC Coded Social History Section -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16.1"/>
+          <!-- Conformité CI-SIS FR-Habitus-mode-de-vie -->
+          <templateId root="1.2.250.1.213.1.1.2.141"/>
           <id root="10C4F352-BE15-4117-A026-C8433EBD3C9D" />
           <code code="29762-2" displayName="Habitus, Mode de vie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Habitus, Mode de vie</title>
@@ -1148,10 +1265,14 @@
           <!-- Entrée FR-Habitus-Mode-de-vie : Consommation de drogue -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.33" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
-              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.33"/>
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Social History Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+              <!-- Conformité CI-SIS FR-Habitus-Mode-de-vie -->
+              <templateId root="1.2.250.1.213.1.1.3.52"/>
               <id root="8BD16152-442B-4C2C-BAC2-207FBCFDD618" />
               <code code="42831-8" displayName="Consommation de drogue" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text>
@@ -1168,10 +1289,14 @@
           <!-- Entrée FR-Habitus-Mode-de-vie : Risques liés à la vie professionnelle -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.33" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
-              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.33"/>
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Social History Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+              <!-- Conformité CI-SIS FR-Habitus-Mode-de-vie -->
+              <templateId root="1.2.250.1.213.1.1.3.52"/>
               <id root="5178EEB9-5FB1-4F8D-A49A-D5F5D55D4941" />
               <code code="11295-3" displayName="Facteur social relié à la vie professionnelle" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text>
@@ -1188,10 +1313,14 @@
           <!-- Entrée FR-Habitus-Mode-de-vie : Vie en collectivité-->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.33" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
-              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.33"/>
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Social History Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+              <!-- Conformité CI-SIS FR-Habitus-Mode-de-vie -->
+              <templateId root="1.2.250.1.213.1.1.3.52"/>
               <id root="8BA00FD6-CAE3-430A-B43F-C51EC7188596" />
               <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                 <qualifier>
@@ -1213,10 +1342,14 @@
           <!-- Entrée FR-Habitus-Mode-de-vie : L'entourage de l'usager présente-t-il un risque pour ce dernier ? -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.33" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
-              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.33"/>
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Social History Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+              <!-- Conformité CI-SIS FR-Habitus-Mode-de-vie -->
+              <templateId root="1.2.250.1.213.1.1.3.52"/>
               <id root="A7DC5DA0-A699-4AA1-B496-3EF8C870CB1C" />
               <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                 <qualifier>
@@ -1238,10 +1371,14 @@
           <!-- Entrée FR-Habitus-Mode-de-vie : L'usager présente-t-il un risque pour son entourage ? -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.33" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
-              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.33"/>
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Social History Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+              <!-- Conformité CI-SIS FR-Habitus-Mode-de-vie -->
+              <templateId root="1.2.250.1.213.1.1.3.52"/>
               <id root="392DA2D8-AECD-455C-8913-57811F94BCD4" />
               <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                 <qualifier>
@@ -1263,10 +1400,14 @@
           <!-- Entrée FR-Habitus-Mode-de-vie : Comportement sexuel à risque -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.33" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
-              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.33"/>
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Social History Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+              <!-- Conformité CI-SIS FR-Habitus-Mode-de-vie -->
+              <templateId root="1.2.250.1.213.1.1.3.52"/>
               <id root="13B5491C-605A-440B-B5AB-C5A1F567E427" />
               <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                 <qualifier>
@@ -1287,10 +1428,14 @@
           <!-- Entrée FR-Habitus-Mode-de-vie : Risque lié à un déplacement dans un pays à risque infectueux élevé -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.33" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4" />
-              <templateId root="1.2.250.1.213.1.1.3.52" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.33"/>
+              <!-- Conformité IHE PCC parent Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Social History Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+              <!-- Conformité CI-SIS FR-Habitus-Mode-de-vie -->
+              <templateId root="1.2.250.1.213.1.1.3.52"/>
               <id root="6DA7C3B4-E467-45E9-8EB2-7641FF0E25DB" />
               <code code="11345-6" displayName="Autre élément social" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                 <qualifier>
@@ -1319,9 +1464,13 @@
       <!-- Section FR-Directives-anticipees [0..1] : Refus de vaccination -->
       <component>
         <section>
+          <!-- Conformité CCD -->
           <templateId root="2.16.840.1.113883.10.20.1.1" />
+          <!-- Conformité IHE PCC Advance Directives -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.34" />
+          <!-- Conformité IHE PCC  coded Advanced directives -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.35" />
+          <!-- Conformité CI-SIS FR-Directives-anticipees -->
           <templateId root="1.2.250.1.213.1.1.2.157" />
           <id root="B0609343-A2C1-40DF-901C-DB1167005901" />
           <code code="42348-3" displayName="Directives anticipées" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1346,10 +1495,14 @@
           <!-- Entrée FR-Directive-Anticipee [1..*] -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.17" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7" />
-              <templateId root="1.2.250.1.213.1.1.3.54" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.17"/>
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité IHE PCC Advance Directive Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7"/>
+              <!-- Conformité CI-SIS FR-Directive-anticipee -->
+              <templateId root="1.2.250.1.213.1.1.3.54"/>
               <id root="47F84EF0-FB1C-4FF4-BFD3-7026F22E3701" />
               <code code="MED-297" displayName="Autre(s) acte(s) ou traitement(s)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
                 <qualifier>
@@ -1373,9 +1526,12 @@
       <!-- Section FR-Vaccinations [1..1] -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.6" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23" />
-          <templateId root="1.2.250.1.213.1.1.2.147" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.6"/>
+          <!-- Conformité IHE PCC Immunization -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23"/>
+          <!-- Conformité CI-SIS FR-Vaccinations -->
+          <templateId root="1.2.250.1.213.1.1.2.147"/>
           <id root="DF6B5534-B28E-499B-968E-2CCAC9B98924" />
           <code code="11369-6" displayName="Historique des vaccinations" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Note de vaccination</title>
@@ -1430,9 +1586,12 @@
           <!-- Entrée FR-Vaccination [1..*] : Vaccination tétanos (2ème injection) -->
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
-              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Immunization -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+              <!-- Conformité CI-SIS FR-Vaccination -->
+              <templateId root="1.2.250.1.213.1.1.3.45"/>
               <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
               <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
               <text>
@@ -1454,9 +1613,12 @@
               <!-- Vaccin -->
               <consumable typeCode="CSM">
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC Product entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <!-- Conformité CI-SIS FR-Produit-de-sante -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
                   <manufacturedMaterial>
                     <code code="68747507" displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
                       <originalText>
@@ -1526,9 +1688,13 @@
               <!-- FR-Probleme : Réaction observée -->
               <entryRelationship inversionInd="false" typeCode="CAUS">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <!-- Conformité IHE PCC Problem Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS FR-Probleme -->
                   <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="F9E020E2-D219-43D4-8BF8-6B275E1F726D" />
                   <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
@@ -1549,8 +1715,10 @@
               <!-- FR-Rang-de-la-vaccination -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.46" />
-                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                  <!-- Conformité CI-SIS FR-Rang-de-la-vaccination -->
+                  <templateId root="1.2.250.1.213.1.1.3.82"/>
                   <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <statusCode code="completed" />
                   <value xsi:type="INT" value="2" />
@@ -1559,9 +1727,12 @@
               <!-- FR-Commentaire-ER -->
               <entryRelationship typeCode="SUBJ">
                 <act classCode="ACT" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.40" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC Comments -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS  FR-Commentaire-ER -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
                   <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <text>
                     <reference value="#vac-01-comment" />
@@ -1578,8 +1749,10 @@
       <!-- Section FR-Vaccins-recommandes [0..1] -->
       <component>
         <section>
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.3.1" />
-          <templateId root="1.2.250.1.213.1.1.2.120" />
+          <!-- Conformité IHE PCC Immunization Recommendations -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.3.1"/>
+          <!-- Conformité CI-SIS FR-Vaccins-recommandes -->
+          <templateId root="1.2.250.1.213.1.1.2.120"/>
           <id root="EB6BDDA9-B6B3-4F37-8568-EEC355C59FEC" />
           <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Vaccins recommandés</title>
@@ -1587,9 +1760,12 @@
           <!-- Entrée FR-Vaccin-recommande [1..*] -->
           <entry>
             <substanceAdministration moodCode="INT" classCode="SBADM" negationInd="false">
-              <templateId root="2.16.840.1.113883.10.20.1.25" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12.2" />
-              <templateId root="1.2.250.1.213.1.1.3.47" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC Immunization Recommendation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12.2"/>
+              <!-- Conformité CI-SIS FR-Vaccin-recommande -->
+              <templateId root="1.2.250.1.213.1.1.3.47"/>
               <id root="4D623164-A438-4520-B381-6EF85282C688" />
               <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
               <text>
@@ -1603,9 +1779,12 @@
               <routeCode nullFlavor="NA" />
               <consumable>
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC Product entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <!-- Conformité CI-SIS FR-Produit-de-sante -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
                   <manufacturedMaterial>
                     <code>
                       <originalText>

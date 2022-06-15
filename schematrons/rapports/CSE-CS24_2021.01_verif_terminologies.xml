@@ -16,8 +16,8 @@
                         xmlns:pharm="urn:ihe:pharm"
                         title="Verification sémantique"
                         schemaVersion=""
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/CSE-CS24_2021.01.xml"
-                        dateHeure="9/3/2022 à 15:23:56 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/CSE-CS24_2021.01.xml"
+                        dateHeure="5/7/2022 à 16:59:15 (temps UTC+02:00)">
    <svrl:active-pattern/>
    <svrl:fired-rule context="//hl7:code"/>
    <svrl:fired-rule context="//hl7:code"/>

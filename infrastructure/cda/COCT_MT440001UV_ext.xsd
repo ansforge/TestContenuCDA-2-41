@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ex="urn:hl7-org/v3-example"
-   xmlns="urn:ihe:pharm:medication" xmlns:hl7v3="urn:hl7-org:v3" 
-   targetNamespace="urn:ihe:pharm:medication"
+   xmlns="urn:epsos-org:ep:medication" xmlns:hl7v3="urn:hl7-org:v3" 
+   targetNamespace="urn:epsos-org:ep:medication"
            elementFormDefault="qualified"><!--
 *****************************************************************************************************************
 * XML schema for message type COCT_MT440001UV.
@@ -49,8 +49,8 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
       include for datatypes.xsd to be added
       <xs:include schemaLocation="../coreschemas/infrastructureRoot.xsd"/>
    -->
-   <xs:import namespace="urn:hl7-org:v3" schemaLocation="../../processable/coreschemas/pharm/infrastructureRoot.xsd"/>
-   <xs:include schemaLocation="../../processable/coreschemas/pharm/datatypes.xsd"/>
+   <xs:import namespace="urn:hl7-org:v3" schemaLocation="infrastructureRoot.xsd"/>
+   <xs:include schemaLocation="datatypes.xsd"/>
    <xs:complexType name="COCT_MT440001UV.ValuedItem">
       <xs:sequence>
          <xs:group ref="hl7v3:InfrastructureRootElements"/>

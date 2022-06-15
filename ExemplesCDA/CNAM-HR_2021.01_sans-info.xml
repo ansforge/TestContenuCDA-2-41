@@ -44,8 +44,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1"/>
   <!-- Conformité au modèle du document CNAM-HR -->
   <templateId root="1.2.250.1.213.1.1.1.36" extension="2021.01"/>
-  <!-- Identifiant unique du document = OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.215.200" extension="CNAM-HR_2021.01_20190701_001_2"/>
+  <!-- Identifiant unique du document -->
+  <id root="02672321-16DE-4788-97D5-C34CD47EF5D1"/>
   <!-- Type du document -->
   <code code="REMB" codeSystem="1.2.250.1.213.1.1.4.12" displayName="Données de remboursement"/>
   <!-- Titre du document -->
@@ -58,7 +58,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR"/>
   <!-- Identifiant du lot de version d'un même document -->
-  <setId root="1.2.250.1.215.200" extension="CNAM-HR_2021.01_20190701_001"/>
+  <setId root="ABAFE511-53EE-451E-A328-8046F5AD6140"/>
   <!-- Identifiant de la version du document -->
   <versionNumber value="2"/>
 
@@ -215,8 +215,8 @@
   <!-- Association du document à une prise en charge -->
   <componentOf>
     <encompassingEncounter>
-      <effectiveTime>
-        <low nullFlavor="NA"/>
+      <effectiveTime nullFlavor="NA">
+        <!--<low/>-->
       </effectiveTime>
       <location>
         <healthCareFacility>
@@ -286,7 +286,7 @@
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
               <!-- Conformité IHE Mode d’administration "Normal" -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
-              <id nullFlavor="UNK"/>
+              <id root="A70A8DBC-1CAC-412A-BEB7-3C249659E9CF"/>
               <code code="DRUG" codeSystem="2.16.840.1.113883.5.4"
                 displayName="Médicament" codeSystemName="HL7:ActCode"/>
               <text><reference></reference></text>
@@ -295,7 +295,7 @@
                 <low nullFlavor="NA"/>
                 <high nullFlavor="NA"/>
               </effectiveTime>
-              <effectiveTime nullFlavor="NA"/>
+              <effectiveTime operator="A"/>
               <consumable>
                 <manufacturedProduct>
                   <!-- Conformité CI-SIS -->
@@ -342,7 +342,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
               <!-- Conformité IHE PCC Immunizations Entry -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
-              <id nullFlavor="UNK"/>
+              <id root="61AB79B0-1290-40C3-95FF-7D9FA9EC4192"/>
               <code code="IMMUNIZ" displayName="Vaccination sans autres précisions" codeSystem="2.16.840.1.113883.5.4"/>
               <text><reference value="#vaccin001"/></text>
               <statusCode code="completed"/>
@@ -394,7 +394,9 @@
               <templateId root="1.2.250.1.213.1.1.3.20"/>
               <id nullFlavor="NA"/>
               <text><reference value="#NO-DM"/></text>
-              <effectiveTime nullFlavor="NA"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="NA"/>
+              </effectiveTime>
               <participant typeCode="DEV">
                 <participantRole classCode="MANU">
                   <playingDevice classCode="DEV" determinerCode="INSTANCE">

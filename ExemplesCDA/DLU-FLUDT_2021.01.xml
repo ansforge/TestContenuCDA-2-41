@@ -42,8 +42,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au modèle DLU-FLUDT v2021.01 -->
   <templateId root="1.2.250.1.213.1.1.1.23" extension="2021.01" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="DLU-FLUDT_2021.01_20200327_001_1" />
+  <!-- Identifiant du document -->
+  <id root="D9073783-81FA-4C81-9DC3-7F997F7047E5"/>
   <!-- Type de document -->
   <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -56,7 +56,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="DLU-FLUDT_2021.01_20200327_001" />
+  <setId root="3EE4BCED-79F6-4E92-A85F-7FC7F5CAEC12"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
   <!-- Patient -->
@@ -807,12 +807,12 @@
               </entryRelationship>
             </observation>
           </entry>
-          <!-- [0..*] Entrée FR-Simple-Observation : Douleur récente  -->
+          <!--<!-\- [0..*] Entrée FR-Simple-Observation : Douleur récente  -\->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <!-- Conformité IHE PCC Simple Observation -->
+              <!-\- Conformité IHE PCC Simple Observation -\->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- Conformité CI-SIS -->
+              <!-\- Conformité CI-SIS -\->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="2914B83F-B6EB-4DD4-9178-7C737E4B35B1" />
               <code code="R52.9" displayName="Douleur" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" />
@@ -822,12 +822,12 @@
               <statusCode code="completed" />
               <effectiveTime value="20200327153500+0100" />
               <value xsi:type="BL" value="true" />
-              <!-- Entrée FR-Simple-Observation : Localisation de la douleur -->
+              <!-\- Entrée FR-Simple-Observation : Localisation de la douleur -\->
               <entryRelationship typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- Conformité IHE PCC Simple Observation -->
+                  <!-\- Conformité IHE PCC Simple Observation -\->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- Conformité CI-SIS -->
+                  <!-\- Conformité CI-SIS -\->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="24314A2F-4243-4E0F-ACCB-70231A787700" />
                   <code code="39111-0" displayName="Localisation anatomique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -844,7 +844,7 @@
                 </observation>
               </entryRelationship>
             </observation>
-          </entry>
+          </entry>-->
         </section>
       </component>
       <!-- [1..1] Section FR-Traitements : date et l’heure de la dernière prise du traitement habituel  -->

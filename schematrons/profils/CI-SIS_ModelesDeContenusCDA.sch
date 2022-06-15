@@ -56,7 +56,7 @@
     <include href="../include/entrees/E_instructionsDispensateur_fr.sch"/>
     <include href="../include/entrees/E_itemPlanTraitement_fr.sch"/>
     <include href="../include/entrees/E_medications_fr.sch"/>
-    <include href="../include/entrees/E_observationRequest_fr.sch"/>
+<!--    <include href="../include/entrees/E_observationRequest_fr.sch"/>-->
     <include href="../include/entrees/E_patientTransfer_fr.sch"/>
     <include href="../include/entrees/E_periodeRenouvellement_fr.sch"/>  
     <include href="../include/entrees/E_pregnancyHistoryOrganizer_fr.sch"/>
@@ -86,6 +86,8 @@
     <include href="../include/entrees/E_accidentsTransfusionnels_fr.sch"/>
     <include href="../include/entrees/E_payers_fr.sch"/>
     
+    <include href="../include/entrees/E_instructionAuPatient_ANS.sch"/>
+    
     <!-- ::::::::::::::::::::::::::::::::::::: -->
     <!--           Phase en vigueur            -->
     <!-- ::::::::::::::::::::::::::::::::::::: -->
@@ -106,7 +108,7 @@
         <active pattern="E_instructionsDispensateur_fr"/>
         <active pattern="E_itemPlanTraitement_fr"/>
         <active pattern="E_medications_fr"/>
-        <active pattern="E_observationRequest_fr"/>
+<!--        <active pattern="E_observationRequest_fr"/>-->
         <active pattern="E_patientTransfer_fr"/>
         <active pattern="E_periodeRenouvellement_fr"/>
         <active pattern="E_pregnancyHistoryOrganizer_fr"/>
@@ -135,6 +137,8 @@
         <active pattern="E_identificationMicroOrganismesMultiresistants_fr"/>
         <active pattern="E_accidentsTransfusionnels_fr"/>
         <active pattern="E_payers_fr"/>
+        
+        <active pattern="E_instructionAuPatient_ANS"/>
                 
     </phase>
 </schema>

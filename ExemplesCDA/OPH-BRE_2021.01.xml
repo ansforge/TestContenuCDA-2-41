@@ -40,8 +40,8 @@
   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.1" />
   <!-- Conformité au volet OPH-BRE -->
   <templateId root="1.2.250.1.213.1.1.1.42" extension="2021.01" />
-  <!-- Identifiant unique du document : identifiant provisoire -->
-  <id root="1.2.250.1.213.1.1.9" extension="OPH-BRE_2021.01_20210827_00001_3" />
+  <!-- Identifiant du document -->
+  <id root="F4DC8DE9-C23B-4C5B-A465-80895C066901"/>
   <!-- Type du document référencé par le CI-SIS (JDV_J07-XdsTypeCode-CISIS) -->
   <code code="78513-9" codeSystem="2.16.840.1.113883.6.1" displayName="CR de consultation en ophtalmologie" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -53,7 +53,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant du lot de version d'un même document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="OPH-BRE_2021.01_20210827_00001" />
+  <setId root="24938483-4227-4293-9C0F-A52BFF25D5F3"/>
   <!-- Identifiant du lot de version d'un même document -->
   <versionNumber value="3" />
   <!-- Patient -->
@@ -376,8 +376,11 @@
       <!-- [1..1] Section FR-Raison-de-la-recommandation : Motif de la consultation -->
       <component>
         <section>
+          <!-- Conformité IHE PCC parent Raison de la recommandation non codée -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1" />
+          <!-- Conformité IHE PCC -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.2" />
+          <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.128" />
           <id root="7BF7472D-BB66-4BD8-8E0B-123F90B55159" />
           <code code="42349-1" codeSystemName="LOINC" codeSystem="2.16.840.1.113883.6.1" displayName="Raison de la recommandation" />
@@ -407,8 +410,10 @@
           <!-- [1..1] Entrée FR-Simple-Observation  -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.2.250.1.213.1.1.3.48" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
               <id root="E252EE60-A76A-4D50-A6F3-BD2FC584D977" />
               <code code="42349-1" codeSystemName="LOINC" codeSystem="2.16.840.1.113883.6.1" displayName="Raison de la recommandation" />
               <text>
@@ -423,9 +428,12 @@
           <!-- [1..1] Entrée FR-Probleme -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.28" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
-              <templateId root="1.2.250.1.213.1.1.3.37" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.28"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.37"/>
               <id root="3D9B0BF2-A823-4EDD-B762-DB8C47B0F039" />
               <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
               </code>
@@ -449,8 +457,11 @@
       <!-- [1..1] Section FR-Examen-physique-oculaire -->
       <component>
         <section>
+          <!-- Conformité CCD -->
           <templateId root="2.16.840.1.113883.10.20.2.10" />
+          <!-- Conformité IHE GEE -->
           <templateId root="1.3.6.1.4.1.19376.1.12.1.2.5" />
+          <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.182" />
           <id root="26BFC585-52B6-43D2-96A8-7CA561773466" />
           <code code="70948-5" displayName="Examen physique oculaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -459,7 +470,9 @@
           <!-- [0..1] Section FR-Bilan-ophtalmologique  -->
           <component>
             <section>
+              <!-- Conformité IHE GEE -->
               <templateId root="1.3.6.1.4.1.19376.1.12.1.2.6" />
+              <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.2.183" />
               <id root="87734319-16A9-4A6E-BF4B-EFA5E834203F" />
               <code code="10197-2" displayName="Bilan ophtalmologique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -468,7 +481,9 @@
               <!-- [0..1] Section FR-Mesure-de-la-refraction : Réfraction automatique / Meilleure acuité visuelle corrigée -->
               <component>
                 <section>
+                  <!-- Conformité IHE GEE -->
                   <templateId root="1.3.6.1.4.1.19376.1.12.1.2.9" />
+                  <!-- Conformité CI-SIS -->
                   <templateId root="1.2.250.1.213.1.1.2.186" />
                   <id root="473F97A7-A404-4B74-BCE1-4CBC3DBA8255" />
                   <code code="70938-6" displayName="Mesure de la réfraction" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -583,7 +598,9 @@
                   <!-- [1..1] Entrée FR-Liste-des-mesures-de-refraction : Réfraction automatique -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.3" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.116" />
                       <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                       <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -592,7 +609,9 @@
                       <!-- [1..1] Entrée FR-Mesure-de-refraction : Sphère (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="82EB3001-288A-4311-8890-4F953D5FC71B" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -611,7 +630,9 @@
                       <!-- [1..1] Entrée FR-Mesure-de-refraction : Cylindre (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="06415D85-03A4-427C-8ECA-90B52BFC83DF" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -630,7 +651,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Axe (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="419B6C07-1AEB-4D83-8F4B-2D01E34E85B1" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -649,7 +672,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Indice de réfraction K (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="170EA101-2FBA-4CEA-8CA2-565BA177AD45" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -669,7 +694,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Indice de réfraction K ’ (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="D47FDA25-22F1-4AB8-ACE3-CC63DBD3B86A" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -689,7 +716,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Axe du K (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="ED36381E-C2E8-4839-B6E0-FF5B6A3008B9" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -709,7 +738,9 @@
                       <!-- [1..1] Entrée FR-Mesure-de-refraction : Sphère (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="301C0983-E425-4013-A5A8-87BCA2752B0D" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -729,7 +760,9 @@
                       <!-- [1..1] Entrée FR-Mesure-de-refraction : Cylindre (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="F3D91727-5767-4234-9E7A-4E135E0F245F" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -749,7 +782,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Axe en degré (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="A83DEE65-2540-461D-80D0-E14E83E32F89" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -769,7 +804,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Indice de réfraction K (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="EAF2B689-957A-4C9B-888B-4DB5ECC693FF" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -789,7 +826,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Indice de réfraction K ’ (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="B71AB7CD-32DA-4C47-B28E-031421D0C50A" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -809,7 +848,9 @@
                       <!-- [0..1] Entrée FR-Mesure-de-refraction : Axe du K (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.7" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.120" />
                           <id root="0DAAFCAD-FDB1-43DF-BB59-48524B5C7FAB" />
                           <!-- valeur provenant du JDV_TypeDeMesureDeRefraction-CISIS (1.2.250.1.213.1.1.5.641)  -->
@@ -832,7 +873,9 @@
                   <!-- [1..1] Entrée FR-Liste-des-mesures-acuite-visuelle : Meilleure acuité visuelle corrigée -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.2" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.115" />
                       <id root="E1B838BB-4333-4854-A042-536C4CEB20C8" />
                       <code code="70939-4" displayName="Résultat d'acuité visuelle" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
@@ -852,7 +895,9 @@
                       <!-- [0..1] Entrée FR-Mesure-acuite-visuelle : Vision de loin (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="F6270327-1570-4223-ABD8-6C943562D662" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -879,7 +924,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -890,7 +937,9 @@
                       <!-- [0..1] Entrée FR-Mesure-acuite-visuelle : ETDRS (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="A5760350-A261-4F04-8D6D-40CA47B4E5EB" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -907,7 +956,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -918,7 +969,9 @@
                       <!-- [0..1] Entrée FR-Mesure-acuite-visuelle : Vision de près (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="1A4FF00F-D1AE-40E3-8D8F-F2E129BBF6ED" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -939,7 +992,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -950,7 +1005,9 @@
                       <!-- [1..1] Entrée FR-Mesure-acuite-visuelle : Sphère (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="01695A8A-53BE-4801-9787-03D14A30B8B3" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -967,7 +1024,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -978,7 +1037,9 @@
                       <!-- [1..1] Entrée FR-Mesure-acuite-visuelle : Cylindre (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="47A23D7A-0A27-4289-8065-2DCC8CC4EE44" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -995,7 +1056,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1006,7 +1069,9 @@
                       <!-- [0..1] Entrée FR-Mesure-acuite-visuelle : Axe en degré (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="91F9805E-6FD6-40FF-8F40-FD56FDBCEE0F" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1023,7 +1088,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1034,7 +1101,9 @@
                       <!-- [0..1] Entrée FR-Mesure-acuite-visuelle : Addition (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="9FC804C9-F40E-4699-9D8C-8C9FB1D8B957" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1051,7 +1120,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1062,7 +1133,9 @@
                       <!-- [0..1] Entrée FR-Mesure-acuite-visuelle : Puissance du prisme (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="F1F4CAF7-7665-4CF8-BC40-5D980572441E" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1079,7 +1152,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1090,7 +1165,9 @@
                       <!-- [0..1] Entrée FR-Mesure-acuite-visuelle : Orientation base du prisme (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="1715F186-AD8C-4DDE-AA9F-9A371E6092D6" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1108,7 +1185,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1119,7 +1198,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Axe du prisme (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="02AE9DA8-27FA-4C8B-919C-F7A0E759D4AE" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1136,7 +1217,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1147,7 +1230,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Vision de loin (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="F5F35714-38E2-4E73-85CB-EFFAE67D100A" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1168,7 +1253,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1179,7 +1266,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : ETDRS (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="6ED6887C-728A-4A9B-B26F-5DC25EC55E03" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1196,7 +1285,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1207,7 +1298,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Vision de près (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="210C84E6-D074-4157-A64D-AF757C73552B" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1228,7 +1321,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1239,7 +1334,9 @@
                       <!--  [1..1] Entrée FR-Mesure-acuite-visuelle : Sphère (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="9F05D311-4B36-4EEB-ADB1-3634AF7C403A" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1256,7 +1353,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1267,7 +1366,9 @@
                       <!--  [1..1] Entrée FR-Mesure-acuite-visuelle : Cylindre (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="DEC8C03A-CF91-41A0-9C42-CDF6FF253997" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1284,7 +1385,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1295,7 +1398,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Axe (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="941134FD-EE05-4869-97CB-620064E6C437" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1312,7 +1417,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1323,7 +1430,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Addition (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="9EF3E294-EFE9-4CF8-8DC9-4A4B4BE32F09" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1340,7 +1449,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1351,7 +1462,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Puissance du prisme (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="FE752065-F3BF-400B-A1CB-AE8C78261D72" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1368,7 +1481,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1379,7 +1494,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Orientation base du prisme (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="68CE14DA-E84E-43F6-A0AA-65567CD2BECB" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1397,7 +1514,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1408,7 +1527,9 @@
                       <!--  [0..1] Entrée FR-Mesure-acuite-visuelle : Axe du prisme (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.6" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.119" />
                           <id root="4CA053AF-52DB-4B2B-AAF7-256915B96443" />
                           <!-- valeur provenant du JDV_TypeDeMesureAcuiteVisuelle-CISIS (1.2.250.1.213.1.1.5.642)  -->
@@ -1425,7 +1546,9 @@
                           <!-- Entrée FR-Reference-interne qui lie cette observation à l'entrée FR-Liste-des-mesures-de-refraction (1.3.6.1.4.1.19376.1.12.1.3.3) -->
                           <entryRelationship typeCode="REFR" inversionInd="false">
                             <act classCode="ACT" moodCode="EVN">
+                              <!-- Conformité IHE GEE -->
                               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                              <!-- Conformité CI-SIS -->
                               <templateId root="1.2.250.1.213.1.1.3.36" />
                               <id root="0D843227-0C1B-410E-BE0E-75980A440193" />
                               <code code="70938-6" displayName="Résultats des mesures réfractives" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1442,7 +1565,9 @@
               <!-- [0..1] Section FR-Analyse-des-dispositifs-oculaires : Dispositifs oculaires -->
               <component>
                 <section>
+                  <!-- Conformité IHE GEE -->
                   <templateId root="1.3.6.1.4.1.19376.1.12.1.2.10" />
+                  <!-- Conformité CI-SIS -->
                   <templateId root="1.2.250.1.213.1.1.2.187" />
                   <id root="DCD9E575-6082-4D76-B742-FC790F97421B" />
                   <code code="70939-4" displayName="Mesure de la lensométrie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1950,7 +2075,9 @@
                   <!-- [0..1] Entrée FR-Liste-des-mesures-de-dispositifs-oculaires : Verres prescrits -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.5" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.118" />
                       <id root="E366AC45-A815-4441-BF55-A76DEDA69DA6" />
                       <!-- valeur provenant du JDV_TypeDeMesureDispositifOculaire-CISIS (1.2.250.1.213.1.1.5.643)  -->
@@ -1960,7 +2087,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Pathologie listée dans arrêté du 03/12/2018 (true / false) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="B28047D7-75A0-426F-AF38-3AC4A8C515CE" />
                           <!-- valeur provenant du JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651) -->
@@ -1978,7 +2107,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Date de fin d'adaptation -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="1DE97552-A69A-43B9-A3CB-B1CA6CD7AF1A" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -1997,7 +2128,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Date de fin de validité -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="2EDC4ACB-FDCF-4D8A-A53A-4678C18E16B0" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2016,7 +2149,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Sphère (OD) (D)-->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D955F0AD-22FE-4851-8B3E-EE6BBD438E00" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2041,7 +2176,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="3D6B16B3-A2FC-4B71-9316-2F2032F675C1" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2066,7 +2203,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OD) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="F9B32DB3-BB12-4766-8D25-47A17B8A722D" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2091,7 +2230,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="905CD9F5-2C7E-4EB3-99F6-081FF7A5AF43" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2116,7 +2257,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Puissance du prisme (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="BC3D6875-94A2-475E-9C97-A06B34294FDD" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2141,7 +2284,9 @@
                       <!--  [0..1] Entrée FR-Mesure-dispositif-oculaire : Orientation base du prisme (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D6701C99-9A9A-4472-8A69-D56A1BF6CD63" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2167,7 +2312,9 @@
                       <!--  [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe du prisme (OD) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="16D5CE3B-5F5C-4D9C-9CC0-08D5447269A9" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2192,7 +2339,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Prisme - Type de prisme (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="00B8F2FD-6E43-43DA-8843-3775CE78BDFE" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2218,7 +2367,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Sphère (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="8E226E80-C41E-41F6-9C7D-B51C5430D121" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2243,7 +2394,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="756E5DB2-A4C1-4E83-84CF-F4D97C79DA4A" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2268,7 +2421,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OG) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="8755143D-454C-43A5-B173-F6A9A21E5A30" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2293,7 +2448,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="4CC0D6CD-0975-4232-A5BF-E03505989065" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2318,7 +2475,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Puissance du prisme (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="DD30CA44-9F38-480E-850D-136BD77FF22F" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2343,7 +2502,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Orientation base du prisme (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="4A846EA4-D58F-4057-9FF0-4409E26A57C9" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2369,7 +2530,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe du prisme (OG) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="FF910EDD-958C-40E7-A4B7-E355D1F0349C" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2394,7 +2557,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Prisme - Type de prisme (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D65A75F6-3931-40A6-9371-8511E19AFED7" />
                           <!-- valeur provenant JDV_MesureVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.651)  -->
@@ -2423,7 +2588,9 @@
                   <!-- [0..1] Entrée FR-Liste-des-mesures-de-dispositifs-oculaires : Types de verres prescrits -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.5" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.118" />
                       <id root="9DBA434A-202C-4866-A5CA-C6F34C1385F7" />
                       <code code="28818-3" displayName="Types de verres prescrits" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -2432,7 +2599,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Types de verres prescrits (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="CCAD1CD9-65E3-4B84-8CC0-16D07452A332" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2458,7 +2627,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="2B4C1E9B-F09D-4ECB-93DD-8F0E7FD6BC14" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2480,7 +2651,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Intolérance au verres (OD) (true / false) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="1F0B0C68-B40A-4A62-A304-1C6F4B940C9F" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2505,7 +2678,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Types de verres prescrits (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="E91E65F0-482C-4001-9EF2-F6760CF40EBE" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2531,7 +2706,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="6C400C40-7733-42CE-94B1-7D3DFADC03D8" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2553,7 +2730,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Intolérance au verres (OG) (true / false) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="DE47F04A-4C63-4081-9405-DD57DB642CCB" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2578,7 +2757,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Montures (true / false) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="744CDC14-A7CB-411A-9018-224948DAC25E" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2603,7 +2784,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Ecart interpupillaire (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="FCB5A2C7-397A-40C2-BBF6-659B47254237" />
                           <!-- valeur provenant JDV_MesureTypeVerrePrescrit-CISIS (1.2.250.1.213.1.1.5.652)  -->
@@ -2631,7 +2814,9 @@
                    <!-- [0..1] Entrée FR-Liste-des-mesures-de-dispositifs-oculaires : Verres délivrés -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.5" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.118" />
                       <id root="72294484-3115-4BF8-9EDA-ABC4B9054C32" />
                       <code code="MED-1067" displayName="Verres délivrés" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -2640,7 +2825,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Sphère (OD) (D)-->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C03E246A-BBD3-4C62-9AB9-0156BA7F117A" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2665,7 +2852,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="CA2A0017-D733-4FB7-BAA0-22557E9A3B1F" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2690,7 +2879,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OD) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="1F0330FE-71B9-4150-A72A-FA11541423CC" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2715,7 +2906,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="B973D298-FB07-4917-A256-5CA237B152DF" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2740,7 +2933,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Puissance du prisme (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="2F0DCA79-C582-4FA0-B7C2-D6EF8ACCA385" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2765,7 +2960,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Orientation base du prisme (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="A87AE1A6-5AEC-4188-8C11-8F32D1058246" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2791,7 +2988,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe du prisme (OD) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="6ABC08D1-42AB-4A18-87EB-1D869815D2FA" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2816,7 +3015,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Prisme - Type de prisme (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="05D4A8E1-1A57-40BB-AC23-846EBDC30CCC" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2842,7 +3043,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Sphère (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="A9B52321-1597-40DD-968B-C00450BCBAB6" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2867,7 +3070,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="571200DA-2DE9-41E0-AE7F-01AD9598A382" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2892,7 +3097,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OG) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="2F3A3A31-E112-4572-BE9E-761ECC52FC2E" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2917,7 +3124,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="F9E61142-6340-436F-8316-9A9A190669BA" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2942,7 +3151,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Puissance du prisme (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="AE81AE40-6CD0-4C4D-821D-5C74A72497ED" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2967,7 +3178,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Orientation base du prisme (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="0E604B12-D39B-4A23-9353-41A58801F436" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -2993,7 +3206,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe du prisme (OG) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="F3EBBFEA-89CB-43EA-AA83-226E8EA32F2A" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -3018,7 +3233,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Prisme - Type de prisme (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="E286B36C-C220-4813-BD21-2ADEABE392FE" />
                           <!-- valeur provenant du JDV_MesureVerreDelivre-CISIS (1.2.250.1.213.1.1.5.653) -->
@@ -3047,7 +3264,9 @@
                   <!-- [0..1] Entrée FR-Liste-des-mesures-de-dispositifs-oculaires : type de verres délivrés -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.5" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.118" />
                       <id root="9DBA434A-202C-4866-A5CA-C6F34C1385F7" />
                       <!-- JDV_TypeDeMesureDispositifOculaire-CISIS (1.2.250.1.213.1.1.5.643) -->
@@ -3057,7 +3276,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Date de délivrance  -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="8925B6AE-30D0-4F49-8BD7-71AE2211F6F7" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3076,7 +3297,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Types de verres (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="15013E62-9EC7-4729-B86E-4A59A43F10C0" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3101,7 +3324,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="9CFE6F3B-D347-4710-BDC1-4EA87C9D2077" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3123,7 +3348,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Marque (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D0683553-8F7E-40F3-B203-8A84235A2AC8" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3152,7 +3379,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Modèle (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="AAF5E09E-3081-4409-966E-D8DDF65F7BC5" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3181,7 +3410,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Demi-écart interpupillaire VL (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="5C107737-378F-403D-96AC-A8FD61F012E0" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3206,7 +3437,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Demi-écart interpupillaire VI (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="0BD07D42-05BC-443C-A08F-52D13735E0AF" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3231,7 +3464,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Demi-écart interpupillaire VP (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="712380FA-780A-448A-A35F-4DDB624782CE" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3256,7 +3491,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Hauteur de montage (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="18FCAEED-BC64-4C99-8DDE-75C6632EED41" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3281,7 +3518,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Types de verres (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="0A7AF9FB-6DB3-4A83-8A6F-9C4A11A59893" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3306,7 +3545,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OG) (Texte libre)  -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="0B443BD1-429D-440C-BF1A-1C9E29CC8F42" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3328,7 +3569,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Marque (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="519C6D79-274F-40F6-BFCD-7E8BF60F64B3" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3357,7 +3600,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Modèle (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="B439F447-8A99-44BE-BE25-CFEFAD08D057" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3386,7 +3631,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Demi-écart interpupillaire VL (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="5517CB47-B263-42A6-9073-76178A4F1F7A" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3411,7 +3658,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Demi-écart interpupillaire VI (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C5764400-D20B-43A5-98F4-C3F0638721C5" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3436,7 +3685,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Demi-écart interpupillaire VP (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="B3997D46-B713-4BDC-B567-B2F0504D05C3" />
                           <!-- valeur provenant du JDV_TypeDeMesureDispositifOculaire-CISIS (1.2.250.1.213.1.1.5.643)  -->
@@ -3461,7 +3712,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Hauteur de montage (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="4F838F15-2886-4BF1-A601-BDF0BB3FCB5C" />
                           <!-- valeur provenant du JDV_TypeDeMesureDispositifOculaire-CISIS (1.2.250.1.213.1.1.5.643)  -->
@@ -3486,7 +3739,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Montures -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="744CDC14-A7CB-411A-9018-224948DAC25E" />
                           <!-- valeur provenant du JDV_MesureTypeVerreDelivre-CISIS (1.2.250.1.213.1.1.5.654) -->
@@ -3514,7 +3769,9 @@
                   <!-- [0..1] Entrée FR-Liste-des-mesures-de-dispositifs-oculaires : Lentilles prescrites -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.5" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.118" />
                       <id root="9DBA434A-202C-4866-A5CA-C6F34C1385F7" />
                       <!-- valeur provenant du JDV_TypeDeMesureDispositifOculaire-CISIS (1.2.250.1.213.1.1.5.643) -->
@@ -3524,7 +3781,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Prise en charge de la LPP (true / false) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="94B5C02A-1AC6-41E9-9586-C22AEB5DBBCD" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3542,7 +3801,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Prescription Primo-porteur (true / false) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="9FC00069-7AD7-4F66-8FCF-4262CFD518F5" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3560,7 +3821,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Date de fin d'adaptation -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="4590E934-C48B-4C14-8C2C-F73432835132" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3579,7 +3842,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Date de fin de validité -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C41474E2-7732-45DA-9D29-59B92C811EFE" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3598,7 +3863,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Type de lentille	(OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="983C1458-1694-43E5-BD92-57D2EAD3FF87" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3624,7 +3891,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="8CCF27C9-28A3-4DF5-B00F-489F4A524ABF" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3646,7 +3915,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Renouvellement (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="BC0D935B-6273-4746-A25A-5D43504D3D21" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3675,7 +3946,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Marque et Modèle	(OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C3613C3D-D0AB-48B5-BED4-3D6065032001" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3704,7 +3977,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Matériau (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C922C32B-D4F4-4890-A6E0-FAF0CF637FE8" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3733,7 +4008,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Diamètre lentille (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="343FA13E-3F54-461C-93B5-64B31DF9B319" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3758,7 +4035,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 1 lentille (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="95C03E05-3FDB-42EF-8925-B946E99D8BBA" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3783,7 +4062,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 2 lentille (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="632A00DD-C7CC-4516-892E-0F58ABB7FF57" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3808,7 +4089,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Autres paramètres (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="7A530F5E-089B-432F-8B8E-A8AC29E1C980" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3837,7 +4120,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : K (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="222D6564-403F-4AC1-9585-867767E23483" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3862,7 +4147,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : K' (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="5BFF8E2D-3122-46BF-8E35-F5428DFAE980" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3887,7 +4174,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe du K (OD) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="7917DBD9-6CA3-4E6C-AAE9-59F860EFD2E4" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -3912,8 +4201,10 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Sphère (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
-                          <templateId root="1.2.250.1.213.1.1.3.122" />
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="33A03995-5B75-43EB-AA05-41F49995EE23" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
                           <code code="MED-1087" displayName="Puissance de la Sphère – lentille prescrite" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -3937,8 +4228,10 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
-                          <templateId root="1.2.250.1.213.1.1.3.122" />
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="17182B4B-2C5A-42F2-BA86-6E872128CFF1" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
                           <code code="MED-1088" displayName="Puissance du Cylindre – lentille prescrite" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -3962,8 +4255,10 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OD) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
-                          <templateId root="1.2.250.1.213.1.1.3.122" />
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
+                          <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="74229502-5E28-4571-88CF-2B21DC2DFCEF" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
                           <code code="95325-7" displayName="Axe en degrés des lentilles" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -3987,7 +4282,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition  - Grandeur (OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="BBCC9FD0-D3AD-4494-A4A9-F4BEA4598120" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4013,7 +4310,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition - Valeur (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="F7CB8B56-C672-4DF4-90DF-318C6A928B3A" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4038,7 +4337,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Type de lentille (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C06AD945-632F-4505-B731-6CE3B44DE596" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4064,7 +4365,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="351851B2-51CC-4636-802A-0B0D82F246BB" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4086,7 +4389,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Renouvellement (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="682A14EE-5D40-4671-B7B5-15E8644B55A0" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4115,7 +4420,9 @@
                       <!-- [1..1] Entrée FR-Mesure-dispositif-oculaire : Marque et Modèle (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="AAD9B68F-496D-4EB6-9B16-8EFF1DBBA870" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4144,7 +4451,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Matériau (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="9D5EBB2A-906E-4EA5-B207-6DA82D39DFB5" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4173,7 +4482,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Diamètre lentille (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="16283407-87E4-47D8-B9FA-F41E9A1E68F9" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4198,7 +4509,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 1 lentille (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C8377839-018C-4BD4-A5CD-CCAA603AFEF8" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4223,7 +4536,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 2 lentille (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="EB00A40C-1E8A-4A7A-8A61-C64954D6BD86" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4248,7 +4563,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Autres paramètres (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="9082A0AA-9E6F-4F69-8E2B-94924C996C1A" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4277,7 +4594,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : K (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="6DF54C4C-1EAB-4B2C-883E-8E798A4BB02A" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4302,7 +4621,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : K' (OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D3936CFC-6A1D-4672-B88A-897EF4485BB9" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4327,7 +4648,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe du K (OG) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="13103DD9-897B-436F-8B1C-4B99DABA8E44" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4352,7 +4675,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Sphère (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="2F480283-F6B3-4FB2-ABAC-6C6C8A859438" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4377,7 +4702,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="7829D59F-8B14-4E81-8C75-2BA631303AF0" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4402,7 +4729,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OG) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="6C41E8AB-24C2-42B8-AE5A-125C4D6358CB" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4427,7 +4756,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition  - Grandeur (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="9E21E415-77AB-4C82-B5B1-973EDEB0B702" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4453,7 +4784,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition - Valeur (OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="9E21E415-77AB-4C82-B5B1-973EDEB0B702" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4478,7 +4811,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Produit d'entretien (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="1E22947E-EF9E-4C8E-8610-BB76E99EDF01" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4500,7 +4835,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Consignes et conseils (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="37C4B033-7401-4278-B019-A6B184FE0A36" />
                           <!-- valeur provenant du JDV_MesureLentillePrescrite-CISIS (1.2.250.1.213.1.1.5.655) -->
@@ -4525,7 +4862,9 @@
                   <!-- [0..1] Entrée FR-Liste-des-mesures-de-dispositifs-oculaires : Lentilles délivrées -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité IHE GEE -->
                       <templateId root="1.3.6.1.4.1.19376.1.12.1.3.5" />
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.118" />
                       <id root="8997D216-8058-4E80-A491-C0617675BC5F" />
                       <!-- valeur provenant du JDV_TypeDeMesureDispositifOculaire-CISIS (1.2.250.1.213.1.1.5.643) -->
@@ -4535,7 +4874,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Date de délivrance -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="316B77A2-DC83-48EB-B477-308B8BCD6498" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4554,7 +4895,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Type de lentille	(OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="F736528C-D40E-4A96-9171-A52D77A76995" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4580,7 +4923,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="DA29CAD9-43E9-4AD3-93C8-1E33D9E09FF4" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4602,7 +4947,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Renouvellement	(OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="1D34F8CC-548B-47F0-B8FF-0E8D1C93EA0E" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4631,7 +4978,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Marque et Modèle	(OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C44C855E-C8E4-4153-9330-AB62108004AF" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4660,7 +5009,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Diamètre lentille (OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="6CDC360D-8D2C-4D15-AF9F-A3CDAC55E30C" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4685,7 +5036,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 1 lentille	(OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="0BCA4CA6-4830-498B-88D5-B963DC96A2EB" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4710,7 +5063,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 2 lentille	(OD) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="AB937680-4C56-4747-A490-C02B83CC8ADD" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4735,7 +5090,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Autres paramètres (OD) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="6FCEA085-F965-4F0F-BA49-229B68D9E6F3" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4764,7 +5121,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Sphère	(OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="5A1243BA-214B-4B5A-A15F-447757F180FC" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4789,7 +5148,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre	(OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="00550C73-B0CE-4966-A2D3-001D4C2E5D9A" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4814,7 +5175,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OD) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="037B462E-47E3-43C0-B51B-215765B344DF" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4839,7 +5202,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition  - Grandeur	(OD) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D36C38A4-5BB1-4D70-BA42-C0B05A866440" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4865,7 +5230,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition - Valeur (OD) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="BCD25CF8-C306-4338-9913-38CB092E3672" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4890,7 +5257,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Type de lentille (OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="0C59CE0C-7864-4B46-A068-F3A58B8B66C9" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4916,7 +5285,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Commentaire (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="88456B38-15B0-442A-9625-98A679084DF0" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4938,7 +5309,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Renouvellement	(OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="4F06E84D-663E-4A47-BE27-70553422F84D" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4967,7 +5340,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Marque et Modèle (OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D2922D00-C611-4A10-B932-764D83A5BA72" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -4996,7 +5371,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Diamètre lentille	(OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="2C9F53BB-D27F-4265-95A8-A03B7E702062" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5021,7 +5398,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 1 lentille	(OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="EAA6939F-536A-4BCC-93B6-E3DD5B97AC27" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5046,7 +5425,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Rayon 2 lentille	(OG) (mm) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="60607896-DA45-4C04-AE95-CACF36049AB8" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5071,7 +5452,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Autres paramètres 	(OG) (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="ACD06366-F100-4856-B43B-F98B03CE301B" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5100,7 +5483,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Sphère	(OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="F88E8202-D634-48E5-BD03-79899F9080B4" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5125,7 +5510,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Cylindre	(OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="B79630AA-1674-4A59-88D4-782ED094084D" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5150,7 +5537,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Axe (OG) (deg) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="DEE28C3F-229A-4467-B8E3-7AB48ED80BA7" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5175,7 +5564,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition  - Grandeur	(OG) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="28AB8925-6A63-4605-8F86-4412CA217578" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5201,7 +5592,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Addition - Valeur	(OG) (D) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="C674FE9F-BC5C-4A91-A05E-4E3D89155139" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5226,7 +5619,9 @@
                       <!-- [0..1] Entrée FR-Mesure-dispositif-oculaire : Produit d'entretien (Texte libre) -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE GEE -->
                           <templateId root="1.3.6.1.4.1.19376.1.12.1.3.9" />
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.122" />
                           <id root="D84DB5DF-B348-4024-9318-8D2DF8E0F8FC" />
                           <!-- valeur provenant du  JDV_MesureLentilleDelivree-CISIS (1.2.250.1.213.1.1.5.656)  -->
@@ -5260,10 +5655,12 @@
                  obligatoire pour IHE-GEE mais non significative pour OPH-BRE (pas de <title> et élément <text> vide) -->
       <component>
         <section>
+          <!-- Conformité IHE GEE -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1" />
+          <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.177" />
           <id root="9B75DDE2-6418-4890-8A44-19C33461BA4B" />
-          <code code="42349-1" displayName="Plainte du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <code code="10154-3" displayName="Plainte du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <text />
         </section>
       </component>
@@ -5272,7 +5669,9 @@
                  obligatoire pour IHE-GEE mais non significative pour OPH-BRE (pas de <title> et élément <text> vide) -->
       <component>
         <section>
+          <!-- Conformité IHE GEE -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.4" />
+          <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.130" />
           <id root="9B75DDE2-6418-4890-8A44-19C33461BA5D" />
           <code code="10164-2" displayName="Histoire de la maladie" codeSystemName="LOINC" codeSystem="2.16.840.1.113883.6.1" />
@@ -5284,7 +5683,9 @@
                  obligatoire pour IHE-GEE mais non significative pour OPH-BRE (pas de <title> et élément <text> vide) -->
       <component>
         <section>
+          <!-- Conformité IHE GEE -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.5" />
+          <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.116" />
           <id root="2DE24938-E790-4F49-8FD8-981CDFEF8058" />
           <code code="51847-2" displayName="Évaluation et plan" codeSystemName="LOINC" codeSystem="2.16.840.1.113883.6.1" />

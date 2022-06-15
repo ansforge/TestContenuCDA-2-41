@@ -13,10 +13,11 @@
                         title="Vérification de conformité du document au modèle CR-BIO_2021.01"
                         schemaVersion="CI-SIS_CR-BIO_2021.01.sch"
                         phase="CI-SIS_CR-BIO_2021.01"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/CR-BIO_2021.01_Auto-Presentable_avec-image.xml"
-                        dateHeure="9/3/2022 à 15:10:01 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/CR-BIO_2021.01_Auto-Presentable_avec-image.xml"
+                        dateHeure="5/7/2022 à 16:53:10 (temps UTC+02:00)">
    <svrl:active-pattern id="Entete_CR-BIO"/>
    <svrl:fired-rule context="cda:ClinicalDocument"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole"/>
    <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent"/>
    <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent/cda:performer"/>
    <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf/cda:serviceEvent"/>

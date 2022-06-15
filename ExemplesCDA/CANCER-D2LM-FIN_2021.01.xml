@@ -35,8 +35,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au modèle du document D2LM-FIN_2021.01 -->
   <templateId root="1.2.250.1.213.1.1.1.27" extension="2021.01" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="D2LM-FIN_2021.01_20210729_001_1" />
+  <!-- Identifiant du document -->
+  <id root="7EE94E6D-02BC-45A5-BCD4-54D8576C9B24"/>
   <!-- Type de document -->
   <code code="18748-4" displayName="CR d'imagerie médicale" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -48,7 +48,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="D2LM-FIN_2021.01_20210729_001" />
+  <setId root="0B8E5306-104F-420A-AD35-B1076F2629EA" />
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
   <!-- Patient -->

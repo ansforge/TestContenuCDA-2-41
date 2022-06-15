@@ -16,8 +16,8 @@
                         xmlns:pharm="urn:ihe:pharm"
                         title="Verification sémantique"
                         schemaVersion=""
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/F-PRC-AVK_1.4.xml"
-                        dateHeure="9/3/2022 à 15:59:31 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/F-PRC-AVK_1.4.xml"
+                        dateHeure="5/7/2022 à 17:07:06 (temps UTC+02:00)">
    <svrl:active-pattern/>
    <svrl:fired-rule context="//hl7:code"/>
    <svrl:fired-rule context="//hl7:code"/>
@@ -27,16 +27,6 @@
    <svrl:fired-rule context="//hl7:code"/>
    <svrl:fired-rule context="//hl7:code"/>
    <svrl:fired-rule context="//hl7:value[@xsi:type='CD' or  @xsi:type='CE']"/>
-   <svrl:failed-assert role="error"
-                       location="/ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/value">
-      <svrl:text>
-			  CodeSystem : "1.2.250.1.213.2.3.2" 
-			  CodeSystemName : "TA_PRC" 
-			  Code  : "D0016-4"
-			  DisplayName : Accident Ischémique Transitoire
-			  Ce code n'est pas retrouvé dans la terminologie
-			 </svrl:text>
-   </svrl:failed-assert>
    <svrl:fired-rule context="//hl7:code"/>
    <svrl:fired-rule context="//hl7:value[@xsi:type='CD' or  @xsi:type='CE']"/>
    <svrl:fired-rule context="//hl7:code"/>
@@ -99,16 +89,6 @@
    <svrl:fired-rule context="//hl7:code"/>
    <svrl:fired-rule context="//hl7:value[@xsi:type='CD' or  @xsi:type='CE']"/>
    <svrl:fired-rule context="//hl7:code"/>
-   <svrl:failed-assert role="error"
-                       location="/ClinicalDocument/component/structuredBody/component[4]/section/entry/act/entryRelationship[4]/observation/participant/participantRole/playingEntity/code">
-      <svrl:text>
-			  CodeSystem : "1.2.250.1.213.2.3.1" 
-			  CodeSystemName : "CIS" 
-			  Code  : "2202"
-			  DisplayName : PARACETAMOL
-			  Ce code n'est pas retrouvé dans la terminologie
-			 </svrl:text>
-   </svrl:failed-assert>
    <svrl:fired-rule context="//hl7:code"/>
    <svrl:fired-rule context="//hl7:value[@xsi:type='CD' or  @xsi:type='CE']"/>
    <svrl:fired-rule context="//hl7:code"/>

@@ -40,8 +40,8 @@
   <templateId root="1.2.250.1.213.1.1.1.2.1" />
   <!-- Déclaration de conformité aux spécifications F-PRC-PPV -->
   <templateId root="1.2.250.1.213.1.1.1.2.1.5" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="F-PRC-PPV_1.4_20080929_001_1" />
+  <!-- Identifiant du document -->
+  <id root="88B38F39-24EB-4CA4-B917-840562A46A89"/>
   <!-- Type de document -->
   <code code="34133-9" displayName="Synthèse d'épisode de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -53,7 +53,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="F-PRC-PPV_1.4_20080929_001" />
+  <setId root="F46CD564-32E2-4DD9-9CA7-5379ED60A342"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -342,8 +342,12 @@
          -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.11" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.11"/>
+          <!-- Conformité IHE PCC Active Problems -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.132"/>
           <id root="BF004117-2249-4B9C-BDB2-1D895BE5136C" />
           <code code="11450-4" displayName="PROBLEM LIST" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>PATHOLOGIE COURANTE</title>
@@ -380,10 +384,14 @@
           <!-- AIT -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <!-- Problem Act template -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité CCD Problem Act  -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC Problem Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="327E85E1-AF8B-403F-94DB-64954A42A6F6" />
               <code nullFlavor="NA" />
               <statusCode code="completed" />
@@ -393,9 +401,12 @@
               </effectiveTime>
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <!-- Problem observation template -->
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CCD Problem Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="F93F69B4-BEF6-4738-866E-4B676BA396B7" />
                   <!-- ID de l'observation -->
                   <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
@@ -422,10 +433,14 @@
           <!-- Angine de Poitrine instable -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <!-- Problem Act template -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité CCD Problem Act  -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC Problem Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="104C1E11-9967-4B4D-A0CC-81A6C27E6547" />
               <code nullFlavor="NA" />
               <statusCode code="completed" />
@@ -435,9 +450,12 @@
               </effectiveTime>
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <!-- Problem observation template -->
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CCD Problem Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="844487D0-D337-464C-A757-D5C5AD1A2BB5" />
                   <!-- ID de l'observation -->
                   <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
@@ -464,10 +482,14 @@
           <!-- Insuffisance aortique sévère -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <!-- Problem Act template -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité CCD Problem Act  -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC Problem Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="35FD5F0D-C6B5-4108-9431-705D4F50EBFE" />
               <code nullFlavor="NA" />
               <statusCode code="completed" />
@@ -477,9 +499,12 @@
               </effectiveTime>
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <!-- Problem observation template -->
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CCD Problem Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="297EF413-9B05-4DE7-9F17-3507AE0DBC44" />
                   <!-- ID de l'observation -->
                   <code code="G-1009" displayName="Diagnotic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
@@ -505,10 +530,14 @@
           </entry>
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <!-- Problem Act template -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité CCD Problem Act  -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC Problem Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="051ACF3C-E1A3-4769-A663-D52FFFB2F3AE" />
               <code nullFlavor="NA" />
               <statusCode code="completed" />
@@ -519,9 +548,12 @@
               <!-- Liaison du Traitement Antivitalmine K à sa cause -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <!-- Problem observation template -->
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CCD Problem Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="481B7C2F-424C-4ECD-A0B2-187CF4E2D62D" />
                   <code code="F-01000" displayName="Problème" codeSystem="1.2.250.1.213.2.12" />
                   <text>
@@ -541,7 +573,10 @@
               <!-- Liaison du traitement Antivitalmine K à un résultat d'INR -->
               <entryRelationship typeCode="REFR">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <!-- Result observation template -->
                   <id root="1D784912-576F-4B9C-A95C-C64F63E15CB5" />
                   <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
@@ -561,10 +596,14 @@
           </entry>
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <!-- Problem Act template -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <!-- Conformité CCD Problem Act  -->
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <!-- Conformité IHE PCC Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <!-- Conformité IHE PCC Problem Concern -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.39"/>
               <id root="DFF3D082-3169-46AF-AE66-22B49AFD3C0D" />
               <code nullFlavor="NA" />
               <statusCode code="completed" />
@@ -575,9 +614,12 @@
               <!-- Liaison du traitement Antiaggrégants plaquettaires à sa cause -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <!-- Problem observation template -->
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <!-- Conformité CCD Problem Observation -->
+                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                  <!-- Conformité IHE PCC Problem -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="031B555D-DFD8-4942-8B2E-2BBE75DE6208" />
                   <code code="F-01000" displayName="Problème" codeSystem="1.2.250.1.213.2.12" />
                   <text>
@@ -606,8 +648,12 @@
          -->
       <component>
         <section>
+          <!-- Conformité IHE PCC -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28" />
+          <!-- Conformité IHE PCC -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27" />
+          <!-- Conformité CI-SIS parent Hospital Studies Summary -->
+          <templateId root="1.2.250.1.213.1.1.2.151" />
           <!-- Results section template -->
           <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" />
           <title>Examens Biologiques</title>
@@ -652,8 +698,12 @@
           <entry>
             <!-- Procedure Entry -->
             <procedure classCode="PROC" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
               <id root="74A52D6D-80F8-4941-A7F0-AD0FEADDD5CC" />
               <code code="MED-036" displayName="Examen réalisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
               <text>
@@ -665,7 +715,10 @@
           </entry>
           <entry typeCode="DRIV">
             <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
               <!-- Result observation template -->
               <id root="969BE9CC-A765-44BF-866F-4B1FD935649A" />
               <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
@@ -689,7 +742,10 @@
           </entry>
           <entry typeCode="DRIV">
             <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
               <!-- Result observation template -->
               <id root="203FA731-2511-46FA-BA6D-1FB2CE24F09F" />
               <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
@@ -713,7 +769,10 @@
           </entry>
           <entry typeCode="DRIV">
             <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48" />
               <!-- Result observation template -->
               <id root="0C5D4ADA-81B2-475B-BE9A-3AA18A150E9A" />
               <code code="3289-6" codeSystem="2.16.840.1.113883.6.1" displayName="TP (INR)">
@@ -744,9 +803,12 @@
          -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.8" />
-          <!-- CCD -->
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.143"/>
+          <!-- Conformité CCD Medication -->
+          <templateId root="2.16.840.1.113883.10.20.1.8"/>
+          <!-- Conformité IHE PCC Medication -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
           <!-- PCC Medications section template -->
           <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" />
           <title>Médications</title>
@@ -809,12 +871,14 @@
           <!-- ************ Traitement Antivitalmine K ************ -->
           <entry typeCode="DRIV">
             <substanceAdministration classCode="SBADM" moodCode="EVN">
-              <!-- template CCD Medication activity -->
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <!-- template 'PCC Medication' -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
-              <!-- template 'Normal dosing' -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.42"/>
+              <!-- Conformité CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Medication -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <!-- Conformité IHE Mode d’administration "Normal" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
               <id root="625EB1D8-2231-473F-B6E9-2FEBCE024E52" />
               <text>
                 <reference>
@@ -836,8 +900,12 @@
               <rateQuantity nullFlavor="NASK" />
               <consumable>
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
+                  <!-- Conformité IHE CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC IHE Product Entry-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                   <!-- Product template -->
                   <manufacturedMaterial>
                     <code code="63245753" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS" displayName="COUMADINE 5mg, comprimé sécable">
@@ -859,12 +927,14 @@
           <!-- Traitement Antiaggrégants plaquettaires -->
           <entry typeCode="DRIV">
             <substanceAdministration classCode="SBADM" moodCode="EVN">
-              <!-- template CCD Medication activity -->
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <!-- template 'PCC Medication' -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
-              <!-- template 'Normal dosing' -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.42"/>
+              <!-- Conformité CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Medication -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <!-- Conformité IHE Mode d’administration "Normal" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
               <id root="42BD065B-DCCB-4374-A3CC-6FE9C1A4B89F" />
               <text>
                 <reference>
@@ -886,8 +956,12 @@
               <rateQuantity nullFlavor="NASK" />
               <consumable>
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
+                  <!-- Conformité IHE CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC IHE Product Entry-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                   <!-- Product template -->
                   <manufacturedMaterial>
                     <code code="63564053" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS" displayName="PLAVIX 75mg, comprimé pelliculé">
@@ -915,9 +989,14 @@
          -->
       <component>
         <section>
+          <!-- Conformité CCD -->
           <templateId root="2.16.840.1.113883.10.20.1.12" />
+          <!-- Conformité IHE PCC Parent Template -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.11" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.136" />
           <id root="739A6F87-8AD4-40EE-AD45-EF91B6412EE6" />
           <code code="47519-4" displayName="HISTORY OF PROCEDURES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Intervention</title>
@@ -951,8 +1030,12 @@
           </text>
           <entry>
             <procedure classCode="PROC" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
               <id root="EC6FC218-B715-465F-843C-0A28DFC32E4F" />
               <code code="DBKA003" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM" displayName="Remplacement de la valve aortique par bioprothèse sans armature, par thoracotomie avec CEC">
                 <originalText mediaType="text/xml">
@@ -965,7 +1048,8 @@
               <statusCode code="completed" />
               <effectiveTime value="19990812" />
               <participant typeCode="LOC">
-                <templateId root="2.16.840.1.113883.10.20.1.45" />
+                <!-- Conforimté CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109" />
                 <!-- Location participation template -->
                 <participantRole classCode="SDLOC">
                   <!-- Location where healthcare have been provided -->
@@ -979,6 +1063,8 @@
                 </participantRole>
               </participant>
               <participant typeCode="DEV">
+                <!-- Conforimté CI-SIS -->
+                <templateId root="1.2.250.1.213.1.1.3.109" />
                 <participantRole classCode="MANU">
                   <templateId root="2.16.840.1.113883.10.20.1.52" />
                   <!-- Product instance template -->
@@ -987,8 +1073,11 @@
                 </participantRole>
               </participant>
               <entryRelationship typeCode="RSON">
-                <observation classCode="COND" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48"/>
                   <!-- Problem observation template -->
                   <id root="675136D6-6B82-4F79-9772-383EFA30831F" />
                   <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4">
@@ -996,6 +1085,9 @@
                       <reference value="#ppv0012" />
                     </originalText>
                   </code>
+                  <text><reference value="#ppv0012"></reference></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20200319"/>
                   <value xsi:type="CE" code="E78.2" displayName="Insuffisance Aortique Sévère" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
                 </observation>
               </entryRelationship>
@@ -1010,11 +1102,12 @@
          -->
       <component>
         <section>
-          <!-- Implanted Medical Device Review section template -->
-          <!--
-               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.46"/>-->
-          <!-- Dispositifs médicaux -->
-          <templateId root="1.2.250.1.213.1.1.2.1" />
+          <!-- Conformité CCD Medical Equipment -->
+          <templateId root="2.16.840.1.11383.10.20.1.7" />
+          <!-- Conformité IHE PCC Medical Devices -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.5" />
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.1"/>
           <id root="5CB98DD2-5F77-4F9A-A95D-B3A5341DC331" />
           <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" />
           <title>Prothèse Valvulaire</title>
@@ -1065,7 +1158,7 @@
           <!--=<<o#%@O[ Organizer Prothèse valvulaire ]O@%#o>>=-->
           <entry typeCode="DRIV">
             <organizer classCode="CLUSTER" moodCode="EVN">
-              <!--  Template Organizer DMI -->
+              <!-- Conformité CI-SIS (obsolète) -->
               <templateId root="1.2.250.1.213.1.1.3.2" />
               <id root="6A0AC55C-9DE4-484A-A947-B9129A3D3D4B" />
               <code code="D0001-11" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Prothèse valvulaire" />
@@ -1073,9 +1166,9 @@
               <!-- Type de matériel implanté -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="BC4F2862-F15E-48E5-A4B5-2368AFC34C25" />
                   <code code="L0056" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Type de matériel implanté">
@@ -1094,9 +1187,9 @@
               <!-- Date d'implantation -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="2714D00E-26AA-4E7D-95F9-C5AE5316CE1E" />
                   <code code="L0055" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Date d'implantation">
@@ -1115,9 +1208,9 @@
               <!-- Modèle de prothèse valvulaire -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="CBF3AA0A-804C-4F55-AF5C-6EBA3E0D05DC" />
                   <code code="L0051" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Modèle">
@@ -1136,9 +1229,9 @@
               <!-- N° de série -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="53B0FCA5-9571-4F13-A213-8AAAFFEEBF92" />
                   <code code="L0059" codeSystem="1.2.250.1.213.1.1.4.2" codeSystemName="TA_PRC" displayName="Numéro de série">
@@ -1157,9 +1250,9 @@
               <!-- Valve -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="87B908FA-F131-44D6-8C95-67ABCD8BD170" />
                   <code code="L0031" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Valve">
@@ -1178,9 +1271,9 @@
               <!-- Composant -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="B43E0D96-2A28-479E-B31F-109A5C479064" />
                   <code code="L0032" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Composant">
@@ -1199,9 +1292,9 @@
               <!-- Diamètre -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="2ED53647-414C-40B7-BF59-339FB8E0735A" />
                   <code code="L0033" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Gradient">
@@ -1220,9 +1313,9 @@
               <!-- Gradient -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="A99DF2B4-109D-4C24-8B85-91986F285ACD" />
                   <code code="L0034" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Gradient">
@@ -1241,9 +1334,9 @@
               <!-- Niveau Anticoagulation -->
               <component typeCode="COMP">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- PCC Simple Observation template Id -->
+                  <!-- Conformité IHE PCC Simple Observation -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- CI-SIS Observation Dispositifs Médicaux -->
+                  <!-- Conformité CI-SIS Observation Dispositifs Médicaux -->
                   <templateId root="1.2.250.1.213.1.1.3.1" />
                   <id root="DEF70CD9-8C10-4688-B8CB-E8E257AA43C5" />
                   <code code="L0035" codeSystem="1.2.250.1.213.1.1.4.2" displayName="Niveau Anticoagulation Souhaitée">
@@ -1270,7 +1363,11 @@
          -->
       <component>
         <section>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.107" />
+          <!-- Conformité IHE PCC Parent Template Patient Education and Consents -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.38" />
+          <!-- Conformité IHE PCC Coded Patient Education and Consents -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.39" />
           <code code="34895-3" codeSystem="2.16.840.1.113883.6.1" />
           <title>  Information du patient</title>
@@ -1284,6 +1381,9 @@
           <!-- Document Externe -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.35" />
+              <!-- Conformité IHE PCC External References -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4" />
               <id root="207B6BCB-62BC-484C-8D47-5B592E917984" />
               <code nullFlavor="NASK" />

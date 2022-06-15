@@ -34,8 +34,8 @@
   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.1.2" />
   <!-- Déclarations de conformité au modèle Historique de vaccination (créé par le DMP) -->
   <templateId root="1.2.250.1.213.1.1.1.37" extension="2021.01"/>
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.3.4" extension="VAC_2021.01_20210409_001_1" />
+  <!-- Identifiant du document -->
+  <id root="B5F076E6-BB1B-44F7-B60B-283E9C957B43"/>
   <!-- Type du document -->
   <code code="11369-6" displayName="Historique de vaccinations" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -47,7 +47,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.3.4" extension="VAC_2021.01_20210409_001" />
+  <setId root="8376E56C-ACF0-4A41-B3A9-DC7EF16C5490"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -260,12 +260,15 @@
       <!-- Section FR-Vaccinations [1..1] (unique section consolidée par le DMP à partir des documents Note de vaccination) -->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.6" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23" />
-          <templateId root="1.2.250.1.213.1.1.2.147" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.6"/>
+          <!-- Conformité IHE PCC Immunization -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23"/>
+          <!-- Conformité CI-SIS FR-Vaccinations -->
+          <templateId root="1.2.250.1.213.1.1.2.147"/>
           <id root="DF6B5534-B28E-499B-968E-2CCAC9B98924" />
           <code code="11369-6" displayName="Historique des vaccinations" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
-          <title>Historique des vaccinations</title>
+          <title>Historique de vaccinations</title>
           <text>
             <!-- BCG -->
             <list>
@@ -448,9 +451,12 @@
           <!-- Entrée FR-Vaccination [1..*] : BCG -->
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
-              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Immunization -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+              <!-- Conformité CI-SIS FR-Vaccination -->
+              <templateId root="1.2.250.1.213.1.1.3.45"/>
               <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
               <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
               <text>
@@ -472,9 +478,12 @@
               <!-- Vaccin -->
               <consumable typeCode="CSM">
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC Product Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <!-- Conformité CI-SIS FR-Produit-de-sante -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
                   <manufacturedMaterial>
                     <code code="61077869" displayName="VACCIN BCG SSI, poudre et solvant pour suspension injectable" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
                       <originalText>
@@ -572,9 +581,13 @@
               <!-- FR-Probleme : Réaction observée -->
               <entryRelationship typeCode="CAUS" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <!-- Conformité IHE PCC Problem Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS FR-Probleme -->
                   <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="5D002088-67F2-47BF-A256-F2F2A2C8941D" />
                   <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
@@ -594,16 +607,22 @@
               <!-- FR-Prescription : Référence prescription -->
               <entryRelationship typeCode="REFR" inversionInd="false">
                 <supply moodCode="INT" classCode="SPLY">
-                  <templateId root="2.16.840.1.113883.10.20.1.34" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3" />
-                  <templateId root="1.2.250.1.213.1.1.3.44" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                  <!-- Conformité IHE PCC Supply Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
+                  <!-- Conformité CI-SIS FR-Prescription -->
+                  <templateId root="1.2.250.1.213.1.1.3.44"/>
                   <id root="B6DAA144-ABFA-4D43-BF8A-1603216FE746" />
                   <!-- Entrée FR-Instructions-au-dispensateur -->
                   <entryRelationship typeCode="SUBJ" inversionInd="true">
                     <act classCode="ACT" moodCode="INT">
-                      <templateId root="2.16.840.1.113883.10.20.1.43" />
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3.1" />
-                      <templateId root="1.2.250.1.213.1.1.3.34" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.43"/>
+                      <!-- Conformité IHE PCC Medication fulfillment instruction -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3.1"/>
+                      <!-- Conformité CI-SIS FR-Instructions-au-dispensateur -->
+                      <templateId root="1.2.250.1.213.1.1.3.34"/>
                       <code code="FINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
                       <text>
                         <reference value="#bcg-prescription" />
@@ -616,8 +635,10 @@
               <!-- FR-Rang-de-la-vaccination -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.46" />
-                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                  <!-- Conformité CI-SIS FR-Rang-de-la-vaccination -->
+                  <templateId root="1.2.250.1.213.1.1.3.82"/>
                   <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <statusCode code="completed" />
                   <value xsi:type="INT" value="1" />
@@ -626,9 +647,12 @@
               <!-- FR-Commentaire-ER -->
               <entryRelationship typeCode="SUBJ">
                 <act classCode="ACT" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.40" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC Comments -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS FR-Commentaire-ER -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
                   <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <text>
                     <reference value="#bcg-comment" />
@@ -642,9 +666,12 @@
           <!-- Entrée FR-Vaccination [1..*] : Vaccination tétanos (1er injection) -->
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
-              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Immunizations -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+              <!-- Conformité CI-SIS FR-Vaccination -->
+              <templateId root="1.2.250.1.213.1.1.3.45"/>
               <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
               <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
               <text>
@@ -666,9 +693,12 @@
               <!-- Vaccin -->
               <consumable typeCode="CSM">
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC Product Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <!-- Conformité CI-SIS FR-Produit-de-sante -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
                   <manufacturedMaterial>
                     <code code="68747507" displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
                       <originalText>
@@ -738,9 +768,13 @@
               <!-- FR-Probleme : Réaction observée -->
               <entryRelationship typeCode="CAUS" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <!-- Conformité IHE PCC Problem Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS FR-Probleme -->
                   <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="3374F9E9-6175-442E-929A-73B07F3D2484" />
                   <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
@@ -761,8 +795,10 @@
               <!-- FR-Rang-de-la-vaccination -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.46" />
-                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                  <!-- Conformité CI-SIS FR-Rang-de-la-vaccination -->
+                  <templateId root="1.2.250.1.213.1.1.3.82"/>
                   <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <statusCode code="completed" />
                   <value xsi:type="INT" value="1" />
@@ -771,9 +807,12 @@
               <!-- FR-Commentaire-ER -->
               <entryRelationship typeCode="SUBJ">
                 <act classCode="ACT" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.40" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC Comments entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS FR-Commentaire-ER -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
                   <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <text>
                     <reference value="#tetanos1-comment" />
@@ -787,9 +826,12 @@
           <!-- Entrée FR-Vaccination [1..*] : Vaccination tétanos (2ème injection) -->
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
-              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Immunization -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+              <!-- Conformité CI-SIS FR-Vaccination -->
+              <templateId root="1.2.250.1.213.1.1.3.45"/>
               <id root="41DAC707-7C96-47B7-B600-AC63D8002142" />
               <code code="INITIMMUNIZ" displayName="1ère série vaccinante" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
               <text>
@@ -811,9 +853,12 @@
               <!-- Vaccin -->
               <consumable typeCode="CSM">
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC Product Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <!-- Conformité CI-SIS FR-Produit-de-sante -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
                   <manufacturedMaterial>
                     <code code="68747507" displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
                       <originalText>
@@ -883,9 +928,13 @@
               <!-- FR-Probleme : Réaction observée -->
               <entryRelationship inversionInd="false" typeCode="CAUS">
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.28"/>
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CCD -->
                   <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                  <!-- Conformité IHE PCC Problem Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Conformité CI-SIS FR-Probleme -->
                   <templateId root="1.2.250.1.213.1.1.3.37"/>
                   <id root="F9E020E2-D219-43D4-8BF8-6B275E1F726D" />
                   <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème" />
@@ -906,8 +955,10 @@
               <!-- FR-Rang-de-la-vaccination -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.46" />
-                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                  <!-- Conformité CI-SIS FR-Rang-de-la-vaccination -->
+                  <templateId root="1.2.250.1.213.1.1.3.82"/>
                   <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <statusCode code="completed" />
                   <value xsi:type="INT" value="2" />
@@ -916,9 +967,12 @@
               <!-- FR-Commentaire-ER -->
               <entryRelationship typeCode="SUBJ">
                 <act classCode="ACT" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.40" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.32" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                  <!-- Conformité IHE PCC Comments -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                  <!-- Conformité CI-SIS FR-Commentaire-ER -->
+                  <templateId root="1.2.250.1.213.1.1.3.32"/>
                   <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <text>
                     <reference value="#tetanos2-comment" />
@@ -932,9 +986,12 @@
           <!-- Entrée FR-Vaccination [1..*] : VACCIN MENINGOCOCCIQUE A+C POLYOSIDIQUE -->
           <entry>
             <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
-              <templateId root="1.2.250.1.213.1.1.3.45" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Immunization -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+              <!-- Conformité CI-SIS FR-Vaccination -->
+              <templateId root="1.2.250.1.213.1.1.3.45"/>
               <id root="41DAC707-7C96-47B7-B600-AC63D8004465" />
               <code code="INITIMMUNIZ" codeSystem="2.16.840.1.113883.5.4" displayName="1ère série vaccinante" codeSystemName="ActSubstanceAdministrationImmunizationCode" />
               <text>
@@ -956,9 +1013,12 @@
               <!-- Vaccin -->
               <consumable typeCode="CSM">
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
-                  <templateId root="1.2.250.1.213.1.1.3.43" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC Product Entry -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                  <!-- Conformité CI-SIS FR-Produit-de-sante -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
                   <manufacturedMaterial>
                     <code code="65277632" displayName="VACCIN MENINGOCOCCIQUE A+C POLYOSIDIQUE, poudre et solvant pour suspension injectable en multidose" codeSystem="1.2.250.1.213.2.3.1" codeSystemName="CIS">
                       <originalText>
@@ -1028,8 +1088,10 @@
               <!-- FR-Rang-de-la-vaccination -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.1.46" />
-                  <templateId root="1.2.250.1.213.1.1.3.82" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                  <!-- Conformité CI-SIS FR-Rang-de-la-vaccination -->
+                  <templateId root="1.2.250.1.213.1.1.3.82"/>
                   <code code="30973-2" displayName="Rang de la vaccination" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <statusCode code="completed" />
                   <value xsi:type="INT" value="1" />

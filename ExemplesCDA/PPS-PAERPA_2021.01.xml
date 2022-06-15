@@ -33,8 +33,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au modèle de document PPS-PAERPA -->
   <templateId root="1.2.250.1.213.1.1.1.20" extension="2021.01" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="PPS-PAERPA_2021.01_20210824_001.01" />
+  <!-- Identifiant du document -->
+  <id root="55A38EBB-53F6-4A96-93BE-FE92A9C6E8CC"/>
   <!-- Type du document -->
   <code code="18776-5" displayName="Plan Personnalisé de Soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -46,7 +46,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="PPS-PAERPA_2021.01_20210824_001" />
+  <setId root="3C36B17F-B79B-4DD1-ABEF-F109673428C6"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -521,11 +521,11 @@
       <!-- [1..1] Section FR-Problemes-actifs -->
       <component>
         <section>
-          <!-- Problems Section (CCD) -->
+          <!-- Conformité Problems Section (CCD) -->
           <templateId root="2.16.840.1.113883.10.20.1.11" />
-          <!-- Active Problems Section (IHE PCC) -->
+          <!-- Conformité Active Problems Section (IHE PCC) -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
-          <!-- FR-Problemes-actifs (FR CI-SIS) -->
+          <!-- Conformité FR-Problemes-actifs (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.132" />
           <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
           <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -545,13 +545,13 @@
           <!-- [1..1] Entrée FR-Liste-des-problemes -->
           <entry>
             <act classCode="ACT" moodCode="EVN">
-              <!-- Problem Act (CCD) -->
+              <!-- Conformité Problem Act (CCD) -->
               <templateId root="2.16.840.1.113883.10.20.1.27" />
-              <!-- Concern Entry (IHE PCC) -->
+              <!-- Conformité Concern Entry (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
-              <!-- Problem Concern Entry (IHE PCC) -->
+              <!-- Conformité Problem Concern Entry (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
-              <!-- FR-Liste-des-problemes (CI-SIS) -->
+              <!-- Conformité FR-Liste-des-problemes (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.39" />
               <id root="12DA3A06-18E7-40B7-9397-1FA5B1552472" />
               <code nullFlavor="NA" />
@@ -562,11 +562,11 @@
               <!-- [1..1] Entrée FR-Probleme (ALD) -->
               <entryRelationship typeCode="SUBJ" inversionInd="false">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
-                  <!-- Problem observation (CCD) -->
+                  <!-- Conformité Problem observation (CCD) -->
                   <templateId root="2.16.840.1.113883.10.20.1.28" />
-                  <!-- Problem Entry (IHE PCC) -->
+                  <!-- Conformité Problem Entry (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
-                  <!-- FR-Probleme (FR CI-SIS) -->
+                  <!-- Conformité FR-Probleme (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.37" />
                   <id root="12DA3A06-18E7-40B7-9397-1FA5B1552472" />
                   <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
@@ -585,11 +585,11 @@
                   <!-- [1..1] Entrée FR-Commentaire-ER : Nombre d'ALD -->
                   <entryRelationship typeCode="SUBJ" inversionInd="true">
                     <act classCode="ACT" moodCode="EVN">
-                      <!-- Comment (CCD) -->
+                      <!-- Conformité Comment (CCD) -->
                       <templateId root="2.16.840.1.113883.10.20.1.40" />
-                      <!-- Comment Entry (IHE PCC) -->
+                      <!-- Conformité Comment Entry (IHE PCC) -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
-                      <!-- Comment FR-Commentaire-ER (FR CI-SIS) -->
+                      <!-- Conformité FR-Commentaire-ER (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.32" />
                       <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                       <text><reference value="#nombre-ALD"/></text>
@@ -606,13 +606,13 @@
       <!-- [1..1] Section FR-Directives-anticipees -->
       <component>
         <section>
-          <!-- Advanced directives (CCD) -->
+          <!-- Conformité Advanced directives (CCD) -->
           <templateId root="2.16.840.1.113883.10.20.1.1" />             
-          <!-- Advanced directives (IHE PCC) -->
+          <!-- Conformité Advanced directives (IHE PCC) -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.34" />          
-          <!-- coded Advanced directives (IHE PCC) -->
+          <!-- Conformité coded Advanced directives (IHE PCC) -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.35" />    
-          <!-- FR-Directives-anticipees (FR CI-SIS) -->
+          <!-- Conformité FR-Directives-anticipees (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.157" />
           <id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE"/>
           <code code="42348-3" displayName="Directives anticipées" 
@@ -636,13 +636,13 @@
           <!-- [1..*] Entrée FR-Directive-anticipee : Directives anticipées (O/N) -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <!-- Advance directive observation (CCD) -->
+              <!-- Conformité Advance directive observation (CCD) -->
               <templateId root="2.16.840.1.113883.10.20.1.17"/>
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
-              <!-- Advance Directive Observation (IHE PCC) -->
+              <!-- Conformité Advance Directive Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7"/>
-              <!-- FR-Directive-Anticipee (FR CI-SIS) -->
+              <!-- Conformité FR-Directive-Anticipee (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.54"/>
               <id root="EB45376A-18AF-4D64-AE2D-592C04302205"/>
               <code code="42348-3" codeSystem="2.16.840.1.113883.6.1"
@@ -663,7 +663,7 @@
       <!-- Section FR-Dispositions-medico-sociales -->
       <component>
         <section>
-          <!-- FR-Dispositions-medico-sociales (FR CI-SIS) -->
+          <!-- Conformité FR-Dispositions-medico-sociales (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.44" />
           <id root="246B36ED-6A68-4EF5-9F9A-5A45C3CFAB1A" />
           <code code="34841-7" displayName="Dispositions médico-sociales" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -735,9 +735,9 @@
           <!-- Entrée FR-Simple-Observation : Priorités actuelles de la personne -->
           <entry>
             <observation classCode="OBS" moodCode="EVN" negationInd="false">              
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <!-- Conformité FR-Simple-Observation (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="126DF3D7-B0E3-4D4C-A745-DE2A3DA5511F" />
               <code code="PAT-009" displayName="Priorités actuelles de la personne" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -757,9 +757,9 @@
           <!-- Entrée FR-Simple-Observation : Préférences de la personne -->
           <entry>
             <observation classCode="OBS" moodCode="EVN" negationInd="false">
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <!-- Conformité FR-Simple-Observation (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="9F39435B-E4F9-4797-8D92-B33F2ACE29DC" />
               <code code="PAT-008" displayName="Préférences de la personne" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -779,9 +779,9 @@
           <!-- Entrée FR-Simple-Observation : Caisse de retraite -->
           <entry>
             <observation classCode="OBS" moodCode="EVN" negationInd="false">
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <!-- Conformité FR-Simple-Observation (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="37837ADE-5865-4FFC-8D6B-4F55098FC36E" />
               <code code="PAT-001" displayName="Caisse de retraite" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -798,7 +798,9 @@
               <!-- [1..1] Entrée FR-Simple-Observation : Pension -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité Simple Observation (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité FR-Simple-Observation (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="D7A8D838-62C3-4C80-AB9A-9CBFE652FD20" />
                   <code code="PAT-003" displayName="Pension" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -813,7 +815,9 @@
               <!-- [1..1] Entrée FR-Simple-Observation : Pension de réversion -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité Simple Observation (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité FR-Simple-Observation (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="D7A8D838-62C3-4C80-AB9A-9CBFE652FD20" />
                   <code code="PAT-004" displayName="Pension de réversion" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -828,7 +832,9 @@
               <!-- [1..1] Entrée FR-Simple-Observation : ASPA (Allocation de Solidarité aux Personnes Âgées) -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité Simple Observation (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité FR-Simple-Observation (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="D7A8D838-62C3-4C80-AB9A-9CBFE652FD20" />
                   <code code="PAT-005" displayName="ASPA (Allocation de Solidarité aux Personnes Âgées)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -846,9 +852,9 @@
           <!-- Entrée FR-Simple-Observation : Mutuelle -->
           <entry>
             <observation classCode="OBS" moodCode="EVN" negationInd="false">
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <!-- Conformité FR-Simple-Observation (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="3FAC4E8E-7394-4351-98A1-7AB0FA16444D" />
               <code code="PAT-002" displayName="Mutuelle" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -861,7 +867,9 @@
               <!-- Nom de la mutuelle -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité Simple Observation (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité FR-Simple-Observation (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="BC13370F-997D-430C-AF00-A9EB0061FC35" />
                   <code code="PAT-002" displayName="Mutuelle" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -883,9 +891,9 @@
           <!-- Entrée FR-Simple-Observation : APA - Aide aux Personnes Âgées -->
           <entry>
             <observation classCode="OBS" moodCode="EVN" negationInd="false">
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <!-- Conformité FR-Simple-Observation (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="94B867F7-60C5-41B9-AB1A-CA6E4B16B209" />
               <code code="PAT-006" displayName="Aide aux Personnes Âgées (APA)" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -898,7 +906,9 @@
               <!-- Classe GIR -->
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité Simple Observation (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité FR-Simple-Observation (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="87C13E9A-8B07-4714-A500-8EDE5E1106F5" />
                   <code code="PAT-007" displayName="Classe GIR" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -916,9 +926,9 @@
           <!-- Entrée FR-Simple-Observation : Recherche d'hébergement en cours -->
           <entry>
             <observation classCode="OBS" moodCode="EVN" negationInd="false">
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <!-- Conformité FR-Simple-Observation (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="921253C9-B120-425D-9AE6-7153510B0242" />
               <code code="ORG-013" displayName="Recherche d'hébergement en cours" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -937,11 +947,11 @@
       <!-- Section FR-Plan-de-soins -->
       <component>
         <section>
-          <!-- Care Plan Section (CCD) -->
+          <!-- Conformité Care Plan Section (CCD) -->
           <templateId root="2.16.840.1.113883.10.20.1.10" />
-          <!-- Plan of care Section (IHE PCC) -->
+          <!-- Conformité Plan of care Section (IHE PCC) -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
-          <!-- FR-Plan-de-soins (FR CI-SIS) -->
+          <!-- Conformité FR-Plan-de-soins (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.158" />
           <id root="41FEABE2-D1D7-4390-8CD5-F5BC78E07B7D" />
           <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1002,11 +1012,11 @@
           <!-- [1..*] Entrée FR-Demande-d-examen-ou-de-suivi -->
           <entry>
             <observation classCode="OBS" moodCode="GOL">
-              <!-- Plan of care activity (CCD) -->
+              <!-- Conformité Plan of care activity (CCD) -->
               <templateId root='2.16.840.1.113883.10.20.1.25'/>
-              <!-- Observation Request (IHE PCC) -->
+              <!-- Conformité Observation Request (IHE PCC) -->
               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
-              <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+              <!-- Conformité FR-Demande-d-examen-ou-de-suivi (CI-SIS) -->
               <templateId root='1.2.250.1.213.1.1.3.27'/>
               <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F46" />
               <!-- valeur issue du JDV_ProblemePPSPAERPA-CISIS (1.2.250.1.213.1.1.5.37) -->
@@ -1025,11 +1035,11 @@
               <!-- [0..*] Entrée FR-Demande-d-examen-ou-de-suivi : Actions et intervenants -->
               <entryRelationship typeCode="SPRT">
                 <observation classCode="OBS" moodCode="GOL">
-                  <!-- Plan of care activity (CCD) -->
+                  <!-- Conformité Plan of care activity (CCD) -->
                   <templateId root='2.16.840.1.113883.10.20.1.25'/>
-                  <!-- Observation Request (IHE PCC) -->
+                  <!-- Conformité Observation Request (IHE PCC) -->
                   <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
-                  <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+                  <!-- Conformité FR-Demande-d-examen-ou-de-suivi (CI-SIS) -->
                   <templateId root='1.2.250.1.213.1.1.3.27'/>
                   <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F76" />
                   <code code="ORG-014" displayName="Actions dont ETP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -1042,6 +1052,7 @@
                   <value xsi:type="CD" nullFlavor="NAV"/>
                   <!-- [0..*] FR-Participant -->
                   <participant typeCode="PRF">
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.3.109"/>
                     <time nullFlavor="UNK"/>
                     <participantRole>
@@ -1058,9 +1069,9 @@
               <!-- [0..*] Entrée FR-Simple-Observation : Critères et Bilan d'étape -->
               <entryRelationship typeCode="GEVL">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- Simple Observation (IHE PCC) -->
+                  <!-- Conformité Simple Observation (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- FR-Simple-Observation (FR CI-SIS) -->
+                  <!-- Conformité FR-Simple-Observation (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="9F39435B-E4F9-4797-8D92-B33F2ACE29DC" />
                   <code code="ORG-012" displayName="Bilan d'étape" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
@@ -1092,11 +1103,11 @@
           <!-- [1..*] Entrée FR-Demande-d-examen-ou-de-suivi -->
           <entry>
             <observation classCode="OBS" moodCode="GOL">
-              <!-- Plan of care activity (CCD) -->
+              <!-- Conformité Plan of care activity (CCD) -->
               <templateId root='2.16.840.1.113883.10.20.1.25'/>
-              <!-- Observation Request (IHE PCC) -->
+              <!-- Conformité Observation Request (IHE PCC) -->
               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
-              <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+              <!-- Conformité FR-Demande-d-examen-ou-de-suivi (CI-SIS) -->
               <templateId root='1.2.250.1.213.1.1.3.27'/>
               <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F46" />
               <!-- valeur issue du JDV_ProblemePPSPAERPA-CISIS (1.2.250.1.213.1.1.5.37) -->
@@ -1115,11 +1126,11 @@
               <!-- [0..*] Entrée FR-Demande-d-examen-ou-de-suivi : Actions et intervenants -->
               <entryRelationship typeCode="SPRT">
                 <observation classCode="OBS" moodCode="GOL">
-                  <!-- Plan of care activity (CCD) -->
+                  <!-- Conformité Plan of care activity (CCD) -->
                   <templateId root='2.16.840.1.113883.10.20.1.25'/>
-                  <!-- Observation Request (IHE PCC) -->
+                  <!-- Conformité Observation Request (IHE PCC) -->
                   <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
-                  <!-- FR-Demande-d-examen-ou-de-suivi (FR CI-SIS) -->
+                  <!-- Conformité FR-Demande-d-examen-ou-de-suivi (CI-SIS) -->
                   <templateId root='1.2.250.1.213.1.1.3.27'/>
                   <id root="46CFA15C-C4F3-4B12-BDB8-B9FE281A2F76" />
                   <code code="ORG-014" displayName="Actions dont ETP" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
@@ -1132,6 +1143,7 @@
                   <value xsi:type="CD" nullFlavor="NAV"/>
                   <!-- [0..*] FR-Participant -->
                   <participant typeCode="PRF">
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.3.109"/>
                     <time nullFlavor="UNK"/>
                     <participantRole>
@@ -1148,9 +1160,9 @@
               <!-- [0..*] Entrée FR-Simple-Observation : Critères et Bilan d'étape -->
               <entryRelationship typeCode="GEVL">
                 <observation classCode="OBS" moodCode="EVN">
-                  <!-- Simple Observation (IHE PCC) -->
+                  <!-- Conformité Simple Observation (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-                  <!-- FR-Simple-Observation (FR CI-SIS) -->
+                  <!-- Conformité FR-Simple-Observation (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="9F39435B-E4F9-4797-8D92-B33F2ACE29DC" />
                   <code code="ORG-012" displayName="Bilan d'étape" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
@@ -1185,7 +1197,7 @@
       <!-- Section FR-Statut-du-document (En cours / Complété / Validé) -->
       <component>
         <section>
-          <!-- FR-Statut-du-document (FR CI-SIS) --> 
+          <!-- Conformité FR-Statut-du-document (CI-SIS) --> 
           <templateId root="1.2.250.1.213.1.1.2.35" />
           <id root="C5A8924F-A134-400E-8A65-E52BEF720DFD" />
           <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -1196,11 +1208,11 @@
           <!-- Entrée FR-Statut-document -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <!-- Simple Observation (IHE PCC) -->
+              <!-- Conformité Simple Observation (IHE PCC) -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <!-- FR-Simple-Observation (FR CI-SIS) -->
+              <!-- Conformité FR-Simple-Observation (FR CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
-              <!-- FR-Statut-document (FR CI-SIS) -->
+              <!-- Conformité FR-Statut-document (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.3.48.16" />
               <id root="D5279804-D9A7-41DF-820E-B5D8C344828B"/>
               <code code="GEN-065" displayName="Statut du document" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />

@@ -44,8 +44,8 @@
       <c:templateId root="1.2.250.1.213.1.1.1.1"/>
       <!-- Conformité au modèle de document PPS-Cancer -->
       <c:templateId root="1.2.250.1.213.1.1.1.26" extension="2021.01"/>
-      <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-      <c:id root="1.2.250.1.213.1.1.9" extension="CANCER-PPS_2021.01_001_2"/>
+      <!-- Identifiant du document -->
+      <c:id root="23956005-06B8-46A0-A145-5A42E89F6944"/>
       <!-- Type de document -->
       <c:code code="18776-5" displayName="Plan personnalisé de soins"
         codeSystem="2.16.840.1.113883.6.1"/>
@@ -59,7 +59,7 @@
       <!-- Langue du document -->
       <c:languageCode code="fr-FR"/>
       <!-- Identifiant commun à toutes les versions successives du document -->
-      <c:setId root="1.2.250.1.213.1.1.9" extension="CANCER-PPS_2021.01_001"/>
+      <c:setId root="725163F3-1C58-4AB4-8EE5-3CFCABC62DF3"/>
       <!-- Numéro de la version du présent document (entier positif) -->
       <c:versionNumber value="1"/>
 

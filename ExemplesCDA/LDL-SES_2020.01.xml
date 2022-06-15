@@ -51,8 +51,8 @@
     <templateId root="1.2.250.1.213.1.1.1.1"/>
     <!-- Conformité au modèle du document LDL-SES version 2020.01 -->
     <templateId root="1.2.250.1.213.1.1.1.29" extension="2020.01"/>
-    <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root - dans cet exemple OID de test) -->
-    <id root="1.2.250.1.213.1.1.9" extension="LDL-SES-2020.01_20191203_001_1"/> 
+    <!-- Identifiant du document -->
+    <id root="9ED10155-A2AA-459C-8351-A61AD25FC78D"/> 
     <!-- Type de document -->
     <code code="11490-0" displayName="Lettre de liaison à la sortie d'un établissement de soins"
         codeSystem="2.16.840.1.113883.6.1"  codeSystemName="LOINC"/> 
@@ -65,7 +65,7 @@
     <!-- Langue du document -->
     <languageCode code="fr-FR"/>
     <!-- Identifiant commun à toutes les versions successives du document -->
-    <setId root="1.2.250.1.213.1.1.9" extension="LDL-SES-2020.01_20191203_001"/>
+    <setId root="8FA485AB-C5FF-4313-9B3F-4E8FB541F5C5"/>
     <!-- Numéro de la version du présent document (entier positif) -->
     <versionNumber value="1"/>
    
@@ -384,7 +384,9 @@
             <!-- [1..1] Section FR-Statut-du-document-LDL-SES -->
             <component>
                 <section>
+                    <!-- Conformité CI-SIS Template Parent -->
                     <templateId root="1.2.250.1.213.1.1.2.35"/>
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.2.35.1"/>
                     <id root="2DB3E431-03B4-4FC4-99E5-AA2E3CE1D12A"/>
                     <code code="33557-0" displayName="Etat d'achèvement"  
@@ -403,9 +405,13 @@
                     <!-- [1..1] Entrée FR-Statut-document-LDL-SES -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS simple observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CISIS Template Parent -->
                             <templateId root="1.2.250.1.213.1.1.3.48.16"/>
+                            <!-- Conformité CISIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.16.1"/>
                             <id root="402F3A79-F829-4572-8B65-65BC43367B70"/>
                             <code code="GEN-065" displayName="Statut du document"
@@ -423,7 +429,9 @@
             <!-- [1..1] Section FR-Raison-de-la-recommandation-non-code -->
             <component>
                 <section>
+                    <!-- Conformité IHE PCC Reason for Referral -->
                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.2.127"/>
                     <code code="42349-1" displayName="Raison de la recommandation"  
                         codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
@@ -441,9 +449,13 @@
             <!-- [1..1] Section FR-Resultats-evenements-LDL-SES -->
             <component>
                 <section>                    
-                    <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+                    <!-- Conformité IHE PCC Event Outcomes -->
                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+                    <!-- Conformité IHE PCC Coded Event Outcomes -->
+                    <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+                    <!-- Conformité CI-SIS Template Parent -->
                     <templateId root="1.2.250.1.213.1.1.2.163"/>
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.2.163.1"/>
                     <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
                     <code code="42545-4" displayName="Evènements observés"
@@ -501,8 +513,11 @@
                     <!-- [1..1] Entrée FR-Modalite-entree -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.6"/>
                             <id root="F597BFD5-2BD0-4163-892A-7C51830E2BA6"/>
                             <code code="ORG-070" displayName="Modalité d'entrée"
@@ -556,8 +571,11 @@
                     <!-- [1..1] Entrée FR-Modalite-sortie -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.7"/>
                             <id root="1E384EA2-2083-4F17-B825-6A088D2A0E6E"/>
                             <code code="ORG-074" displayName="Modalité de sortie"
@@ -573,8 +591,11 @@
                     <!-- [1..1] Entrée FR-Synthese-medicale-sejour -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.9"/>
                             <id root="174F6D84-986E-4032-8F99-91975403B955"/>
                             <code code="MED-142" displayName="Synthèse médicale"
@@ -627,8 +648,11 @@
                     <!-- [0..1] Entrée FR-Evenement-indesirable-pendant-hospitalisation -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.3"/>
                             <id root="D1DFF1EF-CCE0-40DE-8C78-1827B31208EE"/>
                             <code code="MED-143"
@@ -644,8 +668,11 @@
                     <!-- [1..1] Entrée FR-Recherche-de-micro-organismes -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.8"/>
                             <id root="D1DFF1EF-CCE0-40DE-8C78-1827B31208AA"/>
                             <code code="MED-309"
@@ -661,8 +688,11 @@
                     <!-- [0..1] Entrée FR-Identification-micro-organismes-multiresistants -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.5"/>
                             <id root="53C6C420-96EF-47D4-8ECA-B25460140B8F"/>
                             <code code="MED-144" displayName="Identification de micro-organismes multirésistants"
@@ -677,8 +707,11 @@
                     <!-- [1..1] Entrée FR-Transfusion-de-produits-sanguins -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.10"/>
                             <id root="53C6C420-96EF-47D4-8ECA-B25460140B8F"/>
                             <code code="MED-145" displayName="Transfusion de produits sanguins"
@@ -693,8 +726,11 @@
                     <!-- [0..1] Entrée FR-Accidents-transfusionnels -->
                     <entry> 
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.1"/>
                             <id root="12DA3A06-18E7-40B7-9397-1FA5B1552456"/>
                             <code code="MED-146" displayName="Accidents transfusionnels"
@@ -709,8 +745,11 @@
                     <!-- [1..1] Entrée FR-Administration-de-derives-du-sang -->
                     <entry> 
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.2"/>
                             <id root="12DA3A06-18E7-40B7-9397-1FA5B1552472"/>
                             <code code="MED-147" displayName="Administration de dérivés du sang"
@@ -725,8 +764,11 @@
                     <!-- [0..1] Entrée FR-Evenement-indesirable-suite-administration-derives-sang -->
                     <entry> 
                         <observation classCode="OBS" moodCode="EVN">
+                            <!-- Conformité IHE PCC Simple Observation -->
                             <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <!-- Conformité CI-SIS Simple Observation -->
                             <templateId root="1.2.250.1.213.1.1.3.48"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.48.4"/>
                             <id root="12DA3A06-18E7-40B7-9397-1FA5B1552433"/>
                             <code code="MED-148" displayName="Evènements indésirables suite à l'administration de dérivés du sang"
@@ -745,7 +787,10 @@
             <!-- Médicaments administrés et arretés durant le sejour -->
             <component>
                 <section>
+                    <!-- Conformité IHE PCC -->
                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.21"/>
+                    <!-- Conformité CI-SIS -->
+                    <templateId root="1.2.250.1.213.1.1.2.145"/>
                     <id root="4A402640-1CF6-4153-B5BA-D56B623004C8"/>
                     <code code="18610-6" displayName="Traitements administrés"
                         codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
@@ -785,10 +830,14 @@
                     <!-- [1..*] Entrée FR-Traitement -->
                     <entry>
                         <substanceAdministration classCode="SBADM" moodCode="EVN">
-                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
-                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
-                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.42"/>
+                            <!-- Conformité CCD Medication activity -->
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <!-- Conformité IHE PCC Medication -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <!-- Conformité IHE Mode d’administration "Normal" -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
                             <id root="2ED5EF29-8305-4383-8945-C13F2A988D5E"/>
                             <code code="DRUG" displayName="Médicament" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode"></code>
                             <text><reference value="#MED-001"></reference></text>
@@ -821,9 +870,12 @@
                             <!-- Entrée Produit de santé -->
                             <consumable>
                                 <manufacturedProduct>
-                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
-                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <!-- Conformité CI-SIS -->
                                     <templateId root="1.2.250.1.213.1.1.3.43"/>
+                                    <!-- Conformité IHE CCD -->
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <!-- Conformité IHE PCC IHE Product Entry-->
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                                     <manufacturedMaterial>
                                         <!-- Code médicament - CIS -->
                                         <code code="60019927" displayName="SOLIAN 100 mg, comprimé sécable"
@@ -849,7 +901,9 @@
             <!-- [1..1] Section FR-Traitements-a-la-sortie -->
             <component>
                 <section>
+                    <!-- Conformité IHE PCC Hospital Discharge Medications -->
                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.22"/>
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.2.146"/>
                     <id root="D2E72AFE-401E-4CD2-8583-8473714A32A5"/>
                     <code code="10183-2" 
@@ -891,10 +945,14 @@
                     <!-- [1..*] Entrée FR-Traitement -->
                     <entry>
                         <substanceAdministration classCode="SBADM" moodCode="EVN">
-                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
-                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
-                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.42"/>
+                            <!-- Conformité CCD Medication activity -->
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <!-- Conformité IHE PCC Medication -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <!-- Conformité IHE Mode d’administration "Normal" -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
                             <id root="2ED5EF29-8305-4383-8945-C13F2A988D5E"/>
                             <code code="DRUG" displayName="Médicament" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode"></code>
                             <text><reference value="#MED-002"></reference></text>
@@ -926,9 +984,12 @@
                             <!-- Entrée Produit de santé -->
                             <consumable>
                                 <manufacturedProduct>
-                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
-                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <!-- Conformité CI-SIS -->
                                     <templateId root="1.2.250.1.213.1.1.3.43"/>
+                                    <!-- Conformité IHE CCD -->
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <!-- Conformité IHE PCC IHE Product Entry-->
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                                     <manufacturedMaterial>                                        
                                         <!-- Code médicament - CIS -->
                                         <code code="62552920" displayName="LEPONEX 100 mg, comprimé sécable"
@@ -951,7 +1012,9 @@
             <!-- [0..1] Section FR-Resultats-examens-non-code -->
             <component>
                 <section>
+                    <!-- Conformité IHE PCC Results -->
                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.2.150"/>
                     <id root="A6C982F6-ACAE-4CDC-A901-C400AB8972E6"/>
                     <code code="30954-2" displayName="Résultats d'examens" 
@@ -974,8 +1037,11 @@
             <!-- [0..1] Section FR-Plan-de-soins -->
             <component>                                
                 <section>
+                    <!-- Conformité CCD -->
                     <templateId root="2.16.840.1.113883.10.20.1.10"/>
+                    <!-- Conformité IHE PCC -->
                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+                    <!-- Conformité CISIS -->
                     <templateId root="1.2.250.1.213.1.1.2.158"/>
                     <id root="FC21DC59-43D5-4BB0-ACC7-3601784BFBC0"/>
                     <code code="18776-5" displayName="Plan de soins" 
@@ -1026,10 +1092,12 @@
                     <!-- [0..*] Entrée FR-Acte -->
                     <entry>
                         <procedure classCode="PROC" moodCode="INT">
-                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
-                            <templateId root="1.2.250.1.213.1.1.3.62"/>
-                            <!-- si acte à réaliser (INT) -->
+                            <!-- Conformité CCD -->
                             <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                            <!-- Conformité IHE PCC -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                            <!-- Conformité CI-SIS -->
+                            <templateId root="1.2.250.1.213.1.1.3.62"/>
                             <id root="A6BC7FD2-EC3F-4E01-B567-854B087D1D9B"/>
                             <!-- Type d'acte -->
                             <code code="ECQH010" 
@@ -1049,8 +1117,11 @@
                     <!-- [0..*] Entrée FR-Demande-d-examen-ou-de-suivi -->
                     <entry>
                         <observation classCode='OBS' moodCode='INT'>
-                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
-                            <templateId root='2.16.840.1.113883.10.20.1.25'/>                            
+                            <!-- Conformité CCD -->
+                            <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                            <!-- Conformité IHE PCC Observation Request  -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.27"/>
                             <id root='F83D3DB2-C511-4CFA-B216-773F6DEADB4D'/>
                             <!-- Type d'examen -->
@@ -1068,9 +1139,13 @@
                     <!-- [0..*] Entrée FR-Rencontre -->
                     <entry>
                         <encounter classCode='ENC' moodCode='ARQ'>
-                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.14'/>
+                            <!-- Conformité CCD (rencontre réalisée) -->
                             <templateId root='2.16.840.1.113883.10.20.1.21' />
-                            <templateId root='2.16.840.1.113883.10.20.1.25'/>                            
+                            <!-- Conformité CCD (Rencontre prévue non confirmée) -->
+                            <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                            <!-- Conformité IHE PCC Encounters -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.58"/>
                             <id root='4AA6DCFC-6628-42E7-8D6F-68621568F584'/>
                             <!-- Type de rencontre -->
@@ -1089,6 +1164,7 @@
             <!-- [0..1] Section FR-Dispositifs-medicaux -->
             <component>
                 <section>
+                    <!-- Conformité CI-SIS -->
                     <templateId root="1.2.250.1.213.1.1.2.1"/>
                     <id root="CE20BE10-E414-410D-875E-57FE35303CE1"/>
                     <code code="46264-8" displayName="Dispositifs médicaux" 
@@ -1117,7 +1193,9 @@
                     <!-- [1..*] Entrée FR-Dispositif-medical -->
                     <entry>
                         <supply classCode="SPLY" moodCode="EVN">
+                            <!-- Conformité CCD -->
                             <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                            <!-- Conformité CI-SIS -->
                             <templateId root="1.2.250.1.213.1.1.3.20"/>
                             <!-- Identifiant de la fourniture du DM (OID de test) -->
                             <id root="1.2.250.1.213.1.1.9.9" extension="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"/>
@@ -1151,9 +1229,12 @@
             <!-- [0..1] Section FR-Allergies-et-intolerances (Allergies identifiées pendant le séjour) -->
             <component>
                 <section>
-                    <templateId root="2.16.840.1.113883.10.20.1.2"/>
-                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
-                    <templateId root="1.2.250.1.213.1.1.2.137"/>
+                    <!-- Conformité CCD -->
+                    <templateId root="2.16.840.1.113883.10.20.1.2" />
+                    <!-- Conformité IHE PCC -->
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13" />
+                    <!-- Conformité CI-SIS -->
+                    <templateId root="1.2.250.1.213.1.1.2.137" />
                     <id root="29085A50-9B57-48CB-9295-3DFCDD194069"/>
                     <code code="48765-2" displayName="Allergies, réactions adverses, alertes" 
                         codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
@@ -1163,10 +1244,14 @@
                     <!-- [1..1] Entrée FR-Liste-des-allergies-et-intolerance -->
                     <entry>
                         <act classCode="ACT" moodCode="EVN">
-                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
-                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
-                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
-                            <templateId root="1.2.250.1.213.1.1.3.40"/>
+                            <!-- Conformité CCD -->
+                            <templateId root="2.16.840.1.113883.10.20.1.27" />
+                            <!-- Conformité IHE PCC parent (Concern Entry) -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+                            <!-- Conformité IHE PCC -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3" />
+                            <!-- Conformité CI-SIS -->
+                            <templateId root="1.2.250.1.213.1.1.3.40" />
                             <id root="1269C206-4D59-4A9D-AA2D-AA0C4622D525"/>
                             <code nullFlavor="NA"/>
                             <statusCode code="completed"/>
@@ -1178,11 +1263,16 @@
                             <!-- [1..*] Entrée FR-Allergie-ouintolerance -->
                             <entryRelationship typeCode="SUBJ" inversionInd="false">
                                 <observation classCode="OBS" moodCode="EVN">
-                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
-                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
-                                    <templateId root="2.16.840.1.113883.10.20.1.18"/>
-                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
-                                    <templateId root="1.2.250.1.213.1.1.3.41"/>
+                                    <!-- Conformité CCD Problem observation-->
+                                    <templateId root="2.16.840.1.113883.10.20.1.28" />
+                                    <!-- Conformité CCD Alert observation-->
+                                    <templateId root="2.16.840.1.113883.10.20.1.18" />
+                                    <!-- Conformité IHE PCC parent (Problem Entry) -->
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                                    <!-- Conformité IHE PCC -->
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6" />
+                                    <!-- Conformité CI-SIS -->
+                                    <templateId root="1.2.250.1.213.1.1.3.41" />
                                     <id root="C64C6013-C8AF-4938-AD10-1B7D26DEE2A0"/>
                                     <!-- Type d'allergie / intolérance -->
                                     <code code="DALG" displayName="Allergie médicamenteuse"

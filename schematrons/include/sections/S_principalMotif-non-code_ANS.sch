@@ -25,8 +25,8 @@
         </assert>
         
         <!-- Vérifier le code de la section -->
-        <assert test='cda:code[@code = "42349-1"]'>
-            [S_principalMotif-non-code_ANS.sch] Erreur de conformité CI-SIS : Le code de cette section doit être '42349-1'
+        <assert test='cda:code[@code = "10154-3"]'>
+            [S_principalMotif-non-code_ANS.sch] Erreur de conformité CI-SIS : Le code de cette section doit être '10154-3'
         </assert>
         
         <assert test='cda:code[@codeSystem = "2.16.840.1.113883.6.1"]'>

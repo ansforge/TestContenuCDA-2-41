@@ -36,8 +36,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au Volet Synthèse Postpartum Mère (OBP-SCM_2021.01)-->
   <templateId root="1.2.250.1.213.1.1.1.12.4" extension="2021.01"/>
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="OBP-SCM_2021.01_20210328_001_1" />
+  <!-- Identifiant du document -->
+  <id root="EA2F466D-F20C-4BEB-BD1B-CC5314821F4A"/>
   <!-- Type de document -->
   <code code="15508-5" displayName="Compte-rendu d'accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -49,7 +49,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="OBP-SCM_2021.01_20210328_001" />
+  <setId root="E0C802A1-793B-48E1-BFD3-A82F4F705EE8"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -299,9 +299,12 @@
       <!--=<<o#%@O[ PCC Coded Event Outcome Section ]O@%#o>>=-->
       <component>
         <section>
-          <!-- PCC Coded Event Outcomes Section template Id -->
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
-          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+          <!-- Conformité IHE PCC Résultats d’évènements (non codé) -->
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.163"/>
           <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
           <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Pathologies dans la période des suites de couches</title>
@@ -347,8 +350,10 @@
           <!-- PCC Simple Observations - Pathologie de suites de couches -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <!-- PCC Simple Observation template Id -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
               <id root="7AB08573-C3A1-4946-923A-F6AAF33B2C8E" />
               <code code="O90.9" displayName="Pathologies des suites de couches (Complication puerpérale)" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
               <text>
@@ -361,8 +366,10 @@
           </entry>
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <!-- PCC Simple Observation template Id -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
               <id root="3A922ACD-407D-42C5-98DB-A837BB3FDB8D" />
               <code code="O90.9" displayName="Pathologies des suites de couches (Complication puerpérale)" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" />
               <text>
@@ -376,8 +383,10 @@
           <!-- PCC Simple Observations - Mode de sortie -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <!-- PCC Simple Observation template Id -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
               <id root="2FD65E5A-5158-463B-8164-88E8AABB7512" />
               <code code="OBS_050" displayName="Mode de sortie" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
               <text>
@@ -391,7 +400,10 @@
           <!--  PCC Patient Tranfer Entry - Transfert  -->
           <entry>
             <act classCode="ACT" moodCode="EVN" negationInd="false">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.28"/>
               <id root="35B6A8EC-A0FF-40EA-833F-730B0CBD3235" />
               <code code="80413-8" displayName="Transfert du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text>
@@ -428,7 +440,10 @@
       <!--=<<o#%@O[ PCC Procedures & Interventions Section ]O@%#o>>=-->
       <component>
         <section>
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
+          <!-- Conformité IHE-PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.118"/>
           <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
           <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Interventions et/ou actes réalisés dans les suites de couches</title>
@@ -453,8 +468,12 @@
           <!-- Acte Suites de couches -->
           <entry>
             <procedure classCode="PROC" moodCode="EVN" negationInd="false">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-              <templateId root="2.16.840.1.113883.10.20.1.29" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
               <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
               <code code="JNMD002" displayName="Révision de la cavité de l'utérus après délivrance naturelle" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM">
                 <originalText>
@@ -475,8 +494,12 @@
       <!--=<<o#%@O[ PCC Care Plan Section - Plans de soins à la sortie ]O@%#o>>=-->
       <component>
         <section>
-          <templateId root="2.16.840.1.113883.10.20.1.10" />
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36" />
+          <!-- Conformité CCD -->
+          <templateId root="2.16.840.1.113883.10.20.1.10"/>
+          <!-- Conformité IHE PCC -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.158"/>
           <id root="8E1E6B2F-4788-45F0-B804-4DCD2ADB94C7" />
           <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Plan de soins</title>
@@ -538,9 +561,12 @@
           <!-- Demande d'examen paraclinique -->
           <entry>
             <observation classCode="OBS" moodCode="INT">
-              <!-- Observation Request -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
-              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC Observation Request  -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
               <id root="288FBEAF-174C-4011-A8B5-D052795BD9CE" />
               <code code="F-D0650" displayName="Hémostase" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
               <text>
@@ -554,9 +580,12 @@
           <!-- Surveillance Kiné -->
           <entry>
             <observation classCode="OBS" moodCode="INT">
-              <!-- Observation Request -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
-              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC Observation Request  -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
               <id root="9A2440E6-A7B9-4269-B0E9-3F8B30579536" />
               <code code="P0-20720" displayName="patient dirigé vers un massothérapeute" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
               <text>
@@ -570,9 +599,12 @@
           <!-- Surveillance IDE -->
           <entry>
             <observation classCode="OBS" moodCode="INT">
-              <!-- Observation Request -->
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1" />
-              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité CCD -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC Observation Request  -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.27"/>
               <id root="4194336B-0793-4A17-B387-282036F77C1D" />
               <code code="P0-20700" displayName="patient dirigé vers le personnel paramédical" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
               <text>
@@ -586,8 +618,12 @@
           <!-- Intervention -->
           <entry>
             <procedure classCode="PROC" moodCode="INT" negationInd="false">
-              <templateId root="2.16.840.1.113883.10.20.1.25" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- templateId acte prévu -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité CISIS -->
+              <templateId root="1.2.250.1.213.1.1.3.62"/>
               <id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE" />
               <code code="JKBA001" displayName="Cerclage de l'isthme utérin par abord vaginal, en dehors de la grossesse" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM" />
               <text>
@@ -600,8 +636,12 @@
           <!--  Demande de RV pour consultation spécialisée en attente de confirmation (moodCode='ARQ')-->
           <entry>
             <encounter classCode="ENC" moodCode="ARQ">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14" />
-              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité CCD (Rencontre prévue non confirmée) -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC Encounters -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.58"/>
               <id root="B0B97D13-240A-496F-83F4-206B4138DAF0" />
               <code code="AMB" displayName="Ambulatoire" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActEncounterCode" />
               <text mediaType="text/xml">
@@ -613,8 +653,12 @@
           <!-- Consultation -->
           <entry>
             <encounter classCode="ENC" moodCode="ARQ">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14" />
-              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <!-- Conformité CCD (Rencontre prévue non confirmée) -->
+              <templateId root="2.16.840.1.113883.10.20.1.25"/>
+              <!-- Conformité IHE PCC Encounters -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.58"/>
               <id root="DE0D1EE6-F3E3-45DA-92DA-3606F912A51E" />
               <code code="OBSENC" displayName="Observation" codeSystem="2.16.840.1.113883.5.4"/>
               <text mediaType="text/xml">
@@ -630,9 +674,14 @@
           <!-- Médication -->
           <entry typeCode="DRIV">
             <substanceAdministration classCode="SBADM" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.42"/>
+              <!-- Conformité CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Medication -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <!-- Conformité IHE Mode d’administration "Normal" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
               <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A" />
               <text>
                 <reference>
@@ -654,8 +703,12 @@
               <rateQuantity nullFlavor="NAV" />
               <consumable>
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
+                  <!-- Conformité IHE CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC IHE Product Entry-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                   <manufacturedMaterial>
                     <code code="63245753" codeSystem="1.2.250.1.213.2.3" codeSystemName="CIS" displayName="COUMADINE 5mg, comprimé sécable">
                       <originalText mediaType="text/xml">
@@ -674,9 +727,14 @@
           </entry>
           <entry typeCode="DRIV">
             <substanceAdministration classCode="SBADM" moodCode="EVN">
-              <templateId root="2.16.840.1.113883.10.20.1.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" />
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.42"/>
+              <!-- Conformité CCD Medication activity -->
+              <templateId root="2.16.840.1.113883.10.20.1.24"/>
+              <!-- Conformité IHE PCC Medication -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+              <!-- Conformité IHE Mode d’administration "Normal" -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
               <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A" />
               <text>
                 <reference>
@@ -698,8 +756,12 @@
               <rateQuantity nullFlavor="NAV" />
               <consumable>
                 <manufacturedProduct>
-                  <templateId root="2.16.840.1.113883.10.20.1.53" />
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.43"/>
+                  <!-- Conformité IHE CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                  <!-- Conformité IHE PCC IHE Product Entry-->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                   <!-- Product template -->
                   <manufacturedMaterial>
                     <code code="69393666" codeSystem="1.2.250.1.213.2.3" codeSystemName="CIS" displayName="APROVEL 75 mg, comprimé">
@@ -724,6 +786,7 @@
       <!--=<<o#%@O[ Section Statut du document ]O@%#o>>=-->
       <component>
         <section>
+          <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.35" />
           <id root="A8095EC9-4398-4516-BBAA-F1EF0ADB82A9" />
           <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -731,9 +794,12 @@
           <text>Statut du document : validé</text>
           <entry>
             <observation classCode="OBS" moodCode="EVN">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
-              <templateId root="1.2.250.1.213.1.1.3.48" />
-              <templateId root="1.2.250.1.213.1.1.3.48.16" />
+              <!-- Conformité IHE PCC Simple Observation -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS simple observation -->
+              <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <!-- Conformité CISIS -->
+              <templateId root="1.2.250.1.213.1.1.3.48.16"/>
               <id root="F9D3C1CC-6AC6-46D0-B94D-91A0F717A735"/>
               <code code="GEN-065" displayName="Statut du document" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
               <text>

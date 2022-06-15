@@ -3,9 +3,9 @@
 <xs:schema targetNamespace="urn:dicom-org:ps3-20" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:dicom-org:ps3-20"
     elementFormDefault="qualified" xmlns:hl7="urn:hl7-org:v3" xmlns:sch="http://www.ascc.net/xml/schematron">
     
-    <xs:import namespace="urn:hl7-org:v3" schemaLocation="POCD_MT000040_extensions.xsd" />
-    <xs:import namespace="urn:hl7-org:v3" schemaLocation="../../processable/coreschemas/infrastructureRoot.xsd"/>
-    <xs:include schemaLocation="../../processable/coreschemas/datatypes.xsd"/>
+    <xs:import namespace="urn:hl7-org:v3" schemaLocation="POCD_MT000040_extended_pharmacy.xsd" />
+    <xs:import namespace="urn:hl7-org:v3" schemaLocation="infrastructureRoot.xsd"/>
+    <xs:include schemaLocation="datatypes.xsd"/>
     
     <!-- == Start Data types ===================================================================== -->
     <xs:complexType name="POCD_MT000040.Order">

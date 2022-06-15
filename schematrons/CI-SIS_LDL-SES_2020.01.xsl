@@ -416,21 +416,6 @@
 
 		    <!--ASSERT -->
 <xsl:choose>
-         <xsl:when test="cda:documentationOf/cda:serviceEvent/cda:code[@code='IMP']"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>
-            [Entete_LDL-SES] Erreur de conformité : L'attribut code de l'élément documentationOf/serviceEvent/code est fixé à 'IMP'.
-        </svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-<xsl:choose>
          <xsl:when test="cda:documentationOf/cda:serviceEvent/cda:effectiveTime"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
@@ -492,6 +477,22 @@
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="*[cda:templateId/@root=&#34;1.2.250.1.213.1.1.1.29&#34;]"/>
+
+		    <!--ASSERT -->
+<xsl:choose>
+         <xsl:when test="cda:code[@code = &#34;11490-0&#34; and @codeSystem=&#34;2.16.840.1.113883.6.1&#34;]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>
+                [CI-SIS_LDL-SES_2021.01] Erreur de conformité : 
+                Le code d'un document LDL-SES doit avoir un attribut code ="11490" et un attribut codeSystem="2.16.840.1.113883.6.1".
+            </svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
 
 		    <!--ASSERT -->
 <xsl:choose>

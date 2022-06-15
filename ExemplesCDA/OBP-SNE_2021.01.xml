@@ -35,8 +35,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au Volet Synthèse Salle de Naissance Enfant (SNE)-->
   <templateId root="1.2.250.1.213.1.1.1.12.3" extension="2021.01"/>
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="OBP-SNE_2021.01_20210328_001_1" />
+  <!-- Identifiant du document -->
+  <id root="141F308B-BF94-4EE8-9AC9-1E54F06C38E7"/>
   <!-- Type de document -->
   <code code="15508-5" displayName="Compte-rendu d'accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -48,7 +48,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="OBP-SNE_2021.01_20210328_001" />
+  <setId root="6E561E35-DA0F-4BBF-91B4-860A52D9BB8C"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 
@@ -299,8 +299,10 @@
       <!-- [0..1] Section FR-Travail-et-accouchement -->
       <component>
         <section>
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.3" />
-          <templateId root="1.2.250.1.213.1.1.2.123" />
+          <!-- Conformité IHE PCC Labor and Delivery Events -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.3"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.123"/>
           <id root="1B465436-2243-445F-959E-A421D96C1522" />
           <code code="57074-7" displayName="Travail et accouchement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Travail et Accouchement</title>
@@ -390,16 +392,22 @@
           <!-- [0..1] Sous-section FR-Actes-et-interventions -->
           <component>
             <section>
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
-              <templateId root="1.2.250.1.213.1.1.2.118" />
+              <!-- Conformité IHE PCC Procedures and Interventions -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>      
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.118"/>
               <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
               <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text />
               <!-- Méthode d'accouchement  -->
               <entry>
                 <procedure classCode="PROC" moodCode="EVN" negationInd="false">
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.62"/>
                   <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
                   <code code="MED-169" displayName="Méthode d'accouchement" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
                   <text>
@@ -414,7 +422,10 @@
                               CR d'extraction ou CR de césarienne -->
                   <entryRelationship typeCode="REFR" inversionInd="false">
                     <act classCode="ACT" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1" />
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.36"/>
                       <id root="1E2DF585-ACF2-4004-B179-3010A99DD158" />
                       <code nullFlavor="NA">
                         <originalText><reference value="#a3"/></originalText>
@@ -433,7 +444,10 @@
                   <!-- Cas d'un accouchement différent d'un accouchement spontané voie basse: Raison  -->
                   <entryRelationship typeCode="RSON">
                     <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48" />
                       <id root="441DF6CB-D9A8-4023-BFC3-2F0A5D4DC0A5" />
                       <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
                       <text>
@@ -447,7 +461,10 @@
                   <!-- Dans le cas d'une intervention voie basse : type d'intervention voie basse -->
                   <entryRelationship typeCode="COMP" inversionInd="false">
                     <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48" />
                       <id root="721A82E2-3775-4705-9FC7-BDB87872C948" />
                       <code code="OBS_040" displayName="Type intervention voie basse" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                       <text>
@@ -465,16 +482,22 @@
           <!-- [0..1] Sous-section FR-Resultats-evenements -->
           <component>
             <section>
-              <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
-              <templateId root="1.2.250.1.213.1.1.2.163" />
+              <!-- Conformité IHE PCC Event Outcomes -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+              <!-- Conformité IHE PCC Coded Event Outcomes -->
+              <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.163"/>
               <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
               <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text />
               <!-- Rang et date de naissance -->
               <entry>
                 <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="F50090E5-B029-41D0-B00A-380A45E3E3D8" />
                   <code code="MED-162" displayName="Rang de naissance" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
                   <text>
@@ -488,7 +511,10 @@
               <!-- Age gestationnel -->
               <entry>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="29E37FE1-C7EC-4C1B-A3C0-C68E66DBE5F1" />
                   <code code="11884-4" displayName="Age gestationnel" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
                   <text>
@@ -502,7 +528,10 @@
               <!-- Présentation Foetale -->
               <entry>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="8CD9BA94-498C-4741-AFA7-2A4D3A33479D" />
                   <code code="F-87000" displayName="Présentation Foetale" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
                   <text>
@@ -516,7 +545,10 @@
               <!-- Quantité du liquide amniotique -->
               <entry>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="FF14E7F0-A73C-4F91-AB7B-8A04F713B36B" />
                   <code code="OBS_036" displayName="Quantité du liquide amniotique" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                   <text>
@@ -530,7 +562,10 @@
               <!-- Aspect du liquide amniotique à la naissance -->
               <entry>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="074B1861-D92E-4441-9E52-0C563D7AB51C" />
                   <code code="OBS_037" displayName="Aspect du liquide amniotique à la naissance" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" />
                   <text>
@@ -544,7 +579,10 @@
               <!-- Durée d'ouverture de l'oeuf -->
               <entry>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="B3C83C2D-3667-4FE7-BFAB-B2B554E920C5" />
                   <code code="OBS_038" displayName="Durée d'ouverture de l'oeuf" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                   <text>
@@ -558,7 +596,10 @@
               <!-- Enfant vivant -->
               <entry>
                 <observation classCode="OBS" moodCode="EVN">
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.48" />
                   <id root="DE89B61E-6EF0-4EFB-B1C2-FDEE89138E04" />
                   <code code="OBS_039" displayName="Enfant vivant" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                   <text>
@@ -569,7 +610,10 @@
                   <value xsi:type="BL" value="false" />
                   <entryRelationship typeCode="RSON">
                     <observation classCode="OBS" moodCode="EVN">
+                      <!-- Conformité IHE PCC -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48" />
                       <id root="FE062A9D-6E00-4DE2-B866-D60C892B0AC3" />
                       <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
                       <text>
@@ -590,8 +634,10 @@
       <!-- [0..1] Section FR-Informations-sur-l-accouchement -->
       <component>
         <section>
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.4" />
-          <templateId root="1.2.250.1.213.1.1.2.124" />
+          <!-- Conformité IHE PCC Newborn Delivery Information -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.4"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.124"/>  
           <id root="F5DADC43-8E1A-4699-9BBD-BFDB84091BFB" />
           <code code="57075-4" displayName="Informations sur l'accouchement et le nouveau-né" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Information sur le nouveau-né</title>
@@ -715,10 +761,14 @@
           <!-- [1..1] Sous-section FR-Examen-physique-detaille-code -->
           <component>
             <section>
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.24" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15" />
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15.1" />
-              <templateId root="1.2.250.1.213.1.1.2.84" />
+              <!-- Conformité IHE PCC Parent Template Physical Examination -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.24"/>
+              <!-- Conformité IHE PCC Detailed Physical Examination -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15"/>
+              <!-- Conformité IHE PCC Coded Detailed Physical Examination -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.84"/>
               <id root="4A402640-1CF6-4153-B5BA-D56B623004C8" />
               <code code="29545-1" displayName="Examen physique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text />
@@ -726,9 +776,13 @@
               <!-- [1..1] Sous-sous-section FR-Signes-vitaux -->
               <component>
                 <section>
+                  <!-- Conformité CCD Parent Template Vital Signs -->
                   <templateId root="2.16.840.1.113883.10.20.1.16"/>
+                  <!-- Conformité IHE PCC Vital Signs narrative -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25"/>
+                  <!-- Conformité IHE PCC Coded Vital Signs -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2"/>
+                  <!-- Conformité CI-SIS -->
                   <templateId root="1.2.250.1.213.1.1.2.75"/>
                   <id root="3B6E8DA4-C82E-4C3F-9DF9-3A7599EE6D63"/>
                   <code code="8716-3" displayName="Signes vitaux"
@@ -738,9 +792,13 @@
                   <!-- Entrée FR-Signes-vitaux -->
                   <entry>
                     <organizer classCode="CLUSTER" moodCode="EVN">
+                      <!-- Conformité CCD Result organizer -->
                       <templateId root="2.16.840.1.113883.10.20.1.32"/>
+                      <!-- Conformité CCD Vital signs organizer -->
                       <templateId root="2.16.840.1.113883.10.20.1.35"/>
+                      <!-- Conformité IHE PCC Vital Signs Organizer -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1"/>
+                      <!-- Conformité CI-SIS -->
                       <templateId root="1.2.250.1.213.1.1.3.49"/>
                       <id root="0FD525FD-8712-40F9-BC31-AF9E25069C24"/>
                       <code code="F-03400" displayName="Signes vitaux"
@@ -751,9 +809,13 @@
                       <!-- Entrée FR-Signe-vital-observe : APGAR à 1 mn -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Simple Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CCD Result observation -->
                           <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <!-- Conformité IHE PCC Vital Signs Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.50"/>
                           <id root="4461355E-71B1-41B9-8D48-80D672C8D08C"/>
                           <code code="9272-6" displayName="APGAR à 1mn"
@@ -770,9 +832,13 @@
                       <!-- Entrée FR-Signe-vital-observe : APGAR à 5 mn -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Simple Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CCD Result observation -->
                           <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <!-- Conformité IHE PCC Vital Signs Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.50"/>
                           <id root="2D06DA10-5A5E-4782-BA57-9A0DC1FA5CFA"/>
                           <code code="9274-2" displayName="APGAR à 5mn"
@@ -789,9 +855,13 @@
                       <!-- Entrée FR-Signe-vital-observe : APGAR à 10 mn -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Simple Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CCD Result observation -->
                           <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <!-- Conformité IHE PCC Vital Signs Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.50"/>
                           <id root="1AC40147-D987-475D-9C57-B7B91CBAC1C5"/>
                           <code code="9271-8" displayName="APGAR à 10mn"
@@ -808,9 +878,13 @@
                       <!-- Entrée FR-Signe-vital-observe : Poids -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Simple Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CCD Result observation -->
                           <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <!-- Conformité IHE PCC Vital Signs Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.50"/>
                           <id root="222B0A68-94C4-47B2-BC51-2375CD896B42"/>
                           <code code="29463-7" codeSystem="2.16.840.1.113883.6.1"
@@ -827,9 +901,13 @@
                       <!-- Entrée FR-Signe-vital-observe : Taille -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Simple Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CCD Result observation -->
                           <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <!-- Conformité IHE PCC Vital Signs Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.50"/>
                           <id root="2D8611C6-9F6B-4964-9837-7F999E092A1B"/>
                           <code code="8302-2" codeSystem="2.16.840.1.113883.6.1"
@@ -846,9 +924,13 @@
                       <!-- Entrée FR-Signe-vital-observe : Périmètre cranien -->
                       <component typeCode="COMP">
                         <observation classCode="OBS" moodCode="EVN">
+                          <!-- Conformité IHE PCC Simple Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <!-- Conformité CCD Result observation -->
                           <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <!-- Conformité IHE PCC Vital Signs Observation -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <!-- Conformité CI-SIS -->
                           <templateId root="1.2.250.1.213.1.1.3.50"/>
                           <id root="F3FF9F82-8188-47F8-912B-FF848621F210"/>
                           <code code="8287-5" displayName="Périmètre cranien"
@@ -870,7 +952,9 @@
               <!-- [0..1] Sous-sous-section FR-ORL  -->
               <component>
                 <section>
+                  <!-- Conformité IHE PCC (Ears, Nose, Mouth and Throat) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.20" />
+                  <!-- Conformité CI-SIS -->
                   <templateId root="1.2.250.1.213.1.1.2.89" />
                   <id root="4A402640-1CF6-4153-B5BA-D56B623004C8" />
                   <code code="11393-6" displayName="ORL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -878,7 +962,10 @@
                   <text/>                    
                   <entry>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
                       <id root="55E0941C-424C-4844-B811-394A67F8C67D" />
                       <code code="OBS_232" displayName="Perméabilité des choanes" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                       <text>
@@ -891,7 +978,10 @@
                   </entry>
                   <entry>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
                       <id root="53273E78-FE07-4C71-B3EA-28B88A1D2C0E" />
                       <code code="OBS_247" displayName="Perméabilité oesophagienne" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                       <text>
@@ -907,7 +997,9 @@
               <!-- [0..1] Sous-sous-section FR-Colon-rectum -->
               <component>
                 <section>
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.37" />
+                  <!-- Conformité CI-SIS -->
                   <templateId root="1.2.250.1.213.1.1.2.106" />
                   <id root="4A402640-1CF6-4153-B5BA-D56B623004C8" />
                   <code code="10205-3" displayName="Côlon rectum" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -915,7 +1007,10 @@
                   <text/>                    
                   <entry>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
                       <id root="F912B74F-F888-4C82-B4CF-7D0889C5D8AD" />
                       <code code="OBS_248" displayName="Perméabilité anale" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                       <text>
@@ -931,7 +1026,9 @@
               <!-- [0..1] Sous-sous-section FR-Etat-general -->
               <component>
                 <section>
+                  <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.16" />
+                  <!-- Conformité CI-SIS -->
                   <templateId root="1.2.250.1.213.1.1.2.85" />
                   <id root="4A402640-1CF6-4153-B5BA-D56B623004B4" />
                   <code code="10210-3" displayName="État général" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -939,7 +1036,10 @@
                   <text/>                    
                   <entry>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
                       <id root="55E0941C-424C-4844-B811-394A67F8C68D" />
                       <code code="OBS_249" displayName="Émission d’urine" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                       <text>
@@ -952,7 +1052,10 @@
                   </entry>
                   <entry>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.48"/>
                       <id root="53273E78-FE07-4C71-B3EA-28B88A1D2C9I" />
                       <code code="OBS_250" displayName="Émission de méconium" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                       <text>
@@ -972,16 +1075,22 @@
           <!-- [0..1] Sous-section FR-Actes-et-interventions -->
           <component>
             <section>
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11" />
-              <templateId root="1.2.250.1.213.1.1.2.118" />
+              <!-- Conformité IHE-PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.2.118"/>
               <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
               <code code="29554-3" displayName="Actes" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text/>                    
               <!-- Réanimation -->
               <entry>
                 <procedure classCode="PROC" moodCode="EVN" negationInd="false">
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.62"/>
                   <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
                   <code code="OBS_241" displayName="Réanimation" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                   <text>
@@ -994,9 +1103,13 @@
                   <!-- Massage cardiaque -->
                   <entryRelationship typeCode="COMP" negationInd="false">
                     <procedure classCode="PROC" moodCode="EVN" negationInd="true">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-                      <templateId root="2.16.840.1.113883.10.20.1.29" />
-                      <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.62"/>
+                      <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D177"/>
                       <code code="OBS_239" displayName="massage cardiaque" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                       <text>
                         <reference value="massCar" />
@@ -1010,9 +1123,13 @@
                   <!-- Autre geste -->
                   <entryRelationship typeCode="COMP" negationInd="false">
                     <procedure classCode="PROC" moodCode="EVN" negationInd="true">
-                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-                      <templateId root="2.16.840.1.113883.10.20.1.29" />
-                      <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
+                      <!-- Conformité CCD -->
+                      <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                      <!-- Conformité IHE PCC -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.62"/>
+                      <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D652"/>
                       <code code="MED-174" displayName="Geste technique spécialisé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP">
                         <originalText>
                           <reference value="#SNE_001" />
@@ -1032,8 +1149,12 @@
               <!-- Administration de Vitamine K -->
               <entry>
                 <procedure classCode="PROC" moodCode="EVN" negationInd="false">
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.62"/>
                   <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
                   <code code="OBS_242" displayName=" Administration de Vitamine K" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                   <text>
@@ -1049,8 +1170,12 @@
               <!-- Prélèvements bactériologiques -->
               <entry>
                 <procedure classCode="PROC" moodCode="EVN" negationInd="false">
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.62"/>
                   <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138" />
                   <code code="OBS_243" displayName="Prélévement bactériologique" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                   <text>
@@ -1068,8 +1193,12 @@
               <!-- Prélèvements bactériologiques -->
               <entry>
                 <procedure classCode="PROC" moodCode="EVN" negationInd="false">
-                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" />
-                  <templateId root="2.16.840.1.113883.10.20.1.29" />
+                  <!-- Conformité CCD -->
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Conformité IHE PCC -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.62"/>
                   <id root="B8783B31-44FD-450C-953C-AAD5C075DCEE" />
                   <code code="OBS_243" displayName="Prélévement bactériologique" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
                   <text>
@@ -1096,9 +1225,12 @@
       <!-- [0..1] Section FR-Resultats-evenements -->
       <component>
         <section>
-          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9" />
-          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7" />
-          <templateId root="1.2.250.1.213.1.1.2.163" />
+          <!-- Conformité IHE PCC Event Outcomes -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+          <!-- Conformité IHE PCC Coded Event Outcomes -->
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.163"/>
           <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B" />
           <code code="42545-4" displayName="Evènements observés" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <text>
@@ -1121,7 +1253,9 @@
           <!-- FR-Simple-Observation : Mode de sortie -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" />
+              <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.3.48" />
               <id root="A59E0EBD-018D-4289-B879-0A8D55F64D02" />
               <code code="OBS_050" displayName="Mode de sortie" codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS" />
@@ -1136,8 +1270,10 @@
           <!-- FR-Transfert-du-patient  -->
           <entry>
             <act classCode="ACT" moodCode="EVN" negationInd="false">
-              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1" />
-              <templateId root="1.2.250.1.213.1.1.3.28" />
+              <!-- Conformité IHE PCC -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1"/>
+              <!-- Conformité CI-SIS -->
+              <templateId root="1.2.250.1.213.1.1.3.28"/>
               <id root="9DE53C07-2608-44DF-B7FA-0555AB7CCC4B" />
               <code code="80413-8" displayName="Transfert du patient" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <text><reference value="transfert"/></text>
@@ -1173,8 +1309,10 @@
       <!-- [1..1] Section FR-CR-BIO-Chapitre -->
       <component>
         <section>
-          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
-          <templateId root="1.2.250.1.213.1.1.2.70" />
+          <!-- Conformité IHE PCC Laboratory Specialty -->
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.70"/>
           <code code="18767-4" displayName="Gaz du Sang" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Gaz du sang</title>
           <text>
@@ -1203,19 +1341,27 @@
           </text>
           <!-- [1..*] Entrée Laboratory Report Data Processing Entry -->
           <entry typeCode="DRIV">
-            <templateId root="1.3.6.1.4.1.19376.1.3.1" />
-            <templateId root="1.2.250.1.213.1.1.3.21" />
+            <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+            <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+            <!-- Conformité CI-SIS -->
+            <templateId root="1.2.250.1.213.1.1.3.21"/>
             <act classCode="ACT" moodCode="EVN">
               <code code="18767-4" displayName="Gaz du Sang" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <statusCode code="completed" />
               <entryRelationship typeCode="COMP">
                 <organizer classCode="BATTERY" moodCode="EVN">
-                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                  <!-- Conformité CI-SIS -->
+                  <templateId root="1.2.250.1.213.1.1.3.78"/>
                   <statusCode code="completed" />
                   <!-- pH du cordon (artériel) -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <id root="D5086904-99AA-482E-86AE-BA33CF8C421F" />
                       <code code="28646-8" codeSystem="2.16.840.1.113883.6.1" displayName="pH Sang de cordon artériel" codeSystemName="LOINC">
                         <originalText><reference value="#phCordonArteriel"/></originalText>
@@ -1228,7 +1374,10 @@
                   <!-- pH du cordon (veineux) -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <id root="1D07547D-7AFD-4589-8F4D-40B34961899E" />
                       <code code="28647-6" codeSystem="2.16.840.1.113883.6.1" displayName="pH Sang de cordon veineux" codeSystemName="LOINC">
                         <originalText><reference value="#phCordonVeineux"/></originalText>
@@ -1241,7 +1390,10 @@
                   <!-- Lactates -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                      <!-- Conformité CI-SIS -->
+                      <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <id root="4FDB71EE-B896-4AC8-BDA9-C1F5A895F60D" />
                       <code code="32693-4" codeSystem="2.16.840.1.113883.6.1" displayName="Lactate [Moles/Volume] Sang" codeSystemName="LOINC">
                         <originalText><reference value="#lactates"/></originalText>
@@ -1261,7 +1413,10 @@
       <!-- [1..1] Section FR-Statut-du-document -->
       <component>
         <section>
+          <!-- Conformité CI-SIS Template Parent -->
           <templateId root="1.2.250.1.213.1.1.2.35"/>
+          <!-- Conformité CI-SIS -->
+          <templateId root="1.2.250.1.213.1.1.2.35.1"/>
           <id root="40BA1599-AFD6-4625-969E-FBAB97694C99"/>
           <code code="33557-0" displayName="Etat d'achèvement" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Statut du document</title>
@@ -1269,8 +1424,11 @@
           <!-- [1..1] Entrée FR-Statut-document -->
           <entry>
             <observation classCode="OBS" moodCode="EVN">
+              <!-- Conformité IHE PCC Simple Observation -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+              <!-- Conformité CI-SIS simple observation -->
               <templateId root="1.2.250.1.213.1.1.3.48"/>
+              <!-- Conformité CISIS  -->
               <templateId root="1.2.250.1.213.1.1.3.48.16"/>
               <id root="878F54EB-D561-4F90-855C-71BF3D97FE1D"/>
               <code code="GEN-065" displayName="Statut du document"

@@ -57,6 +57,12 @@
         <!-- Vérifier que toutes les sections obligatoires du document sont présentes -->
         <rule context='*[cda:templateId/@root="1.2.250.1.213.1.1.1.29"]'>
             
+            <!-- controle du code du document -->
+            <assert test='cda:code[@code = "11490-0" and @codeSystem="2.16.840.1.113883.6.1"]'>
+                [CI-SIS_LDL-SES_2021.01] Erreur de conformité : 
+                Le code d'un document LDL-SES doit avoir un attribut code ="11490" et un attribut codeSystem="2.16.840.1.113883.6.1".
+            </assert>
+            
             <!-- Présence obligatoire de la section FR-Statut-du-document-LDL-SES (1.2.250.1.213.1.1.2.35.1) -->
             <assert test='.//cda:templateId[@root = "1.2.250.1.213.1.1.2.35.1"]'>
                 [CI-SIS_LDL-SES_2021.01] Erreur de conformité : 

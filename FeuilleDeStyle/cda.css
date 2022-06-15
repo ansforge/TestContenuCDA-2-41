@@ -8,6 +8,7 @@
   - Edit supplementary informations
   - Detect a Xades envelopping signature of a Clinical Document
   - add comments in case of impossibility to edit pdf files in nonXMLBody with IE 8 and Firefox 3.x
+   * <!-- A FAIRE --> comment
   
   Below is the original declaration of Alschuler Associates LCC
   Title: CDA Cascading Style Sheet
@@ -20,107 +21,1913 @@
   The stylesheet is the cumulative work of several developers; the most significant prior milestones were the foundation work from HL7 
   Germany and Finland (Tyylitiedosto) and HL7 US (Calvin Beebe), and the presentation approach from Tony Schaller, medshare GmbH provided at IHIC 2009. 
 */
-body {
-	color: #003366;
-	background-color: #FFFFFF;
-	font-family: Verdana, Tahoma, sans-serif;
-	font-size: 11px;
+/*  petit écran */
+@media screen and (max-width : 320px) {
+/* Styles */
+    body {
+        color: #003366;
+        background-color: #FFFFFF;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 1.235px;
+    }
+
+    a {
+        color: #003366;
+        background-color: #FFFFFF;
+    }
+
+    h1 {
+        font-size: 1.5pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 1.235pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 1.25pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 1pt;
+        font-weight: bold;
+    }
+
+    div {
+        width: auto;
+        max-width: 80%;
+    }
+
+    table {
+        line-height: 1.25pt;
+        width: auto;
+        max-width: 100%;
+    }
+    .table_generale {
+        line-height: 1.25pt;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* lignes des tableaux de l'entête */
+    td {
+        padding: 0.01cm 0.02cm;
+        vertical-align: top;
+        border-style: hidden;
+    }
+
+    /* titre du document */
+    .h1center {
+        font-size: 1.5pt;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    .header_table {
+        border: 0.12pt solid #00008b;
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    /* Entête des tableaux des entrées */
+    .narr_th {
+        padding: 0.01cm 0.02cm;
+        background-color: #cbd0dc;
+        text-align: left;
+        border-style: solid hidden solid hidden;
+        border-width: 0.12px;
+    }
+
+    /* lignes des tableaux des entrées */
+    .narr_td {
+        padding: 0.0cm 0.0cm;
+        vertical-align: top;
+        background-color: #FFFFFF;
+        text-align: left;
+        border-style: hidden hidden solid hidden;
+        border-width: 0.12px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 1.37px;
+        font-weight: normal;
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: black;
+    }
+
+    .href {
+        display: block;
+        height: auto;
+        max-height: 20px;
+        background: #cbd0dc;
+        padding: 0.5px;
+        color: #003366;
+        font-size: 1.25px;
+        border-top: 0.12px solid rgba(255, 255, 255, .1);
+        text-decoration: none;
+    }
+
+    .href:hover {
+        background: #cbd0dc;
+    }
+
+    .href:last-child {
+        border-bottom-left-radius: 0.5px;
+        border-bottom-right-radius: 0.5px;
+    }
+
+    .ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 0.625px;
+        margin: 1.865px 0px 1.865px 0px;
+        box-shadow: 0 0 0.12px rgba(100, 100, 100, .9), 
+0 0 0 0.25px rgba(0, 51, 102, 1);
+    }
+
+    .ul .li {
+        display: block;
+        height: auto;
+        max-height: 10px;
+        background: #cbd0dc;
+        padding: 1.245px;
+        color: white;
+        border-top: 0.12px solid rgba(255, 255, 255, .1);
+    }
+
+    .ul .li:hover {
+        background: #cbd0dc;
+    }
+
+    .ul .li:last-child {
+        border-bottom-left-radius: 0.5px;
+        border-bottom-right-radius: 0.5px;
+    }
+
+    .label:before {
+        height: auto;
+        max-height: 2px;
+        width: auto;
+        max-width: 20px;
+        background: white;
+        display: inline-block;
+        content: "";
+        box-shadow: 0px -0.62px 0px 0px white, 
+0px -1.245px 0px 0px white;
+        margin-right: 1.245px;
+        transition: all .5s;
+        position: relative;
+        opacity: 0.5;
+    }
+
+    .label {
+        display: block;
+        padding: 0.62px;
+        background: #cbd0dc;
+        color: #003366;
+        font-size: 1.37px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #collapse[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ #details {
+        display: block;
+    }
+
+    #details {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 0.62px;
+        box-shadow: 0 0 0.12px rgba(100, 100, 100, .9), 
+0 0 0 0.25px rgba(0, 51, 102, 1);
+    }
+
+    #two {
+        display: block;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #collapse:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapse:checked + label:before {
+        position: relative;
+        right: calc(-20px);
+        opacity: 1;
+    }
+
+    #collapseId[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ #two {
+        display: none;
+    }
+
+    #collapseId:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapseId:checked + label:before {
+        position: relative;
+        right: calc(-20px);
+        opacity: 1;
+    }
+
+    #hr {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -1.245px;
+    }
+
+    #hr1 {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -0.62px;
+    }
+
+    #td {
+        width: auto;
+        max-width: 20%;
+    }
+
+}
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media screen and (min-width : 320px) {
+/* Styles */
+    body {
+        color: #003366;
+        background-color: #FFFFFF;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 2.47px;
+    }
+
+    a {
+        color: #003366;
+        background-color: #FFFFFF;
+    }
+
+    h1 {
+        font-size: 3pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 2.47pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 2.5pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 2pt;
+        font-weight: bold;
+    }
+
+    div {
+        width: auto;
+        max-width: 80%;
+    }
+
+    table {
+        line-height: 2.49pt;
+        width: auto;
+        max-width: 100%;
+    }
+    .table_generale {
+        line-height: 2.49pt;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* lignes des tableaux de l'entête */
+    td {
+        padding: 0.021cm 0.042cm;
+        vertical-align: top;
+        border-style: hidden;
+    }
+
+    /* titre du document */
+    .h1center {
+        font-size: 3pt;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    .header_table {
+        border: 0.24pt solid #00008b;
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    /* Entête des tableaux des entrées */
+    .narr_th {
+        padding: 0.021cm 0.042cm;
+        background-color: #cbd0dc;
+        text-align: left;
+        border-style: solid hidden solid hidden;
+        border-width: 0.24px;
+    }
+
+    /* lignes des tableaux des entrées */
+    .narr_td {
+        padding: 0.0cm 0.0cm;
+        vertical-align: top;
+        background-color: #FFFFFF;
+        text-align: left;
+        border-style: hidden hidden solid hidden;
+        border-width: 0.24px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 2.74px;
+        font-weight: normal;
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: black;
+    }
+
+    .href {
+        display: block;
+        height: auto;
+        max-height: 20px;
+        background: #cbd0dc;
+        padding: 0.75px;
+        color: #003366;
+        font-size: 2.49px;
+        border-top: 0.24px solid rgba(255, 255, 255, .1);
+        text-decoration: none;
+    }
+
+    .href:hover {
+        background: #cbd0dc;
+    }
+
+    .href:last-child {
+        border-bottom-left-radius: 1px;
+        border-bottom-right-radius: 1px;
+    }
+
+    .ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 1.25px;
+        margin: 3.73px 0px 3.73px 0px;
+        box-shadow: 0 0 0.24px rgba(100, 100, 100, .9), 
+0 0 0 0.49px rgba(0, 51, 102, 1);
+    }
+
+    .ul .li {
+        display: block;
+        height: auto;
+        max-height: 10px;
+        background: #cbd0dc;
+        padding: 2.49px;
+        color: white;
+        border-top: 0.24px solid rgba(255, 255, 255, .1);
+    }
+
+    .ul .li:hover {
+        background: #cbd0dc;
+    }
+
+    .ul .li:last-child {
+        border-bottom-left-radius: 1px;
+        border-bottom-right-radius: 1px;
+    }
+
+    .label:before {
+        height: auto;
+        max-height: 2px;
+        width: auto;
+        max-width: 20px;
+        background: white;
+        display: inline-block;
+        content: "";
+        box-shadow: 0px -1.24px 0px 0px white, 
+0px -2.49px 0px 0px white;
+        margin-right: 2.49px;
+        transition: all .5s;
+        position: relative;
+        opacity: 0.5;
+    }
+
+    .label {
+        display: block;
+        padding: 1.24px;
+        background: #cbd0dc;
+        color: #003366;
+        font-size: 2.74px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #collapse[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ #details {
+        display: block;
+    }
+
+    #details {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 1.24px;
+        box-shadow: 0 0 0.24px rgba(100, 100, 100, .9), 
+0 0 0 0.49px rgba(0, 51, 102, 1);
+    }
+
+    #two {
+        display: block;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #collapse:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapse:checked + label:before {
+        position: relative;
+        right: calc(-40px);
+        opacity: 1;
+    }
+
+    #collapseId[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ #two {
+        display: none;
+    }
+
+    #collapseId:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapseId:checked + label:before {
+        position: relative;
+        right: calc(-40px);
+        opacity: 1;
+    }
+
+    #hr {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -2.49px;
+    }
+
+    #hr1 {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -1.24px;
+    }
+
+    #td {
+        width: auto;
+        max-width: 20%;
+    }
 }
 
-a {
-	color: #003366;
-	background-color: #FFFFFF;
+/* smartphones, Android phones, landscape iPhone */
+@media screen and (min-width : 480px) {
+
+/* Styles */
+    body {
+        color: #003366;
+        background-color: #FFFFFF;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 4.12px;
+    }
+
+    a {
+        color: #003366;
+        background-color: #FFFFFF;
+    }
+
+    h1 {
+        font-size: 4.5pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 4.12pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 3.74pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 3pt;
+        font-weight: bold;
+    }
+
+    div {
+        width: auto;
+        max-width: 80%;
+    }
+
+    table {
+        line-height: 3.74pt;
+        width: auto;
+        max-width: 100%;
+    }
+    .table_generale {
+        line-height: 3.74pt;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* lignes des tableaux de l'entête */
+    td {
+        padding: 0.032cm 0.064cm;
+        vertical-align: top;
+        border-style: hidden;
+    }
+
+    /* titre du document */
+    .h1center {
+        font-size: 4.5pt;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    .header_table {
+        border: 0.37pt solid #00008b;
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    /* Entête des tableaux des entrées */
+    .narr_th {
+        padding: 0.032cm 0.064cm;
+        background-color: #cbd0dc;
+        text-align: left;
+        border-style: solid hidden solid hidden;
+        border-width: 0.37px;
+    }
+
+    /* lignes des tableaux des entrées */
+    .narr_td {
+        padding: 0.0cm 0.0cm;
+        vertical-align: top;
+        background-color: #FFFFFF;
+        text-align: left;
+        border-style: hidden hidden solid hidden;
+        border-width: 0.37px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 4.12px;
+        font-weight: normal;
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: black;
+    }
+
+    .href {
+        display: block;
+        height: auto;
+        max-height: 20px;
+        background: #cbd0dc;
+        padding: 1.12px;
+        color: #003366;
+        font-size: 3.74px;
+        border-top: 0.36px solid rgba(255, 255, 255, .1);
+        text-decoration: none;
+    }
+
+    .href:hover {
+        background: #cbd0dc;
+    }
+
+    .href:last-child {
+        border-bottom-left-radius: 1.5px;
+        border-bottom-right-radius: 1.5px;
+    }
+
+    .ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 1.88px;
+        margin: 5.6px 0px 5.6px 0px;
+        box-shadow: 0 0 0.36px rgba(100, 100, 100, .9), 
+0 0 0 0.74px rgba(0, 51, 102, 1);
+    }
+
+    .ul .li {
+        display: block;
+        height: auto;
+        max-height: 10px;
+        background: #cbd0dc;
+        padding: 3.74px;
+        color: white;
+        border-top: 0.36px solid rgba(255, 255, 255, .1);
+    }
+
+    .ul .li:hover {
+        background: #cbd0dc;
+    }
+
+    .ul .li:last-child {
+        border-bottom-left-radius: 1.5px;
+        border-bottom-right-radius: 1.5px;
+    }
+
+    .label:before {
+        height: auto;
+        max-height: 2px;
+        width: auto;
+        max-width: 20px;
+        background: white;
+        display: inline-block;
+        content: "";
+        box-shadow: 0px -1.87px 0px 0px white, 
+0px -3.74px 0px 0px white;
+        margin-right: 3.74px;
+        transition: all .5s;
+        position: relative;
+        opacity: 0.5;
+    }
+
+    .label {
+        display: block;
+        padding: 1.87px;
+        background: #cbd0dc;
+        color: #003366;
+        font-size: 4.12px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #collapse[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ #details {
+        display: block;
+    }
+
+    #details {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 1.87px;
+        box-shadow: 0 0 0.36px rgba(100, 100, 100, .9), 
+0 0 0 0.74px rgba(0, 51, 102, 1);
+    }
+
+    #two {
+        display: block;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #collapse:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapse:checked + label:before {
+        position: relative;
+        right: calc(-60px);
+        opacity: 1;
+    }
+
+    #collapseId[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ #two {
+        display: none;
+    }
+
+    #collapseId:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapseId:checked + label:before {
+        position: relative;
+        right: calc(-60px);
+        opacity: 1;
+    }
+
+    #hr {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -3.74px;
+    }
+
+    #hr1 {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -1.87px;
+    }
+
+    #td {
+        width: auto;
+        max-width: 20%;
+    }
 }
 
-h1 {
-	font-size: 12pt;
-	font-weight: bold;
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media screen and (min-width : 600px)
+{
+/* Styles */
+    body {
+        color: #003366;
+        background-color: #FFFFFF;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 5.15px;
+    }
+
+    a {
+        color: #003366;
+        background-color: #FFFFFF;
+    }
+
+    h1 {
+        font-size: 5.62pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 5.15pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 4.68pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 3.74pt;
+        font-weight: bold;
+    }
+
+    div {
+        width: auto;
+        max-width: 80%;
+    }
+
+    table {
+        line-height: 4.68pt;
+        width: auto;
+        max-width: 100%;
+    }
+    .table_generale {
+        line-height: 4.68pt;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* lignes des tableaux de l'entête */
+    td {
+        padding: 0.04cm 0.09cm;
+        vertical-align: top;
+        border-style: hidden;
+    }
+
+    /* titre du document */
+    .h1center {
+        font-size: 5.62pt;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    .header_table {
+        border: 0.46pt solid #00008b;
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    /* Entête des tableaux des entrées */
+    .narr_th {
+        padding: 0.04cm 0.09cm;
+        background-color: #cbd0dc;
+        text-align: left;
+        border-style: solid hidden solid hidden;
+        border-width: 0.46px;
+    }
+
+    /* lignes des tableaux des entrées */
+    .narr_td {
+        padding: 0.0cm 0.0cm;
+        vertical-align: top;
+        background-color: #FFFFFF;
+        text-align: left;
+        border-style: hidden hidden solid hidden;
+        border-width: 0.46px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 5.15px;
+        font-weight: normal;
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: black;
+    }
+
+    .href {
+        display: block;
+        height: auto;
+        max-height: 20px;
+        background: #cbd0dc;
+        padding: 1.4px;
+        color: #003366;
+        font-size: 4.68px;
+        border-top: 0.46px solid rgba(255, 255, 255, .1);
+        text-decoration: none;
+    }
+
+    .href:hover {
+        background: #cbd0dc;
+    }
+
+    .href:last-child {
+        border-bottom-left-radius: 1.87px;
+        border-bottom-right-radius: 1.87px;
+    }
+
+    .ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 2.35px;
+        margin: 7px 0px 7px 0px;
+        box-shadow: 0 0 0.46px rgba(100, 100, 100, .9), 
+0 0 0 0.93px rgba(0, 51, 102, 1);
+    }
+
+    .ul .li {
+        display: block;
+        height: auto;
+        max-height: 10px;
+        background: #cbd0dc;
+        padding: 4.68px;
+        color: white;
+        border-top: 0.46px solid rgba(255, 255, 255, .1);
+    }
+
+    .ul .li:hover {
+        background: #cbd0dc;
+    }
+
+    .ul .li:last-child {
+        border-bottom-left-radius: 1.87px;
+        border-bottom-right-radius: 1.87px;
+    }
+
+    .label:before {
+        height: auto;
+        max-height: 2px;
+        width: auto;
+        max-width: 20px;
+        background: white;
+        display: inline-block;
+        content: "";
+        box-shadow: 0px -2.34px 0px 0px white, 
+0px -4.68px 0px 0px white;
+        margin-right: 4.68px;
+        transition: all .5s;
+        position: relative;
+        opacity: 0.5;
+    }
+
+    .label {
+        display: block;
+        padding: 2.34px;
+        background: #cbd0dc;
+        color: #003366;
+        font-size: 5.15px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #collapse[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ #details {
+        display: block;
+    }
+
+    #details {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 2.34px;
+        box-shadow: 0 0 0.46px rgba(100, 100, 100, .9), 
+0 0 0 0.93px rgba(0, 51, 102, 1);
+    }
+
+    #two {
+        display: block;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #collapse:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapse:checked + label:before {
+        position: relative;
+        right: calc(-75px);
+        opacity: 1;
+    }
+
+    #collapseId[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ #two {
+        display: none;
+    }
+
+    #collapseId:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapseId:checked + label:before {
+        position: relative;
+        right: calc(-75px);
+        opacity: 1;
+    }
+
+    #hr {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -4.68px;
+    }
+
+    #hr1 {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -2.34px;
+    }
+
+    #td {
+        width: auto;
+        max-width: 20%;
+    }
 }
 
-h2 {
-	font-size: 11pt;
-	font-weight: bold;
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media screen and (min-width : 801px)
+{
+/* Styles */
+    body {
+        color: #003366;
+        background-color: #FFFFFF;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 6.87px;
+    }
+
+    a {
+        color: #003366;
+        background-color: #FFFFFF;
+    }
+
+    h1 {
+        font-size: 7.56pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 6.87pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 6.3pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 5.16pt;
+        font-weight: bold;
+    }
+
+    div {
+        width: auto;
+        max-width: 80%;
+    }
+
+    table {
+        line-height: 6.29pt;
+        width: auto;
+        max-width: 100%;
+    }
+    .table_generale {
+        line-height: 6.29pt;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* lignes des tableaux de l'entête */
+    td {
+        padding: 0.06cm 0.12cm;
+        vertical-align: top;
+        border-style: hidden;
+    }
+
+    /* titre du document */
+    .h1center {
+        font-size: 7.55pt;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    .header_table {
+        border: 0.63pt solid #00008b;
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    /* Entête des tableaux des entrées */
+    .narr_th {
+        padding: 0.06cm 0.12cm;
+        background-color: #cbd0dc;
+        text-align: left;
+        border-style: solid hidden solid hidden;
+        border-width: 0.63px;
+    }
+
+    /* lignes des tableaux des entrées */
+    .narr_td {
+        padding: 0.0cm 0.0cm;
+        vertical-align: top;
+        background-color: #FFFFFF;
+        text-align: left;
+        border-style: hidden hidden solid hidden;
+        border-width: 0.78px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 6.9px;
+        font-weight: normal;
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: black;
+    }
+
+    .href {
+        display: block;
+        height: auto;
+        max-height: 20px;
+        background: #cbd0dc;
+        padding: 1.87px;
+        color: #003366;
+        font-size: 6.29px;
+        border-top: 0.62px solid rgba(255, 255, 255, .1);
+        text-decoration: none;
+    }
+
+    .href:hover {
+        background: #cbd0dc;
+    }
+
+    .href:last-child {
+        border-bottom-left-radius: 2.51px;
+        border-bottom-right-radius: 2.51px;
+    }
+
+    .ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 3.14px;
+        margin: 9.44px 0px 9.44px 0px;
+        box-shadow: 0 0 0.62px rgba(100, 100, 100, .9), 
+0 0 0 1.25px rgba(0, 51, 102, 1);
+    }
+
+    .ul .li {
+        display: block;
+        height: auto;
+        max-height: 10px;
+        background: #cbd0dc;
+        padding: 6.29px;
+        color: white;
+        border-top: 0.62px solid rgba(255, 255, 255, .1);
+    }
+
+    .ul .li:hover {
+        background: #cbd0dc;
+    }
+
+    .ul .li:last-child {
+        border-bottom-left-radius: 2.51px;
+        border-bottom-right-radius: 2.51px;
+    }
+
+    .label:before {
+        height: auto;
+        max-height: 2px;
+        width: auto;
+        max-width: 20px;
+        background: white;
+        display: inline-block;
+        content: "";
+        box-shadow: 0px -3.15px 0px 0px white, 
+0px -6.29px 0px 0px white;
+        margin-right: 6.29px;
+        transition: all .5s;
+        position: relative;
+        opacity: 0.5;
+    }
+
+    .label {
+        display: block;
+        padding: 3.15px;
+        background: #cbd0dc;
+        color: #003366;
+        font-size: 6.93px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #collapse[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ #details {
+        display: block;
+    }
+
+    #details {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 3.15px;
+        box-shadow: 0 0 0.63px rgba(100, 100, 100, .9), 
+0 0 0 1.26px rgba(0, 51, 102, 1);
+    }
+
+    #two {
+        display: block;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #collapse:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapse:checked + label:before {
+        position: relative;
+        right: calc(-100px);
+        opacity: 1;
+    }
+
+    #collapseId[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ #two {
+        display: none;
+    }
+
+    #collapseId:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapseId:checked + label:before {
+        position: relative;
+        right: calc(-100px);
+        opacity: 1;
+    }
+
+    #hr {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -6.29px;
+    }
+
+    #hr1 {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -3.15px;
+    }
+
+    #td {
+        width: auto;
+        max-width: 20%;
+    }
 }
 
-h3 {
-	font-size: 10pt;
-	font-weight: bold;
+/* big landscape tablets, laptops, and desktops */
+@media only screen and (min-width : 1025px) {
+/* Styles */
+    body {
+        color: #003366;
+        background-color: #FFFFFF;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 8.8px;
+    }
+
+    a {
+        color: #003366;
+        background-color: #FFFFFF;
+    }
+
+    h1 {
+        font-size: 9.6pt;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 8.8pt;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 8pt;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: 6.4pt;
+        font-weight: bold;
+    }
+
+    div {
+        width: auto;
+        max-width: 80%;
+    }
+
+    table {
+        line-height: 8pt;
+        width: auto;
+        max-width: 100%;
+    }
+    .table_generale {
+        line-height: 8pt;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* lignes des tableaux de l'entête */
+    td {
+        padding: 0.08cm 0.16cm;
+        vertical-align: top;
+        border-style: hidden;
+    }
+
+    /* titre du document */
+    .h1center {
+        font-size: 9.6pt;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    .header_table {
+        border: 0.8pt solid #00008b;
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    /* Entête des tableaux des entrées */
+    .narr_th {
+        padding: 0.08cm 0.16cm;
+        background-color: #cbd0dc;
+        text-align: left;
+        border-style: solid hidden solid hidden;
+        border-width: 0.8px;
+    }
+
+    /* lignes des tableaux des entrées */
+    .narr_td {
+        padding: 0.0cm 0.0cm;
+        vertical-align: top;
+        background-color: #FFFFFF;
+        text-align: left;
+        border-style: hidden hidden solid hidden;
+        border-width: 1px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 8.8px;
+        font-weight: normal;
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: black;
+    }
+
+    .href {
+        display: block;
+        height: auto;
+        max-height: 20px;
+        background: #cbd0dc;
+        padding: 2.4px;
+        color: #003366;
+        font-size: 8px;
+        border-top: 0.8px solid rgba(255, 255, 255, .1);
+        text-decoration: none;
+    }
+    /* DEBUT 
+.href1 {
+    display: block;
+    height:auto;
+    max-height: 20px;
+    padding: 10px;
+    color: #003366;
+    font-size: 10px;
+    font-weight: bold;
+    border-top: 0.8px solid rgba(255, 255, 255, .1);
+    text-decoration: none;
 }
 
-h4 {
-	font-size: 8pt;
-	font-weight: bold;
+.next:before { 
+    content: "\279C"; 
 }
 
-div {
-	width: 80%;
+#one {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width:auto;
+    max-width: 260px;
 }
 
-table {
-	line-height: 10pt;
-	width: 100%;
-}
-.table_generale {
-	line-height: 10pt;
-	width: 80%;
+#collapseId[type = checkbox]:checked ~ #one {
+    display: block;
 }
 
-/*tr {
-	background-color: #ccccff;
-}*/
+.span {
+    padding-left:5px;
+}
+FIN */
 
-/* lignes des tableaux de l'entête */
-td {
-	padding: 0.1cm 0.2cm;
-	vertical-align: top;
-	border-style: hidden;
-	/*width: auto; */
+    .href:hover {
+        background: #cbd0dc;
+    }
+
+    .href:last-child {
+        border-bottom-left-radius: 3.2px;
+        border-bottom-right-radius: 3.2px;
+    }
+
+    .ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 4px;
+        margin: 12px 0px 12px 0px;
+        box-shadow: 0 0 0.8px rgba(100, 100, 100, .9), 
+0 0 0 1.6px rgba(0, 51, 102, 1);
+    }
+
+    .ul .li {
+        display: block;
+        height: auto;
+        max-height: 10px;
+        background: #cbd0dc;
+        padding: 8px;
+        color: white;
+        border-top: 0.8px solid rgba(255, 255, 255, .1);
+    }
+
+    .ul .li:hover {
+        background: #cbd0dc;
+    }
+
+    .ul .li:last-child {
+        border-bottom-left-radius: 3.2px;
+        border-bottom-right-radius: 3.2px;
+    }
+
+    .label:before {
+        height: auto;
+        max-height: 2px;
+        width: auto;
+        max-width: 20px;
+        background: white;
+        display: inline-block;
+        content: "";
+        box-shadow: 0px -4px 0px 0px white, 
+0px -8px 0px 0px white;
+        margin-right: 8px;
+        transition: all .5s;
+        position: relative;
+        opacity: 0.5;
+    }
+
+    .label {
+        display: block;
+        padding: 4px;
+        background: #cbd0dc;
+        color: #003366;
+        font-size: 8.8px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #collapse[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ #details {
+        display: block;
+    }
+
+    #details {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 4px;
+        box-shadow: 0 0 0.8px rgba(100, 100, 100, .9), 
+0 0 0 1.6px rgba(0, 51, 102, 1);
+    }
+
+
+    #two {
+        display: block;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #collapse:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+    #collapse:checked + label:before {
+        position: relative;
+        right: calc(-128px);
+        opacity: 1;
+    }
+
+    #collapseId[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ #two {
+        display: none;
+    }
+
+    #collapseId:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+
+    #collapseId:checked + label:before {
+        position: relative;
+        right: calc(-128px);
+        opacity: 1;
+    }
+
+    #hr {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -8px;
+    }
+
+    #hr1 {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -4px;
+    }
+
+    #td {
+        width: auto;
+        max-width: 20%;
+    }
 }
 
-/* titre du document */
-.h1center {
-	font-size: 12pt;
-	font-weight: bold;
-	text-align: center;
-	width: 80%;
-}
+/* hi-res laptops and desktops */
+@media only screen
+ and (min-width : 1281px) {
+/* Styles */
+    body {
+        color: #003366;
+        background-color: #FFFFFF;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+    }
 
-.header_table{
-	border: 1pt solid #00008b;
-}
+    a {
+        color: #003366;
+        background-color: #FFFFFF;
+    }
 
-.narr_table {
-	width: 100%;
-}
+    h1 {
+        font-size: 12pt;
+        font-weight: bold;
+    }
 
-/*
-.narr_tr {
-	background-color: #ffffcc;
-}*/
+    h2 {
+        font-size: 11pt;
+        font-weight: bold;
+    }
 
-/* Entête des tableaux des entrées */
-.narr_th {
-	padding: 0.1cm 0.2cm;
-	background-color: #cbd0dc;
-	text-align: left;
-	border-style: solid hidden solid hidden;
-	border-width: 1px;
-}
+    h3 {
+        font-size: 10pt;
+        font-weight: bold;
+    }
 
-/* lignes des tableaux des entrées */
-.narr_td {
-	padding: 0.0cm 0.0cm;
-	vertical-align: top;
-	background-color: #FFFFFF;
-	text-align: left;
-	border-style: hidden hidden solid hidden;
-	border-width: 1px;
-	font-family: Verdana, Tahoma, sans-serif;
-	font-size: 11px;
-	font-weight: normal;
-}
+    h4 {
+        font-size: 8pt;
+        font-weight: bold;
+    }
 
-.td_label{
-	font-weight: bold;
-	color: black;
+    div {
+        width: auto;
+        max-width: 80%;
+    }
+
+    table {
+        line-height: 10pt;
+        width: auto;
+        max-width: 100%;
+    }
+    .table_generale {
+        line-height: 10pt;
+        width: auto;
+        max-width: 80%;
+    }
+
+    /* lignes des tableaux de l'entête */
+    td {
+        padding: 0.1cm 0.2cm;
+        vertical-align: top;
+        border-style: hidden;
+    }
+
+    /* titre du document */
+    .h1center {
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+    }
+
+    .header_table {
+        border: 1pt solid #00008b;
+    }
+
+    .narr_table {
+        width: 100%;
+    }
+
+    /* Entête des tableaux des entrées */
+    .narr_th {
+        padding: 0.1cm 0.2cm;
+        background-color: #cbd0dc;
+        text-align: left;
+        border-style: solid hidden solid hidden;
+        border-width: 1px;
+    }
+
+    /* lignes des tableaux des entrées */
+    .narr_td {
+        padding: 0.0cm 0.0cm;
+        vertical-align: top;
+        background-color: #FFFFFF;
+        text-align: left;
+        border-style: hidden hidden solid hidden;
+        border-width: 1px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 11px;
+        font-weight: normal;
+    }
+
+    .td_label {
+        font-weight: bold;
+        color: black;
+    }
+
+    .href {
+        display: block;
+        height: auto;
+        max-height: 20px;
+        background: #cbd0dc;
+        padding: 3px;
+        color: #003366;
+        font-size: 10px;
+        border-top: 1px solid rgba(255, 255, 255, .1);
+        text-decoration: none;
+    }
+
+    .href:hover {
+        background: #cbd0dc;
+    }
+
+    .href:last-child {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 5px;
+        margin: 15px 0px 15px 0px;
+        box-shadow: 0 0 1px rgba(100, 100, 100, .9), 
+0 0 0 2px rgba(0, 51, 102, 1);
+    }
+
+    .ul .li {
+        display: block;
+        height: auto;
+        max-height: 10px;
+        background: #cbd0dc;
+        padding: 10px;
+        color: white;
+        border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .ul .li:hover {
+        background: #cbd0dc;
+    }
+
+    .ul .li:last-child {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .label:before {
+        height: auto;
+        max-height: 2px;
+        width: auto;
+        max-width: 20px;
+        background: white;
+        display: inline-block;
+        content: "";
+        box-shadow: 0px -5px 0px 0px white, 
+0px -10px 0px 0px white;
+        margin-right: 10px;
+        transition: all .5s;
+        position: relative;
+        opacity: 0.5;
+    }
+
+    .label {
+        display: block;
+        padding: 5px;
+        background: #cbd0dc;
+        color: #003366;
+        font-size: 11px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #collapse[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapse[type = checkbox]:checked ~ #details {
+        display: block;
+    }
+
+    #details {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        max-width: 260px;
+        border-radius: 5px;
+        box-shadow: 0 0 1px rgba(100, 100, 100, .9), 
+0 0 0 2px rgba(0, 51, 102, 1);
+    }
+
+    #two {
+        display: block;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #collapse:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+
+    #collapse:checked + label:before {
+        position: relative;
+        right: calc(-160px);
+        opacity: 1;
+    }
+
+    #collapseId[type = "checkbox"] {
+        visibility: hidden;
+        position: absolute;
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ .remove-check {
+        display: none;
+    }
+
+    #collapseId[type = checkbox]:checked ~ #two {
+        display: none;
+    }
+
+    #collapseId:checked ~ li {
+        display: none;
+        margin-top: 0;
+    }
+
+    #collapseId:checked + label:before {
+        position: relative;
+        right: calc(-160px);
+        opacity: 1;
+    }
+
+    #hr {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -10px;
+    }
+
+    #hr1 {
+        color: #003366;
+        width: auto;
+        max-width: 80%;
+        margin: -5px;
+    }
+
+    #td {
+        width: auto;
+        max-width: 20%;
+    }
 }

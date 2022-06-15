@@ -6,7 +6,6 @@
 <?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
 <?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
 <?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
-<?oxygen SCHSchema="../schematrons/CI-SIS_CR-BIO_2021.01.sch"?>
 <!-- 
 	**********************************************************************************************************
     Document : Compte-rendu d’examens de biologie médicale (CR-BIO_2021.01)
@@ -31,9 +30,9 @@
 	<!-- Déclarations de conformité CI-SIS -->
 	<templateId root="1.2.250.1.213.1.1.1.1"/>
 	<!-- Déclarations de conformité au modèle CR-BIO du CI-SIS -->
-	<templateId root="1.3.6.1.4.1.19376.1.3.3" extension="2021.01"/>
-	<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
-	<id root="1.2.250.1.213.1.1.9" extension="CR-BIO_2021.01_20210104_008_1"/>
+	<templateId root="1.3.6.1.4.1.19376.1.2.20"/>
+	<!-- Identifiant du document -->
+	<id root="DB283330-F771-4A61-A483-22CC55102B91"/>
 	<!-- Type de document -->
 	<code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1"
 		codeSystemName="LOINC"/>
@@ -46,7 +45,7 @@
 	<!-- Langue du document -->
 	<languageCode code="fr-FR"/>
 	<!-- identifiant commun à toutes les versions successives du comtpe rendu -->
-	<setId root="1.2.250.1.213.1.1.9" extension="CR-BIO_2021.01_20210104_008"/>
+	<setId root="696C03A5-2604-45B4-8D81-85DFC136C902"/>
 	<!-- numéro de la version courante (entier positif), ici la première version -->
 	<versionNumber value="1"/>
 

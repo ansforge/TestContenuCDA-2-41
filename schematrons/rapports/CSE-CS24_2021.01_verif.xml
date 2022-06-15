@@ -13,8 +13,8 @@
                         title="Vérification de conformité du document aux spécifications du modèle CSE-CS24_2021.01"
                         schemaVersion="CI-SIS_CSE-CS24_2021.01.sch"
                         phase="CI-SIS_CSE-CS24_2021.01"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/CSE-CS24_2021.01.xml"
-                        dateHeure="9/3/2022 à 15:24:43 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/CSE-CS24_2021.01.xml"
+                        dateHeure="5/7/2022 à 16:59:37 (temps UTC+02:00)">
    <svrl:active-pattern id="Entete_CSE"/>
    <svrl:fired-rule context="cda:ClinicalDocument/cda:recordTarget/cda:patientRole"/>
    <svrl:active-pattern id="S_codedPhysicalExam_CSE-CS24"/>

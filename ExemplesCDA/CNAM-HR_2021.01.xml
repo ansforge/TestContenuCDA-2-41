@@ -42,9 +42,9 @@
   <!-- Conformité spécifications CI-SIS -->
   <templateId root="1.2.250.1.213.1.1.1.1"/>
   <!-- Conformité au modèle du document CNAM-HR -->
-  <templateId root="1.2.250.1.213.1.1.1.36" extension="2021.01"/>
-  <!-- Identifiant unique du document = OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.215.200" extension="CNAM-HR_2021.01_20210701_1"/>
+  <templateId root="1.2.250.1.213.1.1.1.36" extension="2020-1.0"/>
+  <!-- Identifiant du document -->
+  <id root="C9A3A0C6-59E1-4DCC-9210-CC39339E635D"/>
   <!-- Type du document -->
   <code code="REMB" codeSystem="1.2.250.1.213.1.1.4.12" displayName="Données de remboursement"/>
   <!-- Titre du document -->
@@ -57,7 +57,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR"/>
   <!-- Identifiant du lot de version d'un même document -->
-  <setId root="1.2.250.1.215.200" extension="CNAM-HR_2021.01_20210701"/>
+  <setId root="06068847-7B66-4A0E-86CB-B7580377F221"/>
   <!-- Identifiant de la version du document -->
   <versionNumber value="1"/>
 
@@ -204,8 +204,8 @@
   <!-- Association du document à une prise en charge -->
   <componentOf>
     <encompassingEncounter>
-      <effectiveTime>
-        <low nullFlavor="NA"/>
+      <effectiveTime nullFlavor="NA">
+        <!--<low/>-->
       </effectiveTime>
       <location>
         <healthCareFacility>
@@ -236,7 +236,7 @@
           <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
           <!-- Conformité CI-SIS -->
           <templateId root="1.2.250.1.213.1.1.2.73"/>
-          <code code="55112-7" displayName="Commentaire sur le document"
+          <code code="55112-7" displayName="Commentaire"
             codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
           <title>Usage et Responsabilités</title>
           <text ID="mention">
@@ -258,7 +258,7 @@
           <templateId root="2.16.840.1.113883.10.20.1.8"/>
           <!-- Conformité IHE PCC Medication -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
-          <id nullFlavor="UNK"/>
+          <id root="E8F78CCF-7F2F-4F19-A734-5232FF5364B9"/>
           <code code="10160-0" displayName="Médication administrée"
             codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
           <title>Médicaments</title>
@@ -329,7 +329,7 @@
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
               <!-- Conformité IHE Mode d’administration "Normal" -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
-              <id nullFlavor="UNK"/>
+              <id root="D93E0545-3313-4C89-9DFB-CC5E64BE46D5"/>
               <text><reference></reference></text>
               <statusCode code="completed"/>
               <effectiveTime xsi:type="IVL_TS">
@@ -339,7 +339,7 @@
                 <high nullFlavor="UNK"/>
               </effectiveTime>
               <!-- Fréquence d'administration -->
-              <effectiveTime nullFlavor="UNK"/>              
+              <effectiveTime operator="A"/>              
               <!-- Médicament -->
               <consumable>
                 <manufacturedProduct>
@@ -381,7 +381,7 @@
                   <templateId root="2.16.840.1.113883.10.20.1.34"/>
                   <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
-                  <id nullFlavor="UNK"/>
+                  <id root="D8314EB9-ABCB-48C5-A262-6AD5363B695D"/>
                   <!-- Quantité délivrée -->
                   <quantity value='1'/> 
                   <!-- Dispensateur -->
@@ -389,7 +389,7 @@
                     <time value="20190526"/>
                     <assignedEntity>
                       <!-- Identifiant du PS exécutant -->
-                      <id nullFlavor="UNK"/>
+                      <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                       <!-- Délivré par -->
                       <representedOrganization>
                         <id root="1.2.250.1.71.4.2.2" extension="1750300550"/>
@@ -431,7 +431,7 @@
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
                   <!-- Conformité CI-SIS -->
                   <templateId root="1.2.250.1.213.1.1.3.48"/>
-                  <id nullFlavor="UNK"/>
+                  <id root="AA400674-2E58-4836-B527-2694CC24A3EA"/>
                   <code code="MED-559" displayName="Déconditionné" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
                   <text><reference value="#deconditionne"/></text>
                   <statusCode code="completed"/>
@@ -453,7 +453,7 @@
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
               <!-- Conformité IHE Mode d’administration "Normal" -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
-              <id nullFlavor="UNK"/>
+              <id root="503F7BB3-31B2-46E0-A148-A1C54613185A"/>
               <text><reference></reference></text>
               <statusCode code="completed"/>
               <effectiveTime xsi:type="IVL_TS">
@@ -463,7 +463,7 @@
                 <high nullFlavor="UNK"/>
               </effectiveTime>
               <!-- Fréquence d'administration -->
-              <effectiveTime nullFlavor="UNK"/>
+              <effectiveTime operator="A"/>
               <!-- Médicament -->
               <consumable>
                 <manufacturedProduct>
@@ -503,7 +503,7 @@
                   <templateId root="2.16.840.1.113883.10.20.1.34"/>
                   <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
-                  <id nullFlavor="UNK"/>
+                  <id root="D740080E-682B-44FA-9618-65A35146ECF7"/>
                   <!-- Quantité délivrée -->
                   <quantity value='1'/> 
                   <!-- Dispensateur -->
@@ -511,7 +511,7 @@
                     <time value="20190311"/>
                     <assignedEntity>
                       <!--Identifiant du PS exécutant-->
-                      <id nullFlavor="UNK"/>
+                      <id root="1.2.250.1.71.4.2.1" extension="518003502400041/1.2.250.1.215.1.2"/>
                       <!-- Délivré par -->
                       <representedOrganization>
                         <id root="1.2.250.1.71.4.2.2" extension="1750017212"/>
@@ -575,7 +575,7 @@
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
               <!-- Conformité IHE Mode d’administration "Normal" -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
-              <id nullFlavor="UNK"/>
+              <id root="1FE3F627-6565-4CF5-95E9-33BA2BAEFC58"/>
               <text><reference></reference></text>
               <statusCode code="completed"/>
               <!-- Durée du traitement -->
@@ -586,7 +586,7 @@
                 <high nullFlavor="UNK"/>
               </effectiveTime>
               <!-- Fréquence d'administration -->
-              <effectiveTime nullFlavor="UNK"/>
+              <effectiveTime operator="A"/>
               <!-- Médicament -->
               <consumable>
                 <manufacturedProduct>
@@ -626,7 +626,7 @@
                   <templateId root="2.16.840.1.113883.10.20.1.34"/>
                   <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
-                  <id nullFlavor="UNK"/>    
+                  <id root="C9005B3E-01EA-4012-9F18-CD9A8B436BC6"/>    
                   <!-- Quantité délivrée -->
                   <quantity value='4'/> 
                   <!-- Dispensateur -->
@@ -634,7 +634,7 @@
                     <time value="20190308"/>                    
                     <assignedEntity>
                       <!--Identifiant du PS exécutant-->
-                      <id nullFlavor="UNK"/>
+                      <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                       <!-- Délivré par -->
                       <representedOrganization>
                         <id root="1.2.250.1.71.4.2.2" extension="1750017212"/>
@@ -701,7 +701,7 @@
           <templateId root="2.16.840.1.113883.10.20.1.6"/>
           <!-- Conformité IHE PCC Immunizations -->
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23"/>
-          <id nullFlavor="UNK"/>
+          <id root="FAFB704F-ED40-491A-B398-485A4F9177AA"/>
           <code code="11369-6" displayName="Historique des vaccinations"
             codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
           <title>Vaccins</title>
@@ -762,7 +762,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
               <!-- Conformité IHE PCC Immunizations Entry -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
-              <id nullFlavor="UNK"/>
+              <id root="163EE6B9-F196-405E-85E9-B32FC3B4D23F"/>
               <code code="IMMUNIZ" displayName="Vaccination sans autres précisions" codeSystem="2.16.840.1.113883.5.4"/>
               <text><reference value="#vaccin001"/></text>
               <statusCode code="completed"/>
@@ -803,13 +803,13 @@
                   <templateId root="2.16.840.1.113883.10.20.1.34"/>
                   <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
-                  <id nullFlavor="UNK"/> 
+                  <id root="439E6C0D-9BA5-4618-9822-86C1111240FE"/> 
                   <!-- Dispensateur -->
                   <performer typeCode="PRF">
                     <time value="20190711"/>
                     <assignedEntity>
                       <!--Identifiant du PS exécutant-->
-                      <id nullFlavor="UNK"/>
+                      <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                       <!-- Délivré par -->
                       <representedOrganization>
                         <id root="1.2.250.1.71.4.2.2" extension="1750017212"/>
@@ -856,7 +856,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
               <!-- Conformité IHE PCC Immunizations Entry -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
-              <id nullFlavor="UNK"/>
+              <id root="34615184-14D4-45D0-AAD3-F9C859619064"/>
               <code code="IMMUNIZ" displayName="Vaccination sans autres précisions" codeSystem="2.16.840.1.113883.5.4"/>
               <text><reference value="#vaccin002"/></text>
               <statusCode code="completed"/>
@@ -896,13 +896,13 @@
                   <templateId root="2.16.840.1.113883.10.20.1.34"/>
                   <!-- Conformité IHE PCC -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
-                  <id nullFlavor="UNK"/>
+                  <id root="8C916212-0693-4B00-A717-CB8CD341976A"/>
                   <!-- Dispensateur -->
                   <performer typeCode="PRF">
                     <time value="20190708"/>
                     <assignedEntity>
                       <!--Identifiant du PS exécutant-->
-                      <id nullFlavor="UNK"/>
+                      <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                       <!-- Délivré par -->
                       <representedOrganization>
                         <id root="1.2.250.1.71.4.2.2" extension="1750017212"/>
@@ -948,7 +948,7 @@
               <templateId root="2.16.840.1.113883.10.20.1.24"/>
               <!-- Conformité IHE PCC Immunizations Entry -->
               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
-              <id nullFlavor="UNK"/>
+              <id root="0F9AAE0D-9B4C-4BEB-99D7-F5DDE80645DE"/>
               <code code="IMMUNIZ" displayName="Vaccination sans autres précisions" codeSystem="2.16.840.1.113883.5.4"/>
               <text><reference value="#vaccin003"/></text>
               <statusCode code="completed"/>
@@ -994,7 +994,9 @@
                     <time value="20190626"/>
                     <assignedEntity>
                       <!--Identifiant du PS exécutant-->
-                      <id nullFlavor="UNK"/>
+                      
+                      <!--Identifiant du PS exécutant-->
+                      <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                       <!-- Délivré par -->
                       <representedOrganization>
                         <id root="1.2.250.1.71.4.2.2" extension="1750017212"/>
@@ -1097,11 +1099,14 @@
               <!-- Conformité CI-SIS -->
               <templateId root="1.2.250.1.213.1.1.3.20"/>
               <!-- Identifiant de la fourniture du DM -->
-              <id nullFlavor="UNK"/>
+              <id root="F7D08AC0-D7AA-4F9D-A408-7A16D42D8A0C"/>
               <!-- Référence vers la partie narrative de la section DM -->
               <text><reference value="#DM001"/></text>
               <!-- Date d'utilisation du DM -->
-              <effectiveTime nullFlavor="UNK"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="UNK"/>
+                
+              </effectiveTime>
               <!-- quantité délivrée -->
               <quantity value="1"/>
               <!-- Dispensateur -->
@@ -1110,7 +1115,7 @@
                 <time value="20190711"/>
                 <assignedEntity>
                   <!--Identifiant du PS exécutant-->
-                  <id nullFlavor="UNK"/>
+                  <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                   <!-- Délivré par -->
                   <representedOrganization>
                     <id root="1.2.250.1.71.4.2.2" extension="1750017212"/>
@@ -1150,6 +1155,7 @@
                   <!-- Type de DM -->
                   <playingDevice classCode="DEV" determinerCode="INSTANCE">
                     <code>
+                      <originalText/>
                       <translation code="3408693" displayName="Stimulateur cardiaque de re-synchro ventriculaire, BIOTRONIK, EDORA 8 HF-T." 
                         codeSystem="1.2.250.1.215.200.2.1" codeSystemName="JDV_LPP_CNAM-HR-CISIS"></translation>
                     </code>
@@ -1172,7 +1178,9 @@
               <!-- Référence vers la partie narrative de la section DM -->
               <text><reference value="#DM002"/></text>
               <!-- Date d'utilisation du DM -->
-              <effectiveTime nullFlavor="UNK"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="UNK"/>
+              </effectiveTime>
               <!-- quantité délivrée -->
               <quantity value="1"/>              
               <!-- Dispensateur -->
@@ -1181,7 +1189,7 @@
                 <time value="20190528"/>
                 <assignedEntity>
                   <!--Identifiant du PS exécutant-->
-                  <id nullFlavor="UNK"/>
+                  <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                   <!-- Délivré par -->
                   <representedOrganization>
                     <id root="1.2.250.1.71.4.2.2" extension="1750300550"/>
@@ -1285,7 +1293,7 @@
               </effectiveTime>
               <performer>
                 <assignedEntity>
-                  <id nullFlavor="UNK"/>
+                  <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                   <!-- Lieu du séjour -->
                   <representedOrganization>
                     <id root="1.2.250.1.71.4.2.2" extension="1750300550"/>
@@ -1320,7 +1328,7 @@
               </effectiveTime>
               <performer>
                 <assignedEntity>
-                  <id nullFlavor="UNK"/>
+                  <id root="1.2.250.1.71.4.2.1" extension="10100997694"/>
                   <!-- Lieu du séjour -->
                   <representedOrganization>
                     <id root="1.2.250.1.71.4.2.2" extension="1750300550"/>
@@ -1453,7 +1461,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190711"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10100997245"/>
                   <!-- Spécialité de l'exécutant -->
@@ -1495,7 +1503,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190708"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10100997245"/>
                   <!-- Spécialité de l'exécutant -->
@@ -1537,7 +1545,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190626"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10100997245"/>
                   <!-- Spécialité de l'exécutant -->
@@ -1579,7 +1587,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190525"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
@@ -1610,7 +1618,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190311"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10100997245"/>
                   <!-- Spécialité de l'exécutant -->
@@ -1652,7 +1660,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190308"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10100997245"/>
                   <!-- Spécialité de l'exécutant -->
@@ -1694,7 +1702,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190208"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10101451689"/>
                   <!-- Spécialité de l'exécutant -->
@@ -1736,7 +1744,7 @@
               <!-- Date de l'acte -->
               <effectiveTime value="20190121"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!-- Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10004000922"/>
                   <!-- Profession / Spécialité de l'exécutant -->
@@ -1836,7 +1844,7 @@
               <!--Date de l'acte-->
               <effectiveTime value="20190515"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!--Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10000336601"/>
                   <!-- Profession / Spécialité de l'exécutant -->
@@ -1879,7 +1887,7 @@
               <!--Date de l'acte-->
               <effectiveTime value="20190430"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!--Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10000441302"/>
                   <!-- Profession / Spécialité de l'exécutant -->
@@ -1922,7 +1930,7 @@
               <!--Date de l'acte-->
               <effectiveTime value="20190430"/>
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <!--Identifiant de l'exécutant -->
                   <id root="1.2.250.1.71.4.2.1" extension="10000441302"/>
                   <!-- Profession / Spécialité de l'exécutant -->
@@ -2032,7 +2040,7 @@
               <effectiveTime value="20190611"/>
               <!-- Laboratoire exécutant -->
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->
@@ -2044,7 +2052,7 @@
               </performer>
               <!-- Etablissement exécutant -->
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->
@@ -2076,7 +2084,7 @@
               <effectiveTime value="20190611"/>
               <!-- Laboratoire exécutant -->
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->
@@ -2088,7 +2096,7 @@
               </performer>
               <!-- Etablissement exécutant -->
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->
@@ -2120,7 +2128,7 @@
               <effectiveTime value="20190515"/>
               <!-- Laboratoire exécutant -->
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->
@@ -2132,7 +2140,7 @@
               </performer>
               <!-- Etablissement exécutant -->              
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->
@@ -2164,7 +2172,7 @@
               <effectiveTime value="20190515"/>              
               <!-- Laboratoire exécutant -->
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->
@@ -2176,7 +2184,7 @@
               </performer>
               <!-- Etablissement exécutant -->              
               <performer>
-                <assignedEntity>
+                <assignedEntity classCode="ASSIGNED">
                   <id nullFlavor="UNK"/>
                   <representedOrganization>
                     <!-- Identifiant de l'établissement -->

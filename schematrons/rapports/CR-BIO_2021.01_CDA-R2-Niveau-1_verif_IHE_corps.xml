@@ -15,8 +15,8 @@
                         title="Rapport de conformité du document aux spécifications IHE (corps)"
                         schemaVersion="IHE.sch"
                         phase="ihe"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/CR-BIO_2021.01_CDA-R2-Niveau-1.xml"
-                        dateHeure="9/3/2022 à 15:12:13 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/CR-BIO_2021.01_CDA-R2-Niveau-1.xml"
+                        dateHeure="5/7/2022 à 16:53:41 (temps UTC+02:00)">
    <svrl:active-pattern id="S_abdomen"/>
    <svrl:active-pattern id="S_activeProblem"/>
    <svrl:active-pattern id="S_additionalSpecifiedObservation"/>

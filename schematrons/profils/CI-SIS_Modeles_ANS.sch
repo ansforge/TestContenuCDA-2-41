@@ -44,7 +44,7 @@
     <include href="../include/sections/S_dispositifs_medicaux_ANS.sch"/>
     <include href="../include/sections/S_dispositionsMedicoSociales_ANS.sch"/>
     <include href="../include/sections/S_documentsAjoutes_ANS.sch"/>
-    <include href="../include/sections/S_documentsReference_ANS.sch"/>
+    <include href="../include/sections/S_documentsReferences_ANS.sch"/>
     <include href="../include/sections/S_dossier_ANS.sch"/>
     <include href="../include/sections/S_elementsCliniquesRapportes_ANS.sch"/>
     <include href="../include/sections/S_facteursDeRisque_ANS.sch"/>
@@ -73,6 +73,8 @@
     <include href="../include/sections/S_travailEtAccouchement_ANS.sch"/>
     <include href="../include/sections/S_principalMotif-non-code_ANS.sch"/>
     
+    <include href="../include/sections/S_codeBarres_ANS.sch"/>
+    
     <!-- Entrées créées par l'ANS -->
     
     <include href="../include/entrees/E_dispositifMedical-2_ANS.sch"/>
@@ -87,6 +89,8 @@
     <include href="../include/entrees/E_organizerDocumentAttache_ANS.sch"/>
     <include href="../include/entrees/E_organizerRCP_ANS.sch"/>
     <include href="../include/entrees/E_organizerTraitementInitialAVC_ANS.sch"/>
+    
+    <include href="../include/entrees/E_EnRapportAvecPrevention_ANS.sch"/>
 
 
     <!-- ::::::::::::::::::::::::::::::::::::: -->
@@ -141,6 +145,8 @@
         <active pattern="S_dispositions_ANS"/>
         <active pattern="S_travailEtAccouchement_ANS"/>
         <active pattern="S_principalMotif-non-code_ANS"/>
+        
+        <active pattern="S_codeBarres_ANS"/>
  
         <!-- Activation des entrées  -->
         <active pattern="E_dispositifMedical-2_ANS"/>
@@ -155,6 +161,7 @@
         <active pattern="E_organizerDocumentAttache_ANS"/>
         <active pattern="E_organizerRCP_ANS"/>
         <active pattern="E_organizerTraitementInitialAVC_ANS"/>
+        <active pattern="E_EnRapportAvecPrevention_ANS"/>
 
     </phase>
 </schema>

@@ -35,7 +35,7 @@
   <!-- Admission en UNV (AUNV)-->
   <templateId root="1.2.250.1.213.1.1.1.15" extension="2020.01"/>
   <!-- Identifiant du document -->
-  <id root="1.2.250.1.213.1.1.9" extension="AVC-AUVN_v2.2_20180923_001_1" />
+  <id root="AB7336AA-3D5A-45EC-A350-8AF6527BED56"/>
   <!-- Type de document -->
   <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Synthèse d'épisode de soins" />
   <!-- Titre du document -->
@@ -47,7 +47,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant du lot de version d'un même document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="AVC-AUVN_v2.2_20180923_001" />
+  <setId root="A039FC54-2DAC-4E13-8F0F-F99A6B74ED15"/>
   <!-- Version du document -->
   <versionNumber value="1" />
   <!-- Patient -->
@@ -2004,7 +2004,6 @@
                 <high nullFlavor="UNK" />
               </effectiveTime>
               <effectiveTime operator="A" />
-              <doseQuantity nullFlavor="NA"/>
               <consumable>
                 <!-- Entrée FR-Produit-de-sante -->
                 <manufacturedProduct>

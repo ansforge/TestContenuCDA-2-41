@@ -13,8 +13,8 @@
                         title="Vérification de conformité du document aux spécifications du modèle VSM_1.4"
                         schemaVersion="CI-SIS_VSM_1.4.sch"
                         phase="CI-SIS_VSM_1.4"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/VSM_1.4.xml"
-                        dateHeure="9/3/2022 à 16:46:35 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/VSM_1.4.xml"
+                        dateHeure="5/7/2022 à 17:44:09 (temps UTC+02:00)">
    <svrl:active-pattern id="variables"/>
    <svrl:fired-rule context="cda:ClinicalDocument"/>
    <svrl:fired-rule context="cda:ClinicalDocument/cda:component/cda:structuredBody"/>

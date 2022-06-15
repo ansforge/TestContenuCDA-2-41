@@ -13,8 +13,8 @@
                         title="Rapport de conformité du document aux spécifications du volet ANEST-CR-CPA"
                         schemaVersion="CI-SIS_ANEST-CR-CPA_2021.01"
                         phase="CI-SIS_ANEST-CR-CPA_2021.01"
-                        document="file:/C:/Users/nmahraz/Desktop/ANS/testContenuCDA/testContenuCDA_DeTravail/schematrons/moteur/../../ExemplesCDA/ANEST-CR-CPA_2021.01.xml"
-                        dateHeure="9/3/2022 à 14:35:12 (temps UTC+01:00)">
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/ANEST-CR-CPA_2021.01.xml"
+                        dateHeure="5/7/2022 à 11:43:39 (temps UTC+02:00)">
    <svrl:active-pattern id="JDV_AideAuDeplacement-CISIS">
       <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
    </svrl:active-pattern>

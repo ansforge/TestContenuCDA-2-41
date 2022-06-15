@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd-validation result="OK">
+<xsd-validation result="ERROR" errorCount="1">
+<xsd-validation-error errorNumber="1" errorType="validation" lineNumber="25" columnNumber="77">cvc-elt.1.a: Cannot find the declaration of element 'xsl:stylesheet'.</xsd-validation-error>
 </xsd-validation>

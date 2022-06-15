@@ -12,6 +12,7 @@
      30/01/2020 : NMA : Mise à jour du test sur le nombre de templateId
      27/02/2020 : APE : 2ème <effectiveTime> (fréquence) non obligatoire car elle peut être exprimée dans un <substanceAdministration> subordonné pour les doses fractionnées, conditionnelles et combinées
      27/02/2020 : APE : Ajout des entryRelationship supplémentaires possibles
+     15/03/2022 : ANS : Suppression du test sur la présence de l'effectiveTime
 -->
 
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="E_medications_fr">
@@ -23,9 +24,9 @@
             [E_medications_fr] Erreur de conformité CI-SIS : L'entrée de type "substanceAdministration" doit contenir au minimum trois éléments "templateId".            
         </assert>
         
-        <assert test="cda:effectiveTime">
+        <!--<assert test="cda:effectiveTime">
             [E_medications_fr] Erreur de conformité CI-SIS : Un élément "effectiveTime" doit être présent pour préciser la durée du traitement.
-        </assert>
+        </assert>-->
         
         <assert test="(count(cda:doseQuantity/cda:low)=1 and count(cda:doseQuantity/cda:high)=1) or cda:doseQuantity/@nullFlavor or not(cda:doseQuantity)">
             [E_medications_fr] Erreur de conformité CI-SIS : L'élément "doseQuantity" (dose à administrer) n'est pas obligatoire mais s'il est présent, ces éléments "low" et "high" sont obligatoires et ne doivent être présents qu'une seule fois (cardinalité [1..1]).

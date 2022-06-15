@@ -38,8 +38,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Déclarations de conformité au modèle CR-BIO du CI-SIS -->
   <templateId root="1.3.6.1.4.1.19376.1.3.3" extension="2021.01" />
-  <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
-  <id root="1.2.250.1.213.1.1.9" extension="CR-BIO_2021.01_20210104_007_1" />
+  <!-- Identifiant du document -->
+  <id root="FC87A53C-68E5-42B6-82B0-2DF9E85882DC"/>
   <!-- Type de document -->
   <code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -51,7 +51,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- identifiant commun à toutes les versions successives du comtpe rendu -->
-  <setId root="1.2.250.1.213.1.1.9" extension="CR-BIO_2021.01_20210104_007" />
+  <setId root="17940492-E5FF-41ED-B232-18E84FFE7A36"/>
   <!-- numéro de la version courante (entier positif), ici la première version -->
   <versionNumber value="1" />
   <!-- Patient -->

@@ -37,8 +37,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au modèle du document CANCER-D2LM-FIDD_2021.01 -->
   <templateId root="1.2.250.1.213.1.1.1.28" extension="2021.01" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.250.1.213.1.1.9" extension="CANCER-D2LM-FIDD_2021.01_20210729_001_1" />
+  <!-- Identifiant du document -->
+  <id root="2E54C4CA-F3EA-4E8D-AE6E-CF9C4087DF35"/>
   <!-- Type de document -->
   <code code="18748-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="CR d'imagerie médicale" />
   <!-- Titre du document -->
@@ -50,7 +50,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.250.1.213.1.1.9" extension="CANCER-D2LM-FIDD_2021.01_20210729_001" />
+  <setId root="79B27C0A-2730-4327-BDE4-AB28861B8A91"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
 

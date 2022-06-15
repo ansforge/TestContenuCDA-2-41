@@ -44,8 +44,8 @@
    <templateId root="1.2.250.1.213.1.1.1.5"/>
    <!-- Conformité au CS24 v2020.01 -->
    <templateId root="1.2.250.1.213.1.1.1.5.3" extension="2021.01"/>
-   <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-   <id root="1.2.250.1.213.1.1.9" extension="CSE-CS24_2021.01_20210803_001_1" />
+   <!-- Identifiant du document -->
+   <id root="7E11A5AD-A7C0-4B51-A43E-608B900F23CA"/>
    <!-- Type du document référencé par le CI-SIS (JDV_J07-XdsTypeCode-CISIS) -->
    <code code="CERT_DECL" displayName="Certificat, déclaration" codeSystem="1.2.250.1.213.1.1.4.12"/>
    <!-- Titre du document -->
@@ -57,15 +57,15 @@
    <!-- Langage utilisé dans le document -->
    <languageCode code="fr-FR"/>
    <!-- Identifiant commun à toutes les versions successives du document -->
-   <setId root="1.2.250.1.213.1.1.9" extension="CSE-CS24_2021.01_20210803_001"/>
+   <setId root="DA43202A-FF62-49CC-B348-C4F293971FCC"/>
    <!-- Numéro de la version du présent document (entier positif) -->
    <versionNumber value="1"/>
    
    <!-- Patient = l'enfant -->
    <recordTarget>
       <patientRole>
-         <!-- INS-C -->
-         <id extension="5735632050628" root="1.2.250.1.213.1.4.2"/>
+         <!--<!-\- INS-C -\->
+         <id extension="5735632050628" root="1.2.250.1.213.1.4.2"/>-->
          <!-- INS-NIR -->
          <id extension="209053105611201" root="1.2.250.1.213.1.4.8"/>
          <!-- IPP -->

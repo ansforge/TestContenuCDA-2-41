@@ -44,8 +44,8 @@
 	<templateId root="1.2.250.1.213.1.1.1.1"/>
 	<!-- Conformité au modèle DLU-DLU v2021.01 -->
 	<templateId root="1.2.250.1.213.1.1.1.22" extension="2021.01"/>
-	<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
-	<id root="1.2.250.1.213.1.1.9" extension="DLU-DLU_2021.01_20200327_001_1"/>
+	<!-- Identifiant du document -->
+	<id root="67C53A5A-7EE2-485B-9D64-4A13CDC60DE4"/>
 	<!-- Type de document -->
 	<code code="34133-9" displayName="Synthèse d'épisode de soins"
 		codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
@@ -59,7 +59,7 @@
 	<!-- Langue du document -->
 	<languageCode code="fr-FR"/>
 	<!-- Identifiant commun à toutes les versions successives du document -->
-	<setId root="1.2.250.1.213.1.1.9" extension="DLU-DLU_2021.01_20200327_001"/>
+	<setId root="7562083D-75DE-40DB-9C17-2409E49DEAC6"/>
 	<!-- Numéro de la version du présent document (entier positif) -->
 	<versionNumber value="1"/>
 
@@ -447,7 +447,7 @@
 					<id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
 					<code code="11450-4" displayName="Liste des problèmes actifs"
 						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Pathologie en cours</title>
+					<title>Pathologies actives</title>
 					<text>
 						<table border="0">
 							<thead align="left">
@@ -608,8 +608,8 @@
 					<templateId root="1.2.250.1.213.1.1.2.137"/>
 					<id root="3D2663D9-BBAC-412E-9CB7-EC0AE63B4123"/>
 					<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-						displayName="Allergies, réactions adverses, alertes"/>
-					<title>Allergies, effets indésirables, alertes</title>
+						displayName="Allergies et hypersensibilités"/>
+					<title>Allergies et intolérances</title>
 					<text mediaType="text/x-hl7-text+xml">
 						<table border="0">
 							<thead>
@@ -771,7 +771,7 @@
 					<id root="E66EDDB1-A7BD-4B5D-8420-1B6D4DD38522"/>
 					<code code="10160-0" displayName="Historique de la prise médicamenteuse"
 						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Traitements au long cours</title>
+					<title>Traitements au long court</title>
 					<text mediaType="text/x-hl7-text+xml">
 						<table border="0">
 							<thead>
@@ -1381,7 +1381,7 @@
 					<id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE"/>
 					<code code="30954-2" displayName="Résultats d'examens"
 						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Résultats d'examens</title>
+					<title>Résultats d’examens</title>
 					<text>
 						<table border="0">
 							<tbody>

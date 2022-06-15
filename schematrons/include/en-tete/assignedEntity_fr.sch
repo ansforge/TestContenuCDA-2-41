@@ -10,6 +10,7 @@
         04/08/2017 : NMA : Ajout de l'attribut nullFlavor pour l'ID
         12/10/2021 : SBM : Modification sur le controle de l'élément cda:name/cda:prefix pour faire partie de l'un des deux TREs TRE_R81-Civilite
             ou TRE_R11-CiviliteExercice
+        15/03/2022 : Autorisation du nullFlavor sur le prefix et suffix
 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="assignedEntity_fr">
 
@@ -63,11 +64,11 @@
             conformité CI-SIS : l'élément assignedPerson/name/suffix ne peut être présent qu'une
             seule fois (cardinalité [0..1]) </assert>
         <assert test="not(cda:name/cda:prefix) or (cda:name/cda:prefix and cda:name/cda:prefix = 'M' or cda:name/cda:prefix = 'MLLE' or cda:name/cda:prefix = 'MME'
-            or cda:name/cda:prefix = 'DR' or cda:name/cda:prefix = 'MC' or cda:name/cda:prefix = 'MG' or cda:name/cda:prefix = 'PC' or cda:name/cda:prefix = 'PG' or cda:name/cda:prefix = 'PR' )"> [assignedAuthor_fr.sch] Erreur de
+            or cda:name/cda:prefix = 'DR' or cda:name/cda:prefix = 'MC' or cda:name/cda:prefix = 'MG' or cda:name/cda:prefix = 'PC' or cda:name/cda:prefix = 'PG' or cda:name/cda:prefix = 'PR' or cda:name/cda:prefix/@nullFlavor)"> [assignedEntity_fr.sch] Erreur de
             conformité CI-SIS : l'élément assignedPerson/name/prefix doit faire partie de la table de référence  TRE_R81-Civilite ('M' ou 'MLLE' ou 'MME')
             ou TRE_R11-CiviliteExercice ('DR' ou 'MC' ou 'MG' ou 'PC' ou 'PG' ou 'PR')</assert>
         <assert test="not(cda:name/cda:suffix) or (cda:name/cda:suffix and cda:name/cda:suffix = 'DR' or cda:name/cda:suffix = 'MC' or cda:name/cda:suffix = 'MG'
-            or cda:name/cda:suffix = 'PC' or cda:name/cda:suffix = 'PG' or cda:name/cda:suffix = 'PR')"> [assignedEntity_fr.sch] Erreur de
+            or cda:name/cda:suffix = 'PC' or cda:name/cda:suffix = 'PG' or cda:name/cda:suffix = 'PR' or cda:name/cda:prefix/@nullFlavor)"> [assignedEntity_fr.sch] Erreur de
             conformité CI-SIS : l'élément  assignedPerson/name/suffix doit faire partie de la table de référence TRE_R11-CiviliteExercice ('DR' ou 'MC' ou 'MG' ou 'PC' ou 'PG' ou 'PR')
         </assert>
     </rule>

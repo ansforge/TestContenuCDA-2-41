@@ -364,6 +364,14 @@
       </xsl:call-template>
     </xsl:for-each>
   </xsl:template>
+  
+  
+  <!--Activation des lien linkHtml-->
+  <xsl:template match="//n1:linkHtml">
+    <a href="{@href}" target="_blank">
+      <xsl:apply-templates /></a>
+  </xsl:template>
+  
   <!--   paragraph  -->
   <xsl:template match="n1:paragraph">
     <p>

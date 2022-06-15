@@ -2,7 +2,8 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ex="urn:h7-org/v3-example"
    xmlns="urn:ihe:pharm:medication" xmlns:hl7v3="urn:hl7-org:v3"
    targetNamespace="urn:ihe:pharm:medication"
-           elementFormDefault="qualified"><!--
+           elementFormDefault="qualified">
+   <!--
 *****************************************************************************************************************
 * XML schema for message type COCT_MT230100UV.
 * Source information:
@@ -39,19 +40,22 @@
 *  SUCH DAMAGE.
 *
 ********************************************************************************************************************
-	  --><xs:annotation>
+	  -->
+   
+   <xs:annotation>
       <xs:documentation>Generated using schema builder version 3.2.4. Stylesheets:
-
-StaticMifToXsd.xsl version 2.0</xs:documentation>
+         StaticMifToXsd.xsl version 2.0</xs:documentation>
    </xs:annotation>
+   
    <!-- This include is modified to account for the fact that in the CDA schema infrastrcutureRoot has a defined
       target namespace of "urn:hl7-org:v3". This requires the include to be substituted with an import, and an explicit
       include for datatypes.xsd to be added
    <xs:include schemaLocation="../coreschemas/infrastructureRoot.xsd"/>
    -->
-   <xs:import namespace="urn:hl7-org:v3" schemaLocation="../../processable/coreschemas/pharm/infrastructureRoot.xsd"/>
-   <xs:include schemaLocation="../../processable/coreschemas/pharm/datatypes.xsd"/>
-   <xs:include schemaLocation="COCT_MT440001UV_ext.xsd"/>
+   
+   <xs:import namespace="urn:hl7-org:v3" schemaLocation="infrastructureRoot.xsd"/>
+   <xs:include schemaLocation="datatypes.xsd"/>
+   <xs:include schemaLocation="COCT_MT440001UV_ext_pharmacy.xsd"/>
    <xs:element name="subjectOf1" type="COCT_MT230100UV.Subject2" nillable="true"/>
    <xs:element name="subjectOf2" type="COCT_MT230100UV.Subject1" nillable="true"/>
    <xs:element name="subjectOf3" type="COCT_MT230100UV.Subject22" nillable="true"/>

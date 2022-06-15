@@ -42,8 +42,8 @@
     <templateId root="1.2.250.1.213.1.1.1.1"/>
     <!--  Conformité spécifications au CI-SIS pour document non structuré -->
     <templateId root="1.3.6.1.4.1.19376.1.2.20"/>
-    <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-    <id root="1.2.250.1.213.1.1.9" extension="TLM-CR_20200327_001_1"/>
+    <!-- Identifiant du document -->
+    <id root="094A8EF3-F733-4E9C-9252-804E36C34387"/>
     <!-- Code du document -->
     <code code="85208-7" displayName="Compte-rendu d'acte de télémédecine"
         codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
@@ -57,7 +57,7 @@
     <!-- Langue du document -->
     <languageCode code="fr-FR"/>
     <!-- Identifiant commun à toutes les versions successives du document -->
-    <setId root="1.2.250.1.213.1.1.9" extension="TLM-CR_20200327_001"/>
+    <setId root="01B12DAF-6847-4A55-B6CF-1B76FCF74A3C"/>
     <!-- Numéro de la version du présent document (entier positif) -->
     <versionNumber value="1"/>
 

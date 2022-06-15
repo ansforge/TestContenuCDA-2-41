@@ -40,8 +40,8 @@
   <templateId root="1.2.250.1.213.1.1.1.1" />
   <!-- Conformité au modèle de document FRCP version 2021.01-->
   <templateId root="1.2.250.1.213.1.1.1.8" extension="2021.01" />
-  <!-- Identifiant unique du document : OID du producteur (root) + ID dans le LPS producteur (extension) -->
-  <id root="1.2.3.4.567.8.9.10" extension="FRCP_2021.01_20190218_001_1" />
+  <!-- Identifiant du document -->
+  <id root="E1B0A1C8-4761-4818-A498-78FD178CB36A"/>
   <!-- Type du document -->
   <code code="34794-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="CR de réunion de concertation pluridisciplinaire" />
   <!-- Titre du document = Acronyme RRC / Acronyme GestRCP / dénomination RCP -->
@@ -53,7 +53,7 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- Identifiant commun à toutes les versions successives du document -->
-  <setId root="1.2.3.4.567.8.9.10" extension="FRCP_2021.01_20190218_001" />
+  <setId root="772FD66F-7FEE-42AD-896B-769FD99A5E93"/>
   <!-- Numéro de la version du présent document (entier positif) -->
   <versionNumber value="1" />
   <!-- Patient -->
@@ -1503,6 +1503,7 @@
           <templateId root="1.2.250.1.213.1.1.2.111" />
           <id root="C4544707-DA56-4AD5-8672-37E2B0A3AAC3" />
           <code code="47420-5" displayName="Évaluation du statut fonctionnel" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Évaluation du statut fonctionnel</title>
           <text>
             <table border="0">
               <thead>
@@ -2833,6 +2834,7 @@
           <templateId root="1.2.250.1.213.1.1.2.158" />
           <id root="B7240F7D-58B9-417B-83A3-057C65126DAA" />
           <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Plan de soins</title>
           <text>
             <table border="0">
               <thead>
