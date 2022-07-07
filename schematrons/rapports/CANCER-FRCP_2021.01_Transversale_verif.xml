@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="rapportSchematronToHtml4.xsl"?><svrl:schematron-output xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:cda="urn:hl7-org:v3"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:jdv="http://esante.gouv.fr"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:svs="urn:ihe:iti:svs:2008"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        title="Rapport de conformité du document aux spécifications du modèle FRCP_2021.01 du CI-SIS"
+                        schemaVersion="CI-SIS_CANCER-FRCP_2021.01.sch"
+                        document="file:/C:/Users/nmahraz/OneDrive%20-%20ANS/Bureau/ANS/testContenuCDA/A%20Publier/testContenuCDA/schematrons/moteur/../../ExemplesCDA/CANCER-FRCP_2021.01_Transversale.xml"
+                        dateHeure="5/7/2022 à 16:33:27 (temps UTC+02:00)">
+   <svrl:active-pattern id="JDV_NatureDiscussion-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.2']/cda:entry/cda:observation[cda:code/@code='GEN-098']/cda:value"/>
+   <svrl:active-pattern id="JDV_OMSEchPerf-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.12.2.5']/cda:entry/cda:observation[cda:code/@code='MED-239']/cda:value"/>
+   <svrl:active-pattern id="JDV_OMSInterpret-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.12.2.5']/cda:entry/cda:observation/cda:interpretationCode"/>
+   <svrl:active-pattern id="JDV_PhaseCancer-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.25']/cda:entry/cda:observation[cda:code/@code='MED-243']/cda:value"/>
+   <svrl:active-pattern id="JDV_RCP-Appareil-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_RCP-Organe-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_StatutCasPresente-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_StatutDoc-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.35']/cda:entry/cda:observation/cda:value"/>
+   <svrl:active-pattern id="JDV_StatutQuorum-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.2.250.1.213.1.1.2.33']/cda:entry/cda:organizer/cda:component/cda:observation[cda:code/@code='ORG-125']/cda:value"/>
+   <svrl:active-pattern id="JDV_TraitementSoins-FRCP-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.2']/cda:entry/cda:observation[cda:value/@code='ORG-132']/cda:entryRelationship/cda:observation[cda:code/@code='ORG-138']/cda:value"/>
+   <svrl:active-pattern id="JDV_Tumeur-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:active-pattern id="JDV_TypeTraitement-FRCP-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11' or cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.36']/cda:entry/cda:procedure/cda:code"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11' or cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.36']/cda:entry/cda:procedure/cda:code"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11' or cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.36']/cda:entry/cda:procedure/cda:code"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11' or cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.36']/cda:entry/cda:procedure/cda:code"/>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11' or cda:templateId/@root='1.3.6.1.4.1.19376.1.5.3.1.3.36']/cda:entry/cda:procedure/cda:code"/>
+   <svrl:active-pattern id="JDV_Morphologie-CISIS">
+      <svrl:text>Conformité d'un élément codé obligatoire par rapport à un jeu de valeurs du CI-SIS</svrl:text>
+   </svrl:active-pattern>
+   <svrl:fired-rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.3.6.1.4.1.19376.1.7.3.1.3.14.1']/cda:entry/cda:act/cda:entryRelationship/cda:observation[cda:code/@code='G-1009']/cda:value"/>
+   <svrl:active-pattern id="Entete_FRCP"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:documentationOf"/>
+   <svrl:fired-rule context="cda:ClinicalDocument/cda:componentOf"/>
+   <svrl:active-pattern id="S_cancerDiagnosis_FRCP"/>
+   <svrl:fired-rule context="*[cda:templateId/@root='1.3.6.1.4.1.19376.1.7.3.1.3.14.1']"/>
+   <svrl:active-pattern id="variables"/>
+   <svrl:fired-rule context="*[cda:templateId/@root=&#34;1.2.250.1.213.1.1.1.8&#34;]"/>
+</svrl:schematron-output>

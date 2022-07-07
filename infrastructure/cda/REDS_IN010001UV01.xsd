@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xs:schema xmlns:mif2="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:hl7-org:v3"
+           xmlns:mif="urn:hl7-org:v3/mif"
+           targetNamespace="urn:hl7-org:v3"
+           elementFormDefault="qualified">
+   <xs:annotation>
+      <xs:documentation>Source Information
+     Rendered by: RoseTree 4.2.46
+     Rendered on: 
+This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl 8355 2009-10-07 03:16:34Z lloyd_mckenzie $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Base transform: $Id: ConvertBase.xsl 8360 2009-10-26 06:00:22Z woody_beeler $
+  Package Id Conversion: $Id: TransformPackageIds.xsl 8355 2009-10-07 03:16:34Z lloyd_mckenzie $
+ Generated using schema builder version: 3.3.3 and DynamicMifToXSD.xsl version: 1.4
+ Dynamic MIF to Schema Transform: $Id: DynamicMifToXsd.xsl 8355 2009-10-07 03:16:34Z lloyd_mckenzie $
+  Static MIF to Schema Transform: $Id: StaticMifToXsd.xsl 8360 2009-10-26 06:00:22Z woody_beeler $
+  Package Id Conversion: $Id: TransformPackageIds.xsl 8355 2009-10-07 03:16:34Z lloyd_mckenzie $</xs:documentation>
+   </xs:annotation>
+   <xs:include schemaLocation="infrastructureRoot.xsd"/>
+   <xs:include schemaLocation="COCT_MT040203UV01.xsd"/>
+   <xs:include schemaLocation="REDS_MT010001UV01.xsd"/>
+   <xs:element name="REDS_IN010001UV01">
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="REDS_IN010001UV01.MCCI_MT000100UV01.Message">
+               <xs:attribute name="ITSVersion" type="xs:string" use="required" fixed="XML_1.0"/>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="REDS_IN010001UV01.MCCI_MT000100UV01.Message">
+      <xs:sequence>
+         <xs:group ref="InfrastructureRootElements"/>
+         <xs:element name="id" type="II" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="creationTime" type="TS" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="securityText" type="ST" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="versionCode" type="CS" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="interactionId" type="II" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="profileId" type="II" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="processingCode" type="CS" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="processingModeCode" type="CS" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="acceptAckCode" type="CS" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="sequenceNumber" type="INT" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="attachmentText" type="ED" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="receiver" type="MCCI_MT000100UV01.Receiver" minOccurs="1"
+                     maxOccurs="unbounded"/>
+         <xs:element name="respondTo" type="MCCI_MT000100UV01.RespondTo" nillable="true"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+         <xs:element name="sender" type="MCCI_MT000100UV01.Sender" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="attentionLine" type="MCCI_MT000100UV01.AttentionLine" nillable="true"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+         <xs:element name="controlActProcess"
+                     type="REDS_IN010001UV01.MCAI_MT700201UV01.ControlActProcess"
+                     minOccurs="1"
+                     maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="InfrastructureRootAttributes"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.AttentionLine">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="keyWordText"  type="SC"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="value"  type="ANY"  minOccurs="0"  maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <!--<xs:attribute  name="nullFlavor"  type="NullFlavor"  use="optional"/>-->
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.Organization">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="id"  type="II"  minOccurs="1"  maxOccurs="unbounded"/>
+         <xs:element  name="name"  type="EN"  minOccurs="0"  maxOccurs="unbounded"/>
+         <xs:element  name="telecom"  type="TEL"  minOccurs="0"  maxOccurs="unbounded"/>
+         <xs:element  name="notificationParty"  type="COCT_MT040203UV01.NotificationParty"  nillable="true"  minOccurs="0"  maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <!--<xs:attribute  name="nullFlavor"  type="NullFlavor"  use="optional"/>-->
+      <xs:attribute  name="classCode"  type="EntityClassOrganization"  use="required"/>
+      <xs:attribute  name="determinerCode"  type="EntityDeterminerSpecific"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.Agent">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="representedOrganization"  type="MCCI_MT000100UV01.Organization"  nillable="true"  minOccurs="0"  maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+     <!-- <xs:attribute  name="nullFlavor"  type="NullFlavor"  use="optional"/>-->
+      <xs:attribute  name="classCode"  type="RoleClassAgent"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.Device">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="id"  type="II"  minOccurs="1"  maxOccurs="unbounded"/>
+         <xs:element  name="name"  type="EN"  minOccurs="0"  maxOccurs="unbounded"/>
+         <xs:element  name="desc"  type="ED"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="existenceTime"  type="IVL_TS"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="telecom"  type="TEL"  minOccurs="0"  maxOccurs="unbounded"/>
+         <xs:element  name="manufacturerModelName"  type="SC"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="softwareName"  type="SC"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="asAgent"  type="MCCI_MT000100UV01.Agent"  nillable="true"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="asLocatedEntity"  type="MCCI_MT000100UV01.LocatedEntity"  nillable="true"  minOccurs="0"  maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <xs:attribute  name="classCode"  type="EntityClassDevice"  use="required"/>
+      <xs:attribute  name="determinerCode"  type="EntityDeterminerSpecific"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.LocatedEntity">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="location"  type="MCCI_MT000100UV01.Place"  nillable="true"  minOccurs="0"  maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <!--<xs:attribute  name="nullFlavor"  type="NullFlavor"  use="optional"/>-->
+      <xs:attribute  name="classCode"  type="RoleClassLocatedEntity"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.Place">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="id"  type="II"  minOccurs="1"  maxOccurs="unbounded"/>
+         <xs:element  name="name"  type="EN"  minOccurs="0"  maxOccurs="unbounded"/>
+         <xs:element  name="telecom"  type="TEL"  minOccurs="0"  maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <!--<xs:attribute  name="nullFlavor"  type="NullFlavor"  use="optional"/>-->
+      <xs:attribute  name="classCode"  type="EntityClassPlace"  use="required"/>
+      <xs:attribute  name="determinerCode"  type="EntityDeterminerSpecific"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.Receiver">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="telecom"  type="TEL"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="device"  type="MCCI_MT000100UV01.Device"  minOccurs="1"  maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <xs:attribute  name="typeCode"  type="CommunicationFunctionType"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.RespondTo">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="telecom"  type="TEL"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="entityRsp"  type="MCCI_MT000100UV01.EntityRsp"  nillable="true"  minOccurs="1"  maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <!--<xs:attribute  name="nullFlavor"  type="NullFlavor"  use="optional"/>-->
+      <xs:attribute  name="typeCode"  type="CommunicationFunctionType"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.Sender">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="telecom"  type="TEL"  minOccurs="0"  maxOccurs="1"/>
+         <xs:element  name="device"  type="MCCI_MT000100UV01.Device"  minOccurs="1"  maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <xs:attribute  name="typeCode"  type="CommunicationFunctionType"  use="required"/>
+   </xs:complexType>
+   <xs:complexType  name="MCCI_MT000100UV01.EntityRsp">
+      <xs:sequence>
+         <xs:group  ref="InfrastructureRootElements"/>
+         <xs:element  name="id"  type="II"  minOccurs="1"  maxOccurs="1"/>
+         <xs:element  name="name"  type="EN"  minOccurs="0"  maxOccurs="unbounded"/>
+         <xs:element  name="telecom"  type="TEL"  minOccurs="0"  maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup  ref="InfrastructureRootAttributes"/>
+      <!--<xs:attribute  name="nullFlavor"  type="NullFlavor"  use="optional"/>-->
+      <xs:attribute  name="classCode"  type="cs"  use="required"/>
+      <xs:attribute  name="determinerCode"  type="EntityDeterminerSpecific"  use="required"/>
+   </xs:complexType>
+   <xs:complexType name="REDS_IN010001UV01.MCAI_MT700201UV01.ControlActProcess">
+      <xs:sequence>
+         <xs:group ref="InfrastructureRootElements"/>
+         <xs:element name="id" type="II" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="code" type="CD" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="text" type="ED" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="effectiveTime" type="IVL_TS" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="priorityCode" type="CE" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="reasonCode" type="CE" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="languageCode" type="CE" minOccurs="0" maxOccurs="1"/>
+         <!--<xs:element name="overseer" type="MCAI_MT700201UV01.Overseer" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+         <xs:element name="authorOrPerformer" type="MCAI_MT700201UV01.AuthorOrPerformer"
+                     nillable="true"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+         <xs:element name="dataEnterer" type="MCAI_MT700201UV01.DataEnterer" nillable="true"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+         <xs:element name="informationRecipient" type="MCAI_MT700201UV01.InformationRecipient"
+                     nillable="true"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+         <xs:element name="subject" type="REDS_IN010001UV01.MCAI_MT700201UV01.Subject2"
+                     nillable="true"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+         <xs:element name="reasonOf" type="MCAI_MT700201UV01.Reason" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>-->
+      </xs:sequence>
+      <xs:attributeGroup ref="InfrastructureRootAttributes"/>
+      <xs:attribute name="classCode" type="ActClassControlAct" use="required"/>
+      <xs:attribute name="moodCode" type="x_ActMoodIntentEvent" use="required"/>
+   </xs:complexType>
+   <xs:complexType name="REDS_IN010001UV01.MCAI_MT700201UV01.Subject2">
+      <xs:sequence>
+         <xs:group ref="InfrastructureRootElements"/>
+         <xs:element name="infobuttonEventNotification"
+                     type="REDS_MT010001UV01.InfobuttonEventNotification"
+                     nillable="true"
+                     minOccurs="1"
+                     maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="InfrastructureRootAttributes"/>
+      <!--<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>-->
+      <xs:attribute name="typeCode" type="ActRelationshipHasSubject" use="required"/>
+      <xs:attribute name="contextConductionInd" type="bl" use="optional" default="false"/>
+   </xs:complexType>
+</xs:schema>
