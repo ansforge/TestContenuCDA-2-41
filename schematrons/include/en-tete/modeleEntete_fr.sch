@@ -77,10 +77,10 @@
            [modeleEntete_fr.sch] Erreur de conformité CI-SIS : L'élément legalAuthenticator doit être présent qu'une seule fois (cardinalité [1..1])
        </assert>
        
-       <!-- conformité inFulfillmentOf -->
+       <!--<!-\- conformité inFulfillmentOf -\->
        <assert test="$count_inFulfillmentOf&lt;=1">
            [modeleEntete_fr.sch] Erreur de conformité CI-SIS : L'élément inFulfillmentOf ne peut être présent qu'une seule fois au maximum (cardinalité [0..1])
-       </assert>
+       </assert>-->
        
        <!-- conformité documentaiton -->
        <assert test="cda:documentationOf">
