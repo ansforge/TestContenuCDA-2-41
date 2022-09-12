@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--Créé par nmahraz, le 12/09/2022-->
-<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008"><ValueSet id="1.2.250.1.213.1.1.5.55" displayName="JDV_TraitementPreventif-CISIS" version="test"><ConceptList><Concept code="GEN-156" displayName="A poursuivre" codeSystem="1.2.250.1.213.1.1.4.322" dateValid="20100101000000" dateFin=""/><Concept code="GEN-157" displayName="A modifier" codeSystem="1.2.250.1.213.1.1.4.322" dateValid="20100101000000" dateFin=""/></ConceptList></ValueSet></RetrieveValueSetResponse>
