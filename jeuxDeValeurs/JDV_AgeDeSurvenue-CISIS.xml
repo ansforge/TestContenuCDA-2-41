@@ -1,3 +1,3 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!--Créé par nmahraz, le 05/07/2022-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!--CrÃ©Ã© par nmahraz, le 12/09/2022-->
 <RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008"><ValueSet id="1.2.250.1.213.1.1.5.646" displayName="JDV_AgeDeSurvenue-CISIS" version="test"><ConceptList><Concept code="GEN-287" displayName="avant 30 ans" codeSystem="1.2.250.1.213.1.1.4.322" dateValid="20210907000000" dateFin=""/><Concept code="GEN-288" displayName="entre 30 et 39 ans" codeSystem="1.2.250.1.213.1.1.4.322" dateValid="20210907000000" dateFin=""/><Concept code="GEN-289" displayName="entre 40 et 49 ans" codeSystem="1.2.250.1.213.1.1.4.322" dateValid="20210907000000" dateFin=""/><Concept code="GEN-290" displayName="entre 50 et 59 ans" codeSystem="1.2.250.1.213.1.1.4.322" dateValid="20210907000000" dateFin=""/><Concept code="GEN-291" displayName="avant 70 ans" codeSystem="1.2.250.1.213.1.1.4.322" dateValid="20210907000000" dateFin=""/></ConceptList></ValueSet></RetrieveValueSetResponse>
