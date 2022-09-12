@@ -1,3 +1,3 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!--Créé par nmahraz, le 05/07/2022-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!--CrÃ©Ã© par nmahraz, le 12/09/2022-->
 <RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008"><ValueSet id="1.2.250.1.213.1.1.5.340" displayName="JDV_Oesophage-pN-CISIS" version="test"><ConceptList><Concept code="793" displayName="pN0: No regional lymph node metastasis" codeSystem="1.3.6.1.4.1.19376.1.8.2.1" dateValid="20100101000000" dateFin=""/><Concept code="794" displayName="pN1: Regional lymph node metastasis involving 1 to 2 nodes" codeSystem="1.3.6.1.4.1.19376.1.8.2.1" dateValid="20100101000000" dateFin=""/><Concept code="795" displayName="pN2: 3 to 6 nodes involved" codeSystem="1.3.6.1.4.1.19376.1.8.2.1" dateValid="20100101000000" dateFin=""/><Concept code="796" displayName="pN3: 7 or more nodes involved" codeSystem="1.3.6.1.4.1.19376.1.8.2.1" dateValid="20100101000000" dateFin=""/></ConceptList></ValueSet></RetrieveValueSetResponse>
