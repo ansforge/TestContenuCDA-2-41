@@ -37,7 +37,7 @@
 	<include href="include/specificationsVolets/CR-BIO_2021.01/Entrees/E_FR-Resultat-examens-de-biologie-element-clinique-pertinent.sch"/>
 	
 	<!-- JDV relatives au volet CR-BIO -->
-	<include href="include/jeuxDeValeurs/CR-BIO_2021.01/JDV_BIO_Interpretation-CISIS.sch"/>
+	<include href="include/jeuxDeValeurs/BIO-CR-BIO_2021.01/JDV_HL7_ObservationInterpretation-CISIS.sch"/>
 	
 	<phase id="CI-SIS_CR-BIO_2021.01">
 		<active pattern="variables"/>
@@ -57,7 +57,7 @@
 		<active pattern="E_FR-Resultat-examens-de-biologie-element-clinique-pertinent"/>
 		
 		<!-- Activation des JDVs  -->
-		<active pattern="JDV_BIO_Interpretation-CISIS"/>
+		<active pattern="JDV_HL7_ObservationInterpretation-CISIS"/>
 	</phase>	
 	
 	<!-- ::::::::::::::::::::::::::::::::::::: -->
@@ -67,7 +67,7 @@
 	<pattern id="variables">
 		
 		<!-- chemins relatifs des fichiers jeux de valeurs -->
-		<let name="JDV_BIO_Interpretation-CISIS" value="'../jeuxDeValeurs/JDV_BIO_Interpretation-CISIS.xml'"/>
+		<let name="JDV_HL7_ObservationInterpretation-CISIS" value="'../jeuxDeValeurs/JDV_HL7_ObservationInterpretation-CISIS.xml'"/>
 		
 		<rule context="cda:ClinicalDocument">
 			
