@@ -972,128 +972,128 @@
   <!-- documentationOf -->
   <xsl:template name="documentationOf">
     <xsl:if test="n1:documentationOf"> Acte(s) <table class="header_table">
-        <tbody>
-          <xsl:for-each select="n1:documentationOf">
-            
-            <!-- code de l'acte -->
-            <xsl:if test="n1:serviceEvent/n1:code">
-                <tr>
-                  <td width="20%">
-                    <span class="td_label">
-                      <text>Acte</text>
-                    </span>
-                  </td>
-                  <td width="80%" colspan="3">
-                    <xsl:if test="n1:serviceEvent/n1:code">
-                      <xsl:call-template name="show-code">
-                        <xsl:with-param name="code" select="n1:serviceEvent/n1:code"/>
-                      </xsl:call-template>
-                    </xsl:if>
-                  </td>
-                </tr>
-            </xsl:if>
-            
-            <!-- id de l'acte -->
-            <xsl:if test="n1:serviceEvent/n1:id">
+      <tbody>
+        <xsl:for-each select="n1:documentationOf">
+          
+          <!-- code de l'acte -->
+          <xsl:if test="n1:serviceEvent/n1:code">
+            <tr>
+              <td width="20%">
+                <span class="td_label">
+                  <text>Acte</text>
+                </span>
+              </td>
+              <td width="80%" colspan="3">
+                <xsl:if test="n1:serviceEvent/n1:code">
+                  <xsl:call-template name="show-code">
+                    <xsl:with-param name="code" select="n1:serviceEvent/n1:code"/>
+                  </xsl:call-template>
+                </xsl:if>
+              </td>
+            </tr>
+          </xsl:if>
+          
+          <!-- id de l'acte -->
+          <xsl:if test="n1:serviceEvent/n1:id">
+            <tr>
+              <td width="20%">
+                <text>Référence</text>
+              </td>
+              <td width="80%" colspan="3">
+                <xsl:for-each select="n1:serviceEvent/n1:id">
+                  <xsl:call-template name="show-id"/>
+                </xsl:for-each>
+                
+              </td>
+            </tr>
+          </xsl:if>
+          
+          <!-- date de l'acte -->
+          <xsl:if test="n1:serviceEvent/n1:effectiveTime">
+            <xsl:if test="n1:serviceEvent/n1:effectiveTime/@value">
               <tr>
                 <td width="20%">
-                  <text>Référence</text>
+                  <span>
+                    <xsl:text>Date</xsl:text>
+                  </span>
                 </td>
-                <td width="80%" colspan="3">
-                  <xsl:for-each select="n1:serviceEvent/n1:id">
-                      <xsl:call-template name="show-id"/>
-                    </xsl:for-each>
-                  
+                <td colspan="3" width="80%">
+                  <xsl:call-template name="show-time">
+                    <xsl:with-param name="datetime" select="n1:serviceEvent/n1:effectiveTime"/>
+                  </xsl:call-template>
                 </td>
               </tr>
             </xsl:if>
-            
-            <!-- date de l'acte -->
-            <xsl:if test="n1:serviceEvent/n1:effectiveTime">
-              <xsl:if test="n1:serviceEvent/n1:effectiveTime/@value">
-                <tr>
-                  <td width="20%">
-                    <span>
-                      <xsl:text>Date</xsl:text>
-                    </span>
-                  </td>
-                  <td colspan="3" width="80%">
-                    <xsl:call-template name="show-time">
-                      <xsl:with-param name="datetime" select="n1:serviceEvent/n1:effectiveTime"/>
-                    </xsl:call-template>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="n1:serviceEvent/n1:effectiveTime/n1:low">
-                <tr>
-                  <td width="20%">
-                    <span>
-                      <xsl:text>Début</xsl:text>
-                    </span>
-                  </td>
-                  <td colspan="3" width="80%">
-                    <xsl:call-template name="show-time">
-                      <xsl:with-param name="datetime"
-                        select="n1:serviceEvent/n1:effectiveTime/n1:low"/>
-                    </xsl:call-template>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="n1:serviceEvent/n1:effectiveTime/n1:high">
-                <tr>
-                  <td width="20%">
-                    <span>
-                      <xsl:text>Fin</xsl:text>
-                    </span>
-                  </td>
-                  <td colspan="3" width="80%">
-                    <xsl:call-template name="show-time">
-                      <xsl:with-param name="datetime"
-                        select="n1:serviceEvent/n1:effectiveTime/n1:high"/>
-                    </xsl:call-template>
-                  </td>
-                </tr>
-              </xsl:if>
+            <xsl:if test="n1:serviceEvent/n1:effectiveTime/n1:low">
+              <tr>
+                <td width="20%">
+                  <span>
+                    <xsl:text>Début</xsl:text>
+                  </span>
+                </td>
+                <td colspan="3" width="80%">
+                  <xsl:call-template name="show-time">
+                    <xsl:with-param name="datetime"
+                      select="n1:serviceEvent/n1:effectiveTime/n1:low"/>
+                  </xsl:call-template>
+                </td>
+              </tr>
             </xsl:if>
-            
-            <!--Performer de l'acte-->
-            <xsl:if test="n1:serviceEvent/n1:performer">
-                <xsl:for-each select="n1:serviceEvent/n1:performer">
-                  <xsl:variable name="displayName">
-                    <xsl:call-template name="show-participationType">
-                      <xsl:with-param name="ptype" select="@typeCode"/>
+            <xsl:if test="n1:serviceEvent/n1:effectiveTime/n1:high">
+              <tr>
+                <td width="20%">
+                  <span>
+                    <xsl:text>Fin</xsl:text>
+                  </span>
+                </td>
+                <td colspan="3" width="80%">
+                  <xsl:call-template name="show-time">
+                    <xsl:with-param name="datetime"
+                      select="n1:serviceEvent/n1:effectiveTime/n1:high"/>
+                  </xsl:call-template>
+                </td>
+              </tr>
+            </xsl:if>
+          </xsl:if>
+          
+          <!--Performer de l'acte-->
+          <xsl:if test="n1:serviceEvent/n1:performer">
+            <xsl:for-each select="n1:serviceEvent/n1:performer">
+              <xsl:variable name="displayName">
+                <xsl:call-template name="show-participationType">
+                  <xsl:with-param name="ptype" select="@typeCode"/>
+                </xsl:call-template>
+                <xsl:text> </xsl:text>
+                <xsl:if test="n1:functionCode/@code">
+                  <xsl:text>(</xsl:text>
+                  <xsl:call-template name="show-participationFunction">
+                    <xsl:with-param name="pFunction" select="n1:functionCode/@code"/>
+                  </xsl:call-template>
+                  <xsl:text>)</xsl:text>
+                </xsl:if>
+              </xsl:variable>
+              <tr>
+                <td width="20%">
+                  <span>
+                    <xsl:call-template name="firstCharCaseUp">
+                      <xsl:with-param name="data" select="$displayName"/>
                     </xsl:call-template>
-                    <xsl:text> </xsl:text>
-                    <xsl:if test="n1:functionCode/@code">
-                      <xsl:text>(</xsl:text>
-                      <xsl:call-template name="show-participationFunction">
-                        <xsl:with-param name="pFunction" select="n1:functionCode/@code"/>
-                      </xsl:call-template>
-                      <xsl:text>)</xsl:text>
-                    </xsl:if>
-                  </xsl:variable>
-                  <tr>
-                    <td width="20%">
-                      <span>
-                        <xsl:call-template name="firstCharCaseUp">
-                          <xsl:with-param name="data" select="$displayName"/>
-                        </xsl:call-template>
-                      </span>
-                    </td>
-                    <td width="80%" colspan="3">
-                      <xsl:if test="n1:assignedEntity">
-                      <details>
+                  </span>
+                </td>
+                <td width="80%" colspan="3">
+                  <xsl:if test="n1:assignedEntity">
+                    <details>
                       <summary>  
-                      <xsl:if test="n1:assignedEntity/n1:assignedPerson/n1:name">
-                        <xsl:call-template name="show-name">
-                          <xsl:with-param name="name" select="n1:assignedEntity/n1:assignedPerson/n1:name"/>
-                        </xsl:call-template>
-                      </xsl:if>
+                        <xsl:if test="n1:assignedEntity/n1:assignedPerson/n1:name">
+                          <xsl:call-template name="show-name">
+                            <xsl:with-param name="name" select="n1:assignedEntity/n1:assignedPerson/n1:name"/>
+                          </xsl:call-template>
+                        </xsl:if>
                       </summary>  
                       <xsl:if test="n1:assignedEntity/n1:id">
-                      <xsl:call-template name="show-id">
-                        <xsl:with-param name="id" select="n1:assignedEntity/n1:id"/>
-                      </xsl:call-template>
+                        <xsl:call-template name="show-id">
+                          <xsl:with-param name="id" select="n1:assignedEntity/n1:id"/>
+                        </xsl:call-template>
                       </xsl:if>  
                       <xsl:if test="n1:assignedEntity/n1:addr">
                         <br/><br/>
@@ -1109,26 +1109,26 @@
                           </xsl:call-template>
                         </xsl:for-each>
                       </xsl:if>
-                      </details> 
-                      </xsl:if>
-                    </td>
-                  </tr>
-                  <xsl:if test="n1:assignedEntity/n1:representedOrganization">
-                    <tr>
-                      <td width="20%">
-                        <span>
-                          <xsl:text>Organisation</xsl:text>
-                        </span>
-                      </td>
-                      <td width="80%" colspan="3">
-                        <xsl:if test="n1:assignedEntity/n1:representedOrganization">
-                        <details>
+                    </details> 
+                  </xsl:if>
+                </td>
+              </tr>
+              <xsl:if test="n1:assignedEntity/n1:representedOrganization">
+                <tr>
+                  <td width="20%">
+                    <span>
+                      <xsl:text>Organisation</xsl:text>
+                    </span>
+                  </td>
+                  <td width="80%" colspan="3">
+                    <xsl:if test="n1:assignedEntity/n1:representedOrganization">
+                      <details>
                         <summary>  
-                        <span style="font-weight:bold; ">
-                          <xsl:call-template name="show-assignedEntity-orga">
-                            <xsl:with-param name="asgnEntity" select="n1:assignedEntity"/>
-                          </xsl:call-template>
-                        </span>
+                          <span style="font-weight:bold; ">
+                            <xsl:call-template name="show-assignedEntity-orga">
+                              <xsl:with-param name="asgnEntity" select="n1:assignedEntity"/>
+                            </xsl:call-template>
+                          </span>
                         </summary>
                         <xsl:call-template name="show-assignedEntity-orga-id">
                           <xsl:with-param name="asgnEntity" select="n1:assignedEntity"/>
@@ -1149,19 +1149,19 @@
                             </xsl:call-template>
                           </xsl:for-each>
                         </xsl:if>
-                        </details>
-                        </xsl:if>  
-                      </td>
-                    </tr>
-                  </xsl:if>
-                </xsl:for-each>
-            </xsl:if>
-          </xsl:for-each>
-        </tbody>
-      </table>
+                      </details>
+                    </xsl:if>  
+                  </td>
+                </tr>
+              </xsl:if>
+            </xsl:for-each>
+          </xsl:if>
+        </xsl:for-each>
+      </tbody>
+    </table>
     </xsl:if>
   </xsl:template>
-
+  
   <!-- inFulfillmentOf -->
   <xsl:template name="inFulfillmentOf">
     <xsl:if test="n1:inFulfillmentOf"> Prescription <table class="header_table">
@@ -1184,9 +1184,9 @@
             <xsl:if test="n1:order/ps3-20:accessionNumber">
             <tr>
               <td width="20%">
-                
+                <span class="td_label">
                   <xsl:text>AccessionNumber</xsl:text>
-                
+                </span>
               </td>
               <td width="80%">
                 <xsl:for-each select="n1:order">
@@ -1335,7 +1335,7 @@
 
   <!-- informationRecipient -->
   <xsl:template name="informationRecipient">
-    <xsl:if test="n1:informationRecipient">Destinataire(s)<table class="header_table">
+    <xsl:if test="n1:informationRecipient">Destinataire(s) prévus<table class="header_table">
         <tbody>
           <xsl:for-each select="n1:informationRecipient">
             <tr>
@@ -1881,9 +1881,9 @@
                   </xsl:call-template>
                   <br/>
                 </xsl:if>
-                <xsl:call-template name="show-consent">
+                <!--<xsl:call-template name="show-consent">
                   <xsl:with-param name="code" select="n1:consent/n1:statusCode"/>
-                </xsl:call-template>
+                </xsl:call-template>-->
               </td>
             </tr>
           </xsl:for-each>
