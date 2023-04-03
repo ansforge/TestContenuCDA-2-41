@@ -60,7 +60,7 @@
             [medications] L'élément 'consumable' doit obligatoirement être présent dans une entrée 'Medications'.
             Il comportera une entrée 'manufacturedProduct' se conformant au template 'Product Entry' (1.3.6.1.4.1.19376.1.5.3.1.4.7.2).</assert>           
               
-        <assert test='not(cda:effectiveTime[1]) or (cda:effectiveTime[1] and cda:effectiveTime[1][@xsi:type="IVL_TS"]  and
+        <assert test='not(cda:effectiveTime[1]) or (cda:effectiveTime[1] and cda:effectiveTime[1][contains(@xsi:type,"IVL_TS")]  and
             ((cda:effectiveTime[1]/cda:low and cda:effectiveTime[1]/cda:high)) or cda:effectiveTime[1]/cda:width)'>
             [E_medications_int.sch] Erreur de conformité PCC : La première occurence de l'élément 'effectiveTime' doit être 
             un intervalle de temps s'il est présent, il sera spécifié comme tel (@xsi:type="IVL_TS").
