@@ -36,7 +36,7 @@
             type inconnu de réaction (ni allergique, ni intolérance).
             L'élément 'code' doit obligatoirement comporter les attributs 'code' et 'codeSystem'.</assert>
         
-        <assert test='(cda:value[@xsi:type="CD"]) and 
+        <assert test='(cda:value[contains(@xsi:type,"CD"]) and 
             (cda:value[@code and @codeSystem] or cda:value[not(@code) and not(@codeSystem)])'>
             [E_allergiesAndIntolerances_int] Erreur de Conformité PCC: L'élément 'value' décrit l'allergie ou la réaction adverse observée. 
             Alors que l'élément 'value' peut être un caractère codé ou non, son type sera 
