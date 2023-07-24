@@ -67,6 +67,7 @@
             <Concept code="LA11865-5" codeSystem="2.16.840.1.113883.6.1" dateFin="" dateMaj="20210430120000" dateValid="20210430120000" displayName="Après exercice" longDesignation="Après exercice" shortDesignation="Après exercice"/>
             <Concept code="LA15173-0" codeSystem="2.16.840.1.113883.6.1" dateFin="" dateMaj="20210430120000" dateValid="20210430120000" displayName="Femme enceinte" longDesignation="Femme enceinte" shortDesignation="Femme enceinte"/>
             <Concept code="LA46-8" codeSystem="2.16.840.1.113883.6.1" dateFin="" dateMaj="20210430120000" dateValid="20210430120000" displayName="Autre" longDesignation="Autre" shortDesignation="Autre"/>
+            <Concept code="89601-9" codeSystem="2.16.840.1.113883.6.1" dateFin="" dateMaj="20220325120000" dateValid="20220325120000" displayName="Certificat médical" longDesignation="Certificat médical" shortDesignation="Certificat médical"/>
         </ConceptList>
     </ValueSet>
 </RetrieveValueSetResponse>
