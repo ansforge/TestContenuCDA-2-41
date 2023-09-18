@@ -19,11 +19,11 @@
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="participant_fr">
     <!-- Règle sur les éléments de premier niveau de participant -->
     <rule context="cda:ClinicalDocument/cda:participant">
-     
+      <!-- 
         <assert test="cda:time[contains(@xsi:type,':IVL_TS')] or cda:time[@xsi:type='IVL_TS'] or cda:time[@nullFlavor]">
             [participant_fr.sch] Erreur de conformité CI-SIS : L'élément participant/time doit être présent et avoir le type fixé à la valeur 'IVL_TS'
         </assert>
-        
+        -->
         <assert test="cda:time/cda:low[@value] or not(cda:time/cda:low)">
             [participant_fr.sch] Erreur de conformité CI-SIS : L'élément participant/time/low doit contenir l'attribut @value
         </assert>
